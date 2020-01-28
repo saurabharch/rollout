@@ -1,0 +1,12 @@
+apps:
+  - script: ./server.js
+    name: "api-app"
+    instances: 1
+    exec_mode: cluster
+  - script: ./server.js
+    name: "server"
+    watch: true
+    env:
+      NODE_ENV: development
+    env_production:
+      NODE_ENV: production
