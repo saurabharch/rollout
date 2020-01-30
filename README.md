@@ -1,6 +1,6 @@
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout?ref=badge_shield)
 
-Command are
+Commands are
 `git clone https://github.com/Kappy-Technologies-LLP/rollout`
 `npm install`
 `node server.js`
