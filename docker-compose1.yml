@@ -1,0 +1,41 @@
+version: "3"
+services: 
+  traefik:
+    image: traefik:latest # The official Traefik docker image
+    command: --api --docker # Enables the web UI and tells Træfik to listen to docker
+    ports:
+      - "80:80" # The HTTP port
+      - "8080:8080" # The Web UI (enabled by --api)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # So that Traefik can listen to the Docker events
+  mongo:
+    image: mongo:3.4
+    hostname: mongo
+    container_name: rollout-mongo
+    image: dannyben/alpine-mongo
+    ports: ["27017:27017"]
+    environment:
+      MONGODB_USER: "${db_user_env}"
+      MONGODB_DATABASE: "${dbname_env}"
+      MONGODB_PASS: "${db_pass}"
+  redis:
+    image: "redis:4.0.14-alpine"
+    hostname: redis
+    container_name: rollout-redis
+    ports: ["6379:6379"]
+  rollout:
+    # image: "rollout:latest"
+    build: rollout-deployment
+    image: "rollout:latest"
+    hostname: rollout
+    environment:
+      WAIT_HOSTS: redis:6379, mongo:27017
+    ports:
+      - "3000:3000"
+      - "30001:30001"
+    depends_on: 
+      - mongo
+    links:
+      - redis
+      - mongo  
+    command: sh -c "dockerize -wait mongodb://mongo:27017 redis://redis:6379 -timeout 300s -wait-retry-interval 30s"

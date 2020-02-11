@@ -2,3 +2,4 @@ node_modules
 ./public/test1.js
 ./public/sw-test.js
 ./public/pushenggage.js
+./nginx/Dockerfile-custome

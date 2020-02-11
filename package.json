@@ -4,7 +4,7 @@
     "description": "Web Push Notification Full Stack Application With Node Js Restful API",
     "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "node server.js",
         "start": "node server.js",
         "restart": "pm2 startOrRestart ecosystem.config.js",
         "deploy": "pm2 deploy ecosystem.config.js production"
@@ -22,10 +22,21 @@
     "dependencies": {
         "axios": "^0.19.2",
         "body-parser": "^1.18.2",
+        "cookie-parser": "^1.4.4",
         "cors": "^2.8.5",
+        "csurf": "^1.11.0",
         "express": "^4.15.4",
+        "express-handlebars": "^3.1.0",
+        "express-rate-limit": "^5.0.0",
+        "express-session": "^1.17.0",
+        "handlebars-helpers": "^0.10.0",
+        "ioredis": "^4.14.1",
+        "mongo-sanitize": "^1.0.1",
         "mongoose": "^5.0.0",
+        "parseurl": "^1.3.3",
         "q": "^1.5.1",
+        "rate-limiter-flexible": "^2.0.0",
+        "redis": "^2.8.0",
         "web-push": "^3.4.3"
     },
     "devDependencies": {
