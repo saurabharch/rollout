@@ -3,11 +3,12 @@ var exphbs = require("express-handlebars");
 const path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const session = require("express-session");
 // const RateLimit = require('express-rate-limit');
-const cors = require("cors");
+// const cors = require("cors");
 require("./model/subscribers_model");
-const cookieParser = require("cookie-parser");
-const csrf = require("csurf");
+// const cookieParser = require("cookie-parser");
+// const csrf = require("csurf");
 // Load Routes
 const index = require("./router");
 const push = require("./router/push");
@@ -19,8 +20,8 @@ const keygen = require("./router/keygen");
 const keys = require("./config/keys");
 //Handlebars Helpers
 // setup route middlewares
-const csrfProtection = csrf({ cookie: true });
-const parseForm = bodyParser.urlencoded({ extended: false });
+// const csrfProtection = csrf({ cookie: true });
+// const parseForm = bodyParser.urlencoded({ extended: false });
 mongoose.Promise = global.Promise;
 
 // Mongoose Connect
@@ -39,9 +40,9 @@ mongoose
 const app = express();
 // app.use(secure);
 // app.use(limiter);
-app.use(cors());
-app.use(cookieParser());
-app.use(csrf({ cookie: true }));
+// app.use(cors("*"));
+// app.use(cookieParser());
+// app.use(csrf({ cookie: true }));
 // const app = express();
 app.disable("x-powered-by");
 // Set static folder

@@ -67,7 +67,7 @@ services:
 #    container_name: nginx
 #    restart: always
 #    networks:
-#      - rollout-tier
+#      - webnet
 #    depends_on:
 #      - rollout
 #    ports:
@@ -87,7 +87,7 @@ services:
     image: nginx
     volumes:
       - ./mysite.template:/etc/nginx/conf.d/mysite.template
-      - ./files:/files
+      - ./app:/app
     networks:
       - webnet
     depends_on:

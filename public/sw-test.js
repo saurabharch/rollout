@@ -1,4 +1,4 @@
-let examplePage = "";
+let examplepage = "";
 function openWindow(event) {
   /**** START notificationOpenWindow ****/
   const examplePage = "";
@@ -10,7 +10,7 @@ function openWindow(event) {
 function focusWindow(event) {
   /**** START notificationFocusWindow ****/
   /**** START urlToOpen ****/
-  const urlToOpen = new URL(examplePage, self.location.origin).href;
+  const urlToOpen = new URL(examplepage, self.location.origin).href;
   /**** END urlToOpen ****/
 
   /**** START clientsMatchAll ****/
@@ -97,6 +97,7 @@ function demoMustShowNotificationCheck(event) {
 
 function demoSendMessageToPage(event) {
   /**** START sendPageMessage ****/
+  let _data = event.data ? JSON.parse(event.data.text()) : {};
   const promiseChain = isClientFocused().then(clientIsFocused => {
     if (clientIsFocused) {
       windowClients.forEach(windowClient => {
@@ -106,8 +107,10 @@ function demoSendMessageToPage(event) {
         });
       });
     } else {
-      return self.registration.showNotification("No focused windows", {
-        body: "Had to show a notification instead of messaging each page."
+      return self.registration.showNotification(_data.title, {
+        body: _data.message,
+        icon: _data.icon,
+        tag: _data.tag
       });
     }
   });
@@ -117,19 +120,21 @@ function demoSendMessageToPage(event) {
 }
 
 self.addEventListener("push", function(event) {
-  examplePage = event.data.text().url;
+  examplepage = event.data.text().url;
+  console.log(event.data.text());
   if (event.data) {
-    switch (event.data.text()) {
-      case "must-show-notification":
-        demoMustShowNotificationCheck(event);
-        break;
-      case "send-message-to-page":
-        demoSendMessageToPage(event);
-        break;
-      default:
-        console.warn("Unsure of how to handle push event: ", event.data);
-        break;
-    }
+    // demoMustShowNotificationCheck(event);
+    // switch (event.data.text()) {
+    //   case "must-show-notification":
+    //     demoMustShowNotificationCheck(event);
+    //     break;
+    //   case "send-message-to-page":
+    demoSendMessageToPage(event);
+    //     break;
+    //   default:
+    //     console.warn("Unsure of how to handle push event: ", event.data);
+    //     break;
+    // }
   }
 });
 

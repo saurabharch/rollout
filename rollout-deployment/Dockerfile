@@ -67,7 +67,7 @@ RUN npm install
 
 
 # Copy application source
-COPY . .
+COPY . ./app
 
 # Copy .env.docker to workdir/.env - use the docker env
 # COPY ./docker.env ./docker.env

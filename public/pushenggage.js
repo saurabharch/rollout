@@ -2,36 +2,38 @@
 try {
     var peSw = {};
     peSw.config = {
-        version: "2.2.0",
-        api: {
-            default: "https://sw.pushengage.com/p/v1",
-            analytics: "https://noti-analytics.pushengage.com/p/v1",
-            log: "https://notify.pushengage.com/v1/logs"
-        },
-        siteId: "2",
-        siteImage: 'https://assetscdn.pushengage.com/site_images/f918a1521699808.png',
-        siteUrl: 'https://www.pushengage.com',
-        siteName: 'PushEngage',
-        projectId: "360714148844",
-        publicKey: "BPwe3v3QZOBIHqS2KrinGujpCGPtnjC6-Kr2cD2K6xTRK--PQQA8xSfM3PNX4_ujgqGCqU_X7d7yO0hTgQdhOWU",
-        welcomeNoti: {
-            "notification_title": "Welcome to PushEngage",
-            "notification_message": " Thanks for subscribing to push notifications",
-            "notification_url": "http:\/\/www.pushengage.com",
-            "welcome_enabled": "true"
-        },
-        defaultNoti: {
-            "default_notification_title": "PushEngage",
-            "default_notification_message": "Click to see updates",
-            "default_notification_url": "https:\/\/www.pushengage.com"
-        },
-        amp: {
-            state: {
-                subscription: 'amp-web-push-subscription-state',
-                subscribe: 'amp-web-push-subscribe',
-                unsubscribe: 'amp-web-push-unsubscribe'
-            }
+      version: "2.2.0",
+      api: {
+        default: "http://localhost:3000/push",
+        analytics: "",
+        log: "https://localhost:3000/"
+      },
+      siteId: "2",
+      siteImage:
+        "https://assetscdn.pushengage.com/site_images/f918a1521699808.png",
+      siteUrl: "https://www.rollout.com",
+      siteName: "RollOut",
+      projectId: "360714148844",
+      publicKey:
+        "BLgFTwjElUH_Iz72TKDvmlsc-EcwziNP2X28BmN-znOXJhv35QybtfcN1HTh_eUlNffp12HkuruYpqtKNedN54s",
+      welcomeNoti: {
+        notification_title: "Welcome to RollOut",
+        notification_message: " Thanks for subscribing to push notifications",
+        notification_url: "http://www.pushengage.com",
+        welcome_enabled: "true"
+      },
+      defaultNoti: {
+        default_notification_title: "RollOut",
+        default_notification_message: "Click to see updates",
+        default_notification_url: "https://www.pushengage.com"
+      },
+      amp: {
+        state: {
+          subscription: "amp-web-push-subscription-state",
+          subscribe: "amp-web-push-subscribe",
+          unsubscribe: "amp-web-push-unsubscribe"
         }
+      }
     };
     peSw.browser = function () {
         var ua = navigator.userAgent,

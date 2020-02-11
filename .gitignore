@@ -3,3 +3,8 @@ node_modules
 ./public/sw-test.js
 ./public/pushenggage.js
 ./nginx/Dockerfile-custome
+./public/pushenggage.js
+./public/sw-test.js
+./public/test1.js
+./config/keys_prod.js
+./config/keys_dev.js
