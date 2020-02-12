@@ -11,3 +11,4 @@ npm-debug.log
 /public/test1.js
 /config/keys_prod.js
 /config/keys_dev.js
+/st.js
