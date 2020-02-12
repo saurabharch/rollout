@@ -19,7 +19,9 @@
     "homepage": "https://github.com/Kappy-Technologies-LLP/rollout#readme",
     "author": "Saurabh Kashyap",
     "license": "MIT",
-    "node": "10.16.0",
+    "engines": {
+        "node": "10.x"
+    },
     "dependencies": {
         "axios": "^0.19.2",
         "body-parser": "^1.18.2",
