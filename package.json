@@ -4,10 +4,12 @@
     "description": "Web Push Notification Full Stack Application With Node Js Restful API",
     "main": "server.js",
     "scripts": {
-        "build": "node server.js",
+        "copy": "copyfiles -u 1 src/**/**/* src/**/* src/* build",
+        "build": "npm run copy && workbox injectManifest workbox-config.js",
         "start": "node server.js",
         "restart": "pm2 startOrRestart ecosystem.config.js",
-        "deploy": "pm2 deploy ecosystem.config.js production"
+        "pro:deploy": "pm2 deploy ecosystem.config.js production",
+        "dev:deploy": "pm2 deploy ecosystem.config.js development"
     },
     "repository": {
         "type": "git",
@@ -43,6 +45,9 @@
         "web-push": "^3.4.3"
     },
     "devDependencies": {
-        "pm2": "^4.2.3"
+        "copyfiles": "^2.2.0",
+        "loadtest": "^4.1.0",
+        "pm2": "^4.2.3",
+        "workbox-cli": "^5.0.0"
     }
 }

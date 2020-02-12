@@ -81,5 +81,6 @@ RUN npm install pm2@latest -g
 RUN npm install
 # # Generate build
 # RUN npm run build
-CMD [ "pm2-runtime", "npm", "--", "start" ]
+# CMD [ "pm2-runtime", "npm", "--", "start" ]
+ENTRYPOINT [ ".deployment-pm2.sh" ]
 USER node
