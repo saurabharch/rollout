@@ -1,8 +1,23 @@
-# Set nginx base image
-FROM nginx
+FROM nginx:1.11
 
-# File Author / Maintainer
-MAINTAINER Saurabh Kashyap <saurabhkashyap0001@gmail.com>
+RUN mkdir /etc/nginx/sites-available && rm /etc/nginx/conf.d/default.conf
+ADD nginx.conf /etc/nginx/
 
-# Copy custom configuration file from the current directory
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY scripts /root/scripts/
+COPY certs /etc/ssl/
+
+COPY sites /etc/nginx/templates
+
+ARG WEB_REVERSE_PROXY_PORT=8000
+ARG WEB_SSL=false
+ARG SELF_SIGNED=false
+ARG NO_DEFAULT=false
+
+ENV WEB_REVERSE_PROXY_PORT=$WEB_REVERSE_PROXY_PORT
+ENV WEB_SSL=$WEB_SSL
+ENV SELF_SIGNED=$SELF_SIGNED
+ENV NO_DEFAULT=$NO_DEFAULT
+
+RUN /bin/bash /root/scripts/build-nginx.sh
+
+CMD nginx

@@ -2,8 +2,8 @@ FROM node:alpine
 LABEL maintainer="rollout"
 MAINTAINER Saurabh Kashyap <saurabhkashyap0001@gmail.com>
 # Add hello scripts
-ADD installer /installer
-RUN chmod +x /installer
+ADD installer ./installer
+RUN chmod +x ./installer
 RUN /installer
 RUN apk add py-pip python-dev 
 RUN apk update \
@@ -54,7 +54,7 @@ ENV NODE_ENV $NODE_ENV
 ENV REST_URL $REST_URL
 # Run npm install - install the npm dependencies
 RUN npm install
-COPY ../../nginx/nginx.conf ./etc/nginx/nginx.conf
+COPY ./nginx/nginx.conf ./etc/nginx/nginx.conf
 # RUN mkdir -p /data/db && \
 #     chown -R mongodb /data/db
 
@@ -80,6 +80,6 @@ RUN npm install pm2@latest -g
 RUN npm install
 # # Generate build
 # RUN npm run build
-# CMD [ "pm2-runtime", "npm", "--", "start" ]
-ENTRYPOINT [ ".deployment-pm2.sh" ]
+CMD [ "pm2-runtime", "npm", "--", "start" ]
+# ENTRYPOINT [ "./rollout-deployment/deployment-pm2.sh" ]
 USER node

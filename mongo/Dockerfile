@@ -36,7 +36,7 @@ RUN set -ex; \
     wget -O /js-yaml.js "https://github.com/nodeca/js-yaml/raw/${JSYAML_VERSION}/dist/js-yaml.js"; \
     # TODO some sort of download verification here
     \
-    apt-get purge -y --auto-remove wget
+    apt-get purge --force-yes -y --auto-remove wget 
 
 RUN mkdir /docker-entrypoint-initdb.d
 
@@ -63,8 +63,8 @@ ARG MONGO_PACKAGE=mongodb-org-unstable
 ARG MONGO_REPO=repo.mongodb.org
 ENV MONGO_PACKAGE=${MONGO_PACKAGE} MONGO_REPO=${MONGO_REPO}
 
-ENV MONGO_MAJOR 3.7
-ENV MONGO_VERSION 3.7.3
+ENV MONGO_MAJOR 4.2
+ENV MONGO_VERSION 4.2.0
 
 RUN echo "deb http://$MONGO_REPO/apt/debian jessie/${MONGO_PACKAGE%-unstable}/$MONGO_MAJOR main" | tee "/etc/apt/sources.list.d/${MONGO_PACKAGE%-unstable}.list"
 

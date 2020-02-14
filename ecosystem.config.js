@@ -1,3 +1,4 @@
+const path = require("path");
 module.exports = {
   apps: [
     {
@@ -5,25 +6,38 @@ module.exports = {
       script: "server.js",
 
       // Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
-      args: "one two",
+      // args: "one two",
       instances: 1,
       autorestart: true,
-      watch: false,
+      watch: true,
+      watch:
+        process.env.NODE_ENV !== "production"
+          ? path.resolve(__dirname, "./")
+          : false,
       exec_mode: "cluster",
       max_memory_restart: "1G",
       instances: 2,
-      env: {
-        NODE_ENV: "development"
+      env_production: {
+        NODE_ENV: "production"
       }
     }
   ],
   deploy: {
     production: {
-      user: "juriy",
+      user: "saurabh",
       host: "rollout.com",
       repo: "https://github.com/Kappy-Technologies-LLP/rollout.git",
       ref: "origin/master",
-      path: "/home/Kappy-Technologies-LLP/rollout",
+      path: "/home/saurabh/rollout",
+      "post-deploy":
+        "npm install && pm2 startOrRestart ecosystem.json --env production"
+    },
+    development: {
+      user: "saurabh",
+      host: "http://localhost:5000",
+      repo: "https://github.com/Kappy-Technologies-LLP/rollout.git",
+      ref: "origin/master",
+      path: ".",
       "post-deploy":
         "npm install && pm2 startOrRestart ecosystem.json --env production"
     }

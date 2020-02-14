@@ -1,240 +1,123 @@
 version: "3.3"
-services: 
-  traefik:
-    image: traefik:latest # The official Traefik docker image
-    command: --api --docker # Enables the web UI and tells Træfik to listen to docker
-    ports:
-      - "80:80" # The HTTP port
-      - "8080:8080" # The Web UI (enabled by --api)
-    networks: 
-      - webnet  
+
+services:
+  node:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+      args:
+        - NODE_VERSION=latest
+        - PROJECT_PATH=./
+        - NODE_ENV=production
+        - YARN=false
+      labels:
+        - traefik.backend=rollout
+        - traefik.frontend.rule=Host:api.rollout
+        - traefik.docker.network=web
+        - traefik.port=80
+    container_name: rollout
+    working_dir: "/opt/app"
     volumes:
-      - //var/run/docker.sock:/var/run/docker.sock # So that Traefik can listen to the Docker events
+      - ./:/opt/app
+    entrypoint: run-nodock "node server.js"
+    command: "npx pm2 start ecosystem.config.js --no-daemon"
+    tty: true
+    user: node
+    environment:
+      - REDIS_URL=redis://redis
+      - mongoURI: mongodb://kappy:Kappy123*@ds213053.mlab.com:13053/web-push
+      - privateKey: Lckqnvu2RrAKlG3uutce3o-kiI7HSc1LXsy5AdlryXQ
+      - publicKey: BLgFTwjElUH_Iz72TKDvmlsc-EcwziNP2X28BmN-znOXJhv35QybtfcN1HTh_eUlNffp12HkuruYpqtKNedN54s
+      - GCM_Key: BC9lXOplpZsPQwvVrxN_29_9nqkzzsn1YWWNPUmfgo5m0aaXKmeOZDzUSxWBwrNH3pEDscqEW3oo9U3aHarrfB8
   mongo:
-    image: mongo:4.2.2
-    hostname: mongo
-    #-------------------------------------------------------------------------------------
-    # ==== MONGODB AND METEOR VERSION ====
-    # a) For rollout Meteor 1.8.x version at master branch, use mongo 4.x
-    # b) For rollout Meteor 1.6.x version at devel branch.
-    # Only for Snap and Sandstorm while they are not upgraded yet to Meteor 1.8.x
-    #image: mongo:3.2.21
-    #-------------------------------------------------------------------------------------
-    container_name: rollout-db
+    # build: ./mongo
+    image: mongo
+    container_name: mongo
     restart: always
-    command: mongod --oplogSize 128
-    networks: 
-      - webnet
+    labels:
+      - traefik.backend=mongo
+      - traefik.frontend.rule=Host:mongodb.rollout
+      - traefik.docker.network=web
+      - traefik.port=27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=kappy
+      - MONGO_INITDB_ROOT_PASSWORD=Kappy123*
     expose:
-      - 27017
-    volumes:
-      - rollout-db:/data/db
-      - rollout-db-dump:/dump
-    # environment:
-    #   MONGODB_USER: "${db_user_env}"
-    #   MONGODB_DATABASE: "${dbname_env}"
-    #   MONGODB_PASS: "${db_pass}"
-  redis:
-    image: "redis:4.0.14-alpine"
-    hostname: redis
-    container_name: rollout-redis
-    ports: ["6379:6379"]
-    networks: 
-      - webnet
-  rollout:
-    # image: "saurabharch/rollout:latest"
-    image: "rollout:latest"
-    build: rollout-deployment
-    image: "rollout:latest"
-    hostname: rollout
-    environment:
-      WAIT_HOSTS: redis:6379, mongo:27017
+      - "27017"
     ports:
-      - "3000:3000"
-      - "30001:30001"
-    networks:
-      - rollout-tier      
-    depends_on: 
-      - mongo
-    links:
-      - redis
-      - mongo  
-    networks:
-      - webnet
-    # command: sh -c "dockerize -wait mongodb://mongo:27017 redis://redis:6379 -timeout 300s -wait-retry-interval 30s"
-# OPTIONAL NGINX CONFIG FOR REVERSE PROXY
-#  nginx:
-#    image: nginx
-#    container_name: nginx
-#    restart: always
-#    networks:
-#      - webnet
-#    depends_on:
-#      - rollout
-#    ports:
-#      - 80:80
-#      - 443:443
-#    volumes:
-#      - ./nginx/ssl:/etc/nginx/ssl/:ro
-#      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-## Alternative volume config:
-##   volumes:
-##     - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-##     - ./nginx/ssl/ssl.conf:/etc/nginx/conf.d/ssl/ssl.conf:ro
-##     - ./nginx/ssl/testvm-ehu.crt:/etc/nginx/conf.d/ssl/certs/mycert.crt:ro
-##     - ./nginx/ssl/testvm-ehu.key:/etc/nginx/conf.d/ssl/certs/mykey.key:ro
-##     - ./nginx/ssl/pphrase:/etc/nginx/conf.d/ssl/pphrase:ro
+      - "27017-2019:27017-2019"
+    volumes:
+      - ./data/mongo/:/var/lib/mongodb
+    command: mongod --noauth --smallfiles
   nginx:
-    image: nginx
+    build:
+      context: ./nginx
+    args:
+      - WEB_REVERSE_PROXY_PORT=5000
+      - WEB_SSL=false
+      - SELF_SIGNED=false
+      - NO_DEFAULT=false
+    container_name: nginx
     volumes:
-      - ./mysite.template:/etc/nginx/conf.d/mysite.template
-      - ./app:/app
-    networks:
-      - webnet
-    depends_on:
-      - rollout
+      - ./data/logs/nginx/:/var/log/nginx
+      - ./certbot/certs/:/var/certs
+    labels:
+      - traefik.backend=nginx
+      - traefik.frontend.rule=Host:nginx.rollout
+      - traefik.docker.network=web
+      - traefik.port=80
     ports:
-      - "8001:80"
-    environment:
-      VIRTUAL_ENV: localhost
-      VIRTUAL_PORT: 8001
-  # https-nginx:
-  #   image: nginx
-  #   container_name: https-nginx
-  #   volumes:
-  #     - ./nginx-data/conf.d:/etc/nginx/conf.d
-  #     - ./nginx-data/vhost.d:/etc/nginx/vhost.d
-  #     - ./nginx-data/html:/usr/share/nginx/html
-  #     - ./nginx-data/certs:/etc/nginx/certs:ro
-  #   ports:
-  #     - "13.57.167.70:80:80"
-  #     - "13.57.167.70:443:443"
-  #   networks:
-  #     - webnet
-  #   depends_on:
-  #     - rollout
-  # nginx-gen:
-  #   image: jwilder/docker-gen
-  #   container_name: nginx-gen
-  #   networks:
-  #     - webnet
-  #   command: -notify-sighup https-nginx -watch -wait 5s:30s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
-  #   volumes:
-  #     - ./nginx-data/conf.d:/etc/nginx/conf.d
-  #     - ./nginx-data/vhost.d:/etc/nginx/vhost.d
-  #     - ./nginx-data/html:/usr/share/nginx/html
-  #     - ./nginx-data/certs:/etc/nginx/certs:ro
-  #     - /var/run/docker.sock:/tmp/docker.sock:ro
-  #     - ./nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
-  # nginx-letsencrypt:
-  #   image: jrcs/letsencrypt-nginx-proxy-companion
-  #   networks:
-  #     - webnet
-  #   volumes:
-  #     - ./nginx-data/conf.d:/etc/nginx/conf.d
-  #     - ./nginx-data/vhost.d:/etc/nginx/vhost.d
-  #     - ./nginx-data/html:/usr/share/nginx/html
-  #     - ./nginx-data/certs:/etc/nginx/certs:rw
-  #     - /var/run/docker.sock:/var/run/docker.sock:ro
-  #   environment:
-  #     NGINX_DOCKER_GEN_CONTAINER: nginx-gen
-  #     NGINX_PROXY_CONTAINER: https-nginx
-  #     LETSENCRYPT_HOST: notrealchefs.com
-  #     DEBUG: "true"
-volumes:
-  rollout-db:
-    driver: local
-  rollout-db-dump:
-    driver: local
+      - "80:80"
+      - "443:443"
+    tty: true
+  certbot:
+    build:
+      context: ./nodock/certbot
+    links:
+      # - apache
+      - nginx.rollout
+    container_name: certbot
+    volumes:
+      - ./certbot/letsencrypt/:/var/www/letsencrypt
+      - ./certbot/certs/:/var/certs
+  redis:
+    build:
+      context: ./nodock/redis
+      container_name: rollout-redis
+      labels:
+        - traefik.backend=redis
+        - traefik.frontend.rule=Host:redis.rollout
+        - traefik.docker.network=web
+        - traefik.port=6379
+    expose:
+      - "6379"
+    volumes:
+      - ./data/redis:/data
 networks:
-  webnet:
-  default:
-    external:
-      name: webproxy
-# Note: Do not add single quotes '' to variables. Having spaces still works without quotes where required.
-#---------------------------------------------------------------------------------------------------------
-# ==== CREATING USERS AND LOGGING IN TO rollout ====
-# https://github.com/rollout/rollout/wiki/Adding-users
-#---------------------------------------------------------------------------------------------------------
-# ==== FORGOT PASSWORD ====
-# https://github.com/rollout/rollout/wiki/Forgot-Password
-#---------------------------------------------------------------------------------------------------------
-# ==== Upgrading rollout to new version =====
-# NOTE: MongoDB has changed from 3.x to 4.x, in that case you need backup/restore with --noIndexRestore
-#       see https://github.com/rollout/rollout/wiki/Backup
-# 1) Stop rollout:
-#      docker-compose stop
-# 2) Download new version:
-#      docker-compose pull rollout
-# 3) If you have more networks for VPN etc as described at bottom of
-#    this config, download for them too:
-#      docker-compose pull rollout2
-# 4) Start rollout:
-#      docker-compose start
-#----------------------------------------------------------------------------------
-# ==== OPTIONAL: DEDICATED DOCKER USER ====
-# 1) Optionally create a dedicated user for rollout, for example:
-#      sudo useradd -d /home/rollout -m -s /bin/bash rollout
-# 2) Add this user to the docker group, then logout+login or reboot:
-#      sudo usermod -aG docker rollout
-# 3) Then login as user rollout.
-# 4) Create this file /home/rollout/docker-compose.yml with your modifications.
-#----------------------------------------------------------------------------------
-# ==== RUN DOCKER AS SERVICE ====
-# 1a) Running Docker as service, on Systemd like Debian 9, Ubuntu 16.04, CentOS 7:
-#      sudo systemctl enable docker
-#      sudo systemctl start docker
-# 1b) Running Docker as service, on init.d like Debian 8, Ubuntu 14.04, CentOS 6:
-#      sudo update-rc.d docker defaults
-#      sudo service docker start
-# ----------------------------------------------------------------------------------
-# ==== USAGE OF THIS docker-compose.yml ====
-# 1) For seeing does rollout work, try this and check with your webbroser:
-#      docker-compose up
-# 2) Stop rollout and start rollout in background:
-#     docker-compose stop
-#     docker-compose up -d
-# 3) See running Docker containers:
-#     docker ps
-# 4) Stop Docker containers:
-#     docker-compose stop
-# ----------------------------------------------------------------------------------
-# ===== INSIDE DOCKER CONTAINERS, AND BACKUP/RESTORE ====
-# https://github.com/rollout/rollout/wiki/Backup
-# If really necessary, repair MongoDB: https://github.com/rollout/rollout-mongodb/issues/6#issuecomment-424004116
-# 1) Going inside containers:
-#    a) rollout app, does not contain data
-#         docker exec -it rollout-app bash
-#    b) MongoDB, contains all data
-#         docker exec -it rollout-db bash
-# 2) Copying database to outside of container:
-#      docker exec -it rollout-db bash
-#      cd /data
-#      mongodump
-#      exit
-#      docker cp rollout-db:/data/dump .
-# 3) Restoring database
-#      # 1) Stop rollout
-#             docker stop rollout-app
-#      # 2) Go inside database container
-#             docker exec -it rollout-db bash
-#      # 3) and data directory
-#             cd /data
-#      # 4) Remove previos dump
-#             rm -rf dump
-#      # 5) Exit db container
-#             exit
-#      # 6) Copy dump to inside docker container
-#             docker cp dump rollout-db:/data/
-#      # 7) Go inside database container
-#             docker exec -it rollout-db bash
-#      # 8) and data directory
-#             cd /data
-#      # 9) Restore
-#             mongorestore --drop
-#      # 10) Exit db container
-#             exit
-#      # 11) Start rollout
-#             docker start rollout-app
-#-------------------------------------------------------------------------
-  
+  web:
+    driver: bridge
+  # apache:
+  #     build:
+  #         context: ./apache
+  #         args:
+  #             - WEB_REVERSE_PROXY_PORT=8000
+  #             - WEB_SSL=false
+  #             - SELF_SIGNED=false
+  #             - NO_DEFAULT=false
+  #     volumes:
+  #         - ./data/logs/apache/:/usr/local/apache2/logs
+  #         - ./certbot/certs/:/var/certs
+  #     ports:
+  #         - "80:80"
+  #         - "443:443"
+  #     tty: true
+  # rabbitmq:
+  #     build:
+  #         context: ./rabbitmq
+  #         args:
+  #             - MANAGEMENT=false
+  #             - FEDERATION=false
+  #             - RABBITMQ_DEFAULT_USER=guest
+  #             - RABBITMQ_DEFAULT_PASS=guest
+  #     expose:
+  #         - "5672"

@@ -1,0 +1,38 @@
+debug = false
+
+logLevel = "ERROR"
+
+defaultEntryPoints = ["http", "https"]
+
+[entryPoints]
+  [entryPoints.dashboard]
+    address = ":8080"
+    [entryPoints.dashboard.auth]
+      [entryPoints.dashboard.auth.basic]
+        users = ["admin:saurabh"]
+  [entryPoints.http]
+    address = ":80"
+      [entryPoints.http.redirect]
+        entryPoint = "https"
+  [entryPoints.https]
+    address = ":443"
+      [entryPoints.https.tls]
+[retry]
+
+[api]
+entrypoint="dashboard"
+
+[acme]
+email = "saurabh@raindigi.com"
+storage = "acme.json"
+entryPoint = "https"
+onHostRule = true
+  [acme.httpChallenge]
+  entryPoint = "http"
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "rollout"
+watch = true
+exposedByDefault = false
+network = "web"
