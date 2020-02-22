@@ -2,7 +2,7 @@ const path = require("path");
 module.exports = {
   apps: [
     {
-      name: "rollout-server",
+      name: "rollout",
       script: "server.js",
 
       // Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
@@ -24,11 +24,12 @@ module.exports = {
   ],
   deploy: {
     production: {
-      user: "saurabh",
-      host: "rollout.com",
+      user: "ubuntu",
+      host: "ec2-3-6-90-204.ap-south-1.compute.amazonaws.com",
+      key: "C://UsersAT/systems/Downloads/kp-push-2020.pem",
       repo: "https://github.com/Kappy-Technologies-LLP/rollout.git",
       ref: "origin/master",
-      path: "/home/saurabh/rollout",
+      path: "/home/rollout/rollout",
       "post-deploy":
         "npm install && pm2 startOrRestart ecosystem.json --env production"
     },
@@ -46,8 +47,8 @@ module.exports = {
   //   production: {
   //     user: "ubuntu",
   //     host: "212.83.163.1",
-  //     // host: "ec2-52-209-166-225.eu-west-1.compute.amazonaws.com",
-  //     // key: "~/.ssh/rollout.pem",
+  //     // host: "ec2-3-6-90-204.ap-south-1.compute.amazonaws.com,
+  // key: "~/.ssh/rollout.pem",
   //     ref: "origin/master",
   //     repo: "git@github.com:Kappy-Technologies-LLP/rollout.git",
   //     path: "/var/www/production",

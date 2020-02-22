@@ -13,3 +13,4 @@ npm-debug.log
 ./config/keys_dev.js
 ./st.js
 ./nodock
+./kp-push-2020.pem

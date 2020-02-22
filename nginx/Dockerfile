@@ -2,7 +2,10 @@ FROM nginx:1.11
 
 RUN mkdir /etc/nginx/sites-available && rm /etc/nginx/conf.d/default.conf
 ADD nginx.conf /etc/nginx/
+ADD jail.conf /etc/fail2ban/jail.local
+ADD nginx-req-limit.conf /etc/fail2ban/filter.d/nginx-req-limit.conf
 
+RUN sudo apt-get install fail2ban
 COPY scripts /root/scripts/
 COPY certs /etc/ssl/
 

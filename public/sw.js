@@ -1,3 +1,4 @@
+"user strict";
 let notificationUrl = "";
 
 self.addEventListener("push", function(event) {
@@ -38,7 +39,7 @@ const notificationCloseAnalytics = () => {
 self.addEventListener("notificationclose", function(event) {
   const dismissedNotification = event.notification;
 
-  const promiseChain = notificationCloseAnalytics();
+  const promiseChain = notificationCloseAnalytics(dismissedNotification);
   event.waitUntil(promiseChain);
 });
 /**** END notificationCloseEvent ****/

@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:10-alpine
 LABEL maintainer="rollout"
 MAINTAINER Saurabh Kashyap <saurabhkashyap0001@gmail.com>
 # Add hello scripts
@@ -15,17 +15,41 @@ RUN apk update \
 
 # # Download and Install Nginx
 # RUN apt-get install -y nginx  
+RUN sudo apt-get install -y nginx
+RUN sudo add-apt-repository ppa:certbot/certbot
+
+RUN sudo apt-get update
+
+RUN sudo apt install python-certbot-nginx
+
+RUN sudo certbot --nginx -d serversfault.com -d www.serversfault.com
+
+#----------------------- Alternate ------------------------
+#sudo certbot certonly --standalone -d serversfault.com www.serversfault.com
+# ----------------------------------------------------------
+RUN sudo ufw default deny incoming
+RUN sudo ufw default deny incoming
+RUN sudo ufw default allow outgoing
+RUN sudo ufw allow ssh
+RUN sudo ufw allow 'Nginx Full'
+RUN sudo ufw delete allow 'Nginx HTTP'
+RUN sudo ufw allow enable
+RUN sudo ufw allow http
+RUN sudo ufw allow https
+RUN sudo ufw status
+RUN sudo ufw status
+RUN sudo ufw allow 443/tcp
+RUN sudo systemctl status nginx
 
 # # Remove the default Nginx configuration file
-# RUN rm -v /etc/nginx/nginx.conf
+RUN rm -v /etc/nginx/nginx.conf
 
 # # Copy a configuration file from the current directory
-# ADD ./nginx/nginx.conf .conf/etc/nginx/
+ADD ./nginx/nginx.conf ./etc/nginx/
 # # Append "daemon off;" to the configuration file
-# RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN sudo ln -s sites-available/rollout sites-available/rollout
 # # Expose ports
-EXPOSE 80
 
 # Set the default command to execute when creating a new container
 # ENTRYPOINT [ "../rollout-deployment/mongo-run.sh" ]
@@ -43,10 +67,11 @@ RUN chmod +x /wait
 RUN apk update \
     && apk upgrade
 
+RUN apt install -y git
 
 WORKDIR ./app
 # # Copy the package.json to workdir
-# COPY package.json ./
+COPY package*.json ./
 ENV TERM=linux
 ARG NODE_ENV=production
 ARG REST_URL=http://localhost:3000
@@ -54,7 +79,7 @@ ENV NODE_ENV $NODE_ENV
 ENV REST_URL $REST_URL
 # Run npm install - install the npm dependencies
 RUN npm install
-COPY ../../nginx/nginx.conf ./etc/nginx/nginx.conf
+COPY ./nginx/nginx.conf ./etc/nginx/nginx.conf
 # RUN mkdir -p /data/db && \
 #     chown -R mongodb /data/db
 
@@ -72,7 +97,7 @@ COPY . ./app
 # COPY ./docker.env ./docker.env
 
 # Expose application ports - (4300 - for API and 4301 - for front end)
-EXPOSE 5000 5000
+EXPOSE 5501 55000 80 443
 
 
 
@@ -83,3 +108,4 @@ RUN npm install
 # CMD [ "pm2-runtime", "npm", "--", "start" ]
 ENTRYPOINT [ ".deployment-pm2.sh" ]
 USER node
+CMD [ "sudo pm2 start --name server-1 ./app/server.js -- --name server-1 --port 5500 --watch", "sudo pm2 save" , "sudo pm2 startup" , "sudo sudo service nginx restartsudo service nginx restart" , "sudo /etc/init.d/nginx reload"]

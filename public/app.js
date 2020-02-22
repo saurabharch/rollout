@@ -1,3 +1,5 @@
+"user strict";
+
 let isSubscribed = false;
 let swRegistration = null;
 let applicationKey =

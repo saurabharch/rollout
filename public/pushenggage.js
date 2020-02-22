@@ -1,7 +1,7 @@
 "use strict";
 try {
-    var peSw = {};
-    peSw.config = {
+    var roSW = {};
+    roSW.config = {
       version: "2.2.0",
       api: {
         default: "http://localhost:3000/push",
@@ -35,7 +35,7 @@ try {
         }
       }
     };
-    peSw.browser = function () {
+    roSW.browser = function () {
         var ua = navigator.userAgent,
             tem, uai, M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
         uai = (ua.indexOf('Edge') == -1) ? ua.indexOf('EdgA') : ua.indexOf('Edge');
@@ -86,12 +86,12 @@ try {
             version: M[1]
         }
     };
-    peSw.deviceType = function () {
+    roSW.deviceType = function () {
         var dTCheck = 'desktop';
         dTCheck = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ? 'mobile' : dTCheck;
         return dTCheck
     };
-    peSw.publicKeyForBrowser = function (base64String) {
+    roSW.publicKeyForBrowser = function (base64String) {
         var padding = '='.repeat((4 - base64String.length % 4) % 4);
         var base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/');
         var rawData = atob(base64);
@@ -101,7 +101,7 @@ try {
         }
         return outputArray
     };
-    peSw.getDeviceID = function (endpoint) {
+    roSW.getDeviceID = function (endpoint) {
         var device_id = "";
         if (endpoint.indexOf('token=') > -1) {
             device_id = endpoint.slice(endpoint.search("token=") + 6)
@@ -110,30 +110,30 @@ try {
         }
         return device_id
     };
-    peSw.verifyFcmGcmEndpoint = function (endpoint) {
+    roSW.verifyFcmGcmEndpoint = function (endpoint) {
         if (endpoint.indexOf('android.googleapis.com/gcm') != -1 || endpoint.indexOf('updates.push.services.mozilla.com/wpush/v1') != -1) {
             return !1
         }
         return !0
     };
-    peSw.welcomeNoti = function (callback) {
+    roSW.welcomeNoti = function (callback) {
         var options = {
-            body: peSw.config.welcomeNoti.notification_message,
-            tag: 'welcome_notification' + peSw.config.siteId,
-            icon: peSw.config.siteImage,
-            data: peSw.config.welcomeNoti.notification_url
+            body: roSW.config.welcomeNoti.notification_message,
+            tag: 'welcome_notification' + roSW.config.siteId,
+            icon: roSW.config.siteImage,
+            data: roSW.config.welcomeNoti.notification_url
         };
-        return peSw.showNotification(peSw.config.welcomeNoti.notification_title, options)
+        return roSW.showNotification(roSW.config.welcomeNoti.notification_title, options)
     };
-    peSw.click = function (event, usr_action) {
+    roSW.click = function (event, usr_action) {
         var tag = event.notification.tag;
         if (tag.indexOf('welcome_notification') == -1) {
             return event.waitUntil(self.registration.pushManager.getSubscription().then(function (o) {
-                var device = (o.endpoint) ? peSw.getDeviceID(o.endpoint) : '';
-                return fetch(peSw.config.api.analytics + '/notification/click?swv=' + peSw.config.version + '&bv=' + peSw.browser().version + '&device=' + device + '&tag=' + tag + '&action=' + usr_action).then(function (response) {
+                var device = (o.endpoint) ? roSW.getDeviceID(o.endpoint) : '';
+                return fetch(roSW.config.api.analytics + '/notification/click?swv=' + roSW.config.version + '&bv=' + roSW.browser().version + '&device=' + device + '&tag=' + tag + '&action=' + usr_action).then(function (response) {
                     console.log("response from click")
                 }).catch(function (e) {
-                    peSw.logError({
+                    roSW.logError({
                         name: e.name + ": Click count",
                         message: e.message,
                         endpoint: o.endpoint,
@@ -146,7 +146,7 @@ try {
         }
         return !0
     };
-    peSw.openUrl = function (url) {
+    roSW.openUrl = function (url) {
         return clients.matchAll({
             type: 'window'
         }).then(function (clientList) {
@@ -161,7 +161,7 @@ try {
             }
         })
     };
-    peSw.onMessageReceivedSubscriptionState = function () {
+    roSW.onMessageReceivedSubscriptionState = function () {
         let retrievedPushSubscription = null;
         self.registration.pushManager.getSubscription().then(pushSubscription => {
             retrievedPushSubscription = pushSubscription;
@@ -172,35 +172,35 @@ try {
             }
         }).then(permissionStateOrNull => {
             if (permissionStateOrNull == null) {
-                peSw.broadcastReply(peSw.config.amp.state.subscription, !1)
+                roSW.broadcastReply(roSW.config.amp.state.subscription, !1)
             } else {
                 const isSubscribed = !!retrievedPushSubscription && permissionStateOrNull === 'granted';
-                peSw.broadcastReply(peSw.config.amp.state.subscription, isSubscribed)
+                roSW.broadcastReply(roSW.config.amp.state.subscription, isSubscribed)
             }
         })
     };
-    peSw.onMessageReceivedSubscribe = function () {
+    roSW.onMessageReceivedSubscribe = function () {
         self.registration.pushManager.subscribe({
             userVisibleOnly: !0,
-            applicationServerKey: peSw.publicKeyForBrowser(peSw.config.publicKey),
+            applicationServerKey: roSW.publicKeyForBrowser(roSW.config.publicKey),
         }).then((sub) => {
             try {
                 var subscription = JSON.parse(JSON.stringify(sub));
-                subscription.project_id = peSw.config.projectId;
-                subscription.vapid_public_key = peSw.config.publicKey
+                subscription.project_id = roSW.config.projectId;
+                subscription.vapid_public_key = roSW.config.publicKey
             } catch (e) {
                 console.log('failde to parse json');
                 return
             }
             var payload = {
-                site_id: Number(peSw.config.siteId),
+                site_id: Number(roSW.config.siteId),
                 browser_info: {
-                    device_type: peSw.browser().name,
-                    browser_version: peSw.browser().name,
+                    device_type: roSW.browser().name,
+                    browser_version: roSW.browser().name,
                     user_agent: navigator.userAgent,
                     language: navigator.language,
                     host: location.host,
-                    device: peSw.deviceType(),
+                    device: roSW.deviceType(),
                     pe_ref_url: location.origin
                 },
                 subscription: subscription,
@@ -209,24 +209,24 @@ try {
                 token_refresh: !1,
                 optin_type: 4
             };
-            fetch(peSw.config.api.default+'/subscriber/add?swv=' + peSw.config.version + '&subscription=' + JSON.stringify(payload)).then(function (response) {
+            fetch(roSW.config.api.default+'/subscriber/add?swv=' + roSW.config.version + '&subscription=' + JSON.stringify(payload)).then(function (response) {
                 console.log("new subscription added");
-                if (peSw.config.welcomeNoti && peSw.config.welcomeNoti.welcome_enabled == "true") {
-                    peSw.welcomeNoti(function (res) {})
+                if (roSW.config.welcomeNoti && roSW.config.welcomeNoti.welcome_enabled == "true") {
+                    roSW.welcomeNoti(function (res) {})
                 }
-                peSw.broadcastReply(peSw.config.amp.state.subscribe, null)
+                roSW.broadcastReply(roSW.config.amp.state.subscribe, null)
             }).catch(function (e) {
-                peSw.broadcastReply(peSw.config.amp.state.subscribe, null);
+                roSW.broadcastReply(roSW.config.amp.state.subscribe, null);
                 console.log(e)
             })
         })
     };
-    peSw.onMessageReceivedUnsubscribe = function () {
+    roSW.onMessageReceivedUnsubscribe = function () {
         self.registration.pushManager.getSubscription().then(subscription => subscription.unsubscribe()).then(() => {
-            peSw.broadcastReply(peSw.config.amp.state.unsubscribe, null)
+            roSW.broadcastReply(roSW.config.amp.state.unsubscribe, null)
         })
     };
-    peSw.broadcastReply = function (command, payload) {
+    roSW.broadcastReply = function (command, payload) {
         self.clients.matchAll().then(clients => {
             for (let i = 0; i < clients.length; i++) {
                 const client = clients[i];
@@ -237,25 +237,25 @@ try {
             }
         })
     };
-    peSw.log = function (e) {
+    roSW.log = function (e) {
         var options = {
-            body: peSw.config.defaultNoti.default_notification_message,
-            icon: peSw.config.siteImage,
-            tag: 'welcome_notification' + peSw.config.siteId,
-            data: peSw.config.defaultNoti.default_notification_url,
+            body: roSW.config.defaultNoti.default_notification_message,
+            icon: roSW.config.siteImage,
+            tag: 'welcome_notification' + roSW.config.siteId,
+            data: roSW.config.defaultNoti.default_notification_url,
             requireInteraction: !1
         };
-        return peSw.logError(e, options)
+        return roSW.logError(e, options)
     };
-    peSw.logError = function (e, notiOptions) {
+    roSW.logError = function (e, notiOptions) {
         var error = e;
-        var errorTitle = peSw.config.defaultNoti.default_notification_title;
-        error.site_id = peSw.config.siteId;
-        error.swv = peSw.config.version;
-        error.bw = peSw.browser();
+        var errorTitle = roSW.config.defaultNoti.default_notification_title;
+        error.site_id = roSW.config.siteId;
+        error.swv = roSW.config.version;
+        error.bw = roSW.browser();
         error.app = "service-worker";
         console.log(error);
-        return fetch(peSw.config.api.log, {
+        return fetch(roSW.config.api.log, {
             method: 'POST',
             mode: "no-cors",
             body: JSON.stringify(error),
@@ -272,7 +272,7 @@ try {
                 return self.registration.showNotification(errorTitle, notiOptions)
         })
     };
-    peSw.showNotification = function (t, n, o) {
+    roSW.showNotification = function (t, n, o) {
         if (n.hasOwnProperty('actions')) {
             if (typeof n.actions[0] != "undefined" && n.actions[0].hasOwnProperty('icon') && n.actions[0].icon == null) {
                 delete n.actions[0].icon
@@ -282,11 +282,11 @@ try {
             }
         }
         if (typeof n.viewUrl != "undefined") {
-            fetch(peSw.config.api.analytics + '/notification/view/refer?tag=' + n.tag).then(function (response) {
+            fetch(roSW.config.api.analytics + '/notification/view/refer?tag=' + n.tag).then(function (response) {
                 console.log("response from view url refer");
                 return
             }).catch(function (e) {
-                peSw.logError({
+                roSW.logError({
                     name: e.name + ": Impression url",
                     message: e.message,
                     endpoint: o.endpoint,
@@ -295,11 +295,11 @@ try {
                 })
             })
         }
-        return fetch(peSw.config.api.analytics + '/notification/view?device=' + peSw.getDeviceID(o.endpoint) + '&swv=' + peSw.config.version + '&bv=' + peSw.browser().version + '&tag=' + n.tag).then(function (response) {
+        return fetch(roSW.config.api.analytics + '/notification/view?device=' + roSW.getDeviceID(o.endpoint) + '&swv=' + roSW.config.version + '&bv=' + roSW.browser().version + '&tag=' + n.tag).then(function (response) {
             console.log("response from view ");
             return self.registration.showNotification(t, n)
         }).catch(function (e) {
-            peSw.logError({
+            roSW.logError({
                 name: e.name + ": View count",
                 message: e.message,
                 endpoint: o.endpoint,
@@ -321,14 +321,14 @@ try {
             command
         } = event.data;
         switch (command) {
-            case peSw.config.amp.state.subscription:
-                peSw.onMessageReceivedSubscriptionState();
+            case roSW.config.amp.state.subscription:
+                roSW.onMessageReceivedSubscriptionState();
                 break;
-            case peSw.config.amp.state.subscribe:
-                peSw.onMessageReceivedSubscribe();
+            case roSW.config.amp.state.subscribe:
+                roSW.onMessageReceivedSubscribe();
                 break;
-            case peSw.config.amp.state.unsubscribe:
-                peSw.onMessageReceivedUnsubscribe();
+            case roSW.config.amp.state.unsubscribe:
+                roSW.onMessageReceivedUnsubscribe();
                 break
         }
     });
@@ -341,9 +341,9 @@ try {
                             var json = event.data.json(),
                                 index = 0;
                             if (typeof json[index].title != "undefined" && typeof json[index].options != "undefined" && typeof json[index].options.tag != "undefined" && json[index].options.tag) {
-                                return peSw.showNotification(json[index].title, json[index].options, o)
+                                return roSW.showNotification(json[index].title, json[index].options, o)
                             } else {
-                                return peSw.log({
+                                return roSW.log({
                                     name: "Bad Request",
                                     message: "Required field is missing",
                                     endPoint: o.endpoint,
@@ -351,14 +351,14 @@ try {
                                 })
                             }
                         } else {
-                            return peSw.log({
+                            return roSW.log({
                                 name: "Bad Request",
                                 message: "Bad notification data format",
                                 endPoint: o.endpoint
                             })
                         }
                     } catch (e) {
-                        return peSw.log({
+                        return roSW.log({
                             name: e.name,
                             message: e.message,
                             endPoint: o.endpoint,
@@ -366,12 +366,12 @@ try {
                         })
                     }
                 } else {
-                    return fetch(peSw.config.api.default+'/notification?swv=' + peSw.config.version + '&bv=' + peSw.browser().version + '&device=' + peSw.getDeviceID(o.endpoint)).then(function (response) {
+                    return fetch(roSW.config.api.default+'/notification?swv=' + roSW.config.version + '&bv=' + roSW.browser().version + '&device=' + roSW.getDeviceID(o.endpoint)).then(function (response) {
                         return response.json().then(function (jsondata) {
                             var json = jsondata;
                             if (typeof json[0].title != "undefined" && typeof json[0].options != "undefined")
-                                return peSw.showNotification(json[0].title, json[0].options, o);
-                            else return peSw.log({
+                                return roSW.showNotification(json[0].title, json[0].options, o);
+                            else return roSW.log({
                                 name: "Bad Request",
                                 message: "Required Field is missing",
                                 endPoint: o.endpoint,
@@ -381,7 +381,7 @@ try {
                     })
                 }
             } else {
-                return peSw.log({
+                return roSW.log({
                     name: "Service Worker",
                     message: "Getting error in subscription data"
                 })
@@ -415,8 +415,8 @@ try {
             }
         }
         notification_url = notification_url || "/";
-        notiPromiseArr.push(peSw.openUrl(notification_url));
-        notiPromiseArr.push(peSw.click(event, usr_action));
+        notiPromiseArr.push(roSW.openUrl(notification_url));
+        notiPromiseArr.push(roSW.click(event, usr_action));
         event.waitUntil(Promise.all(notiPromiseArr))
     });
     self.addEventListener('pushsubscriptionchange', function (event) {
@@ -434,19 +434,19 @@ try {
                     newSubscription: {
                         subscription: newSubscription,
                         browser_info: {
-                            device_type: peSw.browser().name,
-                            browser_version: peSw.browser().version
+                            device_type: roSW.browser().name,
+                            browser_version: roSW.browser().version
                         },
-                        site_id: (peSw.config.siteId),
+                        site_id: (roSW.config.siteId),
                         token_refresh: !0
                     }
                 };
                 payload.endpoint = (subscription) ? subscription.endpoint : null;
-                payload.newSubscription.subscription.project_id = peSw.config.projectId;
-                if (peSw.verifyFcmGcmEndpoint(payload.newSubscription.subscription.endpoint)) {
-                    payload.newSubscription.subscription.vapid_public_key = peSw.config.publicKey
+                payload.newSubscription.subscription.project_id = roSW.config.projectId;
+                if (roSW.verifyFcmGcmEndpoint(payload.newSubscription.subscription.endpoint)) {
+                    payload.newSubscription.subscription.vapid_public_key = roSW.config.publicKey
                 }
-                fetch(peSw.config.api.default+'/subscriber/change?swv=' + peSw.config.version + '&subscription=' + JSON.stringify(payload)).then(function (response) {
+                fetch(roSW.config.api.default+'/subscriber/change?swv=' + roSW.config.version + '&subscription=' + JSON.stringify(payload)).then(function (response) {
                     console.log("response from subscription change")
                 }).catch(function (e) {
                     console.log(e)

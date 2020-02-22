@@ -1,3 +1,4 @@
+"user strict";
 let examplepage = "";
 function openWindow(event) {
   /**** START notificationOpenWindow ****/
