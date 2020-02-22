@@ -11,7 +11,7 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 
 - more coming soon
 
-## Commands are
+## [Instrustions](https://kappy-technologies-llp.github.io/rollout/) Commands
 
 > Installing Nodejs , NPM and NVM
 
