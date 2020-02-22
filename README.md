@@ -32,15 +32,20 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 
 > PREQUESTS
 
-- `sudo apt-get install nginx` > `sudo add-apt-repository ppa:certbot/certbot` > `sudo apt-get update`
-
+- `sudo apt-get install nginx`
+- `sudo add-apt-repository ppa:certbot/certbot`
+- `sudo apt-get update`
 - `sudo apt install python-certbot-nginx`
-
+  > Generate SSL Certificate using certbot command
 - `sudo certbot --nginx -d serversfault.com -d www.serversfault.com`
 
 > Alternate Command
 
 - `sudo certbot certonly --standalone -d serversfault.com www.serversfault.com`
+
+> Auto Renewal Certficate with certbot
+
+- `sudo certbot --dry-run`
 
 > ALLOW PORTS FOR NGINX AND SETUP FIREWALL
 
@@ -140,3 +145,5 @@ Sweetspot = Monolith app and databases in containers
 ## License
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout?ref=badge_large)
+
+#### [Official site](https://pushgeek.com)
