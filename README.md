@@ -13,6 +13,20 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 
 ## Commands are
 
+> Installing Nodejs , NPM and NVM
+
+- `sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash`
+- `~/.nvm/nvm.sh`
+- `nvm install node`
+
+> Cross Check Installed Versions
+
+- `node -v`
+- `npm -v`
+- `nvm --version`
+
+> Clone Source Code
+
 - `git clone https://github.com/Kappy-Technologies-LLP/rollout`
 - `npm install`
 - `node server.js`
