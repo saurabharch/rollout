@@ -31,36 +31,48 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 ## Setting Up with Nginx Proxy as a load balancer
 
 > PREQUESTS
-> `sudo apt-get install nginx` > `sudo add-apt-repository ppa:certbot/certbot` > `sudo apt-get update`
 
-## `sudo apt install python-certbot-nginx`
+- `sudo apt-get install nginx` > `sudo add-apt-repository ppa:certbot/certbot` > `sudo apt-get update`
 
-`sudo certbot --nginx -d serversfault.com -d www.serversfault.com`
+- `sudo apt install python-certbot-nginx`
+
+- `sudo certbot --nginx -d serversfault.com -d www.serversfault.com`
 
 > Alternate Command
 
-## `sudo certbot certonly --standalone -d serversfault.com www.serversfault.com`
+- `sudo certbot certonly --standalone -d serversfault.com www.serversfault.com`
 
 > ALLOW PORTS FOR NGINX AND SETUP FIREWALL
-> `sudo ufw default deny incoming` > `sudo ufw default allow outgoing` > `sudo ufw allow ssh` > `sudo ufw allow 'Nginx Full'` > `sudo ufw delete allow 'Nginx HTTP'` > `sudo ufw allow enable` > `sudo ufw allow http` > `sudo ufw allow https` > `sudo ufw status` > `sudo ufw status` (should say active)
+
+- `sudo ufw default deny incoming`
+- `sudo ufw default allow outgoing`
+- `sudo ufw allow ssh`
+- `sudo ufw allow 'Nginx Full'`
+- `sudo ufw delete allow 'Nginx HTTP'`
+- `sudo ufw allow enable`
+- `sudo ufw allow http`
+- `sudo ufw allow https`
+- `sudo ufw status`
+- `sudo ufw status` (should say active)
 
 ## `sudo ufw allow 443/tcp` (should required)
 
-`systemctl status nginx`
-`sudo vim /etc/nginx/sites-available/default` (above config applied)
-`sudo ln -s sites-available/rollout sites-available/rollout`
-`sudo nginx -t`
-`sudo service nginx restart`
-`sudo /etc/init.d/nginx reload`
+- `systemctl status nginx`
+- `sudo vim /etc/nginx/sites-available/default` (above config applied)
+- `sudo ln -s sites-available/rollout sites-available/rollout`
+- `sudo nginx -t`
+- `sudo service nginx restart`
+- `sudo /etc/init.d/nginx reload`
 
-`sudo journalctl -xe`
+- `sudo journalctl -xe`
 
 ### Check nginx service worker status
 
-## `sudo systemctl status nginx`
+- `sudo systemctl status nginx`
 
 > installing fail2ban protecting DDoS
-> `sudo apt-get install fail2ban`
+
+- `sudo apt-get install fail2ban`
 
 refere config https://www.webfoobar.com/node/36
 
