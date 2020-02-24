@@ -33,7 +33,7 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 
 ## Running Imutable stack with PM2
 
-- `install -g pm2`
+- `npm install -g pm2`
 
 > Run as root user in Linux
 
