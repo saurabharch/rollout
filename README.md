@@ -68,7 +68,7 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 - `sudo ufw allow ssh`
 - `sudo ufw allow 'Nginx Full'`
 - `sudo ufw delete allow 'Nginx HTTP'`
-- `sudo ufw allow enable`
+- `sudo ufw enable`
 - `sudo ufw allow http`
 - `sudo ufw allow https`
 - `sudo ufw status`
