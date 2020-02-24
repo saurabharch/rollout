@@ -61,6 +61,8 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 
 - `sudo certbot --dry-run`
 
+> [More Help Visit Here](https://gist.github.com/saurabharch/24c06cffe23989ff77da6f2b22bf6ddb)
+
 > ALLOW PORTS FOR NGINX AND SETUP FIREWALL
 
 - `sudo ufw default deny incoming`
