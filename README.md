@@ -29,6 +29,8 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 
 - `git clone https://github.com/Kappy-Technologies-LLP/rollout`
 - `npm install`
+- `./node_modules/.bin/web-push generate-vapid-keys`
+- `Generating Vapid Public and Private Key copy it and Update in config folder files [key_dev.js](https://github.com/saurabharch/rollout/blob/master/config/keys_dev.js) , [key_prod.js](https://github.com/saurabharch/rollout/blob/master/config/keys_prod.js) and also paste your Vapid Public Key in your Service Worker File [app.js](https://github.com/saurabharch/rollout/blob/master/public/app.js)`
 - `node server.js`
 
 ## Running Imutable stack with PM2
