@@ -1,57 +1,53 @@
 {
-  "name": "web-push-services",
-  "version": "1.0.0",
-  "description": "Web Push Notification Full Stack Application With Node Js Restful API",
-  "main": "server.js",
-  "scripts": {
-    "copy": "copyfiles -u 1 src/**/**/* src/**/* src/* build",
-    "build": "npm run copy && workbox injectManifest workbox-config.js",
-    "start": "node server.js",
-    "restart": "pm2 startOrRestart ecosystem.config.js",
-    "pro:deploy": "pm2 deploy ecosystem.config.js production",
-    "dev:deploy": "pm2 deploy ecosystem.config.js development",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Kappy-Technologies-LLP/rollout.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Kappy-Technologies-LLP/rollout/issues"
-  },
-  "homepage": "https://github.com/Kappy-Technologies-LLP/rollout#readme",
-  "author": "Saurabh Kashyap",
-  "license": "MIT",
-  "engines": {
-    "node": "10.x"
-  },
-  "dependencies": {
-    "axios": "^0.19.2",
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.4",
-    "cors": "^2.8.5",
-    "csurf": "^1.11.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
-    "express-rate-limit": "^5.0.0",
-    "express-session": "^1.17.0",
-    "handlebars-helpers": "^0.10.0",
-    "ioredis": "^4.14.1",
-    "mongo-sanitize": "^1.0.1",
-    "mongoose": "^5.0.0",
-    "parseurl": "^1.3.3",
-    "pm2": "^4.3.0",
-    "q": "^1.5.1",
-    "rate-limiter-flexible": "^2.0.0",
-    "redis": "^2.8.0",
-    "web-push": "^3.4.3",
-    "snyk": "^1.361.3"
-  },
-  "devDependencies": {
-    "copyfiles": "^2.2.0",
-    "loadtest": "^4.1.0",
-    "workbox-cli": "^5.0.0"
-  },
-  "snyk": true
+    "name": "web-push-services",
+    "version": "1.0.0",
+    "description": "Web Push Notification Full Stack Application With Node Js Restful API",
+    "main": "server.js",
+    "scripts": {
+        "copy": "copyfiles -u 1 src/**/**/* src/**/* src/* build",
+        "build": "npm run copy && workbox injectManifest workbox-config.js",
+        "start": "node server.js",
+        "restart": "pm2 startOrRestart ecosystem.config.js",
+        "pro:deploy": "pm2 deploy ecosystem.config.js production",
+        "dev:deploy": "pm2 deploy ecosystem.config.js development"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Kappy-Technologies-LLP/rollout.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Kappy-Technologies-LLP/rollout/issues"
+    },
+    "homepage": "https://github.com/Kappy-Technologies-LLP/rollout#readme",
+    "author": "Saurabh Kashyap",
+    "license": "MIT",
+    "engines": {
+        "node": "10.x"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "body-parser": "^1.19.0",
+        "cookie-parser": "^1.4.4",
+        "cors": "^2.8.5",
+        "csurf": "^1.11.0",
+        "express": "^4.17.1",
+        "express-handlebars": "^3.1.0",
+        "express-rate-limit": "^5.0.0",
+        "express-session": "^1.17.0",
+        "handlebars-helpers": "^0.10.0",
+        "ioredis": "^4.14.1",
+        "mongo-sanitize": "^1.0.1",
+        "mongoose": "^5.0.0",
+        "parseurl": "^1.3.3",
+        "pm2": "^4.2.3",
+        "q": "^1.5.1",
+        "rate-limiter-flexible": "^2.0.0",
+        "redis": "^2.8.0",
+        "web-push": "^3.4.3"
+    },
+    "devDependencies": {
+        "copyfiles": "^2.2.0",
+        "loadtest": "^4.1.0",
+        "workbox-cli": "^5.0.0"
+    }
 }
