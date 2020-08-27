@@ -9,7 +9,10 @@
         "start": "node server.js",
         "restart": "pm2 startOrRestart ecosystem.config.js",
         "pro:deploy": "pm2 deploy ecosystem.config.js production",
-        "dev:deploy": "pm2 deploy ecosystem.config.js development"
+        "dev:deploy": "pm2 deploy ecosystem.config.js development",
+        "update:packages": "rm -rf node_modules && npm update --save/--save-dev -f",
+        "update:geodate": "npm run-script updatedb-force license_key=sClIi7oTlPcCEcn8",
+        "update:geodb": "node ./node_modules/geoip-lite/scripts/updatedb.js license_key=sClIi7oTlPcCEcn8"
     },
     "repository": {
         "type": "git",
@@ -26,7 +29,9 @@
     },
     "dependencies": {
         "axios": "^0.19.2",
+        "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
+        "brain.js": "^2.0.0-beta.2",
         "cookie-parser": "^1.4.4",
         "cors": "^2.8.5",
         "csurf": "^1.11.0",
@@ -34,15 +39,18 @@
         "express-handlebars": "^3.1.0",
         "express-rate-limit": "^5.0.0",
         "express-session": "^1.17.0",
+        "geoip-lite": "^1.4.2",
         "handlebars-helpers": "^0.10.0",
         "ioredis": "^4.14.1",
         "mongo-sanitize": "^1.0.1",
         "mongoose": "^5.0.0",
         "parseurl": "^1.3.3",
-        "pm2": "^4.2.3",
+        "pm2": "^4.4.1",
         "q": "^1.5.1",
         "rate-limiter-flexible": "^2.0.0",
         "redis": "^2.8.0",
+        "serve-static": "^1.14.1",
+        "vhost": "^3.0.2",
         "web-push": "^3.4.3"
     },
     "devDependencies": {

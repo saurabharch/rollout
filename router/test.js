@@ -54,13 +54,15 @@ router.get("/", (req, res) => {
     timestamp: Date.parse("01 Jan 2000 00:00:00")
     // urgency: ""
   };
-  req.body = " ";
-  if (req.body != payload) {
+  console.log(payload);
+  // req.body = " ";
+  if (payload) {
     console.log(payload);
     try {
       axios
         .post(
-          "http://localhost:3000/push",
+          // `http://${process.env.HOST}:${process.env.PORT}/push`,
+          "http://localhost:5500/push",
           "User-Agent:KappyTech/0.0.1",
           this.payload
         )

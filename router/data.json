@@ -1,0 +1,3480 @@
+[
+    {
+        "text": "my unit test failed",
+        "category": "software"
+    },
+    {
+        "text": "tried the program, but it was buggy",
+        "category": "software"
+    },
+    {
+        "text": "i need a new power supply",
+        "category": "hardware"
+    },
+    {
+        "text": "the drive has a 2TB capacity",
+        "category": "hardware"
+    },
+    {
+        "text": "unit-tests",
+        "category": "software"
+    },
+    {
+        "text": "program",
+        "category": "software"
+    },
+    {
+        "text": "power supply",
+        "category": "hardware"
+    },
+    {
+        "text": "drive",
+        "category": "hardware"
+    },
+    {
+        "text": "it needs more memory",
+        "category": "hardware"
+    },
+    {
+        "text": "code",
+        "category": "software"
+    },
+    {
+        "text": "i found some bugs in the code",
+        "category": "software"
+    },
+    {
+        "text": "i swapped the memory",
+        "category": "hardware"
+    },
+    {
+        "text": "i tested the code",
+        "category": "software"
+    },
+    {
+        "text": "i love computers",
+        "category": "hardware"
+    },
+    {
+        "text": "programming",
+        "category": "software"
+    },
+    {
+        "text": "i broke my pc",
+        "category": "hardware"
+    },
+    {
+        "text": "computer",
+        "category": "hardware"
+    },
+    {
+        "text": "buy me a laptop",
+        "category": "hardware"
+    },
+    {
+        "text": "i love to play games",
+        "category": "software"
+    },
+    {
+        "text": "anus",
+        "category": "sexual"
+    },
+    {
+        "text": "arse",
+        "category": "insult"
+    },
+    {
+        "text": "arsehole",
+        "category": "insult"
+    },
+    {
+        "text": "ass",
+        "category": [
+            "sexual",
+            "insult"
+        ]
+    },
+    {
+        "text": "ass-hat",
+        "category": "insult"
+    },
+    {
+        "text": "ass-pirate",
+        "category": "discriminatory"
+    },
+    {
+        "text": "assbag",
+        "category": "insult"
+    },
+    {
+        "text": "assbandit",
+        "category": "discriminatory"
+    },
+    {
+        "text": "assbanger",
+        "category": "discriminatory"
+    },
+    {
+        "text": "assbite",
+        "category": "insult"
+    },
+    {
+        "text": "assclown",
+        "category": "sexual"
+    },
+    {
+        "text": "asscock",
+        "category": "insult"
+    },
+    {
+        "text": "asscracker",
+        "category": "sexual"
+    },
+    {
+        "text": "assface",
+        "category": "sexual"
+    },
+    {
+        "text": "assfuck",
+        "category": "sexual"
+    },
+    {
+        "text": "assfucker",
+        "category": "discriminatory"
+    },
+    {
+        "text": "assgoblin",
+        "category": "discriminatory"
+    },
+    {
+        "text": "asshat",
+        "category": "sexual"
+    },
+    {
+        "text": "asshead",
+        "category": "insult"
+    },
+    {
+        "text": "asshole",
+        "category": "insult"
+    },
+    {
+        "text": "asshopper",
+        "category": "discriminatory"
+    },
+    {
+        "text": "assjacker",
+        "category": "discriminatory"
+    },
+    {
+        "text": "asslick",
+        "category": "insult"
+    },
+    {
+        "text": "asslicker",
+        "category": "insult"
+    },
+    {
+        "text": "assmonkey",
+        "category": "insult"
+    },
+    {
+        "text": "assmunch",
+        "category": "insult"
+    },
+    {
+        "text": "assmuncher",
+        "category": "sexual"
+    },
+    {
+        "text": "assnigger",
+        "category": "discriminatory"
+    },
+    {
+        "text": "asspirate",
+        "category": "discriminatory"
+    },
+    {
+        "text": "assshit",
+        "category": "insult"
+    },
+    {
+        "text": "assshole",
+        "category": "sexual"
+    },
+    {
+        "text": "asssucker",
+        "category": "insult"
+    },
+    {
+        "text": "asswad",
+        "category": "sexual"
+    },
+    {
+        "text": "asswipe",
+        "category": "sexual"
+    },
+    {
+        "text": "bampot",
+        "category": "insult"
+    },
+    {
+        "text": "bastard",
+        "category": "insult"
+    },
+    {
+        "text": "beaner",
+        "category": "discriminatory"
+    },
+    {
+        "text": "beastial",
+        "category": "sexual"
+    },
+    {
+        "text": "beastiality",
+        "category": "sexual"
+    },
+    {
+        "text": "beastility",
+        "category": "sexual"
+    },
+    {
+        "text": "bestial",
+        "category": "sexual"
+    },
+    {
+        "text": "bestiality",
+        "category": "sexual"
+    },
+    {
+        "text": "bitch",
+        "category": "insult"
+    },
+    {
+        "text": "bitchass",
+        "category": "insult"
+    },
+    {
+        "text": "bitcher",
+        "category": "insult"
+    },
+    {
+        "text": "bitchin",
+        "category": "inappropriate"
+    },
+    {
+        "text": "bitching",
+        "category": "inappropriate"
+    },
+    {
+        "text": "bitchtit",
+        "category": "discriminatory"
+    },
+    {
+        "text": "bitchy",
+        "category": "insult"
+    },
+    {
+        "text": "blow job",
+        "category": "sexual"
+    },
+    {
+        "text": "blowjob",
+        "category": "sexual"
+    },
+    {
+        "text": "bollocks",
+        "category": "sexual"
+    },
+    {
+        "text": "bollox",
+        "category": "sexual"
+    },
+    {
+        "text": "boner",
+        "category": "sexual"
+    },
+    {
+        "text": "bullshit",
+        "category": "inappropriate"
+    },
+    {
+        "text": "butt plug",
+        "category": "sexual"
+    },
+    {
+        "text": "camel toe",
+        "category": "sexual"
+    },
+    {
+        "text": "choad",
+        "category": "sexual"
+    },
+    {
+        "text": "chode",
+        "category": "sexual"
+    },
+    {
+        "text": "clit",
+        "category": "sexual"
+    },
+    {
+        "text": "clitface",
+        "category": "insult"
+    },
+    {
+        "text": "clitfuck",
+        "category": "sexual"
+    },
+    {
+        "text": "clusterfuck",
+        "category": "inappropriate"
+    },
+    {
+        "text": "cock",
+        "category": "sexual"
+    },
+    {
+        "text": "cockbite",
+        "category": "insult"
+    },
+    {
+        "text": "cockburger",
+        "category": "insult"
+    },
+    {
+        "text": "cockface",
+        "category": "insult"
+    },
+    {
+        "text": "cockfucker",
+        "category": "insult"
+    },
+    {
+        "text": "cockhead",
+        "category": "insult"
+    },
+    {
+        "text": "cockmonkey",
+        "category": "insult"
+    },
+    {
+        "text": "cocknose",
+        "category": "insult"
+    },
+    {
+        "text": "cocknugget",
+        "category": "insult"
+    },
+    {
+        "text": "cockshit",
+        "category": "insult"
+    },
+    {
+        "text": "cocksuck",
+        "category": "sexual"
+    },
+    {
+        "text": "cocksucked",
+        "category": "sexual"
+    },
+    {
+        "text": "cocksucker",
+        "category": [
+            "discriminatory",
+            "sexual"
+        ]
+    },
+    {
+        "text": "cocksucking",
+        "category": [
+            "sexual",
+            "discriminatory"
+        ]
+    },
+    {
+        "text": "cocksucks",
+        "category": [
+            "sexual",
+            "discriminatory"
+        ]
+    },
+    {
+        "text": "coochie",
+        "category": "sexual"
+    },
+    {
+        "text": "coochy",
+        "category": "sexual"
+    },
+    {
+        "text": "cooter",
+        "category": "sexual"
+    },
+    {
+        "text": "cum",
+        "category": "sexual"
+    },
+    {
+        "text": "cumbubble",
+        "category": "insult"
+    },
+    {
+        "text": "cumdumpster",
+        "category": "sexual"
+    },
+    {
+        "text": "cummer",
+        "category": "sexual"
+    },
+    {
+        "text": "cumming",
+        "category": "sexual"
+    },
+    {
+        "text": "cumshot",
+        "category": "sexual"
+    },
+    {
+        "text": "cumslut",
+        "category": [
+            "sexual",
+            "insult"
+        ]
+    },
+    {
+        "text": "cumtart",
+        "category": "insult"
+    },
+    {
+        "text": "cunillingus",
+        "category": "sexual"
+    },
+    {
+        "text": "cunnie",
+        "category": "sexual"
+    },
+    {
+        "text": "cunnilingus",
+        "category": "sexual"
+    },
+    {
+        "text": "cunt",
+        "category": [
+            "insult",
+            "sexual"
+        ]
+    },
+    {
+        "text": "cuntface",
+        "category": "insult"
+    },
+    {
+        "text": "cunthole",
+        "category": "sexual"
+    },
+    {
+        "text": "cuntlick",
+        "category": "sexual"
+    },
+    {
+        "text": "cuntlicker",
+        "category": [
+            "sexual",
+            "discriminatory"
+        ]
+    },
+    {
+        "text": "cuntlicking",
+        "category": "sexual"
+    },
+    {
+        "text": "cuntrag",
+        "category": "insult"
+    },
+    {
+        "text": "cuntslut",
+        "category": "insult"
+    },
+    {
+        "text": "cyberfuc",
+        "category": "sexual"
+    },
+    {
+        "text": "cyberfuck",
+        "category": "sexual"
+    },
+    {
+        "text": "cyberfucked",
+        "category": "sexual"
+    },
+    {
+        "text": "cyberfucker",
+        "category": "sexual"
+    },
+    {
+        "text": "cyberfucking",
+        "category": "sexual"
+    },
+    {
+        "text": "dago",
+        "category": "discriminatory"
+    },
+    {
+        "text": "damn",
+        "category": "inappropriate"
+    },
+    {
+        "text": "deggo",
+        "category": "discriminatory"
+    },
+    {
+        "text": "dick",
+        "category": [
+            "sexual",
+            "insult"
+        ]
+    },
+    {
+        "text": "dickbag",
+        "category": "insult"
+    },
+    {
+        "text": "dickbeaters",
+        "category": "sexual"
+    },
+    {
+        "text": "dickface",
+        "category": "insult"
+    },
+    {
+        "text": "dickfuck",
+        "category": "insult"
+    },
+    {
+        "text": "dickhead",
+        "category": "insult"
+    },
+    {
+        "text": "dickhole",
+        "category": "sexual"
+    },
+    {
+        "text": "dickjuice",
+        "category": "sexual"
+    },
+    {
+        "text": "dickmilk",
+        "category": "sexual"
+    },
+    {
+        "text": "dickslap",
+        "category": "sexual"
+    },
+    {
+        "text": "dickwad",
+        "category": "insult"
+    },
+    {
+        "text": "dickweasel",
+        "category": "insult"
+    },
+    {
+        "text": "dickweed",
+        "category": "insult"
+    },
+    {
+        "text": "dickwod",
+        "category": "insult"
+    },
+    {
+        "text": "dildo",
+        "category": "sexual"
+    },
+    {
+        "text": "dink",
+        "category": [
+            "insult",
+            "sexual"
+        ]
+    },
+    {
+        "text": "dipshit",
+        "category": "insult"
+    },
+    {
+        "text": "doochbag",
+        "category": "insult"
+    },
+    {
+        "text": "dookie",
+        "category": "inappropriate"
+    },
+    {
+        "text": "douche",
+        "category": "insult"
+    },
+    {
+        "text": "douche-fag",
+        "category": "insult"
+    },
+    {
+        "text": "douchebag",
+        "category": "insult"
+    },
+    {
+        "text": "douchewaffle",
+        "category": "discriminatory"
+    },
+    {
+        "text": "dumass",
+        "category": "insult"
+    },
+    {
+        "text": "dumb ass",
+        "category": "insult"
+    },
+    {
+        "text": "dumbass",
+        "category": "insult"
+    },
+    {
+        "text": "dumbfuck",
+        "category": "insult"
+    },
+    {
+        "text": "dumbshit",
+        "category": "insult"
+    },
+    {
+        "text": "dumshit",
+        "category": "insult"
+    },
+    {
+        "text": "ejaculate",
+        "category": "sexual"
+    },
+    {
+        "text": "ejaculated",
+        "category": "sexual"
+    },
+    {
+        "text": "ejaculates",
+        "category": "sexual"
+    },
+    {
+        "text": "ejaculating",
+        "category": "sexual"
+    },
+    {
+        "text": "ejaculation",
+        "category": "sexual"
+    },
+    {
+        "text": "fag",
+        "category": "discriminatory"
+    },
+    {
+        "text": "fagbag",
+        "category": "discriminatory"
+    },
+    {
+        "text": "fagfucker",
+        "category": "discriminatory"
+    },
+    {
+        "text": "fagging",
+        "category": "discriminatory"
+    },
+    {
+        "text": "faggit",
+        "category": "discriminatory"
+    },
+    {
+        "text": "faggot",
+        "category": "discriminatory"
+    },
+    {
+        "text": "faggotcock",
+        "category": "discriminatory"
+    },
+    {
+        "text": "faggs",
+        "category": "discriminatory"
+    },
+    {
+        "text": "fagot",
+        "category": "discriminatory"
+    },
+    {
+        "text": "fags",
+        "category": "discriminatory"
+    },
+    {
+        "text": "fagtard",
+        "category": "discriminatory"
+    },
+    {
+        "text": "fart",
+        "category": "inappropriate"
+    },
+    {
+        "text": "farted",
+        "category": "inappropriate"
+    },
+    {
+        "text": "farting",
+        "category": "inappropriate"
+    },
+    {
+        "text": "farty",
+        "category": "inappropriate"
+    },
+    {
+        "text": "fatass",
+        "category": "insult"
+    },
+    {
+        "text": "felatio",
+        "category": "sexual"
+    },
+    {
+        "text": "fellatio",
+        "category": "sexual"
+    },
+    {
+        "text": "feltch",
+        "category": "sexual"
+    },
+    {
+        "text": "fingerfuck",
+        "category": "sexual"
+    },
+    {
+        "text": "fingerfucked",
+        "category": "sexual"
+    },
+    {
+        "text": "fingerfucker",
+        "category": "sexual"
+    },
+    {
+        "text": "fingerfucking",
+        "category": "sexual"
+    },
+    {
+        "text": "fingerfucks",
+        "category": "sexual"
+    },
+    {
+        "text": "fistfuck",
+        "category": "sexual"
+    },
+    {
+        "text": "fistfucked",
+        "category": "sexual"
+    },
+    {
+        "text": "fistfucker",
+        "category": "sexual"
+    },
+    {
+        "text": "fistfucking",
+        "category": "sexual"
+    },
+    {
+        "text": "flamer",
+        "category": "discriminatory"
+    },
+    {
+        "text": "fuck",
+        "category": "sexual"
+    },
+    {
+        "text": "fuckass",
+        "category": "insult"
+    },
+    {
+        "text": "fuckbag",
+        "category": "insult"
+    },
+    {
+        "text": "fuckboy",
+        "category": "insult"
+    },
+    {
+        "text": "fuckbrain",
+        "category": "insult"
+    },
+    {
+        "text": "fuckbutt",
+        "category": "sexual"
+    },
+    {
+        "text": "fucked",
+        "category": "sexual"
+    },
+    {
+        "text": "fucker",
+        "category": [
+            "sexual",
+            "insult"
+        ]
+    },
+    {
+        "text": "fuckersucker",
+        "category": "insult"
+    },
+    {
+        "text": "fuckface",
+        "category": "insult"
+    },
+    {
+        "text": "fuckhead",
+        "category": "sexual"
+    },
+    {
+        "text": "fuckhole",
+        "category": "insult"
+    },
+    {
+        "text": "fuckin",
+        "category": "sexual"
+    },
+    {
+        "text": "fucking",
+        "category": "sexual"
+    },
+    {
+        "text": "fuckme",
+        "category": "sexual"
+    },
+    {
+        "text": "fucknut",
+        "category": "insult"
+    },
+    {
+        "text": "fucknutt",
+        "category": "insult"
+    },
+    {
+        "text": "fuckoff",
+        "category": "insult"
+    },
+    {
+        "text": "fuckstick",
+        "category": "sexual"
+    },
+    {
+        "text": "fucktard",
+        "category": "insult"
+    },
+    {
+        "text": "fuckup",
+        "category": "insult"
+    },
+    {
+        "text": "fuckwad",
+        "category": "insult"
+    },
+    {
+        "text": "fuckwit",
+        "category": "insult"
+    },
+    {
+        "text": "fuckwitt",
+        "category": "insult"
+    },
+    {
+        "text": "fudgepacker",
+        "category": "discriminatory"
+    },
+    {
+        "text": "fuk",
+        "category": "sexual"
+    },
+    {
+        "text": "gangbang",
+        "category": "sexual"
+    },
+    {
+        "text": "gangbanged",
+        "category": "sexual"
+    },
+    {
+        "text": "goddamn",
+        "category": [
+            "inappropriate",
+            "blasphemy"
+        ]
+    },
+    {
+        "text": "goddamnit",
+        "category": [
+            "inappropriate",
+            "blasphemy"
+        ]
+    },
+    {
+        "text": "gooch",
+        "category": "sexual"
+    },
+    {
+        "text": "gook",
+        "category": "discriminatory"
+    },
+    {
+        "text": "gringo",
+        "category": "discriminatory"
+    },
+    {
+        "text": "guido",
+        "category": "discriminatory"
+    },
+    {
+        "text": "handjob",
+        "category": "sexual"
+    },
+    {
+        "text": "hardcoresex",
+        "category": "sexual"
+    },
+    {
+        "text": "heeb",
+        "category": "discriminatory"
+    },
+    {
+        "text": "hell",
+        "category": "inappropriate"
+    },
+    {
+        "text": "ho",
+        "category": "discriminatory"
+    },
+    {
+        "text": "hoe",
+        "category": "discriminatory"
+    },
+    {
+        "text": "homo",
+        "category": "discriminatory"
+    },
+    {
+        "text": "homodumbshit",
+        "category": "insult"
+    },
+    {
+        "text": "honkey",
+        "category": "discriminatory"
+    },
+    {
+        "text": "horniest",
+        "category": "sexual"
+    },
+    {
+        "text": "horny",
+        "category": "sexual"
+    },
+    {
+        "text": "hotsex",
+        "category": "sexual"
+    },
+    {
+        "text": "humping",
+        "category": "sexual"
+    },
+    {
+        "text": "jackass",
+        "category": "insult"
+    },
+    {
+        "text": "jap",
+        "category": "discriminatory"
+    },
+    {
+        "text": "jigaboo",
+        "category": "discriminatory"
+    },
+    {
+        "text": "jism",
+        "category": "sexual"
+    },
+    {
+        "text": "jiz",
+        "category": "sexual"
+    },
+    {
+        "text": "jizm",
+        "category": "sexual"
+    },
+    {
+        "text": "jizz",
+        "category": "sexual"
+    },
+    {
+        "text": "jungle bunny",
+        "category": "discriminatory"
+    },
+    {
+        "text": "junglebunny",
+        "category": "discriminatory"
+    },
+    {
+        "text": "kike",
+        "category": "discriminatory"
+    },
+    {
+        "text": "kock",
+        "category": "sexual"
+    },
+    {
+        "text": "kondum",
+        "category": "sexual"
+    },
+    {
+        "text": "kooch",
+        "category": "sexual"
+    },
+    {
+        "text": "kootch",
+        "category": "sexual"
+    },
+    {
+        "text": "kum",
+        "category": "sexual"
+    },
+    {
+        "text": "kumer",
+        "category": "sexual"
+    },
+    {
+        "text": "kummer",
+        "category": "sexual"
+    },
+    {
+        "text": "kumming",
+        "category": "sexual"
+    },
+    {
+        "text": "kums",
+        "category": "sexual"
+    },
+    {
+        "text": "kunilingus",
+        "category": "sexual"
+    },
+    {
+        "text": "kunt",
+        "category": "sexual"
+    },
+    {
+        "text": "kyke",
+        "category": "discriminatory"
+    },
+    {
+        "text": "lezzie",
+        "category": "discriminatory"
+    },
+    {
+        "text": "lust",
+        "category": "sexual"
+    },
+    {
+        "text": "lusting",
+        "category": "sexual"
+    },
+    {
+        "text": "mcfagget",
+        "category": "discriminatory"
+    },
+    {
+        "text": "mick",
+        "category": "discriminatory"
+    },
+    {
+        "text": "minge",
+        "category": "sexual"
+    },
+    {
+        "text": "mothafuck",
+        "category": "sexual"
+    },
+    {
+        "text": "mothafucka",
+        "category": [
+            "sexual",
+            "insult"
+        ]
+    },
+    {
+        "text": "mothafuckaz",
+        "category": "sexual"
+    },
+    {
+        "text": "mothafucked",
+        "category": "sexual"
+    },
+    {
+        "text": "mothafucker",
+        "category": [
+            "sexual",
+            "insult"
+        ]
+    },
+    {
+        "text": "mothafuckin",
+        "category": "sexual"
+    },
+    {
+        "text": "mothafucking",
+        "category": "sexual"
+    },
+    {
+        "text": "mothafucks",
+        "category": "sexual"
+    },
+    {
+        "text": "motherfuck",
+        "category": "sexual"
+    },
+    {
+        "text": "motherfucked",
+        "category": "sexual"
+    },
+    {
+        "text": "motherfucker",
+        "category": [
+            "sexual",
+            "insult"
+        ]
+    },
+    {
+        "text": "motherfuckin",
+        "category": "sexual"
+    },
+    {
+        "text": "motherfucking",
+        "category": "sexual"
+    },
+    {
+        "text": "muff",
+        "category": "sexual"
+    },
+    {
+        "text": "muffdiver",
+        "category": [
+            "discriminatory",
+            "sexual"
+        ]
+    },
+    {
+        "text": "munging",
+        "category": "sexual"
+    },
+    {
+        "text": "negro",
+        "category": "discriminatory"
+    },
+    {
+        "text": "nigga",
+        "category": "discriminatory"
+    },
+    {
+        "text": "nigger",
+        "category": "discriminatory"
+    },
+    {
+        "text": "niglet",
+        "category": "discriminatory"
+    },
+    {
+        "text": "nut sack",
+        "category": "sexual"
+    },
+    {
+        "text": "nutsack",
+        "category": "sexual"
+    },
+    {
+        "text": "orgasim",
+        "category": "sexual"
+    },
+    {
+        "text": "orgasm",
+        "category": "sexual"
+    },
+    {
+        "text": "paki",
+        "category": "discriminatory"
+    },
+    {
+        "text": "panooch",
+        "category": "sexual"
+    },
+    {
+        "text": "pecker",
+        "category": "sexual"
+    },
+    {
+        "text": "peckerhead",
+        "category": "insult"
+    },
+    {
+        "text": "penis",
+        "category": "sexual"
+    },
+    {
+        "text": "penisfucker",
+        "category": "discriminatory"
+    },
+    {
+        "text": "penispuffer",
+        "category": "discriminatory"
+    },
+    {
+        "text": "phonesex",
+        "category": "sexual"
+    },
+    {
+        "text": "phuk",
+        "category": "sexual"
+    },
+    {
+        "text": "phuked",
+        "category": "sexual"
+    },
+    {
+        "text": "phuking",
+        "category": "sexual"
+    },
+    {
+        "text": "phukked",
+        "category": "sexual"
+    },
+    {
+        "text": "phukking",
+        "category": "sexual"
+    },
+    {
+        "text": "phuks",
+        "category": "sexual"
+    },
+    {
+        "text": "phuq",
+        "category": "sexual"
+    },
+    {
+        "text": "pis",
+        "category": "sexual"
+    },
+    {
+        "text": "pises",
+        "category": "sexual"
+    },
+    {
+        "text": "pisin",
+        "category": "sexual"
+    },
+    {
+        "text": "pising",
+        "category": "sexual"
+    },
+    {
+        "text": "pisof",
+        "category": "sexual"
+    },
+    {
+        "text": "piss",
+        "category": "inappropriate"
+    },
+    {
+        "text": "pissed",
+        "category": "inappropriate"
+    },
+    {
+        "text": "pisser",
+        "category": "sexual"
+    },
+    {
+        "text": "pisses",
+        "category": "sexual"
+    },
+    {
+        "text": "pissflaps",
+        "category": "sexual"
+    },
+    {
+        "text": "pissin",
+        "category": "sexual"
+    },
+    {
+        "text": "pissing",
+        "category": "sexual"
+    },
+    {
+        "text": "pissoff",
+        "category": "sexual"
+    },
+    {
+        "text": "polesmoker",
+        "category": "discriminatory"
+    },
+    {
+        "text": "pollock",
+        "category": "discriminatory"
+    },
+    {
+        "text": "poon",
+        "category": "sexual"
+    },
+    {
+        "text": "poonani",
+        "category": "sexual"
+    },
+    {
+        "text": "poonany",
+        "category": "sexual"
+    },
+    {
+        "text": "poontang",
+        "category": "sexual"
+    },
+    {
+        "text": "porch monkey",
+        "category": "discriminatory"
+    },
+    {
+        "text": "porchmonkey",
+        "category": "discriminatory"
+    },
+    {
+        "text": "porn",
+        "category": "sexual"
+    },
+    {
+        "text": "porno",
+        "category": "sexual"
+    },
+    {
+        "text": "pornography",
+        "category": "sexual"
+    },
+    {
+        "text": "pornos",
+        "category": "sexual"
+    },
+    {
+        "text": "prick",
+        "category": "sexual"
+    },
+    {
+        "text": "punanny",
+        "category": "sexual"
+    },
+    {
+        "text": "punta",
+        "category": "insult"
+    },
+    {
+        "text": "pusies",
+        "category": [
+            "sexual",
+            "insult"
+        ]
+    },
+    {
+        "text": "pussies",
+        "category": [
+            "sexual",
+            "insult"
+        ]
+    },
+    {
+        "text": "pussy",
+        "category": [
+            "sexual",
+            "insult"
+        ]
+    },
+    {
+        "text": "pussylicking",
+        "category": "sexual"
+    },
+    {
+        "text": "pusy",
+        "category": "sexual"
+    },
+    {
+        "text": "puto",
+        "category": "insult"
+    },
+    {
+        "text": "renob",
+        "category": "sexual"
+    },
+    {
+        "text": "rimjob",
+        "category": "sexual"
+    },
+    {
+        "text": "ruski",
+        "category": "discriminatory"
+    },
+    {
+        "text": "sandnigger",
+        "category": "discriminatory"
+    },
+    {
+        "text": "schlong",
+        "category": "sexual"
+    },
+    {
+        "text": "scrote",
+        "category": "sexual"
+    },
+    {
+        "text": "shit",
+        "category": [
+            "sexual",
+            "inappropriate"
+        ]
+    },
+    {
+        "text": "shitass",
+        "category": "insult"
+    },
+    {
+        "text": "shitbag",
+        "category": "insult"
+    },
+    {
+        "text": "shitbagger",
+        "category": "insult"
+    },
+    {
+        "text": "shitbrain",
+        "category": "insult"
+    },
+    {
+        "text": "shitbreath",
+        "category": "insult"
+    },
+    {
+        "text": "shitcunt",
+        "category": "insult"
+    },
+    {
+        "text": "shitdick",
+        "category": "insult"
+    },
+    {
+        "text": "shited",
+        "category": "sexual"
+    },
+    {
+        "text": "shitface",
+        "category": "insult"
+    },
+    {
+        "text": "shitfaced",
+        "category": [
+            "inappropriate",
+            "insult"
+        ]
+    },
+    {
+        "text": "shitfull",
+        "category": "sexual"
+    },
+    {
+        "text": "shithead",
+        "category": "insult"
+    },
+    {
+        "text": "shithole",
+        "category": "insult"
+    },
+    {
+        "text": "shithouse",
+        "category": "inappropriate"
+    },
+    {
+        "text": "shiting",
+        "category": "sexual"
+    },
+    {
+        "text": "shitspitter",
+        "category": "sexual"
+    },
+    {
+        "text": "shitstain",
+        "category": [
+            "inappropriate",
+            "insult"
+        ]
+    },
+    {
+        "text": "shitted",
+        "category": "sexual"
+    },
+    {
+        "text": "shitter",
+        "category": "sexual"
+    },
+    {
+        "text": "shittiest",
+        "category": "inappropriate"
+    },
+    {
+        "text": "shitting",
+        "category": "inappropriate"
+    },
+    {
+        "text": "shitty",
+        "category": "inappropriate"
+    },
+    {
+        "text": "shity",
+        "category": "sexual"
+    },
+    {
+        "text": "shiz",
+        "category": "inappropriate"
+    },
+    {
+        "text": "shiznit",
+        "category": "inappropriate"
+    },
+    {
+        "text": "skank",
+        "category": "insult"
+    },
+    {
+        "text": "skeet",
+        "category": "sexual"
+    },
+    {
+        "text": "skullfuck",
+        "category": "sexual"
+    },
+    {
+        "text": "slut",
+        "category": "discriminatory"
+    },
+    {
+        "text": "slutbag",
+        "category": "discriminatory"
+    },
+    {
+        "text": "sluts",
+        "category": "sexual"
+    },
+    {
+        "text": "smeg",
+        "category": "inappropriate"
+    },
+    {
+        "text": "smut",
+        "category": "sexual"
+    },
+    {
+        "text": "snatch",
+        "category": "sexual"
+    },
+    {
+        "text": "spic",
+        "category": "discriminatory"
+    },
+    {
+        "text": "spick",
+        "category": "discriminatory"
+    },
+    {
+        "text": "splooge",
+        "category": "sexual"
+    },
+    {
+        "text": "spunk",
+        "category": "sexual"
+    },
+    {
+        "text": "tard",
+        "category": "discriminatory"
+    },
+    {
+        "text": "testicle",
+        "category": "sexual"
+    },
+    {
+        "text": "thundercunt",
+        "category": "insult"
+    },
+    {
+        "text": "tit",
+        "category": "sexual"
+    },
+    {
+        "text": "tits",
+        "category": "sexual"
+    },
+    {
+        "text": "titfuck",
+        "category": "sexual"
+    },
+    {
+        "text": "tittyfuck",
+        "category": "sexual"
+    },
+    {
+        "text": "twat",
+        "category": "sexual"
+    },
+    {
+        "text": "twatlips",
+        "category": "insult"
+    },
+    {
+        "text": "twatwaffle",
+        "category": "discriminatory"
+    },
+    {
+        "text": "unclefucker",
+        "category": "discriminatory"
+    },
+    {
+        "text": "va-j-j",
+        "category": "sexual"
+    },
+    {
+        "text": "vag",
+        "category": "sexual"
+    },
+    {
+        "text": "vagina",
+        "category": "sexual"
+    },
+    {
+        "text": "vjayjay",
+        "category": "sexual"
+    },
+    {
+        "text": "wank",
+        "category": "sexual"
+    },
+    {
+        "text": "wetback",
+        "category": "discriminatory"
+    },
+    {
+        "text": "whore",
+        "category": "insult"
+    },
+    {
+        "text": "whorebag",
+        "category": "insult"
+    },
+    {
+        "text": "whoreface",
+        "category": "insult"
+    },
+    {
+        "text": "5h1t",
+        "category": "offensive-text"
+    },
+    {
+        "text": "5hit",
+        "category": "offensive-text"
+    },
+    {
+        "text": "a55",
+        "category": "offensive-text"
+    },
+    {
+        "text": "anal",
+        "category": "offensive-text"
+    },
+    {
+        "text": "anus",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ar5e",
+        "category": "offensive-text"
+    },
+    {
+        "text": "arrse",
+        "category": "offensive-text"
+    },
+    {
+        "text": "arse",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ass",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ass-fucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "asses",
+        "category": "offensive-text"
+    },
+    {
+        "text": "assfucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "assfukka",
+        "category": "offensive-text"
+    },
+    {
+        "text": "asshole",
+        "category": "offensive-text"
+    },
+    {
+        "text": "assholes",
+        "category": "offensive-text"
+    },
+    {
+        "text": "asswhole",
+        "category": "offensive-text"
+    },
+    {
+        "text": "a_s_s",
+        "category": "offensive-text"
+    },
+    {
+        "text": "b!tch",
+        "category": "offensive-text"
+    },
+    {
+        "text": "b00bs",
+        "category": "offensive-text"
+    },
+    {
+        "text": "b17ch",
+        "category": "offensive-text"
+    },
+    {
+        "text": "b1tch",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ballbag",
+        "category": "offensive-text"
+    },
+    {
+        "text": "balls",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ballsack",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bastard",
+        "category": "offensive-text"
+    },
+    {
+        "text": "beastial",
+        "category": "offensive-text"
+    },
+    {
+        "text": "beastiality",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bellend",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bestial",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bestiality",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bi+ch",
+        "category": "offensive-text"
+    },
+    {
+        "text": "biatch",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bitch",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bitcher",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bitchers",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bitches",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bitchin",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bitching",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bloody",
+        "category": "offensive-text"
+    },
+    {
+        "text": "blow job",
+        "category": "offensive-text"
+    },
+    {
+        "text": "blowjob",
+        "category": "offensive-text"
+    },
+    {
+        "text": "blowjobs",
+        "category": "offensive-text"
+    },
+    {
+        "text": "boiolas",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bollock",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bollok",
+        "category": "offensive-text"
+    },
+    {
+        "text": "boner",
+        "category": "offensive-text"
+    },
+    {
+        "text": "boob",
+        "category": "offensive-text"
+    },
+    {
+        "text": "boobs",
+        "category": "offensive-text"
+    },
+    {
+        "text": "booobs",
+        "category": "offensive-text"
+    },
+    {
+        "text": "boooobs",
+        "category": "offensive-text"
+    },
+    {
+        "text": "booooobs",
+        "category": "offensive-text"
+    },
+    {
+        "text": "booooooobs",
+        "category": "offensive-text"
+    },
+    {
+        "text": "breasts",
+        "category": "offensive-text"
+    },
+    {
+        "text": "buceta",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bugger",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bum",
+        "category": "offensive-text"
+    },
+    {
+        "text": "bunny fucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "butt",
+        "category": "offensive-text"
+    },
+    {
+        "text": "butthole",
+        "category": "offensive-text"
+    },
+    {
+        "text": "buttmuch",
+        "category": "offensive-text"
+    },
+    {
+        "text": "buttplug",
+        "category": "offensive-text"
+    },
+    {
+        "text": "c0ck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "c0cksucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "carpet muncher",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cawk",
+        "category": "offensive-text"
+    },
+    {
+        "text": "chink",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cipa",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cl1t",
+        "category": "offensive-text"
+    },
+    {
+        "text": "clit",
+        "category": "offensive-text"
+    },
+    {
+        "text": "clitoris",
+        "category": "offensive-text"
+    },
+    {
+        "text": "clits",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cnut",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cock",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cock-sucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cockface",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cockhead",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cockmunch",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cockmuncher",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cocks",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cocksuck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cocksucked",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cocksucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cocksucking",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cocksucks",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cocksuka",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cocksukka",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cok",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cokmuncher",
+        "category": "offensive-text"
+    },
+    {
+        "text": "coksucka",
+        "category": "offensive-text"
+    },
+    {
+        "text": "coon",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cox",
+        "category": "offensive-text"
+    },
+    {
+        "text": "crap",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cum",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cummer",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cumming",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cums",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cumshot",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cunilingus",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cunillingus",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cunnilingus",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cunt",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cuntlick",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cuntlicker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cuntlicking",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cunts",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cyalis",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cyberfuc",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cyberfuck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cyberfucked",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cyberfucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cyberfuckers",
+        "category": "offensive-text"
+    },
+    {
+        "text": "cyberfucking",
+        "category": "offensive-text"
+    },
+    {
+        "text": "d1ck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "damn",
+        "category": "offensive-text"
+    },
+    {
+        "text": "dick",
+        "category": "offensive-text"
+    },
+    {
+        "text": "dickhead",
+        "category": "offensive-text"
+    },
+    {
+        "text": "dildo",
+        "category": "offensive-text"
+    },
+    {
+        "text": "dildos",
+        "category": "offensive-text"
+    },
+    {
+        "text": "dink",
+        "category": "offensive-text"
+    },
+    {
+        "text": "dinks",
+        "category": "offensive-text"
+    },
+    {
+        "text": "dirsa",
+        "category": "offensive-text"
+    },
+    {
+        "text": "dlck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "dog-fucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "doggin",
+        "category": "offensive-text"
+    },
+    {
+        "text": "dogging",
+        "category": "offensive-text"
+    },
+    {
+        "text": "donkeyribber",
+        "category": "offensive-text"
+    },
+    {
+        "text": "doosh",
+        "category": "offensive-text"
+    },
+    {
+        "text": "duche",
+        "category": "offensive-text"
+    },
+    {
+        "text": "dyke",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ejaculate",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ejaculated",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ejaculates",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ejaculating",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ejaculatings",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ejaculation",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ejakulate",
+        "category": "offensive-text"
+    },
+    {
+        "text": "f u c k",
+        "category": "offensive-text"
+    },
+    {
+        "text": "f u c k e r",
+        "category": "offensive-text"
+    },
+    {
+        "text": "f4nny",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fag",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fagging",
+        "category": "offensive-text"
+    },
+    {
+        "text": "faggitt",
+        "category": "offensive-text"
+    },
+    {
+        "text": "faggot",
+        "category": "offensive-text"
+    },
+    {
+        "text": "faggs",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fagot",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fagots",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fags",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fanny",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fannyflaps",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fannyfucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fanyy",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fatass",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fcuk",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fcuker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fcuking",
+        "category": "offensive-text"
+    },
+    {
+        "text": "feck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fecker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "felching",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fellate",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fellatio",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fingerfuck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fingerfucked",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fingerfucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fingerfuckers",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fingerfucking",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fingerfucks",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fistfuck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fistfucked",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fistfucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fistfuckers",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fistfucking",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fistfuckings",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fistfucks",
+        "category": "offensive-text"
+    },
+    {
+        "text": "flange",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fook",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fooker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fucka",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fucked",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuckers",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuckhead",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuckheads",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuckin",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fucking",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuckings",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuckingshitmotherfucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuckme",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fucks",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuckwhit",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuckwit",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fudge packer",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fudgepacker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuk",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fukker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fukkin",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fuks",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fukwhit",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fukwit",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fux",
+        "category": "offensive-text"
+    },
+    {
+        "text": "fux0r",
+        "category": "offensive-text"
+    },
+    {
+        "text": "f_u_c_k",
+        "category": "offensive-text"
+    },
+    {
+        "text": "gangbang",
+        "category": "offensive-text"
+    },
+    {
+        "text": "gangbanged",
+        "category": "offensive-text"
+    },
+    {
+        "text": "gangbangs",
+        "category": "offensive-text"
+    },
+    {
+        "text": "gaylord",
+        "category": "offensive-text"
+    },
+    {
+        "text": "gaysex",
+        "category": "offensive-text"
+    },
+    {
+        "text": "goatse",
+        "category": "offensive-text"
+    },
+    {
+        "text": "God",
+        "category": "offensive-text"
+    },
+    {
+        "text": "god-dam",
+        "category": "offensive-text"
+    },
+    {
+        "text": "god-damned",
+        "category": "offensive-text"
+    },
+    {
+        "text": "goddamn",
+        "category": "offensive-text"
+    },
+    {
+        "text": "goddamned",
+        "category": "offensive-text"
+    },
+    {
+        "text": "hardcoresex",
+        "category": "offensive-text"
+    },
+    {
+        "text": "hell",
+        "category": "offensive-text"
+    },
+    {
+        "text": "heshe",
+        "category": "offensive-text"
+    },
+    {
+        "text": "hoar",
+        "category": "offensive-text"
+    },
+    {
+        "text": "hoare",
+        "category": "offensive-text"
+    },
+    {
+        "text": "hoer",
+        "category": "offensive-text"
+    },
+    {
+        "text": "homo",
+        "category": "offensive-text"
+    },
+    {
+        "text": "hore",
+        "category": "offensive-text"
+    },
+    {
+        "text": "horniest",
+        "category": "offensive-text"
+    },
+    {
+        "text": "horny",
+        "category": "offensive-text"
+    },
+    {
+        "text": "hotsex",
+        "category": "offensive-text"
+    },
+    {
+        "text": "jack-off",
+        "category": "offensive-text"
+    },
+    {
+        "text": "jackoff",
+        "category": "offensive-text"
+    },
+    {
+        "text": "jap",
+        "category": "offensive-text"
+    },
+    {
+        "text": "jerk-off",
+        "category": "offensive-text"
+    },
+    {
+        "text": "jism",
+        "category": "offensive-text"
+    },
+    {
+        "text": "jiz",
+        "category": "offensive-text"
+    },
+    {
+        "text": "jizm",
+        "category": "offensive-text"
+    },
+    {
+        "text": "jizz",
+        "category": "offensive-text"
+    },
+    {
+        "text": "kawk",
+        "category": "offensive-text"
+    },
+    {
+        "text": "knob",
+        "category": "offensive-text"
+    },
+    {
+        "text": "knobead",
+        "category": "offensive-text"
+    },
+    {
+        "text": "knobed",
+        "category": "offensive-text"
+    },
+    {
+        "text": "knobend",
+        "category": "offensive-text"
+    },
+    {
+        "text": "knobhead",
+        "category": "offensive-text"
+    },
+    {
+        "text": "knobjocky",
+        "category": "offensive-text"
+    },
+    {
+        "text": "knobjokey",
+        "category": "offensive-text"
+    },
+    {
+        "text": "kock",
+        "category": "offensive-text"
+    },
+    {
+        "text": "kondum",
+        "category": "offensive-text"
+    },
+    {
+        "text": "kondums",
+        "category": "offensive-text"
+    },
+    {
+        "text": "kum",
+        "category": "offensive-text"
+    },
+    {
+        "text": "kummer",
+        "category": "offensive-text"
+    },
+    {
+        "text": "kumming",
+        "category": "offensive-text"
+    },
+    {
+        "text": "kums",
+        "category": "offensive-text"
+    },
+    {
+        "text": "kunilingus",
+        "category": "offensive-text"
+    },
+    {
+        "text": "l3i+ch",
+        "category": "offensive-text"
+    },
+    {
+        "text": "l3itch",
+        "category": "offensive-text"
+    },
+    {
+        "text": "labia",
+        "category": "offensive-text"
+    },
+    {
+        "text": "lmfao",
+        "category": "offensive-text"
+    },
+    {
+        "text": "lust",
+        "category": "offensive-text"
+    },
+    {
+        "text": "lusting",
+        "category": "offensive-text"
+    },
+    {
+        "text": "m0f0",
+        "category": "offensive-text"
+    },
+    {
+        "text": "m0fo",
+        "category": "offensive-text"
+    },
+    {
+        "text": "m45terbate",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ma5terb8",
+        "category": "offensive-text"
+    },
+    {
+        "text": "ma5terbate",
+        "category": "offensive-text"
+    },
+    {
+        "text": "masochist",
+        "category": "offensive-text"
+    },
+    {
+        "text": "master-bate",
+        "category": "offensive-text"
+    },
+    {
+        "text": "masterb8",
+        "category": "offensive-text"
+    },
+    {
+        "text": "masterbat*",
+        "category": "offensive-text"
+    },
+    {
+        "text": "masterbat3",
+        "category": "offensive-text"
+    },
+    {
+        "text": "masterbate",
+        "category": "offensive-text"
+    },
+    {
+        "text": "masterbation",
+        "category": "offensive-text"
+    },
+    {
+        "text": "masterbations",
+        "category": "offensive-text"
+    },
+    {
+        "text": "masturbate",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mo-fo",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mof0",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mofo",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mothafuck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mothafucka",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mothafuckas",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mothafuckaz",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mothafucked",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mothafucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mothafuckers",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mothafuckin",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mothafucking",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mothafuckings",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mothafucks",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mother fucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "motherfuck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "motherfucked",
+        "category": "offensive-text"
+    },
+    {
+        "text": "motherfucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "motherfuckers",
+        "category": "offensive-text"
+    },
+    {
+        "text": "motherfuckin",
+        "category": "offensive-text"
+    },
+    {
+        "text": "motherfucking",
+        "category": "offensive-text"
+    },
+    {
+        "text": "motherfuckings",
+        "category": "offensive-text"
+    },
+    {
+        "text": "motherfuckka",
+        "category": "offensive-text"
+    },
+    {
+        "text": "motherfucks",
+        "category": "offensive-text"
+    },
+    {
+        "text": "muff",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mutha",
+        "category": "offensive-text"
+    },
+    {
+        "text": "muthafecker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "muthafuckker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "muther",
+        "category": "offensive-text"
+    },
+    {
+        "text": "mutherfucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "n1gga",
+        "category": "offensive-text"
+    },
+    {
+        "text": "n1gger",
+        "category": "offensive-text"
+    },
+    {
+        "text": "nazi",
+        "category": "offensive-text"
+    },
+    {
+        "text": "nigg3r",
+        "category": "offensive-text"
+    },
+    {
+        "text": "nigg4h",
+        "category": "offensive-text"
+    },
+    {
+        "text": "nigga",
+        "category": "offensive-text"
+    },
+    {
+        "text": "niggah",
+        "category": "offensive-text"
+    },
+    {
+        "text": "niggas",
+        "category": "offensive-text"
+    },
+    {
+        "text": "niggaz",
+        "category": "offensive-text"
+    },
+    {
+        "text": "nigger",
+        "category": "offensive-text"
+    },
+    {
+        "text": "niggers",
+        "category": "offensive-text"
+    },
+    {
+        "text": "nob",
+        "category": "offensive-text"
+    },
+    {
+        "text": "nob jokey",
+        "category": "offensive-text"
+    },
+    {
+        "text": "nobhead",
+        "category": "offensive-text"
+    },
+    {
+        "text": "nobjocky",
+        "category": "offensive-text"
+    },
+    {
+        "text": "nobjokey",
+        "category": "offensive-text"
+    },
+    {
+        "text": "numbnuts",
+        "category": "offensive-text"
+    },
+    {
+        "text": "nutsack",
+        "category": "offensive-text"
+    },
+    {
+        "text": "orgasim",
+        "category": "offensive-text"
+    },
+    {
+        "text": "orgasims",
+        "category": "offensive-text"
+    },
+    {
+        "text": "orgasm",
+        "category": "offensive-text"
+    },
+    {
+        "text": "orgasms",
+        "category": "offensive-text"
+    },
+    {
+        "text": "p0rn",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pawn",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pecker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "penis",
+        "category": "offensive-text"
+    },
+    {
+        "text": "penisfucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "phonesex",
+        "category": "offensive-text"
+    },
+    {
+        "text": "phuck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "phuk",
+        "category": "offensive-text"
+    },
+    {
+        "text": "phuked",
+        "category": "offensive-text"
+    },
+    {
+        "text": "phuking",
+        "category": "offensive-text"
+    },
+    {
+        "text": "phukked",
+        "category": "offensive-text"
+    },
+    {
+        "text": "phukking",
+        "category": "offensive-text"
+    },
+    {
+        "text": "phuks",
+        "category": "offensive-text"
+    },
+    {
+        "text": "phuq",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pigfucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pimpis",
+        "category": "offensive-text"
+    },
+    {
+        "text": "piss",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pissed",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pisser",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pissers",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pisses",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pissflaps",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pissin",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pissing",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pissoff",
+        "category": "offensive-text"
+    },
+    {
+        "text": "poop",
+        "category": "offensive-text"
+    },
+    {
+        "text": "porn",
+        "category": "offensive-text"
+    },
+    {
+        "text": "porno",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pornography",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pornos",
+        "category": "offensive-text"
+    },
+    {
+        "text": "prick",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pricks",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pron",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pube",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pusse",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pussi",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pussies",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pussy",
+        "category": "offensive-text"
+    },
+    {
+        "text": "pussys",
+        "category": "offensive-text"
+    },
+    {
+        "text": "rectum",
+        "category": "offensive-text"
+    },
+    {
+        "text": "retard",
+        "category": "offensive-text"
+    },
+    {
+        "text": "rimjaw",
+        "category": "offensive-text"
+    },
+    {
+        "text": "rimming",
+        "category": "offensive-text"
+    },
+    {
+        "text": "s hit",
+        "category": "offensive-text"
+    },
+    {
+        "text": "s.o.b.",
+        "category": "offensive-text"
+    },
+    {
+        "text": "sadist",
+        "category": "offensive-text"
+    },
+    {
+        "text": "schlong",
+        "category": "offensive-text"
+    },
+    {
+        "text": "screwing",
+        "category": "offensive-text"
+    },
+    {
+        "text": "scroat",
+        "category": "offensive-text"
+    },
+    {
+        "text": "scrote",
+        "category": "offensive-text"
+    },
+    {
+        "text": "scrotum",
+        "category": "offensive-text"
+    },
+    {
+        "text": "semen",
+        "category": "offensive-text"
+    },
+    {
+        "text": "sex",
+        "category": "offensive-text"
+    },
+    {
+        "text": "sh!+",
+        "category": "offensive-text"
+    },
+    {
+        "text": "sh!t",
+        "category": "offensive-text"
+    },
+    {
+        "text": "sh1t",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shag",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shagger",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shaggin",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shagging",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shemale",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shi+",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shit",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shitdick",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shite",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shited",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shitey",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shitfuck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shitfull",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shithead",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shiting",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shitings",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shits",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shitted",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shitter",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shitters",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shitting",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shittings",
+        "category": "offensive-text"
+    },
+    {
+        "text": "shitty",
+        "category": "offensive-text"
+    },
+    {
+        "text": "skank",
+        "category": "offensive-text"
+    },
+    {
+        "text": "slut",
+        "category": "offensive-text"
+    },
+    {
+        "text": "sluts",
+        "category": "offensive-text"
+    },
+    {
+        "text": "smegma",
+        "category": "offensive-text"
+    },
+    {
+        "text": "smut",
+        "category": "offensive-text"
+    },
+    {
+        "text": "snatch",
+        "category": "offensive-text"
+    },
+    {
+        "text": "son-of-a-bitch",
+        "category": "offensive-text"
+    },
+    {
+        "text": "spac",
+        "category": "offensive-text"
+    },
+    {
+        "text": "spunk",
+        "category": "offensive-text"
+    },
+    {
+        "text": "s_h_i_t",
+        "category": "offensive-text"
+    },
+    {
+        "text": "t1tt1e5",
+        "category": "offensive-text"
+    },
+    {
+        "text": "t1tties",
+        "category": "offensive-text"
+    },
+    {
+        "text": "teets",
+        "category": "offensive-text"
+    },
+    {
+        "text": "teez",
+        "category": "offensive-text"
+    },
+    {
+        "text": "testical",
+        "category": "offensive-text"
+    },
+    {
+        "text": "testicle",
+        "category": "offensive-text"
+    },
+    {
+        "text": "tit",
+        "category": "offensive-text"
+    },
+    {
+        "text": "titfuck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "tits",
+        "category": "offensive-text"
+    },
+    {
+        "text": "titt",
+        "category": "offensive-text"
+    },
+    {
+        "text": "tittie5",
+        "category": "offensive-text"
+    },
+    {
+        "text": "tittiefucker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "titties",
+        "category": "offensive-text"
+    },
+    {
+        "text": "tittyfuck",
+        "category": "offensive-text"
+    },
+    {
+        "text": "tittywank",
+        "category": "offensive-text"
+    },
+    {
+        "text": "titwank",
+        "category": "offensive-text"
+    },
+    {
+        "text": "tosser",
+        "category": "offensive-text"
+    },
+    {
+        "text": "turd",
+        "category": "offensive-text"
+    },
+    {
+        "text": "tw4t",
+        "category": "offensive-text"
+    },
+    {
+        "text": "twat",
+        "category": "offensive-text"
+    },
+    {
+        "text": "twathead",
+        "category": "offensive-text"
+    },
+    {
+        "text": "twatty",
+        "category": "offensive-text"
+    },
+    {
+        "text": "twunt",
+        "category": "offensive-text"
+    },
+    {
+        "text": "twunter",
+        "category": "offensive-text"
+    },
+    {
+        "text": "v14gra",
+        "category": "offensive-text"
+    },
+    {
+        "text": "v1gra",
+        "category": "offensive-text"
+    },
+    {
+        "text": "vagina",
+        "category": "offensive-text"
+    },
+    {
+        "text": "viagra",
+        "category": "offensive-text"
+    },
+    {
+        "text": "vulva",
+        "category": "offensive-text"
+    },
+    {
+        "text": "w00se",
+        "category": "offensive-text"
+    },
+    {
+        "text": "wang",
+        "category": "offensive-text"
+    },
+    {
+        "text": "wank",
+        "category": "offensive-text"
+    },
+    {
+        "text": "wanker",
+        "category": "offensive-text"
+    },
+    {
+        "text": "wanky",
+        "category": "offensive-text"
+    },
+    {
+        "text": "whoar",
+        "category": "offensive-text"
+    },
+    {
+        "text": "whore",
+        "category": "offensive-text"
+    },
+    {
+        "text": "willies",
+        "category": "offensive-text"
+    },
+    {
+        "text": "willy",
+        "category": "offensive-text"
+    },
+    {
+        "text": "xrated",
+        "category": "offensive-text"
+    },
+    {
+        "text": "xxx",
+        "category": "offensive-text"
+    }
+]
