@@ -164,4 +164,4 @@ Sweetspot = Monolith app and databases in containers
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout?ref=badge_large)
 
-#### [Official site](https://pushgeek.com)
+#### [Official site](https://pushgeek.com)  Kappy Pushgeek is made with ❤️ by RainDigi IT Pvt. Ltd.
