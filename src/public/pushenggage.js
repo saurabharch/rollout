@@ -6,7 +6,7 @@ try {
     api: {
       default: "http://localhost:5500/push",
       analytics: "",
-      log: "https://localhost:5500/"
+      log: "http://localhost:5500/"
     },
     siteId: "2",
     siteImage: "https://assetscdn.pushgeek.com/site_images/f918a1521699808.png",

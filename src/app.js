@@ -240,7 +240,7 @@ app.use("/home", home); // url path http://${process.env.HOST}:${process.env.POR
 app.use("/subscribe", subscribe); // url path http://${process.env.HOST}:${process.env.PORT}/subscribe
 app.use("/unsubscribe", unsubscribe); // url path http://${process.env.HOST}:${process.env.PORT}/unsubscribe
 app.use("/push", push); //url path http://${process.env.HOST}:${process.env.PORT}/push
-app.use("/test", test); // url path http://${process.env.HOST}:${process.env.PORT}/test
+// app.use("/test", test); // url path http://${process.env.HOST}:${process.env.PORT}/test
 app.use("/api/signup", SignUp);
 app.use("/api/organization", Oganization);
 app.use("/api/keys", keygen); // url path http://${process.env.HOST}:${process.env.PORT}/api/keys/ServerKey

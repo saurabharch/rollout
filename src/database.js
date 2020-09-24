@@ -21,3 +21,16 @@ const client = new Redis(REDIS_OPTIONS);
 export const store = new RedisStore({ client });
 
 // const app = createApp(store);
+module.exports = {
+  mongoose,
+  connect: () => {
+    mongoose.Promise = Promise;
+    mongoose
+      .connect(MONGO_URI, MONGO_OPTIONS)
+      .then(() => console.log("MongoDB Connected"))
+      .catch(err => console.log(err));
+  },
+  disconnect: done => {
+    mongoose.disconnect(done);
+  }
+};
