@@ -4,10 +4,6 @@
     "description": "PushGeek is a Push Notification Engine,  Application is Written in Node Js and have Restful API features.",
     "main": "dist/index.js",
     "scripts": {
-        "copy": "copyfiles -u 1 src/**/**/* src/**/* src/* build",
-        "build:dev": "npm run copy && workbox injectManifest src/workbox-config.js",
-        "build": "babel src --out-dir build",
-        "test": "jest",
         "start": "node build/index.js",
         "restart": "pm2 startOrRestart ecosystem.config.js",
         "pro:deploy": "pm2 deploy ecosystem.config.js production",
