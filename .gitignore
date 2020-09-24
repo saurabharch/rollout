@@ -12,6 +12,8 @@ npm-debug.log
 ./config/keys_dev.js
 ./st.js
 ./kp-push-2020.pem
+./model/user2.js
+./model/user1.js
 # Build
 build
 
