@@ -27,7 +27,7 @@ const reset = require("./routes/reset");
 const push = require("./routes/push");
 const subscribe = require("./routes/subscribe");
 const unsubscribe = require("./routes/unsubscribe");
-const test = require("./routes/test");
+const test = require("./routes/testers");
 const keygen = require("./routes/keygen");
 const home = require("./routes/home");
 const whoami = require("./routes/whoami");
@@ -240,7 +240,7 @@ app.use("/home", home); // url path http://${process.env.HOST}:${process.env.POR
 app.use("/subscribe", subscribe); // url path http://${process.env.HOST}:${process.env.PORT}/subscribe
 app.use("/unsubscribe", unsubscribe); // url path http://${process.env.HOST}:${process.env.PORT}/unsubscribe
 app.use("/push", push); //url path http://${process.env.HOST}:${process.env.PORT}/push
-// app.use("/test", test); // url path http://${process.env.HOST}:${process.env.PORT}/test
+app.use("/test", test); // url path http://${process.env.HOST}:${process.env.PORT}/test
 app.use("/api/signup", SignUp);
 app.use("/api/organization", Oganization);
 app.use("/api/keys", keygen); // url path http://${process.env.HOST}:${process.env.PORT}/api/keys/ServerKey
