@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html
+    class="backgroundcliptext cors cssanimations cssfilters csstransforms csstransforms3d csstransitions no-touchevents supports"
+    dir=ltr lang=en prefix="content: http://purl.org/rss/1.0/modules/content/
+dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema#
+schema: http://schema.org/ sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core#
+xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article# xmlns:book=http://ogp.me/ns/book#
+    xmlns:product=http://ogp.me/ns/product# xmlns:profile=http://ogp.me/ns/profile# xmlns:video=http://ogp.me/ns/video#>
+<meta charset=UTF-8>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+{{!--
+<link rel="stylesheet" href="https://use.typekit.net/bcr0bwp.css"> --}}
+<meta content="ie=edge" http-equiv="X-UA-Compatible">
+<title>{{metaTags.title}}</title>
+<meta content="{{metaTags.title}}" name="title">
+<meta content="{{metaTags.description}}" name="description">
+<meta content="{{metaTags.keywords}}" name="keywords">
+<meta content="{{metaTags.author}}" name="author">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<script src="/common_functions.js"></script>
+<script type="text/javascript">
+    var $_GET = {};
+    document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+        function decode(s) {
+            return decodeURIComponent(s.split("+").join(" "));
+        }
+        $_GET[decode(arguments[1])] = decode(arguments[2]);
+    });
+
+    $(document).ready(function () {
+        var cookie = getCookie("referral");
+        createCookie(cookie);
+    });
+</script>
+<link href="/fevicon.ico" rel="shortcut icon" type="image/x-icon">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="/css/materialize.min.css">
+
+
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'
+    integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ' crossorigin='anonymous'>
+{{!--
+<link href=https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css rel=stylesheet crossorigin=anonymous
+    integrity=sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN>--}}
+<link href="/css/style.css" rel="stylesheet">
+{{!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> --}}
+{{!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
+<link href="#/" rel="shortlink">
+<link href="#/" rel="canonical">
+<link href="#/sg/" rel="hreflang" hreflang="en-SG">
+<link href="#/in/" rel="hreflang" hreflang="en-IN">
+<link href="#/uk/" rel="hreflang" hreflang="en-GB">
+<link href="#/au/" rel="hreflang" hreflang="en-AU">
+<link href="#/ae/" rel="hreflang" hreflang="en-AE">
+<link href="#/de/" rel="hreflang" hreflang="de">
+<link href="#/en/" rel="alternate" hreflang="en">
+{{!--
+<link href="" rel="mask-icon" color="#0098e3"> --}}
+<meta content="#2b5797" name="msapplication-TileColor">
+<link href="/manifest.json" rel="manifest" type="manifest+json">
+<link href="/manifest.webmanifest" rel="manifest" type="manifest+json">
+{{!--
+<script type="text/javascript" src="./new-install.js"></script> --}}
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<link href="/favicon.ico" rel="icon" sizes="16x16 32x32 48x48">
+<link href="/images/medium512.png" rel="icon" sizes="512x512">
+<meta content="#0098e3" name="theme-color">
+<meta content="browserconfig.xml" name="msapplication-config">{{!-- SEO AREA START --}}
+<script>console.log("%c Stop! %cPushgeek is made with ❤️ by RainDigi IT Pvt. Ltd., This is a browser feature intended for developers.If someone told you to copy and paste something here to enable a Pushgeek feature or 'hack' someone's account, it is a scam and will give them access to your PushGeek account. %cSee https://pushgeek.com/security for more information. ", "font-weight:bold;font-size:50px;color:red;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;", "font-weight:500;font-size:20px;color:#404040;", "font-weight:500;font-size:22px;color:grey;")</script>
+{{!--HTTP TO HTTPS REDIRECT --}}
+
+{{!-- <script>"https:" != document.location.protocol && (document.location = document.URL.replace(/^http:/i, "https:"))</script> --}}
+<script>var monsterinsights_frontend = {js_events_tracking: "true", is_debug_mode: "false", download_extensions: "doc,exe,js,pdf,ppt,tgz,zip,xls", inbound_paths: "/recommended/", home_url: "#", track_download_as: "event", internal_label: "aff", hash_tracking: "false"}</script>
+<script>var advanced_ads_responsive = {reload_on_resize: "0"}</script>
+<script>var advanced_ads_pro_visitor_conditions = {referrer_cookie_name: "advanced_ads_pro_visitor_referrer", referrer_exdays: "365", page_impr_cookie_name: "advanced_ads_page_impressions", page_impr_exdays: "3650"}</script>
+<link href="#" rel="https://api.w.org/">
+<meta content={{metaTags.generator}} name="generator">
+<link href="#" rel="shortlink">
+<meta content="{{metaTags.generator}}" name="generator">
+
+<meta content="en_US" property="og:locale">
+<meta content="website" property="og:type">
+<meta content="{{metaTags.title}}" property="og:title">
+{{!-- <meta content="PushGeek is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing." property="og:description"> --}}
+<meta content="Octicons-book.svg.png" property="og:image">
+<meta content="#" property="og:url">
+<meta content="PushGeek" property="og:site_name">
+<meta content="{{metaTags.title}}" name="twitter:card">
+
+<meta
+    content="PushGeek is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."
+    name='twitter:description'>
+<meta content="{{metaTags.title}}" name="twitter:title">
+<meta content="{{metaTags.TwitterLink}}" name="twitter:site">
+<meta content="{{metaTags.myTwitter}}" name="twitter:creator">
+<style data-href="/styles.559cc93c2d06e3cf22d5.css">
+    <style class="js-collectionStyle">.u-accentColor--borderLight {
+        border-color: #868484 !important;
+    }
+
+    .u-accentColor--borderNormal {
+        border-color: #868484 !important;
+    }
+
+    .u-accentColor--borderDark {
+        border-color: #737171 !important;
+    }
+
+    .u-accentColor--iconLight .svgIcon,
+    .u-accentColor--iconLight.svgIcon {
+        fill: #868484 !important;
+    }
+
+    .u-accentColor--iconNormal .svgIcon,
+    .u-accentColor--iconNormal.svgIcon {
+        fill: #868484 !important;
+    }
+
+    .u-accentColor--iconDark .svgIcon,
+    .u-accentColor--iconDark.svgIcon {
+        fill: #737171 !important;
+    }
+
+    .u-accentColor--textNormal {
+        color: #737171 !important;
+    }
+
+    .u-accentColor--hoverTextNormal:hover {
+        color: #737171 !important;
+    }
+
+    .u-accentColor--textNormal.u-accentColor--textDarken:hover {
+        color: #696867 !important;
+    }
+
+    .u-accentColor--textDark {
+        color: #696867 !important;
+    }
+
+    .u-accentColor--backgroundLight {
+        background-color: #868484 !important;
+    }
+
+    .u-accentColor--backgroundNormal {
+        background-color: #868484 !important;
+    }
+
+    .u-accentColor--backgroundDark {
+        background-color: #737171 !important;
+    }
+
+    .u-accentColor--buttonDark {
+        border-color: #737171 !important;
+        color: #696867 !important;
+    }
+
+    .u-accentColor--buttonDark:hover {
+        border-color: #696867 !important;
+    }
+
+    .u-accentColor--buttonDark .icon:before,
+    .u-accentColor--buttonDark .svgIcon {
+        color: #737171 !important;
+        fill: #737171 !important;
+    }
+
+    .u-accentColor--buttonNormal:not(.clapButton--largePill) {
+        border-color: #868484 !important;
+        color: #737171 !important;
+    }
+
+    .u-accentColor--buttonNormal:hover {
+        border-color: #737171 !important;
+    }
+
+    .u-accentColor--buttonNormal .icon:before,
+    .u-accentColor--buttonNormal .svgIcon {
+        color: #868484 !important;
+        fill: #868484 !important;
+    }
+
+    .u-accentColor--buttonNormal.button--filled .icon:before,
+    .u-accentColor--buttonNormal.button--filled .svgIcon {
+        color: rgba(255, 255, 255, 1) !important;
+        fill: rgba(255, 255, 255, 1) !important;
+    }
+
+    .u-accentColor--buttonDark.button--filled,
+    .u-accentColor--buttonDark.button--withChrome.is-active,
+    .u-accentColor--fillWhenActive.is-active {
+        background-color: #737171 !important;
+        border-color: #737171 !important;
+        color: rgba(255, 255, 255, 1) !important;
+        fill: rgba(255, 255, 255, 1) !important;
+    }
+
+    .u-accentColor--buttonNormal.button--filled:not(.clapButton--largePill),
+    .u-accentColor--buttonNormal.button--withChrome.is-active:not(.clapButton--largePill) {
+        background-color: #868484 !important;
+        border-color: #868484 !important;
+        color: rgba(255, 255, 255, 1) !important;
+        fill: rgba(255, 255, 255, 1) !important;
+    }
+
+    .postArticle.is-withAccentColors .markup--user,
+    .postArticle.is-withAccentColors .markup--query {
+        color: #737171 !important;
+    }
+
+    .u-tintBgColor {
+        background-color: rgba(0, 0, 0, 1) !important;
+    }
+
+    .u-tintBgColor .u-fadeLeft:before {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    }
+
+    .u-tintBgColor .u-fadeRight:after {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%) !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--borderLight {
+        border-color: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--borderNormal {
+        border-color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--borderDark {
+        border-color: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--iconLight .svgIcon,
+    .u-tintSpectrum .u-baseColor--iconLight.svgIcon {
+        fill: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--iconNormal .svgIcon,
+    .u-tintSpectrum .u-baseColor--iconNormal.svgIcon {
+        fill: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--iconDark .svgIcon,
+    .u-tintSpectrum .u-baseColor--iconDark.svgIcon {
+        fill: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--textNormal {
+        color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--textNormal.u-baseColor--textDarken:hover {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--textDark {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--textDarker {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--backgroundLight {
+        background-color: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--backgroundNormal {
+        background-color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--backgroundDark {
+        background-color: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonLight {
+        border-color: #868484 !important;
+        color: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonLight:hover {
+        border-color: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonLight .icon:before,
+    .u-tintSpectrum .u-baseColor--buttonLight .svgIcon {
+        color: #868484 !important;
+        fill: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonDark {
+        border-color: #D9D6D6 !important;
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonDark:hover {
+        border-color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonDark .icon:before,
+    .u-tintSpectrum .u-baseColor--buttonDark .svgIcon {
+        color: #D9D6D6 !important;
+        fill: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonNormal {
+        border-color: #B1AEAE !important;
+        color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonNormal:hover {
+        border-color: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonNormal .icon:before,
+    .u-tintSpectrum .u-baseColor--buttonNormal .svgIcon {
+        color: #B1AEAE !important;
+        fill: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonDark.button--filled,
+    .u-tintSpectrum .u-baseColor--buttonDark.button--withChrome.is-active {
+        background-color: #D9D6D6 !important;
+        border-color: #D9D6D6 !important;
+        color: rgba(0, 0, 0, 1) !important;
+        fill: rgba(0, 0, 0, 1) !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--buttonNormal.button--filled,
+    .u-tintSpectrum .u-baseColor--buttonNormal.button--withChrome.is-active {
+        background-color: #B1AEAE !important;
+        border-color: #B1AEAE !important;
+        color: rgba(0, 0, 0, 1) !important;
+        fill: rgba(0, 0, 0, 1) !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--link {
+        color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--link.link--darkenOnHover:hover {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--link.link--darken:hover,
+    .u-tintSpectrum .u-baseColor--link.link--darken:focus,
+    .u-tintSpectrum .u-baseColor--link.link--darken:active {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--link.link--dark {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--link.link--dark.link--darken:hover,
+    .u-tintSpectrum .u-baseColor--link.link--dark.link--darken:focus,
+    .u-tintSpectrum .u-baseColor--link.link--dark.link--darken:active {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--link.link--darker {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-baseColor--placeholderNormal ::-webkit-input-placeholder {
+        color: #868484;
+    }
+
+    .u-tintSpectrum .u-baseColor--placeholderNormal ::-moz-placeholder {
+        color: #868484;
+    }
+
+    .u-tintSpectrum .u-baseColor--placeholderNormal :-ms-input-placeholder {
+        color: #868484;
+    }
+
+    .u-tintSpectrum .svgIcon--logoNew path:nth-child(1) {
+        stroke: none !important;
+        fill: #3C3B3B !important;
+    }
+
+    .u-tintSpectrum .svgIcon--logoNew path:nth-child(2) {
+        stroke: none !important;
+        fill: #565555 !important;
+    }
+
+    .u-tintSpectrum .svgIcon--logoNew path:nth-child(3) {
+        stroke: none !important;
+        fill: #868484 !important;
+    }
+
+    .u-tintSpectrum .svgIcon--logoNew path:nth-child(4) {
+        stroke: none !important;
+        fill: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .svgIcon--logoWordmark {
+        stroke: none !important;
+        fill: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .svgIcon--logoMonogram {
+        stroke: none !important;
+        fill: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .ui-h1,
+    .u-tintSpectrum .ui-h2,
+    .u-tintSpectrum .ui-h3,
+    .u-tintSpectrum .ui-h4,
+    .u-tintSpectrum .ui-brand1,
+    .u-tintSpectrum .ui-brand2,
+    .u-tintSpectrum .ui-captionStrong {
+        color: #ECE9E9 !important;
+        fill: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .ui-body,
+    .u-tintSpectrum .ui-caps {
+        color: #ECE9E9 !important;
+        fill: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .ui-summary,
+    .u-tintSpectrum .ui-caption {
+        color: #868484 !important;
+        fill: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--borderLight {
+        border-color: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--borderNormal {
+        border-color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--borderDark {
+        border-color: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--iconLight .svgIcon,
+    .u-tintSpectrum .u-accentColor--iconLight.svgIcon {
+        fill: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--iconNormal .svgIcon,
+    .u-tintSpectrum .u-accentColor--iconNormal.svgIcon {
+        fill: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--iconDark .svgIcon,
+    .u-tintSpectrum .u-accentColor--iconDark.svgIcon {
+        fill: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--textNormal {
+        color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--hoverTextNormal:hover {
+        color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--textNormal.u-accentColor--textDarken:hover {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--textDark {
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--backgroundLight {
+        background-color: #868484 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--backgroundNormal {
+        background-color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--backgroundDark {
+        background-color: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonDark {
+        border-color: #D9D6D6 !important;
+        color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonDark:hover {
+        border-color: #ECE9E9 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonDark .icon:before,
+    .u-tintSpectrum .u-accentColor--buttonDark .svgIcon {
+        color: #D9D6D6 !important;
+        fill: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonNormal:not(.clapButton--largePill) {
+        border-color: #B1AEAE !important;
+        color: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonNormal:hover {
+        border-color: #D9D6D6 !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonNormal .icon:before,
+    .u-tintSpectrum .u-accentColor--buttonNormal .svgIcon {
+        color: #B1AEAE !important;
+        fill: #B1AEAE !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonNormal.button--filled .icon:before,
+    .u-tintSpectrum .u-accentColor--buttonNormal.button--filled .svgIcon {
+        color: rgba(0, 0, 0, 1) !important;
+        fill: rgba(0, 0, 0, 1) !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonDark.button--filled,
+    .u-tintSpectrum .u-accentColor--buttonDark.button--withChrome.is-active,
+    .u-tintSpectrum .u-accentColor--fillWhenActive.is-active {
+        background-color: #D9D6D6 !important;
+        border-color: #D9D6D6 !important;
+        color: rgba(0, 0, 0, 1) !important;
+        fill: rgba(0, 0, 0, 1) !important;
+    }
+
+    .u-tintSpectrum .u-accentColor--buttonNormal.button--filled:not(.clapButton--largePill),
+    .u-tintSpectrum .u-accentColor--buttonNormal.button--withChrome.is-active:not(.clapButton--largePill) {
+        background-color: #B1AEAE !important;
+        border-color: #B1AEAE !important;
+        color: rgba(0, 0, 0, 1) !important;
+        fill: rgba(0, 0, 0, 1) !important;
+    }
+
+    .u-tintSpectrum .postArticle.is-withAccentColors .markup--user,
+    .u-tintSpectrum .postArticle.is-withAccentColors .markup--query {
+        color: #B1AEAE !important;
+    }
+
+    .u-accentColor--highlightFaint {
+        background-color: rgba(243, 240, 239, 1) !important;
+    }
+
+    .u-accentColor--highlightStrong.is-active .svgIcon {
+        fill: rgba(226, 223, 222, 1) !important;
+    }
+
+    .postArticle.is-withAccentColors .markup--quote.is-other {
+        background-color: rgba(243, 240, 239, 1) !important;
+    }
+
+    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-other {
+        background-color: transparent !important;
+        background-image: linear-gradient(to bottom, rgba(243, 240, 239, 1), rgba(243, 240, 239, 1));
+    }
+
+    .postArticle.is-withAccentColors .markup--quote.is-me {
+        background-color: rgba(233, 230, 230, 1) !important;
+    }
+
+    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-me {
+        background-color: transparent !important;
+        background-image: linear-gradient(to bottom, rgba(233, 230, 230, 1), rgba(233, 230, 230, 1));
+    }
+
+    .postArticle.is-withAccentColors .markup--quote.is-targeted {
+        background-color: rgba(226, 223, 222, 1) !important;
+    }
+
+    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-targeted {
+        background-color: transparent !important;
+        background-image: linear-gradient(to bottom, rgba(226, 223, 222, 1), rgba(226, 223, 222, 1));
+    }
+
+    .postArticle.is-withAccentColors .markup--quote.is-selected {
+        background-color: rgba(226, 223, 222, 1) !important;
+    }
+
+    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-selected {
+        background-color: transparent !important;
+        background-image: linear-gradient(to bottom, rgba(226, 223, 222, 1), rgba(226, 223, 222, 1));
+    }
+
+    .postArticle.is-withAccentColors .markup--highlight {
+        background-color: rgba(226, 223, 222, 1) !important;
+    }
+
+    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--highlight {
+        background-color: transparent !important;
+        background-image: linear-gradient(to bottom, rgba(226, 223, 222, 1), rgba(226, 223, 222, 1));
+    }
+
+    .u-baseColor--iconNormal.avatar-halo {
+        fill: rgba(0, 0, 0, 0.4980392156862745) !important;
+    }
+</style>
+<div id="wrapper"></div>
+<div id="warning-message">
+    <center>
+        <div class="">
+            <div class="overlay"></div>
+            <div class="overlay-content">Please rotate your device</div>
+            <div class="overlay-text">We don't support landscape mode yet. Please go back to portrait mode for the best
+                experience</div>
+        </div>
+    </center>
+</div>
+{{> _header}}
+<div class="main page-body">
+    <div>{{{body}}}</div>
+
+</div>{{> _footer}}
+
+<script type="text/javascript" src="/app.js"></script>

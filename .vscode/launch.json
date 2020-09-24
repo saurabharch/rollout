@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "Push-rollout:src/controllers/push.createPush (nodejs12.x)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "",
+                "lambdaHandler": "src/controllers/push.createPush"
+            },
+            "lambda": {
+                "runtime": "nodejs12.x",
+                "payload": {},
+                "environmentVariables": {}
+            }
+        }
+    ]
+}

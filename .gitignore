@@ -12,3 +12,8 @@ npm-debug.log
 ./config/keys_dev.js
 ./st.js
 ./kp-push-2020.pem
+# Build
+build
+
+# environment variables
+.env

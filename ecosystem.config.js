@@ -3,7 +3,7 @@ module.exports = {
   apps: [
     {
       name: "rollout",
-      script: "server.js",
+      script: "build/index.js",
 
       // Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
       // args: "one two",
@@ -35,7 +35,7 @@ module.exports = {
     },
     development: {
       user: "saurabh",
-      host: "http://localhost:5000",
+      host: "http://localhost:5500",
       repo: "https://github.com/Kappy-Technologies-LLP/rollout.git",
       ref: "origin/master",
       path: ".",
