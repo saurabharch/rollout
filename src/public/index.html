@@ -9,12 +9,11 @@
     <link rel="manifest" href="/manifest.webmanifest">
     <title>Web-Push Application with Restful Api</title>
    <!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="/css/materialize.min.css">
+<!-- <link rel="stylesheet" href="/css/materialize.min.css"> -->
 
-
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'
-    integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ' crossorigin='anonymous'>
-<link href="/css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+<link href="/css/utilities.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
     <title>PushGeek</title>
 <script>console.log("%c Stop! %cPushgeek is made with ❤️ by RainDigi IT Pvt. Ltd., This is a browser feature intended for developers.If someone told you to copy and paste something here to enable a Pushgeek feature or 'hack' someone's account, it is a scam and will give them access to your PushGeek account. %cSee https://pushgeek.com/security for more information. ", "font-weight:bold;font-size:50px;color:red;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;", "font-weight:500;font-size:20px;color:#404040;", "font-weight:500;font-size:22px;color:grey;")</script>
     <!-- Request styles -->
@@ -48,15 +47,32 @@ $( document ).ready(function() {
         <dd></dd>
     </dl>
 </div>
-<nav class="darknav darken-5 navbar" style="position: -webkit-sticky;position: sticky;top:0;z-index:999;">
+ <!-- Navbar -->
+    <div class="navbar" style="position: -webkit-sticky;position: sticky;top:0;z-index:999;">
+        <div class="container flex">
+            <!-- <h1 class="logo">PushGeek.</h1> -->
+            <a href="/home" class="brand-logo" style="color:white !important;"><img src="/images/Pushgeek.gif"
+                    alt="PushGeek" class="photo" style="height:13vh;width:25%;"></a>
+    
+                <nav>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+<!-- <nav class="darknav darken-5 navbar" style="position: -webkit-sticky;position: sticky;top:0;z-index:999;">
     <div class="container">
         <div class="nav-wrapper">
 
             <a href="/home" class="brand-logo" style="color:white !important;"><img src="/images/Pushgeek.png"
-                    alt="PushGeek" class="photo" style="height:10vh;width:55%;"></a>
+                    alt="PushGeek" class="photo" style="height:8vh;width:25%;"></a>
         </div>
     </div>
-</nav>
+</nav> -->
 <div class="loadingBar"></div>
 <div class="surface-scrollOverlay"></div>
 <div class="home container-main is-fullhd">
@@ -67,7 +83,7 @@ $( document ).ready(function() {
                 <div class="container">
                     <div class="css-fvx1ke e7hmhos0">
                         <h1 class="h1 white hero-title css-wpp74j title" data-testid="hero_heading">Welcome to the
-                            Push Rollout</h1>
+                            PushGeek</h1>
                         <p class="large white css-wpp74j subtitle" data-testid="hero_subheading">We make it simple to
                             launch in the push messaging enggament,scale up as you grow – with an intuitive control
                             panel, predictable
@@ -5811,8 +5827,8 @@ $( document ).ready(function() {
 </script>
 <script type="text/javascript" id="">window._pgq=window._pgq||[];window._pgq.push(["init",!1,function(a){if(1==a.statuscode){getRandomInt=function(b,d){return Math.floor(Math.random()*(d-b+1))+b};a=["testing-group1","testing-group2"];var c="blast-group1 blast-group2 blast-group3 blast-group4 blast-group5 blast-group6".split(" ");a=[a[getRandomInt(0,a.length)],c[getRandomInt(0,c.length)]];window._pgq.push(["add-to-segment",a,function(b){console.log(b)}])}}]);</script>
 <script src="cookies-bar.js"></script>
-  <script src="pushgeek.js"></script>
-    <script src="check-now.js"></script>
+<script src="check-now.js"></script>
+<script src="pushgeek.js"></script>   
 </body>
 
 </html>

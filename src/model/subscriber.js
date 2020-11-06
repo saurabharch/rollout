@@ -1,16 +1,29 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+// create geolocation Schema
+const GeoSchema = new Schema({
+  type: {
+    type: String,
+    default: "Point"
+  },
+  coordinates: {
+    type: [Number],
+    index: "2dsphere"
+  }
+});
+
 const SubscriberSchema = new Schema(
   {
-    endpoint: String,
-    keys: Schema.Types.Mixed,
-    createDate: {
-      type: Date,
-      default: Date.now
-    },
     domain: {
       type: String,
       lowercase: true
+    },
+    endpoint: String,
+    keys: Schema.Types.Mixed,
+    geometry: GeoSchema,
+    createDate: {
+      type: Date,
+      default: Date.now
     }
   },
   {

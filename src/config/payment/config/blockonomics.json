@@ -1,0 +1,6 @@
+{
+    "apiKey": "this_is_not_real",
+    "hostUrl": "https://www.blockonomics.co",
+    "newAddressApi": "/api/new_address",
+    "priceApi": "/api/price?currency="
+}

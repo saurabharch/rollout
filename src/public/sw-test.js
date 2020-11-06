@@ -124,18 +124,18 @@ self.addEventListener("push", function(event) {
   examplepage = event.data.text().url;
   console.log(event.data.text());
   if (event.data) {
-    // demoMustShowNotificationCheck(event);
-    // switch (event.data.text()) {
-    //   case "must-show-notification":
-    //     demoMustShowNotificationCheck(event);
-    //     break;
-    //   case "send-message-to-page":
-    demoSendMessageToPage(event);
-    //     break;
-    //   default:
-    //     console.warn("Unsure of how to handle push event: ", event.data);
-    //     break;
-    // }
+    demoMustShowNotificationCheck(event);
+    switch (event.data.text()) {
+      case "must-show-notification":
+        demoMustShowNotificationCheck(event);
+        break;
+      case "send-message-to-page":
+        demoSendMessageToPage(event);
+        break;
+      default:
+        console.warn("Unsure of how to handle push event: ", event.data);
+        break;
+    }
   }
 });
 

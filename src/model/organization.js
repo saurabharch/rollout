@@ -43,12 +43,14 @@ const OrgNameSchema = new Schema(
           unique: true,
           autopopulate: true
         },
-        rRole: {
-          type: Schema.Types.ObjectId,
-          ref: "Role",
-          unique: true,
-          autopopulate: true
-        }
+        rRole: [
+          {
+            type: Schema.Types.ObjectId,
+            ref: "Role",
+            unique: true,
+            autopopulate: true
+          }
+        ]
       }
     ]
   },

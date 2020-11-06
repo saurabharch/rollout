@@ -1,8 +1,27 @@
+const fs = require("fs");
+const yenv = require("yenv");
+if (fs.existsSync("./env.yaml")) {
+  process.env = yenv("env.yaml", { strict: false });
+}
+const logger = require("morgan");
+const _ = require("lodash");
+
+const numeral = require("numeral");
+const colors = require("colors");
+const cron = require("node-cron");
+const crypto = require("crypto");
 const express = require("express");
 var exphbs = require("express-handlebars");
 const path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const {
+  getConfig,
+  getPaymentConfig,
+  updateConfigLocal
+} = require("./lib/config");
+const config = getConfig();
+
 // const session = require("express-session");
 const serveStatic = require("serve-static");
 const vhost = require("vhost");
@@ -12,7 +31,8 @@ const passport = require("passport");
 import session, { Store } from "express-session";
 import { SESSION_OPTIONS } from "./config";
 // import { login, register, verify, reset } from "./routes";
-
+// Add the payment route
+const paymentRoute = require(`./lib/payments/${config.paymentGateway}`);
 import { notFound, serverError, active } from "./middlewares";
 const cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
@@ -46,10 +66,11 @@ const billing = require("./routes/billing");
 const features = require("./routes/features");
 const terms_service = require("./routes/terms-service");
 const ApiKey = require("./routes/ApiKeyvalid");
+
 import { SESS_OPTIONS } from "./config/auth";
 import morgan from "morgan";
 import helmet from "helmet";
-
+const i18n = require("i18n");
 import pkg from "../package.json";
 // const Raven = require("raven");
 // const cluster = require('cluster');
@@ -79,6 +100,56 @@ import {
 } from "./util/initialSetup";
 
 //Handlebars Helpers
+//Handlebars Helpers
+const {
+  __,
+  __n,
+  partial,
+  perRowClass,
+  menuMatch,
+  getTheme,
+  formatAmount,
+  amountNoDecimal,
+  getStatusColor,
+  checkProductVariants,
+  currencySymbol,
+  objectLength,
+  stringify,
+  checkedState,
+  selectState,
+  isNull,
+  toLower,
+  formatDate,
+  discountExpiry,
+  ifCond,
+  isAnAdmin,
+  paymentMessage,
+  paymentOutcome,
+  upperFirst,
+  showCartButtons,
+  snip,
+  fixTags,
+  feather,
+  availableLanguages,
+  truncate,
+  stripTags,
+  formateDate,
+  select,
+  editIcon,
+  ratingIcon,
+  math,
+  totalcount,
+  viewcounting,
+  checkNew,
+  CommentsCount,
+  twitterShare,
+  facebookShare,
+  googleplusShare,
+  pinterestShare,
+  linkedinShare,
+  moderateComments,
+  ratingCalculate
+} = require("./helpers/hbs");
 // setup route middlewares
 // const csrfProtection = csrf({ cookie: true });
 // const parseForm = bodyParser.urlencoded({ extended: false });
@@ -90,9 +161,45 @@ import {
 // });
 
 import { store } from "./database";
+// Validate our settings schema
+const Ajv = require("ajv");
+const ajv = new Ajv({ useDefaults: true });
+
+const baseConfig = ajv.validate(require("./config/settingsSchema"), config);
+if (baseConfig === false) {
+  console.log(colors.red(`settings.json incorrect: ${ajv.errorsText()}`));
+  process.exit(2);
+}
+
+// Validate the payment gateway config
+if (
+  ajv.validate(
+    require(`./config/payment/schema/${config.paymentGateway}`),
+    require(`./config/payment/config/${config.paymentGateway}`)
+  ) === false
+) {
+  console.log(
+    colors.red(
+      `${config.paymentGateway} config is incorrect: ${ajv.errorsText()}`
+    )
+  );
+  process.exit(2);
+}
+
 // console.log(store);
 const app = express();
-
+i18n.configure({
+  locales: config.availableLanguages,
+  defaultLocale: config.defaultLocale,
+  cookie: "locale",
+  queryParameter: "lang",
+  directory: `${__dirname}/locales`,
+  directoryPermissions: "755",
+  api: {
+    __: "__", // now req.__ becomes req.__
+    __n: "__n" // and req.__n can be called as req.__n
+  }
+});
 createRoles();
 setTimeout(() => {
   createAdmin();
@@ -172,22 +279,74 @@ app.use(`/${SW_JS_FILE}`, (req, res, next) => {
   res.sendFile(SW_JS_FILE, { root: "." });
   next();
 });
-// Set static folder
+// Set Serving static folder
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "views", "themes")));
+app.use(express.static(path.join(__dirname, "node_modules", "feather-icons")));
 app.use(express.static(path.join(__dirname, "public", "images")));
+app.use(express.static(path.join(__dirname, "public", "javascripts")));
+app.use(express.static(path.join(__dirname, "public", "stylesheets")));
 app.use(express.static(path.join(__dirname, "public", "audio")));
 // Handlebars Middleware
+app.set("views", path.join(__dirname, "/views"));
 app.engine(
   "handlebars",
   exphbs({
-    helpers: {},
-    defaultLayout: "main",
-    partialsDir: __dirname + "/views/partials",
-    layoutsDir: __dirname + "/views/layouts",
+    helpers: {
+      __: __,
+      __n: __n,
+      partial: partial,
+      perRowClass: perRowClass,
+      menuMatch: menuMatch,
+      getTheme: getTheme,
+      formatAmount: formatAmount,
+      amountNoDecimal: amountNoDecimal,
+      getStatusColor: getStatusColor,
+      checkProductVariants: checkProductVariants,
+      currencySymbol: currencySymbol,
+      objectLength: objectLength,
+      stringify: stringify,
+      checkedState: checkedState,
+      selectState: selectState,
+      isNull: isNull,
+      toLower: toLower,
+      formatDate: formatDate,
+      discountExpiry: discountExpiry,
+      ifCond: ifCond,
+      isAnAdmin: isAnAdmin,
+      paymentMessage: paymentMessage,
+      paymentOutcome: paymentOutcome,
+      upperFirst: upperFirst,
+      showCartButtons: showCartButtons,
+      snip: snip,
+      fixTags: fixTags,
+      feather: feather,
+      availableLanguages: availableLanguages,
+      truncate: truncate,
+      stripTags: stripTags,
+      formateDate: formateDate,
+      select: select,
+      editIcon: editIcon,
+      ratingIcon: ratingIcon,
+      math: math,
+      totalcount: totalcount,
+      viewcounting: viewcounting,
+      checkNew: checkNew,
+      CommentsCount: CommentsCount,
+      twitterShare: twitterShare,
+      facebookShare: facebookShare,
+      googleplusShare: googleplusShare,
+      pinterestShare: pinterestShare,
+      linkedinShare: linkedinShare,
+      moderateComments: moderateComments,
+      ratingCalculate: ratingCalculate
+    },
+    layoutsDir: path.join(__dirname, "views", "layouts"),
+    defaultLayout: "main.handlebars",
+    partialsDir: [path.join(__dirname, "views")],
     extname: ".handlebars"
   })
 );
-app.set("views", path.join(__dirname, "views"));
 app.set("view engine", ".handlebars");
 // in order to serve files, you should add the two following middlewares
 app.set("trust proxy", true);
@@ -198,6 +357,46 @@ app.use(passport.session());
 
 // parse application/json
 app.use(bodyParser.json());
+app.use(
+  bodyParser.json({
+    // Only on Stripe URL's which need the rawBody
+    verify: (req, res, buf) => {
+      if (req.originalUrl === "/stripe/subscription_update") {
+        req.rawBody = buf.toString();
+      }
+    }
+  })
+);
+
+// Set locales from session
+app.use(i18n.init);
+
+// Make stuff accessible to our router
+app.use((req, res, next) => {
+  req.exphbs = exphbs;
+  next();
+});
+
+// Ran on all routes
+app.use((req, res, next) => {
+  res.setHeader("Cache-Control", "no-cache, no-store");
+  next();
+});
+
+// Setup secrets
+if (!config.secretCookie || config.secretCookie === "") {
+  const randomString = crypto.randomBytes(20).toString("hex");
+  config.secretCookie = randomString;
+  updateConfigLocal({ secretCookie: randomString });
+}
+if (!config.secretSession || config.secretSession === "") {
+  const randomString = crypto.randomBytes(20).toString("hex");
+  config.secretSession = randomString;
+  updateConfigLocal({ secretSession: randomString });
+}
+
+app.enable("trust proxy");
+// app.use(helmet());
 // app.use(cors("*"));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -207,7 +406,8 @@ app.get("/api/version", (req, res) => {
     name: app.get("pkg").name,
     version: app.get("pkg").version,
     description: app.get("pkg").description,
-    author: app.get("pkg").author
+    author: app.get("pkg").author,
+    systemstatus: process.memoryUsage()
   });
 });
 // app.set('views', __dirname + '/public/js');
@@ -258,10 +458,14 @@ app.use(function(err, req, res, next) {
   res.send("form tampered with");
 });
 app.use(function(req, res, next) {
-  var err = new Error("Not Found");
-  err.status = 404;
-  console.log(req);
-  next(err);
+  try {
+    var err = new Error("Not Found");
+    err.status = 404;
+    // console.log(req);
+    res.status(404).json(err);
+  } catch (error) {
+    return next(error);
+  }
 });
 
 // error handlers
@@ -270,8 +474,17 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get("env") === "development") {
   app.use(function(err, req, res, next) {
+    console.error(colors.red(err.stack));
+    if (err && err.code === "EACCES") {
+      res.status(400).json({ message: "File upload error. Please try again." });
+      return;
+    }
     res.status(err.status || 500);
-    res.render("error", { message: err.message, error: err });
+    res.render("error", {
+      message: err.message,
+      error: err,
+      helpers: exphbs.helpers
+    });
   });
 }
 
@@ -300,8 +513,17 @@ app.use(function(req, res, next) {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
+  console.error(colors.red(err.stack));
+  if (err && err.code === "EACCES") {
+    res.status(400).json({ message: "File upload error. Please try again." });
+    return;
+  }
   res.status(err.status || 500);
-  res.render("error", { message: err.message, error: {} });
+  res.render("error", {
+    message: err.message,
+    error: {},
+    helpers: exphbs.helpers
+  });
 });
 
 export default app;

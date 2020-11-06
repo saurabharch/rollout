@@ -1,5 +1,26 @@
 const moment = require("moment");
-
+var handlebars = require("express-handlebars");
+const i18n = require("i18n");
+const {
+  getConfig,
+  getPaymentConfig,
+  updateConfigLocal
+} = require("../lib/config");
+// get config
+const config = getConfig();
+// Language initialize
+// i18n.configure({
+//   locales: config.availableLanguages,
+//   defaultLocale: config.defaultLocale,
+//   cookie: "locale",
+//   queryParameter: "lang",
+//   directory: `${__dirname}/locales`,
+//   directoryPermissions: "755",
+//   api: {
+//     __: "__", // now req.__ becomes req.__
+//     __n: "__n" // and req.__n can be called as req.__n
+//   }
+// });
 module.exports = {
   truncate: function(str, len) {
     if (str.length > len && str.length > 0) {
@@ -251,7 +272,7 @@ module.exports = {
     // console.log(`writer id : ${storyUser}`);
     // console.log(`logged user id : ${loggedUser}`);
     const Storyid = storyId;
-    console.log(`comment id : ${commentId}`);
+    // console.log(`comment id : ${commentId}`);
     if (commentId) {
       if (floating) {
         //add form post method on api request
@@ -338,5 +359,224 @@ module.exports = {
                                  <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"></path>
                                 </svg></span></button></a>`;
     }
+  },
+  __: () => {
+    return i18n.__(this, arguments);
+  }, // eslint-disable-line no-undef
+  __n: () => {
+    return i18n.__n(this, arguments);
+  }, // eslint-disable-line no-undef
+  availableLanguages: block => {
+    let total = "";
+    for (const lang of i18n.getLocales()) {
+      total += block.fn(lang);
+    }
+    return total;
+  },
+  partial: provider => {
+    return `partials/payments/${provider}`;
+  },
+  perRowClass: numProducts => {
+    if (parseInt(numProducts) === 1) {
+      return "col-6 col-md-12 product-item";
+    }
+    if (parseInt(numProducts) === 2) {
+      return "col-6 col-md-6 product-item";
+    }
+    if (parseInt(numProducts) === 3) {
+      return "col-6 col-md-4 product-item";
+    }
+    if (parseInt(numProducts) === 4) {
+      return "col-6 col-md-3 product-item";
+    }
+
+    return "col-md-6 product-item";
+  },
+  menuMatch: (title, search) => {
+    if (!title || !search) {
+      return "";
+    }
+    if (title.toLowerCase().startsWith(search.toLowerCase())) {
+      return 'class="navActive"';
+    }
+    return "";
+  },
+  getTheme: view => {
+    return `themes/${config.theme}/${view}`;
+  },
+  formatAmount: amt => {
+    if (amt) {
+      return numeral(amt).format("0.00");
+    }
+    return "0.00";
+  },
+  amountNoDecimal: amt => {
+    if (amt) {
+      return handlebars.helpers.formatAmount(amt).replace(".", "");
+    }
+    return handlebars.helpers.formatAmount(amt);
+  },
+  getStatusColor: status => {
+    switch (status) {
+      case "Paid":
+        return "success";
+      case "Approved":
+        return "success";
+      case "Approved - Processing":
+        return "success";
+      case "Failed":
+        return "danger";
+      case "Completed":
+        return "success";
+      case "Shipped":
+        return "success";
+      case "Pending":
+        return "warning";
+      default:
+        return "danger";
+    }
+  },
+  checkProductVariants: variants => {
+    if (variants && variants.length > 0) {
+      return "true";
+    }
+    return "false";
+  },
+  currencySymbol: value => {
+    if (typeof value === "undefined" || value === "") {
+      return "$";
+    }
+    return value;
+  },
+  objectLength: obj => {
+    if (obj) {
+      return Object.keys(obj).length;
+    }
+    return 0;
+  },
+  stringify: obj => {
+    if (obj) {
+      return JSON.stringify(obj);
+    }
+    return "";
+  },
+  checkedState: state => {
+    if (state === "true" || state === true) {
+      return "checked";
+    }
+    return "";
+  },
+  selectState: (state, value) => {
+    if (state === value) {
+      return "selected";
+    }
+    return "";
+  },
+  isNull: (value, options) => {
+    if (typeof value === "undefined" || value === "") {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  },
+  toLower: value => {
+    if (value) {
+      return value.toLowerCase();
+    }
+    return null;
+  },
+  formatDate: (date, format) => {
+    return moment(date).format(format);
+  },
+  discountExpiry: (start, end) => {
+    return moment().isBetween(moment(start), moment(end));
+  },
+  ifCond: (v1, operator, v2, options) => {
+    switch (operator) {
+      case "==":
+        return v1 === v2 ? options.fn(this) : options.inverse(this);
+      case "!=":
+        return v1 !== v2 ? options.fn(this) : options.inverse(this);
+      case "===":
+        return v1 === v2 ? options.fn(this) : options.inverse(this);
+      case "<":
+        return v1 < v2 ? options.fn(this) : options.inverse(this);
+      case "<=":
+        return v1 <= v2 ? options.fn(this) : options.inverse(this);
+      case ">":
+        return v1 > v2 ? options.fn(this) : options.inverse(this);
+      case ">=":
+        return v1 >= v2 ? options.fn(this) : options.inverse(this);
+      case "&&":
+        return v1 && v2 ? options.fn(this) : options.inverse(this);
+      case "||":
+        return v1 || v2 ? options.fn(this) : options.inverse(this);
+      default:
+        return options.inverse(this);
+    }
+  },
+  isAnAdmin: (value, options) => {
+    if (value === "true" || value === true) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  },
+  paymentMessage: status => {
+    if (status === "Paid") {
+      return '<h2 class="text-success">Your payment has been successfully processed</h2>';
+    }
+    if (status === "Pending") {
+      const paymentConfig = getPaymentConfig();
+      if (config.paymentGateway === "instore") {
+        return `<h2 class="text-warning">${paymentConfig.resultMessage}</h2>`;
+      }
+      return '<h2 class="text-warning">The payment for this order is pending. We will be in contact shortly.</h2>';
+    }
+    return '<h2 class="text-danger">Your payment has failed. Please try again or contact us.</h2>';
+  },
+  paymentOutcome: status => {
+    if (status === "Paid" || status === "Pending") {
+      return '<h5 class="text-warning">Please retain the details above as a reference of payment</h5>';
+    }
+    return "";
+  },
+  upperFirst: value => {
+    if (value) {
+      return value.replace(/^\w/, chr => {
+        return chr.toUpperCase();
+      });
+    }
+    return value;
+  },
+  showCartButtons: cart => {
+    if (!cart) {
+      return "d-none";
+    }
+    return "";
+  },
+  snip: text => {
+    if (text && text.length > 155) {
+      return `${text.substring(0, 155)}...`;
+    }
+    return text;
+  },
+  fixTags: html => {
+    html = html.replace(/&gt;/g, ">");
+    html = html.replace(/&lt;/g, "<");
+    return html;
+  },
+  feather: icon => {
+    // eslint-disable-next-line keyword-spacing
+    return `<svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-${icon}"
+                >
+                <use xlink:href="/img/feather-sprite.svg#${icon}"/>
+            </svg>`;
   }
 };

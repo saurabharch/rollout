@@ -1,0 +1,2 @@
+/src/**/*.min.js
+pm2.config.js

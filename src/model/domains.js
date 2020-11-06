@@ -14,14 +14,7 @@ const DomainNameSchema = new Schema(
     startTime: {
       type: Date,
       default: Date.now
-    },
-    users: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "user",
-        autopopulate: { maxDepth: 2 }
-      }
-    ]
+    }
   },
   {
     timestamps: true,

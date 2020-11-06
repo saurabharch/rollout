@@ -1,5 +1,12 @@
 // const mongoose = require("mongoose");
 const keys = require("./config/keys");
+const {
+  getConfig,
+  getPaymentConfig,
+  updateConfigLocal
+} = require("./lib/config");
+const config = getConfig();
+const MongoStore = require("connect-mongodb-session")(session);
 import mongoose from "mongoose";
 import session from "express-session";
 import connectRedis from "connect-redis";
@@ -19,6 +26,11 @@ const RedisStore = connectRedis(session);
 const client = new Redis(REDIS_OPTIONS);
 
 export const store = new RedisStore({ client });
+// session store
+export const Mstore = new MongoStore({
+  uri: MONGO_URI,
+  collection: "sessions"
+});
 
 // const app = createApp(store);
 module.exports = {

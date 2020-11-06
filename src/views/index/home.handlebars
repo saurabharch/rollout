@@ -2,8 +2,8 @@
 <div class="surface-scrollOverlay"></div> --}}
 <div class="home container-main is-fullhd">
     <div class="slices">
-        <section class="hero css-czj4x5" data-testid="bulma_hero"
-            style="background-color:#0069ff;background-image:url(/images/bg-home-hero-3-bb4b33b77274db09b969f629ad81c4d5.svg);padding-bottom:-2rem;">
+        <section class="hero hero css-czj4x5" id="LandingHeader"
+            style="background-color:#0069ff;background-image:url(/images/bg-home-hero-3-bb4b33b77274db09b969f629ad81c4d5.svg)">
             <div class=" hero-body">
                 <div class="container">
                     <div class="css-fvx1ke e7hmhos0">
@@ -31,11 +31,45 @@
                                             placeholder="Email Address" required="">
                                         <input type="password" aria-label="password" minlength="8" name="user[password]"
                                             placeholder="Password" required="">
-                                        <button tabindex="0" type="submit" class="css-32erla is-primary button">Sign up
+                                        <button tabindex="0" type="submit"
+                                            class="css-32erla is-primary btn btn-primary">Sign up
                                             with email</button>
                                     </span>
                                 </form>
                             </div>
+                            {{!-- <div class="showcase-form card"> --}}
+                            {{!-- <h2>Request a Demo</h2> --}}
+
+                            {{!-- netlify form integration --}}
+                            <!--  <form name="contact" netlify-honeypot="bot-field" method="POST" data-netlify="true">
+                                                    <input type="hidden" name="form-name" value="contact">
+                                                    <p class="hidden">
+                                                        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                                                      </p>
+                                                    <div class="form-control">
+                                                        <input type="text" name="name" placeholder="Name" required>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="text" name="company" placeholder="Company Name" required>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="email" name="email" placeholder="Email" required>
+                                                    </div>
+                                                    <input type="submit" value="Send" class="btn btn-primary">
+                                                </form> -->
+                            {{!-- <form>
+                                <div class="form-control">
+                                    <input type="text" name="name" placeholder="Name" required>
+                                </div>
+                                <div class="form-control">
+                                    <input type="text" name="company" placeholder="Company Name" required>
+                                </div>
+                                <div class="form-control">
+                                    <input type="email" name="email" placeholder="Email" required>
+                                </div>
+                                <input type="submit" value="Send" class="btn btn-primary">
+                            </form> --}}
+                            {{!-- </div> --}}
                             <div class="css-1kwjdzk e7hmhos3">
                                 <button tabindex="0" formaction="/auth/google" id="Sign up with Google"
                                     aria-label="Sign up with Google" class="css-re7ijt button">

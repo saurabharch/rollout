@@ -6,10 +6,10 @@ describe("Forgot password endpoints", () => {
   it("Consuming API endpoint", async () => {
     const {
       body
-    } = await helper.apiServer.post(`${urlPrefix}/forgot-password`, {
-      email: "email@mailinator.com"
+    } = await helper.apiServer.post(`${urlPrefix}/reset/password/email`, {
+      email: "saurabh@raindigi.com"
     });
-    expect(body).toHaveProperty("reset_token");
+    expect(body).toHaveProperty("x-access-token");
     expect(body).toHaveProperty("email");
   });
 });

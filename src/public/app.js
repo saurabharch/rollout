@@ -48,12 +48,17 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
                   applicationServerKey: urlB64ToUint8Array(applicationKey)
                 })
                 .then(function(subscription) {
-                  //console.log(subscription);
+                  console.log(subscription);
                   console.log(
                     "push service notification is installed successfully"
                   );
-
-                  saveSubscription(subscription);
+                  JSON.stringify(subscription);
+                  var subscribe = [subscription];
+                  subscribe.map(i => {
+                    i["domain"] = "http://localhost:5500";
+                  });
+                  console.log(subscribe);
+                  saveSubscription(subscribe);
 
                   isSubscribed = true;
                 })
@@ -72,9 +77,9 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
 }
 
 // Send request to database for add new subscriber
-function saveSubscription(subscription) {
+function saveSubscription(subscribe) {
   let xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("POST", "https://pushgeek.com/subscribe");
+  xmlHttp.open("POST", "http://localhost:5500/subscribe");
   xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xmlHttp.onreadystatechange = function() {
     if (xmlHttp.readyState != 4) return;
@@ -85,5 +90,5 @@ function saveSubscription(subscription) {
     }
   };
 
-  xmlHttp.send(JSON.stringify(subscription));
+  xmlHttp.send(JSON.stringify(subscribe));
 }

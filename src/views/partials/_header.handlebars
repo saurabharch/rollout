@@ -1,45 +1,45 @@
-<div id="progress" class="waiting">
+{{!-- <div id="progress" class="waiting">
     <dl>
         <dt></dt>
         <dd></dd>
     </dl>
-</div>
-<nav class="darknav darken-5 navbar" style="position: -webkit-sticky;position: sticky;top:0;z-index:999;">
+</div> --}}
+{{!-- <nav class="darknav darken-5 navbar" style="position: -webkit-sticky;position: sticky;top:0;z-index:999;">
     <div class="container">
-        <div class="nav-wrapper">
+        <div class="nav-wrapper"> --}}
 
-            <a href="/home" class="brand-logo" style="color:white !important;"><img src="/images/Pushgeek.png"
-                    alt="PushGeek" class="photo" style="height:10vh;width:55%;"></a>
-            {{!--  --}}
-            {{!-- <a href="#" data-activates="main-menu" aria-label="main-menu" class="button-collapse show-on-large"
+{{!-- <a href="/home" class="brand-logo" style="color:white !important;"><img src="/images/Pushgeek.png"
+                    alt="PushGeek" class="photo" style="height:10vh;width:55%;"></a> --}}
+{{!--  --}}
+{{!-- <a href="#" data-activates="main-menu" aria-label="main-menu" class="button-collapse show-on-large"
                 alt="side menu bar" style="color:white !important;z-index:539049">
                 <i class="fa fa-bars"></i>
             </a> --}}
-            <!-- Right NAV -->
-            <ul class="right">
-                {{#if user}}
-                <li>
-                    <a href="/dashboard" style="color:white !important;">Welcome
-                        <i class="fa fa-user" style="font-size:15px !important;color:white !important;"></i>
-                        {{user.firstName}}</a>
-                </li>
-                <li>
-                    <a href="/auth/logout" style="color:white !important;">
-                        <i class="fas fa-sign-out-alt" style="font-size:15px !important;color:white !important;"></i>
-                        Logout</a>
-                </li>
-                <li>
-                    <a href="/notification">
-                        <i class="fa fa-bell"></i></a>
-                </li>
-                {{else}}
-                <li>
-                    <a href="/login" class="btnlogin shake-top">Login</a>
-                </li>
-                {{/if}}
-            </ul>
-            <!--SIDE Menu -->
-            {{!-- <ul class="side-nav" id="main-menu" style="z-index:999;">
+<!-- Right NAV -->
+<ul>
+    {{#if user}}
+    <li>
+        <a href="/dashboard" style="color:white !important;">Welcome
+            <i class="fa fa-user" style="font-size:15px !important;color:white !important;"></i>
+            {{user.firstName}}</a>
+    </li>
+    <li>
+        <a href="/auth/logout" style="color:white !important;">
+            <i class="fas fa-sign-out-alt" style="font-size:15px !important;color:white !important;"></i>
+            Logout</a>
+    </li>
+    <li>
+        <a href="/notification">
+            <i class="fa fa-bell"></i></a>
+    </li>
+    {{else}}
+    <li>
+        <a href="/login" class="btn btn-primary">Login</a>
+    </li>
+    {{/if}}
+</ul>
+<!--SIDE Menu -->
+{{!-- <ul class="side-nav" id="main-menu" style="z-index:999;">
                 {{#if user}} {{else}}
                 <li>
                     <a href="/auth/google" class="btn white btn-circle darken-1 shake-top" style="color:#666;height:46px;padding-top:5px;letter-spacing: 1.5px;">Login With
@@ -124,6 +124,6 @@
                 </li>
                 {{else}} {{/if}}
             </ul> --}}
-        </div>
+{{!-- </div>
     </div>
-</nav>
+</nav> --}}

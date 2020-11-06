@@ -4,7 +4,7 @@ try {
   pgSw.config = {
     version: "2.2.0",
     api: {
-      default: "http://localhost:5500/ApiKey",
+      default: "http://localhost:5500/",
       analytics: "https://noti-analytics.pushengage.com/p/v1",
       log: "https://notify.pushengage.com/v1/logs"
     },
@@ -271,6 +271,7 @@ try {
             },
             body: JSON.stringify(i)
           };
+        console.log(i);
         fetch(o, a)
           .then(function(e) {
             if (e.status >= 500)

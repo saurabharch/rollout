@@ -1,621 +1,860 @@
 <!DOCTYPE html>
-<html
-    class="backgroundcliptext cors cssanimations cssfilters csstransforms csstransforms3d csstransitions no-touchevents supports"
-    dir=ltr lang=en prefix="content: http://purl.org/rss/1.0/modules/content/
-dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema#
-schema: http://schema.org/ sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core#
-xsd: http://www.w3.org/2001/XMLSchema# " xmlns:article=http://ogp.me/ns/article# xmlns:book=http://ogp.me/ns/book#
-    xmlns:product=http://ogp.me/ns/product# xmlns:profile=http://ogp.me/ns/profile# xmlns:video=http://ogp.me/ns/video#>
-<meta charset=UTF-8>
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-{{!--
-<link rel="stylesheet" href="https://use.typekit.net/bcr0bwp.css"> --}}
-<meta content="ie=edge" http-equiv="X-UA-Compatible">
-<title>{{metaTags.title}}</title>
-<meta content="{{metaTags.title}}" name="title">
-<meta content="{{metaTags.description}}" name="description">
-<meta content="{{metaTags.keywords}}" name="keywords">
-<meta content="{{metaTags.author}}" name="author">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+<html dir=ltr lang="en">
 
-<script src="/common_functions.js"></script>
-<script type="text/javascript">
-    var $_GET = {};
-    document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
-        function decode(s) {
-            return decodeURIComponent(s.split("+").join(" "));
+
+
+<head>
+    {{~#if config.injectJs}}{{{config.injectJs}}}{{/if}}
+    <title>{{title}}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="" rel="mask-icon" color="#0098e3">
+    <link href="/fevicon.ico" rel="shortcut icon" type="image/x-icon">
+    {{!-- <link rel="stylesheet" href="/css/materialize.min.css"> --}}
+    <link href="/css/utilities.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <meta content="#2b5797" name="msapplication-TileColor">
+    <link href="/manifest.json" rel="manifest" type="manifest+json">
+    <link href="/manifest.webmanifest" rel="manifest" type="manifest+json">
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <link href="/favicon.ico" rel="icon" sizes="16x16 32x32 48x48">
+    <link href="/images/medium512.png" rel="icon" sizes="512x512">
+    <link href="#/" rel="shortlink">
+    <link href="#/" rel="canonical">
+    <link href="#/sg/" rel="hreflang" hreflang="en-SG">
+    <link href="#/in/" rel="hreflang" hreflang="en-IN">
+    <link href="#/uk/" rel="hreflang" hreflang="en-GB">
+    <link href="#/au/" rel="hreflang" hreflang="en-AU">
+    <link href="#/ae/" rel="hreflang" hreflang="en-AE">
+    <link href="#/de/" rel="hreflang" hreflang="de">
+    <link href="#/en/" rel="alternate" hreflang="en">
+    <meta content="#0098e3" name="theme-color">
+    <script>var monsterinsights_frontend = {js_events_tracking: "true", is_debug_mode: "false", download_extensions: "doc,exe,js,pdf,ppt,tgz,zip,xls", inbound_paths: "/recommended/", home_url: "#", track_download_as: "event", internal_label: "aff", hash_tracking: "false"}</script>
+    <script>var advanced_ads_responsive = {reload_on_resize: "0"}</script>
+    <script>var advanced_ads_pro_visitor_conditions = {referrer_cookie_name: "advanced_ads_pro_visitor_referrer", referrer_exdays: "365", page_impr_cookie_name: "advanced_ads_page_impressions", page_impr_exdays: "3650"}</script>
+    <link href="#" rel="https://api.w.org/">
+    <meta content="browserconfig.xml" name="msapplication-config">
+    {{#if admin}}
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    {{else}}
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    {{/if}}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    {{#if productDescription}}
+    <meta name="description" content="{{snip productDescription}}">
+    {{else}}
+    {{#if metaDescription}}
+    <meta name="description" content="{{snip metaDescription}}">
+    {{else}}
+    <meta name="description" content="{{snip config.cartDescription}}">
+    {{/if}}
+    {{/if}}
+    <meta name="csrfToken" content="{{csrfToken}}">
+    <meta name="keywords" content="{{config.cartTitle}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/stylesheets/pushy{{config.env}}.css">
+    {{#if admin}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/css/gijgo.min.css"
+        integrity="sha256-bH0WSMuCFoG/dxeox/5aOWmaZl729yDg4ylckwSRTfU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/codemirror.min.css"
+        integrity="sha256-MdzaXfGXzZdeHw/XEV2LNNycipsLk4uZ0FYzO3hbuvI=" crossorigin="anonymous" />
+    {{/if}}
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/bootstrap-tokenfield.min.css"
+        integrity="sha256-4qBzeX420hElp9/FzsuqUNqVobcClz1BjnXoxUDSYQ0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/stylesheets/codemirror-style.min.css">
+    <link rel="stylesheet" href="/stylesheets/style{{config.env}}.css">
+    {{#if admin}}
+    <link rel="stylesheet" href="/stylesheets/admin{{config.env}}.css">
+    {{/if}}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"
+        integrity="sha256-x3YZWtRjM8bJqf48dFAv/qmgL68SI4jqNWeSLMZaMGA=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+    {{#if admin}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+        integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/js/gijgo.min.js"
+        integrity="sha256-YZhUu69bCn9uTqQyKwwQ3GyRypS7eaxp/wmVS282sDI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/codemirror.min.js"
+        integrity="sha256-K1exjHe1X4MP24jRizgBaSbUDUrNhFDRSwGoEYGmtJE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/mode/css/css.min.js"
+        integrity="sha256-D5oJ11cOmRhXSYWELwG2U/XYH3YveZJr9taRYLZ2DSM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/mode/xml/xml.min.js"
+        integrity="sha256-ERFGS58tayDq5kkyNwd/89iZZ+HglMH7eYXxG1hxTvA=" crossorigin="anonymous"></script>
+    {{/if}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.25.0/feather.min.js"
+        integrity="sha256-NvgyqkM9Vu1DLHkzxTxXQxZNdDymUlwhXcSJEqUfPiU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"
+        integrity="sha256-LlHVI5rUauudM5ZcZaD6hHPHKrA7CSefHHnKgq+/AZc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.min.js"
+        integrity="sha256-4lietOiwRDBKx1goZZbRiwB06L+/bPYEGDIKZt82bgg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <script src="/javascripts/jquery.bootpag.min.js"></script>
+    <script src="/javascripts/cssbeautify.min.js"></script>
+    <script src="/javascripts/common{{config.env}}.js"></script>
+    <script src="/javascripts/expressCart{{config.env}}.js"></script>
+    {{#if admin}}
+    <script src="/javascripts/admin{{config.env}}.js"></script>
+    {{/if}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.min.js"
+        integrity="sha256-jdwX0QzXB7z7Xc7Vz0ovtIHWO5qIZWg0aLcGv44JDgE=" crossorigin="anonymous"></script>
+    <!-- SEO data -->
+    {{#if pageUrl}}
+    <link rel="canonical" href="{{pageUrl}}" />
+    {{else}}
+    <link rel="canonical" href="{{config.baseUrl}}" />
+    {{/if}}
+    <meta name="referrer" content="origin" />
+    {{#if @root.config.facebookAppId}}
+    <meta property="fb:app_id" content="{{@root.config.facebookAppId}}" />
+    {{/if}}
+    <meta property="og:site_name" content="{{config.cartTitle}}" />
+    {{#if result.productTitle}}
+    <meta property="og:type" content="product" />
+    {{else}}
+    <meta property="og:type" content="website" />
+    {{/if}}
+    <meta property="og:title" content="{{title}}" />
+    {{#if pageUrl}}
+    <meta property="og:url" content="{{pageUrl}}" />
+    {{else}}
+    <meta property="og:url" content="{{config.baseUrl}}" />
+    {{/if}}
+    {{#if result.productImage}}
+    <meta property="og:image" content="{{config.baseUrl}}{{result.productImage}}" />
+    {{/if}}
+    {{#if productDescription}}
+    <meta property="og:description" content="{{snip productDescription}}">
+    {{else}}
+    {{#if metaDescription}}
+    <meta property="og:description" content="{{snip metaDescription}}">
+    {{else}}
+    <meta property="og:description" content="{{snip config.cartDescription}}">
+    {{/if}}
+    {{/if}}
+    {{#if @root.config.twitterHandle}}
+    <meta property="twitter:site" content="{{@root.config.twitterHandle}}">
+    {{/if}}
+    {{#if result.productTitle}}
+    <meta property="twitter:card" content="product" />
+    {{else}}
+    <meta property="twitter:card" content="summary" />
+    {{/if}}
+    <meta property="twitter:title" content="{{title}}" />
+    {{#if pageUrl}}
+    <meta property="twitter:url" content="{{pageUrl}}" />
+    {{else}}
+    <meta property="twitter:url" content="{{config.baseUrl}}" />
+    {{/if}}
+    {{#unless result.productTitle}}
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org/",
+                {{#if result.productTitle}}
+                "@type": "Product",
+                "name": "{{result.productTitle}}",
+                "offers": {
+                    "price": "{{result.productPrice}}",
+                    "priceCurrency": "{{config.currencyISO}}",
+                    "description": "{{snip productDescription}}",
+                    "sku": "{{result._id}}",
+                    "url": "{{pageUrl}}"
+                },
+                {{else}}
+                "publisher": "{{config.cartTitle}}",
+                "@type": "WebSite",
+                {{/if}}
+                {{#if result.productImage}}
+                "image": "{{config.baseUrl}}{{result.productImage}}",
+                {{/if}}
+                {{#if productDescription}}
+                "description": "{{snip productDescription}}",
+                {{/if}}
+                {{#if result.productTitle}}
+                "sku": "{{result._id}}",
+                {{/if}}
+                {{#if pageUrl}}
+                "url": "{{pageUrl}}"
+                {{else}}
+                "url": "{{config.baseUrl}}"
+                {{/if}}
+            }
+        </script>
+    {{/unless}}
+    <!-- SEO data -->
+    {{~#if config.googleAnalytics}}{{{config.googleAnalytics}}}{{/if}}
+    {{~#if config.customCss}}<style>
+        {
+                {
+                    {
+                    config.customCss
+                }
+            }
         }
-        $_GET[decode(arguments[1])] = decode(arguments[2]);
-    });
-
-    $(document).ready(function () {
-        var cookie = getCookie("referral");
-        createCookie(cookie);
-    });
-</script>
-<link href="/fevicon.ico" rel="shortcut icon" type="image/x-icon">
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="/css/materialize.min.css">
-
-
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'
-    integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ' crossorigin='anonymous'>
-{{!--
-<link href=https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css rel=stylesheet crossorigin=anonymous
-    integrity=sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN>--}}
-<link href="/css/style.css" rel="stylesheet">
-{{!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> --}}
-{{!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
-<link href="#/" rel="shortlink">
-<link href="#/" rel="canonical">
-<link href="#/sg/" rel="hreflang" hreflang="en-SG">
-<link href="#/in/" rel="hreflang" hreflang="en-IN">
-<link href="#/uk/" rel="hreflang" hreflang="en-GB">
-<link href="#/au/" rel="hreflang" hreflang="en-AU">
-<link href="#/ae/" rel="hreflang" hreflang="en-AE">
-<link href="#/de/" rel="hreflang" hreflang="de">
-<link href="#/en/" rel="alternate" hreflang="en">
-{{!--
-<link href="" rel="mask-icon" color="#0098e3"> --}}
-<meta content="#2b5797" name="msapplication-TileColor">
-<link href="/manifest.json" rel="manifest" type="manifest+json">
-<link href="/manifest.webmanifest" rel="manifest" type="manifest+json">
-{{!--
-<script type="text/javascript" src="./new-install.js"></script> --}}
-<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
-<meta content="yes" name="apple-mobile-web-app-capable">
-<link href="/favicon.ico" rel="icon" sizes="16x16 32x32 48x48">
-<link href="/images/medium512.png" rel="icon" sizes="512x512">
-<meta content="#0098e3" name="theme-color">
-<meta content="browserconfig.xml" name="msapplication-config">{{!-- SEO AREA START --}}
-<script>console.log("%c Stop! %cPushgeek is made with ❤️ by RainDigi IT Pvt. Ltd., This is a browser feature intended for developers.If someone told you to copy and paste something here to enable a Pushgeek feature or 'hack' someone's account, it is a scam and will give them access to your PushGeek account. %cSee https://pushgeek.com/security for more information. ", "font-weight:bold;font-size:50px;color:red;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;", "font-weight:500;font-size:20px;color:#404040;", "font-weight:500;font-size:22px;color:grey;")</script>
-{{!--HTTP TO HTTPS REDIRECT --}}
-
-{{!-- <script>"https:" != document.location.protocol && (document.location = document.URL.replace(/^http:/i, "https:"))</script> --}}
-<script>var monsterinsights_frontend = {js_events_tracking: "true", is_debug_mode: "false", download_extensions: "doc,exe,js,pdf,ppt,tgz,zip,xls", inbound_paths: "/recommended/", home_url: "#", track_download_as: "event", internal_label: "aff", hash_tracking: "false"}</script>
-<script>var advanced_ads_responsive = {reload_on_resize: "0"}</script>
-<script>var advanced_ads_pro_visitor_conditions = {referrer_cookie_name: "advanced_ads_pro_visitor_referrer", referrer_exdays: "365", page_impr_cookie_name: "advanced_ads_page_impressions", page_impr_exdays: "3650"}</script>
-<link href="#" rel="https://api.w.org/">
-<meta content={{metaTags.generator}} name="generator">
-<link href="#" rel="shortlink">
-<meta content="{{metaTags.generator}}" name="generator">
-
-<meta content="en_US" property="og:locale">
-<meta content="website" property="og:type">
-<meta content="{{metaTags.title}}" property="og:title">
-{{!-- <meta content="PushGeek is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing." property="og:description"> --}}
-<meta content="Octicons-book.svg.png" property="og:image">
-<meta content="#" property="og:url">
-<meta content="PushGeek" property="og:site_name">
-<meta content="{{metaTags.title}}" name="twitter:card">
-
-<meta
-    content="PushGeek is an award winning blog that talks about living a boss free life with blogging. We cover about WordPress, SEO, Make money Blogging, Affiliate marketing."
-    name='twitter:description'>
-<meta content="{{metaTags.title}}" name="twitter:title">
-<meta content="{{metaTags.TwitterLink}}" name="twitter:site">
-<meta content="{{metaTags.myTwitter}}" name="twitter:creator">
-<style data-href="/styles.559cc93c2d06e3cf22d5.css">
-    <style class="js-collectionStyle">.u-accentColor--borderLight {
-        border-color: #868484 !important;
-    }
-
-    .u-accentColor--borderNormal {
-        border-color: #868484 !important;
-    }
-
-    .u-accentColor--borderDark {
-        border-color: #737171 !important;
-    }
-
-    .u-accentColor--iconLight .svgIcon,
-    .u-accentColor--iconLight.svgIcon {
-        fill: #868484 !important;
-    }
-
-    .u-accentColor--iconNormal .svgIcon,
-    .u-accentColor--iconNormal.svgIcon {
-        fill: #868484 !important;
-    }
-
-    .u-accentColor--iconDark .svgIcon,
-    .u-accentColor--iconDark.svgIcon {
-        fill: #737171 !important;
-    }
-
-    .u-accentColor--textNormal {
-        color: #737171 !important;
-    }
-
-    .u-accentColor--hoverTextNormal:hover {
-        color: #737171 !important;
-    }
-
-    .u-accentColor--textNormal.u-accentColor--textDarken:hover {
-        color: #696867 !important;
-    }
-
-    .u-accentColor--textDark {
-        color: #696867 !important;
-    }
-
-    .u-accentColor--backgroundLight {
-        background-color: #868484 !important;
-    }
-
-    .u-accentColor--backgroundNormal {
-        background-color: #868484 !important;
-    }
-
-    .u-accentColor--backgroundDark {
-        background-color: #737171 !important;
-    }
-
-    .u-accentColor--buttonDark {
-        border-color: #737171 !important;
-        color: #696867 !important;
-    }
-
-    .u-accentColor--buttonDark:hover {
-        border-color: #696867 !important;
-    }
-
-    .u-accentColor--buttonDark .icon:before,
-    .u-accentColor--buttonDark .svgIcon {
-        color: #737171 !important;
-        fill: #737171 !important;
-    }
-
-    .u-accentColor--buttonNormal:not(.clapButton--largePill) {
-        border-color: #868484 !important;
-        color: #737171 !important;
-    }
-
-    .u-accentColor--buttonNormal:hover {
-        border-color: #737171 !important;
-    }
-
-    .u-accentColor--buttonNormal .icon:before,
-    .u-accentColor--buttonNormal .svgIcon {
-        color: #868484 !important;
-        fill: #868484 !important;
-    }
-
-    .u-accentColor--buttonNormal.button--filled .icon:before,
-    .u-accentColor--buttonNormal.button--filled .svgIcon {
-        color: rgba(255, 255, 255, 1) !important;
-        fill: rgba(255, 255, 255, 1) !important;
-    }
-
-    .u-accentColor--buttonDark.button--filled,
-    .u-accentColor--buttonDark.button--withChrome.is-active,
-    .u-accentColor--fillWhenActive.is-active {
-        background-color: #737171 !important;
-        border-color: #737171 !important;
-        color: rgba(255, 255, 255, 1) !important;
-        fill: rgba(255, 255, 255, 1) !important;
-    }
-
-    .u-accentColor--buttonNormal.button--filled:not(.clapButton--largePill),
-    .u-accentColor--buttonNormal.button--withChrome.is-active:not(.clapButton--largePill) {
-        background-color: #868484 !important;
-        border-color: #868484 !important;
-        color: rgba(255, 255, 255, 1) !important;
-        fill: rgba(255, 255, 255, 1) !important;
-    }
-
-    .postArticle.is-withAccentColors .markup--user,
-    .postArticle.is-withAccentColors .markup--query {
-        color: #737171 !important;
-    }
-
-    .u-tintBgColor {
-        background-color: rgba(0, 0, 0, 1) !important;
-    }
-
-    .u-tintBgColor .u-fadeLeft:before {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%) !important;
-    }
-
-    .u-tintBgColor .u-fadeRight:after {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%) !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--borderLight {
-        border-color: #868484 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--borderNormal {
-        border-color: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--borderDark {
-        border-color: #D9D6D6 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--iconLight .svgIcon,
-    .u-tintSpectrum .u-baseColor--iconLight.svgIcon {
-        fill: #868484 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--iconNormal .svgIcon,
-    .u-tintSpectrum .u-baseColor--iconNormal.svgIcon {
-        fill: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--iconDark .svgIcon,
-    .u-tintSpectrum .u-baseColor--iconDark.svgIcon {
-        fill: #D9D6D6 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--textNormal {
-        color: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--textNormal.u-baseColor--textDarken:hover {
-        color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--textDark {
-        color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--textDarker {
-        color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--backgroundLight {
-        background-color: #868484 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--backgroundNormal {
-        background-color: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--backgroundDark {
-        background-color: #D9D6D6 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--buttonLight {
-        border-color: #868484 !important;
-        color: #868484 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--buttonLight:hover {
-        border-color: #868484 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--buttonLight .icon:before,
-    .u-tintSpectrum .u-baseColor--buttonLight .svgIcon {
-        color: #868484 !important;
-        fill: #868484 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--buttonDark {
-        border-color: #D9D6D6 !important;
-        color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--buttonDark:hover {
-        border-color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--buttonDark .icon:before,
-    .u-tintSpectrum .u-baseColor--buttonDark .svgIcon {
-        color: #D9D6D6 !important;
-        fill: #D9D6D6 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--buttonNormal {
-        border-color: #B1AEAE !important;
-        color: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--buttonNormal:hover {
-        border-color: #D9D6D6 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--buttonNormal .icon:before,
-    .u-tintSpectrum .u-baseColor--buttonNormal .svgIcon {
-        color: #B1AEAE !important;
-        fill: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--buttonDark.button--filled,
-    .u-tintSpectrum .u-baseColor--buttonDark.button--withChrome.is-active {
-        background-color: #D9D6D6 !important;
-        border-color: #D9D6D6 !important;
-        color: rgba(0, 0, 0, 1) !important;
-        fill: rgba(0, 0, 0, 1) !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--buttonNormal.button--filled,
-    .u-tintSpectrum .u-baseColor--buttonNormal.button--withChrome.is-active {
-        background-color: #B1AEAE !important;
-        border-color: #B1AEAE !important;
-        color: rgba(0, 0, 0, 1) !important;
-        fill: rgba(0, 0, 0, 1) !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--link {
-        color: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--link.link--darkenOnHover:hover {
-        color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--link.link--darken:hover,
-    .u-tintSpectrum .u-baseColor--link.link--darken:focus,
-    .u-tintSpectrum .u-baseColor--link.link--darken:active {
-        color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--link.link--dark {
-        color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--link.link--dark.link--darken:hover,
-    .u-tintSpectrum .u-baseColor--link.link--dark.link--darken:focus,
-    .u-tintSpectrum .u-baseColor--link.link--dark.link--darken:active {
-        color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--link.link--darker {
-        color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-baseColor--placeholderNormal ::-webkit-input-placeholder {
-        color: #868484;
-    }
-
-    .u-tintSpectrum .u-baseColor--placeholderNormal ::-moz-placeholder {
-        color: #868484;
-    }
-
-    .u-tintSpectrum .u-baseColor--placeholderNormal :-ms-input-placeholder {
-        color: #868484;
-    }
-
-    .u-tintSpectrum .svgIcon--logoNew path:nth-child(1) {
-        stroke: none !important;
-        fill: #3C3B3B !important;
-    }
-
-    .u-tintSpectrum .svgIcon--logoNew path:nth-child(2) {
-        stroke: none !important;
-        fill: #565555 !important;
-    }
-
-    .u-tintSpectrum .svgIcon--logoNew path:nth-child(3) {
-        stroke: none !important;
-        fill: #868484 !important;
-    }
-
-    .u-tintSpectrum .svgIcon--logoNew path:nth-child(4) {
-        stroke: none !important;
-        fill: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .svgIcon--logoWordmark {
-        stroke: none !important;
-        fill: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .svgIcon--logoMonogram {
-        stroke: none !important;
-        fill: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .ui-h1,
-    .u-tintSpectrum .ui-h2,
-    .u-tintSpectrum .ui-h3,
-    .u-tintSpectrum .ui-h4,
-    .u-tintSpectrum .ui-brand1,
-    .u-tintSpectrum .ui-brand2,
-    .u-tintSpectrum .ui-captionStrong {
-        color: #ECE9E9 !important;
-        fill: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .ui-body,
-    .u-tintSpectrum .ui-caps {
-        color: #ECE9E9 !important;
-        fill: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .ui-summary,
-    .u-tintSpectrum .ui-caption {
-        color: #868484 !important;
-        fill: #868484 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--borderLight {
-        border-color: #868484 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--borderNormal {
-        border-color: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--borderDark {
-        border-color: #D9D6D6 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--iconLight .svgIcon,
-    .u-tintSpectrum .u-accentColor--iconLight.svgIcon {
-        fill: #868484 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--iconNormal .svgIcon,
-    .u-tintSpectrum .u-accentColor--iconNormal.svgIcon {
-        fill: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--iconDark .svgIcon,
-    .u-tintSpectrum .u-accentColor--iconDark.svgIcon {
-        fill: #D9D6D6 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--textNormal {
-        color: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--hoverTextNormal:hover {
-        color: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--textNormal.u-accentColor--textDarken:hover {
-        color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--textDark {
-        color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--backgroundLight {
-        background-color: #868484 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--backgroundNormal {
-        background-color: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--backgroundDark {
-        background-color: #D9D6D6 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--buttonDark {
-        border-color: #D9D6D6 !important;
-        color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--buttonDark:hover {
-        border-color: #ECE9E9 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--buttonDark .icon:before,
-    .u-tintSpectrum .u-accentColor--buttonDark .svgIcon {
-        color: #D9D6D6 !important;
-        fill: #D9D6D6 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--buttonNormal:not(.clapButton--largePill) {
-        border-color: #B1AEAE !important;
-        color: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--buttonNormal:hover {
-        border-color: #D9D6D6 !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--buttonNormal .icon:before,
-    .u-tintSpectrum .u-accentColor--buttonNormal .svgIcon {
-        color: #B1AEAE !important;
-        fill: #B1AEAE !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--buttonNormal.button--filled .icon:before,
-    .u-tintSpectrum .u-accentColor--buttonNormal.button--filled .svgIcon {
-        color: rgba(0, 0, 0, 1) !important;
-        fill: rgba(0, 0, 0, 1) !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--buttonDark.button--filled,
-    .u-tintSpectrum .u-accentColor--buttonDark.button--withChrome.is-active,
-    .u-tintSpectrum .u-accentColor--fillWhenActive.is-active {
-        background-color: #D9D6D6 !important;
-        border-color: #D9D6D6 !important;
-        color: rgba(0, 0, 0, 1) !important;
-        fill: rgba(0, 0, 0, 1) !important;
-    }
-
-    .u-tintSpectrum .u-accentColor--buttonNormal.button--filled:not(.clapButton--largePill),
-    .u-tintSpectrum .u-accentColor--buttonNormal.button--withChrome.is-active:not(.clapButton--largePill) {
-        background-color: #B1AEAE !important;
-        border-color: #B1AEAE !important;
-        color: rgba(0, 0, 0, 1) !important;
-        fill: rgba(0, 0, 0, 1) !important;
-    }
-
-    .u-tintSpectrum .postArticle.is-withAccentColors .markup--user,
-    .u-tintSpectrum .postArticle.is-withAccentColors .markup--query {
-        color: #B1AEAE !important;
-    }
-
-    .u-accentColor--highlightFaint {
-        background-color: rgba(243, 240, 239, 1) !important;
-    }
-
-    .u-accentColor--highlightStrong.is-active .svgIcon {
-        fill: rgba(226, 223, 222, 1) !important;
-    }
-
-    .postArticle.is-withAccentColors .markup--quote.is-other {
-        background-color: rgba(243, 240, 239, 1) !important;
-    }
-
-    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-other {
-        background-color: transparent !important;
-        background-image: linear-gradient(to bottom, rgba(243, 240, 239, 1), rgba(243, 240, 239, 1));
-    }
-
-    .postArticle.is-withAccentColors .markup--quote.is-me {
-        background-color: rgba(233, 230, 230, 1) !important;
-    }
-
-    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-me {
-        background-color: transparent !important;
-        background-image: linear-gradient(to bottom, rgba(233, 230, 230, 1), rgba(233, 230, 230, 1));
-    }
-
-    .postArticle.is-withAccentColors .markup--quote.is-targeted {
-        background-color: rgba(226, 223, 222, 1) !important;
-    }
-
-    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-targeted {
-        background-color: transparent !important;
-        background-image: linear-gradient(to bottom, rgba(226, 223, 222, 1), rgba(226, 223, 222, 1));
-    }
-
-    .postArticle.is-withAccentColors .markup--quote.is-selected {
-        background-color: rgba(226, 223, 222, 1) !important;
-    }
-
-    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-selected {
-        background-color: transparent !important;
-        background-image: linear-gradient(to bottom, rgba(226, 223, 222, 1), rgba(226, 223, 222, 1));
-    }
-
-    .postArticle.is-withAccentColors .markup--highlight {
-        background-color: rgba(226, 223, 222, 1) !important;
-    }
-
-    body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--highlight {
-        background-color: transparent !important;
-        background-image: linear-gradient(to bottom, rgba(226, 223, 222, 1), rgba(226, 223, 222, 1));
-    }
-
-    .u-baseColor--iconNormal.avatar-halo {
-        fill: rgba(0, 0, 0, 0.4980392156862745) !important;
-    }
-</style>
-<div id="wrapper"></div>
-<div id="warning-message">
-    <center>
-        <div class="">
-            <div class="overlay"></div>
-            <div class="overlay-content">Please rotate your device</div>
-            <div class="overlay-text">We don't support landscape mode yet. Please go back to portrait mode for the best
-                experience</div>
+    </style>{{/if}}
+    {{#if admin}}
+    <link rel="stylesheet" href="/stylesheets/admin{{config.env}}.css">
+    {{else}}
+    {{#if config.theme}}
+    <link rel="stylesheet" href="/{{config.theme}}/style{{config.env}}.css">
+    <script src="/{{config.theme}}/index{{config.env}}.js"></script>
+    {{/if}}
+    {{/if}}
+    <style data-href="/styles.559cc93c2d06e3cf22d5.css">
+        <style class="js-collectionStyle">.u-accentColor--borderLight {
+            border-color: #868484 !important;
+        }
+
+        .u-accentColor--borderNormal {
+            border-color: #868484 !important;
+        }
+
+        .u-accentColor--borderDark {
+            border-color: #737171 !important;
+        }
+
+        .u-accentColor--iconLight .svgIcon,
+        .u-accentColor--iconLight.svgIcon {
+            fill: #868484 !important;
+        }
+
+        .u-accentColor--iconNormal .svgIcon,
+        .u-accentColor--iconNormal.svgIcon {
+            fill: #868484 !important;
+        }
+
+        .u-accentColor--iconDark .svgIcon,
+        .u-accentColor--iconDark.svgIcon {
+            fill: #737171 !important;
+        }
+
+        .u-accentColor--textNormal {
+            color: #737171 !important;
+        }
+
+        .u-accentColor--hoverTextNormal:hover {
+            color: #737171 !important;
+        }
+
+        .u-accentColor--textNormal.u-accentColor--textDarken:hover {
+            color: #696867 !important;
+        }
+
+        .u-accentColor--textDark {
+            color: #696867 !important;
+        }
+
+        .u-accentColor--backgroundLight {
+            background-color: #868484 !important;
+        }
+
+        .u-accentColor--backgroundNormal {
+            background-color: #868484 !important;
+        }
+
+        .u-accentColor--backgroundDark {
+            background-color: #737171 !important;
+        }
+
+        .u-accentColor--buttonDark {
+            border-color: #737171 !important;
+            color: #696867 !important;
+        }
+
+        .u-accentColor--buttonDark:hover {
+            border-color: #696867 !important;
+        }
+
+        .u-accentColor--buttonDark .icon:before,
+        .u-accentColor--buttonDark .svgIcon {
+            color: #737171 !important;
+            fill: #737171 !important;
+        }
+
+        .u-accentColor--buttonNormal:not(.clapButton--largePill) {
+            border-color: #868484 !important;
+            color: #737171 !important;
+        }
+
+        .u-accentColor--buttonNormal:hover {
+            border-color: #737171 !important;
+        }
+
+        .u-accentColor--buttonNormal .icon:before,
+        .u-accentColor--buttonNormal .svgIcon {
+            color: #868484 !important;
+            fill: #868484 !important;
+        }
+
+        .u-accentColor--buttonNormal.button--filled .icon:before,
+        .u-accentColor--buttonNormal.button--filled .svgIcon {
+            color: rgba(255, 255, 255, 1) !important;
+            fill: rgba(255, 255, 255, 1) !important;
+        }
+
+        .u-accentColor--buttonDark.button--filled,
+        .u-accentColor--buttonDark.button--withChrome.is-active,
+        .u-accentColor--fillWhenActive.is-active {
+            background-color: #737171 !important;
+            border-color: #737171 !important;
+            color: rgba(255, 255, 255, 1) !important;
+            fill: rgba(255, 255, 255, 1) !important;
+        }
+
+        .u-accentColor--buttonNormal.button--filled:not(.clapButton--largePill),
+        .u-accentColor--buttonNormal.button--withChrome.is-active:not(.clapButton--largePill) {
+            background-color: #868484 !important;
+            border-color: #868484 !important;
+            color: rgba(255, 255, 255, 1) !important;
+            fill: rgba(255, 255, 255, 1) !important;
+        }
+
+        .postArticle.is-withAccentColors .markup--user,
+        .postArticle.is-withAccentColors .markup--query {
+            color: #737171 !important;
+        }
+
+        .u-tintBgColor {
+            background-color: rgba(0, 0, 0, 1) !important;
+        }
+
+        .u-tintBgColor .u-fadeLeft:before {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%) !important;
+        }
+
+        .u-tintBgColor .u-fadeRight:after {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%) !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--borderLight {
+            border-color: #868484 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--borderNormal {
+            border-color: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--borderDark {
+            border-color: #D9D6D6 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--iconLight .svgIcon,
+        .u-tintSpectrum .u-baseColor--iconLight.svgIcon {
+            fill: #868484 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--iconNormal .svgIcon,
+        .u-tintSpectrum .u-baseColor--iconNormal.svgIcon {
+            fill: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--iconDark .svgIcon,
+        .u-tintSpectrum .u-baseColor--iconDark.svgIcon {
+            fill: #D9D6D6 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--textNormal {
+            color: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--textNormal.u-baseColor--textDarken:hover {
+            color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--textDark {
+            color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--textDarker {
+            color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--backgroundLight {
+            background-color: #868484 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--backgroundNormal {
+            background-color: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--backgroundDark {
+            background-color: #D9D6D6 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--buttonLight {
+            border-color: #868484 !important;
+            color: #868484 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--buttonLight:hover {
+            border-color: #868484 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--buttonLight .icon:before,
+        .u-tintSpectrum .u-baseColor--buttonLight .svgIcon {
+            color: #868484 !important;
+            fill: #868484 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--buttonDark {
+            border-color: #D9D6D6 !important;
+            color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--buttonDark:hover {
+            border-color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--buttonDark .icon:before,
+        .u-tintSpectrum .u-baseColor--buttonDark .svgIcon {
+            color: #D9D6D6 !important;
+            fill: #D9D6D6 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--buttonNormal {
+            border-color: #B1AEAE !important;
+            color: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--buttonNormal:hover {
+            border-color: #D9D6D6 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--buttonNormal .icon:before,
+        .u-tintSpectrum .u-baseColor--buttonNormal .svgIcon {
+            color: #B1AEAE !important;
+            fill: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--buttonDark.button--filled,
+        .u-tintSpectrum .u-baseColor--buttonDark.button--withChrome.is-active {
+            background-color: #D9D6D6 !important;
+            border-color: #D9D6D6 !important;
+            color: rgba(0, 0, 0, 1) !important;
+            fill: rgba(0, 0, 0, 1) !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--buttonNormal.button--filled,
+        .u-tintSpectrum .u-baseColor--buttonNormal.button--withChrome.is-active {
+            background-color: #B1AEAE !important;
+            border-color: #B1AEAE !important;
+            color: rgba(0, 0, 0, 1) !important;
+            fill: rgba(0, 0, 0, 1) !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--link {
+            color: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--link.link--darkenOnHover:hover {
+            color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--link.link--darken:hover,
+        .u-tintSpectrum .u-baseColor--link.link--darken:focus,
+        .u-tintSpectrum .u-baseColor--link.link--darken:active {
+            color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--link.link--dark {
+            color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--link.link--dark.link--darken:hover,
+        .u-tintSpectrum .u-baseColor--link.link--dark.link--darken:focus,
+        .u-tintSpectrum .u-baseColor--link.link--dark.link--darken:active {
+            color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--link.link--darker {
+            color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-baseColor--placeholderNormal ::-webkit-input-placeholder {
+            color: #868484;
+        }
+
+        .u-tintSpectrum .u-baseColor--placeholderNormal ::-moz-placeholder {
+            color: #868484;
+        }
+
+        .u-tintSpectrum .u-baseColor--placeholderNormal :-ms-input-placeholder {
+            color: #868484;
+        }
+
+        .u-tintSpectrum .svgIcon--logoNew path:nth-child(1) {
+            stroke: none !important;
+            fill: #3C3B3B !important;
+        }
+
+        .u-tintSpectrum .svgIcon--logoNew path:nth-child(2) {
+            stroke: none !important;
+            fill: #565555 !important;
+        }
+
+        .u-tintSpectrum .svgIcon--logoNew path:nth-child(3) {
+            stroke: none !important;
+            fill: #868484 !important;
+        }
+
+        .u-tintSpectrum .svgIcon--logoNew path:nth-child(4) {
+            stroke: none !important;
+            fill: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .svgIcon--logoWordmark {
+            stroke: none !important;
+            fill: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .svgIcon--logoMonogram {
+            stroke: none !important;
+            fill: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .ui-h1,
+        .u-tintSpectrum .ui-h2,
+        .u-tintSpectrum .ui-h3,
+        .u-tintSpectrum .ui-h4,
+        .u-tintSpectrum .ui-brand1,
+        .u-tintSpectrum .ui-brand2,
+        .u-tintSpectrum .ui-captionStrong {
+            color: #ECE9E9 !important;
+            fill: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .ui-body,
+        .u-tintSpectrum .ui-caps {
+            color: #ECE9E9 !important;
+            fill: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .ui-summary,
+        .u-tintSpectrum .ui-caption {
+            color: #868484 !important;
+            fill: #868484 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--borderLight {
+            border-color: #868484 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--borderNormal {
+            border-color: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--borderDark {
+            border-color: #D9D6D6 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--iconLight .svgIcon,
+        .u-tintSpectrum .u-accentColor--iconLight.svgIcon {
+            fill: #868484 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--iconNormal .svgIcon,
+        .u-tintSpectrum .u-accentColor--iconNormal.svgIcon {
+            fill: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--iconDark .svgIcon,
+        .u-tintSpectrum .u-accentColor--iconDark.svgIcon {
+            fill: #D9D6D6 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--textNormal {
+            color: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--hoverTextNormal:hover {
+            color: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--textNormal.u-accentColor--textDarken:hover {
+            color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--textDark {
+            color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--backgroundLight {
+            background-color: #868484 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--backgroundNormal {
+            background-color: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--backgroundDark {
+            background-color: #D9D6D6 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--buttonDark {
+            border-color: #D9D6D6 !important;
+            color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--buttonDark:hover {
+            border-color: #ECE9E9 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--buttonDark .icon:before,
+        .u-tintSpectrum .u-accentColor--buttonDark .svgIcon {
+            color: #D9D6D6 !important;
+            fill: #D9D6D6 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--buttonNormal:not(.clapButton--largePill) {
+            border-color: #B1AEAE !important;
+            color: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--buttonNormal:hover {
+            border-color: #D9D6D6 !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--buttonNormal .icon:before,
+        .u-tintSpectrum .u-accentColor--buttonNormal .svgIcon {
+            color: #B1AEAE !important;
+            fill: #B1AEAE !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--buttonNormal.button--filled .icon:before,
+        .u-tintSpectrum .u-accentColor--buttonNormal.button--filled .svgIcon {
+            color: rgba(0, 0, 0, 1) !important;
+            fill: rgba(0, 0, 0, 1) !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--buttonDark.button--filled,
+        .u-tintSpectrum .u-accentColor--buttonDark.button--withChrome.is-active,
+        .u-tintSpectrum .u-accentColor--fillWhenActive.is-active {
+            background-color: #D9D6D6 !important;
+            border-color: #D9D6D6 !important;
+            color: rgba(0, 0, 0, 1) !important;
+            fill: rgba(0, 0, 0, 1) !important;
+        }
+
+        .u-tintSpectrum .u-accentColor--buttonNormal.button--filled:not(.clapButton--largePill),
+        .u-tintSpectrum .u-accentColor--buttonNormal.button--withChrome.is-active:not(.clapButton--largePill) {
+            background-color: #B1AEAE !important;
+            border-color: #B1AEAE !important;
+            color: rgba(0, 0, 0, 1) !important;
+            fill: rgba(0, 0, 0, 1) !important;
+        }
+
+        .u-tintSpectrum .postArticle.is-withAccentColors .markup--user,
+        .u-tintSpectrum .postArticle.is-withAccentColors .markup--query {
+            color: #B1AEAE !important;
+        }
+
+        .u-accentColor--highlightFaint {
+            background-color: rgba(243, 240, 239, 1) !important;
+        }
+
+        .u-accentColor--highlightStrong.is-active .svgIcon {
+            fill: rgba(226, 223, 222, 1) !important;
+        }
+
+        .postArticle.is-withAccentColors .markup--quote.is-other {
+            background-color: rgba(243, 240, 239, 1) !important;
+        }
+
+        body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-other {
+            background-color: transparent !important;
+            background-image: linear-gradient(to bottom, rgba(243, 240, 239, 1), rgba(243, 240, 239, 1));
+        }
+
+        .postArticle.is-withAccentColors .markup--quote.is-me {
+            background-color: rgba(233, 230, 230, 1) !important;
+        }
+
+        body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-me {
+            background-color: transparent !important;
+            background-image: linear-gradient(to bottom, rgba(233, 230, 230, 1), rgba(233, 230, 230, 1));
+        }
+
+        .postArticle.is-withAccentColors .markup--quote.is-targeted {
+            background-color: rgba(226, 223, 222, 1) !important;
+        }
+
+        body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-targeted {
+            background-color: transparent !important;
+            background-image: linear-gradient(to bottom, rgba(226, 223, 222, 1), rgba(226, 223, 222, 1));
+        }
+
+        .postArticle.is-withAccentColors .markup--quote.is-selected {
+            background-color: rgba(226, 223, 222, 1) !important;
+        }
+
+        body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--quote.is-selected {
+            background-color: transparent !important;
+            background-image: linear-gradient(to bottom, rgba(226, 223, 222, 1), rgba(226, 223, 222, 1));
+        }
+
+        .postArticle.is-withAccentColors .markup--highlight {
+            background-color: rgba(226, 223, 222, 1) !important;
+        }
+
+        body.is-withMagicUnderlines .postArticle.is-withAccentColors .markup--highlight {
+            background-color: transparent !important;
+            background-image: linear-gradient(to bottom, rgba(226, 223, 222, 1), rgba(226, 223, 222, 1));
+        }
+
+        .u-baseColor--iconNormal.avatar-halo {
+            fill: rgba(0, 0, 0, 0.4980392156862745) !important;
+        }
+    </style>
+    <script>console.log("%c Stop! %cPushgeek is made with ❤️ by RainDigi IT Pvt. Ltd., This is a browser feature intended for developers.If someone told you to copy and paste something here to enable a Pushgeek feature or 'hack' someone's account, it is a scam and will give them access to your PushGeek account. %cSee https://pushgeek.com/security for more information. ", "font-weight:bold;font-size:50px;color:red;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;", "font-weight:500;font-size:20px;color:#404040;", "font-weight:500;font-size:22px;color:grey;")</script>
+</head>
+{{#if admin}}
+
+<body class="admin">
+    {{else}}
+
+    <body>
+        <div id="wrapper"></div>
+        <div id="warning-message">
+            <center>
+                <div class="">
+                    <div class="overlay"></div>
+                    <div class="overlay-content">Please rotate your device</div>
+                    <div class="overlay-text">We don't support landscape mode yet. Please go back to portrait mode for
+                        the best
+                        experience</div>
+                </div>
+            </center>
         </div>
-    </center>
-</div>
-{{> _header}}
-<div class="main page-body">
-    <div>{{{body}}}</div>
+        {{/if}}
+        {{#unless admin}}
+        <nav class="navbar navbar-expand-lg justify-content-between mainNavBar"
+            style="position: -webkit-sticky;position: sticky;top:0;z-index:999;">
+            <a class="" href="/">
+                <img src="/images/Pushgeek.gif" alt="PushGeek" class="photo" style="height:10vh;width:25%;">
+                {{#if @root.config.cartLogo}}
+                <img src="{{@root.config.cartLogo}}" class="img-fluid">
+                {{else}}
+                {{@root.config.cartTitle}}
+                {{/if}}
+            </a>
+            {{> partials/_header}}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                {{{feather 'menu'}}}
+            </button>
+            <div id="navbarText">
+                <ul class="navbar-nav ml-auto">
+                    {{#ifCond @root.config.enableLanguages "!=" false}}
+                    <div class="dropdown d-none d-sm-block">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{{feather 'globe'}}}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {{#availableLanguages}}
+                            <li><a class="dropdown-item" href="/lang/{{this}}">{{@root.__ this}}</a></li>
+                            {{/availableLanguages}}
+                        </div>
+                    </div>
+                    {{/ifCond}}
+                    {{#if @root.session.customerPresent}}
+                    <div class="dropdown d-none d-sm-block">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            {{{feather 'user'}}}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="/customer/account">Account</a></li>
+                            <li><a class="dropdown-item" href="/customer/logout">Logout</a></li>
+                        </div>
+                    </div>
+                    {{else}}
+                    <li class="nav-item ml-3"><a href="/customer/account" class="btn">{{{feather 'user'}}}</a></li>
+                    {{/if}}
+                    {{#if @root.session.cart}}
+                    <li class="nav-item"><a href="/checkout/cart" class="btn menu-btn">{{{feather 'shopping-cart'}}}
+                            {{ @root.__ "Cart" }} <span class="badge badge-danger"
+                                id="cart-count">{{@root.session.totalCartItems}}</span></a></li>
+                    {{else}}
+                    <li class="nav-item"><a href="/checkout/cart" class="btn menu-btn">{{{feather 'shopping-cart'}}}</i>
+                            {{ @root.__ "Cart" }} <span class="badge badge-danger" id="cart-count">0</span></a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </nav>
+        {{/unless}}
 
-</div>{{> _footer}}
+        <div class="site-overlay"></div>
+        {{#unless admin}}
+        {{#ifCond page '!=' 'checkout'}}
+        {{#ifCond page '!=' 'pay'}}
+        <div id="cart" class="col-md-12 pad-left-12 top-pad-10 pushy pushy-right">
+            <div class="row {{checkout}}">
+                <div class="col-sm-12 text-right">
+                    <button class="pushy-link btn btn-primary" type="button">{{{feather 'x'}}}</button>
+                </div>
+            </div>
+            <div class="row">
+                <div id="cart" class="col-md-12">
+                    {{> (getTheme 'cart')}}
+                    <div class="row">
+                        <div class="col-sm-12 {{showCartButtons @root.session.cart}} cart-buttons">
+                            <button class="btn btn-danger float-left" id="empty-cart"
+                                type="button">{{ @root.__ "Empty cart" }}</button>
+                            <a href="/checkout/information" class="btn btn-primary float-right">Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/ifCond}}
+        {{/ifCond}}
+        {{/unless}}
+        <div class="container-fluid content-body h-100" id="container">
+            <div class="row">
+                {{{body}}}
+            </div>
+        </div>
+        <input type="hidden" id="input_notify_message" value="{{message}}">
+        <input type="hidden" id="input_notify_messageType" value="{{messageType}}">
+        <input type="hidden" id="cartCheckout" value="{{checkout}}">
+        <input type="hidden" id="cartTheme" value="{{@root.config.theme}}">
+        <input type="hidden" id="currencySymbol" value="{{@root.config.currencySymbol}}">
+        {{#if @root.config.maxQuantity}} <input type="hidden" id="maxQuantity"
+            value="{{@root.config.maxQuantity}}">{{/if}}
+        <div id="notify_message"></div>
+        {{#if showFooter}}
+        <div class="footer">
+            <div class="d-flex h-100">
+                <div class="col-12 align-self-center">
+                    {{#isNull @root.config.footerHtml}}
+                    <h5 class="text-center">Powered by Kappy Technologies</h5>
+                    {{else}}
+                    {{{@root.config.footerHtml}}}
+                    {{/isNull}}
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        {{> partials/_footer}}
+        <script src="/javascripts/pushy.min.js"></script>
+        {{#if admin}}
+        {{> partials/globalSearchModal}}
+        {{> partials/validationModal}}
+        {{> partials/variantModal}}
+        {{> partials/variantEditModal}}
+        {{/if}}
+        {{> partials/confirmModal}}
+        <script>
+            feather.replace();
+        </script>
+        <script type="text/javascript" src="/app.js"></script>
+    </body>
 
-<script type="text/javascript" src="/app.js"></script>
+</html>

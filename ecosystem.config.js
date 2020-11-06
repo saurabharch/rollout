@@ -31,7 +31,7 @@ module.exports = {
       ref: "origin/master",
       path: "/home/rollout/rollout",
       "post-deploy":
-        "npm install && pm2 startOrRestart ecosystem.json --env production"
+        "npm install && pm2 startOrRestart ecosystem.config.json --env production"
     },
     development: {
       user: "saurabh",
@@ -40,7 +40,7 @@ module.exports = {
       ref: "origin/master",
       path: ".",
       "post-deploy":
-        "npm install && pm2 startOrRestart ecosystem.json --env production"
+        "npm install && pm2 startOrRestart ecosystem.config.json --env production"
     }
   }
   // deploy: {

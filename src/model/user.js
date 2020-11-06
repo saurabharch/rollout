@@ -13,22 +13,34 @@ const userSchema = new Schema(
       unique: true,
       lowercase: true,
       index: true,
-      validate: [
-        async email => !await User.exists({ email }),
-        "Email is already taken."
-      ]
+      validate: {
+        validator: function(email) {
+          return async email => !await User.exists({ email });
+        },
+        message: props => `${props.value} email is already taken.`
+      }
+      // validate: [
+      //   async email => !await User.exists({ email }),
+      //   "Email is already taken."
+      // ]
     },
     username: {
       type: String,
       unique: true,
       lowercase: true,
       index: true,
-      validate: [
-        async username => !await User.exists({ username }),
-        "Username is already taken."
-      ]
+      validate: {
+        validator: function(username) {
+          return async username => !await User.exists({ username });
+        },
+        message: props => `${props.value} username  is already taken.`
+      }
+      // validate: [
+      //   async username => !await User.exists({ username }),
+      //   "Username is already taken."
+      // ]
     },
-    password: { type: String, required: true },
+    password: { type: String },
     // active: { type: Boolean, default: true, required: true },
     lastUpdatedBy: { type: String, required: true, default: "System" },
     lastUpdatedDate: { type: Date, required: true, default: new Date() },
@@ -72,40 +84,74 @@ const userSchema = new Schema(
     image: {
       type: String
     },
-    twitterId: {
+    sociaID: {
       type: String,
-      unique: true,
-      validate: [
-        async twitterId => !await User.exists({ twitterId }),
-        "Twitter handler is already taken."
-      ]
+      required: false,
+      unique: true
+    },
+    provider: {
+      type: String,
+      required: false
+    },
+    twitterId: {
+      type: String
+      // unique: true,
+      // validate: {
+      //   validator: function(twitterId) {
+      //     return async twitterId => !await User.exists({ twitterId });
+      //   },
+      //   message: props => `${props.value} Twitter handler is already taken.`
+      // }
+      // default: ""
+      // validate: [
+      //   ,
+      //   "Twitter handler is already taken."
+      // ]
     },
     googlePlus: {
-      type: String,
-      unique: true,
-      validate: [
-        async googlePlus => !await User.exists({ googlePlus }),
-        "Google handler is already taken."
-      ]
+      type: String
+      // unique: true,
+      // validate: {
+      //   validator: function(googlePlus) {
+      //     return async googlePlus => !await User.exists({ googlePlus });
+      //   },
+      //   message: props => `${props.value} google handler is already taken.`
+      // }
+      // validate: [
+      //   async googlePlus => !await User.exists({ googlePlus }),
+      //   "Google handler is already taken."
+      // ]
     },
     facebookPage: {
       type: String
     },
     facebookId: {
-      type: String,
-      unique: true,
-      validate: [
-        async facebookId => !await User.exists({ facebookId }),
-        "Facebook handler is already taken."
-      ]
+      type: String
+      // validate: {
+      //   validator: function(facebookId) {
+      //     return async facebookId => !await User.exists({ facebookId });
+      //   },
+      //   message: props => `${props.value} facebook handler is already taken.`
+      // },
+      // unique: true
+      // validate: [
+      //   async facebookId => !await User.exists({ facebookId }),
+      //   "Facebook handler is already taken."
+      // ]
     },
     youtubelink: {
-      type: String,
-      unique: true,
-      validate: [
-        async youtubelink => !await User.exists({ youtubelink }),
-        "Youtube handler is already taken."
-      ]
+      type: String
+      // validate: {
+      //   validator: function(youtubelink) {
+      //     return async youtubelink => !await User.exists({ youtubelink });
+      //   },
+      //   message: props => `${props.value} youtube handler is already taken.`
+      // },
+      // unique: true
+      // validate: [
+      //   async youtubelink => !await User.exists({ youtubelink }),
+      //   "Youtube handler is already taken."
+      // ]
     },
     _parent: Schema.ObjectId
   },

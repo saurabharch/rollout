@@ -1,3 +1,5 @@
+"use strict";
+
 try {
   var _pgSd = {
     site: {
@@ -69,7 +71,11 @@ try {
         },
         siteType: "https"
       },
-      allowedDomain: ["pushengage.com", "demo.pushengage.com"],
+      allowedDomain: [
+        "pushengage.com",
+        "demo.pushengage.com",
+        "localhost:5500"
+      ],
       vapidPubKey:
         "BLgFTwjElUH_Iz72TKDvmlsc-EcwziNP2X28BmN-znOXJhv35QybtfcN1HTh_eUlNffp12HkuruYpqtKNedN54s",
       plateform: "html"
@@ -112,12 +118,11 @@ try {
     safari: { pushId: "web.com.pushengage.demo", default: false },
     gcm: { projectId: "360714148844" },
     api: {
-      backendApi: "https://clients-api.pushengage.com/p/v1",
+      backendApi: "http://localhost:5500",
       safariApi: "https://safari.pushengage.com",
       swv: "2.2.0",
-      triggerApi:
-        "https://m4xrk918t5.execute-api.us-east-1.amazonaws.com/beta/streams/production_triggers/records",
-      pushJs: "https://clientcdn.pushengage.com/pushengage.js",
+      triggerApi: "http://localhost:5500/subscribe",
+      pushJs: "http://localhost:5500/pushengage.js",
       anyApi:
         "https://oeqepmcz7a.execute-api.us-east-1.amazonaws.com/beta/streams/optin/records",
       eventApi: "https://clients-api.pushengage.com/p/v1",
@@ -444,6 +449,7 @@ try {
       _pgD.funExecState.checkSubscriptionIframe = false;
     },
     getDataUrl: function(n) {
+      // this.window.location.href = "http://localhost:5500";
       var url = window.location.href;
       n = n.replace(/[\[\]]/g, "\\$&");
       var regex = new RegExp("[?&]" + n + "(=([^&#]*)|&|#|$)"),
@@ -477,9 +483,10 @@ try {
       return val ? val : false;
     },
     subUrl: function() {
-      return document.referrer != "" && _pgD.getInputUrl("intermediate")
-        ? document.referrer
-        : window.location.href;
+      // return document.referrer != "" && _pgD.getInputUrl("intermediate")
+      //   ? document.referrer
+      //   : "http://localhost:5500";
+      return "http://localhost:5500";
     },
     deviceToken: {
       cookie: function() {
@@ -2020,14 +2027,14 @@ try {
           switch (_pgSd.subMangWidget.settings.customRule) {
             case "exact":
               s =
-                window.location.href ==
+                "http://localhost:5500" ==
                 _pgSd.subMangWidget.settings.customRuleValue
                   ? true
                   : false;
               break;
             case "contains":
               s =
-                window.location.href.indexOf(
+                "http://localhost:5500".indexOf(
                   _pgSd.subMangWidget.settings.customRuleValue
                 ) !== -1
                   ? true
@@ -2035,7 +2042,7 @@ try {
               break;
             default:
               s =
-                window.location.href.substring(
+                "http://localhost:5500".substring(
                   0,
                   _pgSd.subMangWidget.settings.customRuleValue.length
                 ) == _pgSd.subMangWidget.settings.customRuleValue
@@ -2252,7 +2259,7 @@ try {
           s = false;
         for (i = 0; i < Object.keys(ruleValue).length; i++) {
           var v = ruleValue[i].value,
-            cv = window.location.href;
+            cv = "http://localhost:5500";
           switch (ruleValue[i].rule) {
             case "exact":
               s =
@@ -3321,7 +3328,7 @@ try {
         }
         function isValidCriteria(criteriaData) {
           var status = false;
-          var currentUrl = window.location.href;
+          var currentUrl = "http://localhost:5500";
           if (typeof criteriaData != "object") {
             return status;
           }
@@ -3493,7 +3500,7 @@ try {
       });
     }
   };
-  window.addEventListener(
+  this.window.addEventListener(
     "message",
     function(event) {
       var validOrigin = false;

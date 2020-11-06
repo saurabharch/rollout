@@ -3,6 +3,21 @@
         {
             "type": "aws-sam",
             "request": "direct-invoke",
+            "name": "Push-rollout:src/util/lib/ClientDetails.ClientRequestData (nodejs12.x)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "",
+                "lambdaHandler": "src/util/lib/ClientDetails.ClientRequestData"
+            },
+            "lambda": {
+                "runtime": "nodejs12.x",
+                "payload": {},
+                "environmentVariables": {}
+            }
+        },
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
             "name": "Push-rollout:src/controllers/push.createPush (nodejs12.x)",
             "invokeTarget": {
                 "target": "code",

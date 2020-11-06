@@ -75,9 +75,7 @@ export const createAdmin = async () => {
   // check for an existing admin User
   const user = await User.findOne({ email: "saurabh@raindigi.com" });
   // get Roles _id
-  const Roles = await Role.find({
-    RoleAssigned: { $in: ["admin", "moderator"] }
-  });
+  const Roles = await Role.find({ name: ["admin", "moderator"] });
 
   if (!user) {
     // create a new admin User
@@ -97,21 +95,60 @@ export const createAdmin = async () => {
 };
 
 export const updateDomain = async () => {};
+
+export const splitStr = (str, seperator) => {
+  // Function to split string
+  var string = str.split(seperator);
+
+  console.log(string);
+};
+
 export const updateOrganisation = async () => {
-  const orgAvailable = await Organisation.findOne({ orgName: "pushgeek.com" });
-  const role = await Role.find({
-    RoleAssigned: { $in: ["admin", "moderator"] }
-  });
+  const role = await Role.find({ name: ["admin", "moderator"] });
+  var hello_data = [];
+  var data_ = role.map(nRole => nRole._id);
+  var seperator = ",";
+  hello_data = data_.splitStr(data_, seperator);
+  console.log(`checking new roles array: ${hello_data}`);
+  const orgAvailable = await Organisation.updateOne(
+    { orgName: "pushgeek.com" },
+    {
+      $addToSet: {
+        AuthUser: {
+          rRole: []
+        }
+      }
+    },
+    function(err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(result);
+      }
+    }
+  );
+
   if (orgAvailable) {
     const user = await User.findOne({ email: "saurabh@raindigi.com" });
-
     console.log(`roles assigned : ${role}`);
+    console.log(
+      `roles id is assigned: ${role.map(
+        nRole => nRole._id
+      )} role lable name: ${role.map(nTRole => nTRole.name)}`
+    );
+
+    console.log(`user in update org: ${user}`);
     await Organisation.findOne({ orgName: "pushgeek.com" }).then(org => {
+      let roles_id = [];
+      roles_id = roles_id.push(role.map(ERole => ERole._id));
       const newAuthAccess = {
         User: user._id,
-        rRole: "5f6913e0317383280cb0205f"
+        rRole: role.map(nRole => nRole._id)
       };
       org.AuthUser.unshift(newAuthAccess);
+      // org.AuthUser.push(newAuthAccess.rRole._id);
+      // console.log(roles_id);
+      // org.AuthUser.push({ $each: roles_id, $position: 0 });
       org.save();
     });
     console.log("Organisation is updated successfully");

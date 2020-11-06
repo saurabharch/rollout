@@ -17,5 +17,11 @@ npm-debug.log
 # Build
 build
 
+# package.json 25.sep.2020
+package.json
+package-*.json
 # environment variables
 .env
+/src/config/*-local.json
+.vscode
+**.DS_Store
