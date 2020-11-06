@@ -749,7 +749,7 @@
                 {{{feather 'menu'}}}
             </button>
             <div id="navbarText">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto py-2">
                     {{#ifCond @root.config.enableLanguages "!=" false}}
                     <div class="dropdown d-none d-sm-block">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -765,8 +765,8 @@
                     {{/ifCond}}
                     {{#if @root.session.customerPresent}}
                     <div class="dropdown d-none d-sm-block">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <button class="btn dropdown-toggle my-2" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{{feather 'user'}}}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

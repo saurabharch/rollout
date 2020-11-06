@@ -26,15 +26,17 @@
     <li>
         <a href="/auth/logout" style="color:white !important;">
             <i class="fas fa-sign-out-alt" style="font-size:15px !important;color:white !important;"></i>
-            Logout</a>
+            <button tabindex="0" type="submit" class="css-32erla is-primary btn btn-primary">Logout</button></a>
     </li>
     <li>
         <a href="/notification">
-            <i class="fa fa-bell"></i></a>
+            <i class="fa fa-bell"></i><button tabindex="0" type="submit"
+                class="css-32erla is-primary btn btn-primary">Notifications</button></a>
     </li>
     {{else}}
     <li>
-        <a href="/login" class="btn btn-primary">Login</a>
+        <a href="/login"><button tabindex="0" type="submit"
+                class="css-32erla is-primary btn btn-primary">Login</button></a>
     </li>
     {{/if}}
 </ul>
