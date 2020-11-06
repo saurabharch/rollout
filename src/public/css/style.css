@@ -197,6 +197,28 @@ pre {
   justify-self: flex-end;
 }
 
+.css-opqcue {
+    color: #0069ff !important;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    text-align: center;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: flex-end;
+    -webkit-box-align: flex-end;
+    -ms-flex-align: flex-end;
+    align-items: flex-end;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 .features-sub-head img {
   width: 300px;
   justify-self: flex-end;
@@ -489,7 +511,7 @@ footer {
     margin-top: 64px !important;
     padding: 25px 0 0 !important;
     bottom:0px !important;
-    height:100%;
+    width: 100% !important;
    
 }
 *, ::after, ::before {
@@ -786,7 +808,7 @@ footer section {
     position: relative !important;
     }
 }
-.container.is-fullhd {
+.container .is-fullhd {
     max-width: none;
 }
 @media screen and (min-width: 1024px)
@@ -806,7 +828,7 @@ footer section {
 }
 @media screen and (max-width: 1407px)
 {
-    .container.is-fullhd {
+    .container .is-fullhd {
     max-width: 1170px;
     width: auto;
 }
@@ -2734,7 +2756,7 @@ animated-background1 {
         justify-content: center;
     } */
 
-    .container.row {
+    .container .row {
         margin-bottom: 0px important;
     }
 
@@ -4022,8 +4044,8 @@ pre {
 .container {
         margin: 0 0 !important;
         position: relative !important;
-       /* max-width: 1170px ; 
-        height: 800px;  */
+        max-width: 1170px ; 
+       /* height: 800px;  */
         /* display: grid !important; */
         /* grid-template-columns: 1fr 370px !important; */
         grid-template-rows: auto !important;
@@ -4046,7 +4068,7 @@ pre {
 .buttons:last-child {
     /* margin-bottom: -.5rem; */
 }
-.container.is-fullhd {
+.container .is-fullhd {
     max-width: none !important;
 }
 .css-n387jl .is-primary, .css-n387jl .is-white {
@@ -4056,7 +4078,7 @@ pre {
 }
 @media screen and (max-width: 1407px)
 {
-    .container.is-fullhd {
+    .container .is-fullhd {
     max-width: 1344px !important;
     width: auto;
 }

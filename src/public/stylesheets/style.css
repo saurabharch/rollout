@@ -408,6 +408,8 @@ input.form-control.customerDetails {
   color: #ffffff !important;
   background-color: var(--primary-color) !important;
   border-color:var(--dark-color) !important;
+  height: 30px;
+  width: 84%;
 }
 .btn-primary:hover,
 .btn-primary:active,
@@ -431,10 +433,10 @@ input.form-control.customerDetails {
 }
 a:hover,
 a:focus {
-  color: #000000;
+  color: #000000 !important;
 }
 a {
-  color: #000000;
+  color: var(--light-color) !important;
 }
 .list-group-item.active,
 .list-group-item.active:hover,
