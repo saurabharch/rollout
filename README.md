@@ -1,8 +1,8 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)] [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout?ref=badge_shield)
 
-# Rollout Server
+# GeekPush Rollout Server
 <h1 align="center">
-  <img alt="PushGeek" src="https://raw.githubusercontent.com/Kappy-Technologies-LLP/rollout/master/src/public/images/Pushgeek.gif?token=AFKVKGUY2YCQUD2EQJ54XRS7WFIXI" width="120px" />
+  <img alt="PushGeek" src="https://raw.githubusercontent.com/Kappy-Technologies-LLP/rollout/master/src/public/images/Pushgeek.gif?token=AFKVKGUY2YCQUD2EQJ54XRS7WFIXI" width="180px" />
 </h1>
 
 Rollout server is simple drip marketing automation tool which help to enggage more and more users with the website, which have features like
