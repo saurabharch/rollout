@@ -8,6 +8,8 @@ const {
   SMTP_PASSWORD = "963a2b2c7f5457"
 } = process.env;
 
+
+
 export const SMTP_OPTIONS = {
   host: SMTP_HOST,
   port: +SMTP_PORT,
@@ -17,6 +19,7 @@ export const SMTP_OPTIONS = {
     pass: SMTP_PASSWORD
   }
 };
+
 
 // export const MAIL_FROM = `noreply@${APP_HOSTNAME}`;
 

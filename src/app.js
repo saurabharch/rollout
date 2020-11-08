@@ -1,4 +1,5 @@
 const fs = require("fs");
+import "dotenv/config";
 const yenv = require("yenv");
 if (fs.existsSync("./env.yaml")) {
   process.env = yenv("env.yaml", { strict: false });
@@ -38,6 +39,7 @@ const cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
 const compression = require("compression");
 const csrf = require("csurf");
+
 // Load Routes
 // const index = require("./routes");
 const login = require("./routes/login");
@@ -66,7 +68,7 @@ const billing = require("./routes/billing");
 const features = require("./routes/features");
 const terms_service = require("./routes/terms-service");
 const ApiKey = require("./routes/ApiKeyvalid");
-
+const Queue = require("./routes/userQmanager");
 import { SESS_OPTIONS } from "./config/auth";
 import morgan from "morgan";
 import helmet from "helmet";
@@ -435,6 +437,7 @@ app.use("/auth", auth);
 app.use("/legal", terms_service);
 app.use("/security", security);
 app.use("/plans", plans);
+app.use("/q", Queue);
 app.use("/api/key", ApiKey);
 app.use("/home", home); // url path http://${process.env.HOST}:${process.env.PORT}/home
 app.use("/subscribe", subscribe); // url path http://${process.env.HOST}:${process.env.PORT}/subscribe
