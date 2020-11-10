@@ -7,7 +7,7 @@
 
 Rollout server is simple drip marketing automation tool which help to enggage more and more users with the website, which have features like
 
-## 🚀 Tecnologies
+## 🚀 Technologies
 
 - ⚡ Express — A web framework for Node.js
 - 🐮Bull — Premium Queue package for handling distributed jobs
