@@ -31,6 +31,8 @@ const passport = require("passport");
 // const cors = require("cors");
 import session, { Store } from "express-session";
 import { SESSION_OPTIONS } from "./config";
+const { UI,setQueues } = require('bull-board')
+import Queue from'./lib/Queue';
 // import { login, register, verify, reset } from "./routes";
 // Add the payment route
 const paymentRoute = require(`./lib/payments/${config.paymentGateway}`);
@@ -68,7 +70,7 @@ const billing = require("./routes/billing");
 const features = require("./routes/features");
 const terms_service = require("./routes/terms-service");
 const ApiKey = require("./routes/ApiKeyvalid");
-const Queue = require("./routes/userQmanager");
+const queue = require("./routes/userQmanager");
 import { SESS_OPTIONS } from "./config/auth";
 import morgan from "morgan";
 import helmet from "helmet";
@@ -91,6 +93,7 @@ require("./model/reset");
 require("./controllers/passport")(passport);
 // const categories = require('./routes/categories');
 // Load Keys
+
 const keys = require("./config/keys");
 const SW_JS_FILE = "public/service-worker.js";
 import {
@@ -187,7 +190,7 @@ if (
   );
   process.exit(2);
 }
-
+setQueues(Queue.queues.map(queue => queue.bull));
 // console.log(store);
 const app = express();
 i18n.configure({
@@ -437,7 +440,8 @@ app.use("/auth", auth);
 app.use("/legal", terms_service);
 app.use("/security", security);
 app.use("/plans", plans);
-app.use("/q", Queue);
+app.use("/q", queue);
+app.use("/admin/queues",UI);
 app.use("/api/key", ApiKey);
 app.use("/home", home); // url path http://${process.env.HOST}:${process.env.PORT}/home
 app.use("/subscribe", subscribe); // url path http://${process.env.HOST}:${process.env.PORT}/subscribe

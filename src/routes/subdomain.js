@@ -1,18 +1,18 @@
-const express = require("express");
-const session = require("express-session");
-const parseurl = require("parseurl");
+const express = require('express');
+const session = require('express-session');
+const parseurl = require('parseurl');
 const router = express.Router();
-const ratelimit = require("../util/limiter");
+const ratelimit = require('../util/limiter');
 
-router.get("/", ratelimit("pushlimit", 100, "", 5), async (req, res, next) => {
+router.get('/', ratelimit('pushlimit', 100, '', 5), async (req, res, next) => {
   //   console.log(ratelimit("pushlimit", 100, "", 5));
   console.log(req.body.keygen == true);
   const sessions = session({
-    secret: "keyboard cat",
+    secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true
   });
-  if (!req.session.views) {
+  if(!req.session.views){
     req.session.views = {};
   }
 
@@ -21,30 +21,30 @@ router.get("/", ratelimit("pushlimit", 100, "", 5), async (req, res, next) => {
 
   // count the views
   req.session.views[pathname] = (req.session.views[pathname] || 0) + 1;
-  try {
-    if (!req.body.keygen) {
+  try{
+    if(!req.body.keygen){
       req((error, response, body) => {
-        if (error) console.error(error);
-        if (response.statusCode !== 200) {
-          return res.status(400).json({ msg: "Invalid Request" });
+        if(error) console.error(error);
+        if(response.statusCode !== 200){
+          return res.status(400).json({ msg: 'Invalid Request' });
         }
         res.json(JSON.parse(body));
       });
-    } else {
+    }else{
       res.locals.metaTags = {
-        title: "web-push-api",
+        title: 'web-push-api',
         description:
-          "Web Push Notification Full Stack Application With Node Js Restful API",
+          'Web Push Notification Full Stack Application With Node Js Restful API',
         keywords:
-          "Web Push Notification Full Stack Application With Node Js Restful API",
-        generator: "0.0.0.1",
-        author: "Saurabh Kashyap"
+          'Web Push Notification Full Stack Application With Node Js Restful API',
+        generator: '0.0.0.1',
+        author: 'Saurabh Kashyap'
       };
-      try {
+      try{
         return await res
           .status(200)
-          .json(`you request here :=> ${req.session.views["/"]} times.`);
-      } catch (error) {
+          .json(`you request here :=> ${req.session.views['/']} times.`);
+      }catch(error){
         return await res
           .status(200)
           .json(
@@ -54,7 +54,7 @@ router.get("/", ratelimit("pushlimit", 100, "", 5), async (req, res, next) => {
       }
       next();
     }
-  } catch (error) {
+  }catch(error){
     return await res
       .status(301)
       .json(`Request is not defined|| Error msg: ${error}`);

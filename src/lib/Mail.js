@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
-import { SMTP_OPTIONS } from "../config/mail";
+import nodemailer from'nodemailer';
+import mailConfig from'../config/mmail';
 
-export default nodemailer.createTransport(SMTP_OPTIONS);
+export default nodemailer.createTransport(mailConfig);

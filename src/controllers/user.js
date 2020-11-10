@@ -1,8 +1,8 @@
-import User from "../model/user";
-import Role from "../model/role";
+import User from'../model/user';
+import Role from'../model/role';
 
 export const createUser = async (req, res) => {
-  try {
+  try{
     const { username, email, password, roles } = req.body;
 
     const rolesFound = await Role.find({ name: { $in: roles } });
@@ -27,7 +27,7 @@ export const createUser = async (req, res) => {
       email: savedUser.email,
       roles: savedUser.roles
     });
-  } catch (error) {
+  }catch(error){
     console.error(error);
   }
 };

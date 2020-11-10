@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const DomainNameSchema = new Schema(
   {
     siteUrl: {
       type: String,
-      default: "https://pushgeek.com",
+      default: 'https://pushgeek.com',
       require: true,
       lowercase: true,
       unique: true
@@ -22,6 +22,6 @@ const DomainNameSchema = new Schema(
   }
 );
 
-const Domains = mongoose.model("domains", DomainNameSchema);
+const Domains = mongoose.model('domains', DomainNameSchema);
 module.exports = Domains;
 // export const Domains = model('domains', DomainNameSchema);

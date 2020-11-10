@@ -1,9 +1,9 @@
-export default {
-  key: "UserReport",
+export default{
+  key: 'UserReport',
   options: {
     delay: 5000
   },
-  async handle({ data }) {
+  async handle({ data }){
     const { user } = data;
 
     console.log(user);

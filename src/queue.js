@@ -1,5 +1,5 @@
-import "dotenv/config";
+import'dotenv/config';
 
-import { pQueue } from "./lib/Queue";
+import Queue from'./lib/Queue';
 
-pQueue.process();
+Queue.process();

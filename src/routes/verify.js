@@ -1,58 +1,58 @@
-import { Router } from "express";
-import { User } from "../model";
-import { catchAsync } from "../middlewares";
+import{ Router }from'express';
+import{ User }from'../model';
+import{ catchAsync }from'../middlewares';
 // import { validate, resendEmailSchema, verifyEmailSchema } from "../validation";
-import { sendMail } from "../mail";
-import { BadRequest } from "../errors";
-import { markAsVerified } from "../auth";
+import{ sendMail }from'../mail';
+import{ BadRequest }from'../errors';
+import{ markAsVerified }from'../auth';
 
 const router = Router();
 
 router.post(
-  "/email/verify",
+  '/email/verify',
   catchAsync(async (req, res) => {
     // await validate(verifyEmailSchema, req.query);
 
     const { id } = req.query;
 
-    const user = await User.findById(id).select("verifiedAt");
+    const user = await User.findById(id).select('verifiedAt');
 
-    if (!user || !User.hasValidVerificationUrl(req.originalUrl, req.query)) {
-      throw new BadRequest("Invalid activation link");
+    if(!user || !User.hasValidVerificationUrl(req.originalUrl, req.query)){
+      throw new BadRequest('Invalid activation link');
     }
 
-    if (user.verifiedAt) {
-      throw new BadRequest("Email already verified");
+    if(user.verifiedAt){
+      throw new BadRequest('Email already verified');
     }
 
     await markAsVerified(user);
 
-    res.json({ message: "OK" });
+    res.json({ message: 'OK' });
   })
 );
 
 router.post(
-  "/email/resend",
+  '/email/resend',
   catchAsync(async (req, res) => {
     // await validate(resendEmailSchema, req.body);
 
     const { email } = req.body;
 
-    const user = await User.findOne({ email }).select("email verifiedAt");
+    const user = await User.findOne({ email }).select('email verifiedAt');
 
-    if (user && !user.verifiedAt) {
+    if(user && !user.verifiedAt){
       const link = user.verificationUrl();
 
       await sendMail({
         to: email,
-        subject: "Verify your email address",
+        subject: 'Verify your email address',
         text: link
       });
     }
 
     res.json({
       message:
-        "If your email address needs to be verified, you will receive an email with the activation link"
+        'If your email address needs to be verified, you will receive an email with the activation link'
     });
   })
 );

@@ -1,9 +1,9 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const Subscription = require("../model/subscriber");
+const Subscription = require('../model/subscriber');
 
-router.delete("/", (req, res) => {
-  //const subscriptionModel = new Subscription(req.body);
+router.delete('/', (req, res) => {
+  // const subscriptionModel = new Subscription(req.body);
   console.log(req);
   Subscription.remove({
     endpoint: subscription.endpoint,
@@ -15,7 +15,7 @@ router.delete("/", (req, res) => {
     .then(() => {
       res.json({
         status: true,
-        data: "Successfully Unsubcribe."
+        data: 'Successfully Unsubcribe.'
       });
     })
     .catch(err => {
@@ -26,9 +26,9 @@ router.delete("/", (req, res) => {
       });
     });
 });
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   res.json({
-    data: "Invalid Request Bad"
+    data: 'Invalid Request Bad'
   });
 });
 module.exports = router;

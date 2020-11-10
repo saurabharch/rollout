@@ -1,16 +1,16 @@
-import Push from "../model/push";
-import User from "../model/user";
-import Organisation from "../model/organization";
-import Domain from "../model/domains";
-const Subscription = require("../model/subscriber");
-const q = require("q");
-const webpush = require("web-push");
-const keys = require("./../config/keys");
-const ratelimit = require("../util/limiter");
+import Push from'../model/push';
+import User from'../model/user';
+import Organisation from'../model/organization';
+import Domain from'../model/domains';
+const Subscription = require('../model/subscriber');
+const q = require('q');
+const webpush = require('web-push');
+const keys = require('./../config/keys');
+const ratelimit = require('../util/limiter');
 export const createPush = async (req, res) => {
   const { name, category, price, imgURL } = req.body;
 
-  try {
+  try{
     const payload = new Push({
       title: req.body.title,
       message: req.body.message,
@@ -27,9 +27,9 @@ export const createPush = async (req, res) => {
       // Interaction: ,
       silent: req.body.silent,
       renotify: req.body.renotify,
-      sound: "/audio/notification.mp3",
-      dir: "auto",
-      timestamp: Date.parse("01 Jan 2000 00:00:00"),
+      sound: '/audio/notification.mp3',
+      dir: 'auto',
+      timestamp: Date.parse('01 Jan 2000 00:00:00'),
       urgency: req.body.urgency,
       AuthUser: {
         OrgName: req.body.orgnisationId
@@ -39,7 +39,7 @@ export const createPush = async (req, res) => {
     const pushSaved = await payload.save();
 
     res.status(201).json(pushSaved);
-  } catch (error) {
+  }catch(error){
     console.log(error);
     return res.status(500).json(error);
   }
@@ -82,13 +82,13 @@ export const broadcastPushById = async (req, res) => {
 
   const push = await Push.findById(pushId);
   console.log(push);
-  try {
+  try{
     Subscription.find({}, (err, subscriptions) => {
-      if (err) {
-        console.error(`Error occurred while getting subscriptions`);
-        res.status(500).json({ error: "Technical error occurred" });
-      } else {
-        let parallelSubscriptionCalls = subscriptions.map(subscription => {
+      if(err){
+        console.error('Error occurred while getting subscriptions');
+        res.status(500).json({ error: 'Technical error occurred' });
+      }else{
+        const parallelSubscriptionCalls = subscriptions.map(subscription => {
           return new Promise((resolve, reject) => {
             //  console.log(`p256dh key: ${subscription.keys.p256dh}`);
             const pushSubscription = {
@@ -129,7 +129,7 @@ export const broadcastPushById = async (req, res) => {
               `mailto:${userEmailId}`,
               keys.publicKey,
               keys.privateKey,
-              "aes128gcm"
+              'aes128gcm'
             );
             webpush
               .sendNotification(pushSubscription, pushPayload, pushOptions)
@@ -152,14 +152,14 @@ export const broadcastPushById = async (req, res) => {
 
         // Queue For Send All List of Subscirber Notification and settle down the Queue Job
         q.allSettled(parallelSubscriptionCalls).then(pushResults => {
-          if (pushResults.status != true) {
+          if(pushResults.status != true){
             const errorEndpoint = 1;
             res.json({ res: JSON.parse(pushResults.endpoint) });
           }
-          //console.info(pushResults);
+          // console.info(pushResults);
         });
-        res.json({ data: "Push triggered" });
+        res.json({ data: 'Push triggered' });
       }
     });
-  } catch (error) {}
+  }catch(error){}
 };

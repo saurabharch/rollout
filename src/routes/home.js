@@ -1,19 +1,19 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 // import { Router } from 'express';
 // const auth = require('../middleware');
 // const catchAsync = require('../middleware/errors');
-const User = require("../model/user");
+const User = require('../model/user');
 
 // import { auth, catchAsync } from '../middleware';
 // import { User } from '../models';
-//const router = Router();
+// const router = Router();
 
 // const webpush = require("web-push");
 
 // const mongoose = require('mongoose');
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   // res.locals.metaTags = {
   //   title: "RollOut",
   //   description:
@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
   //   status: "ok",
   //   message: `Server is running keys are`
   // });
-  res.render("index/home");
+  res.render('index/home');
 });
 // router.get("/", async (req, res) => {
 //   try {

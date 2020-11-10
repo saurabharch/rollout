@@ -1,14 +1,14 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // create geolocation Schema
 const GeoSchema = new Schema({
   type: {
     type: String,
-    default: "Point"
+    default: 'Point'
   },
   coordinates: {
     type: [Number],
-    index: "2dsphere"
+    index: '2dsphere'
   }
 });
 
@@ -42,5 +42,5 @@ const SubscriberSchema = new Schema(
 
 // mongoose.model("subscriber", SubscriberSchema, "subscriber");
 // // module.exports = mongoose.model("subscribers", SubscriberSchema);
-const Subscriber = mongoose.model("subscriber", SubscriberSchema);
+const Subscriber = mongoose.model('subscriber', SubscriberSchema);
 module.exports = Subscriber;

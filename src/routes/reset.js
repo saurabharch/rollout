@@ -1,46 +1,46 @@
-import { Router } from "express";
-import { catchAsync } from "../middlewares";
+import{ Router }from'express';
+import{ catchAsync }from'../middlewares';
 // import {
 //   validate,
 //   forgotPasswordSchema,
 //   resetPasswordSchema
 // } from "../validation";
-import { User, PasswordReset } from "../model";
-import { sendMail } from "../mail";
-import { BadRequest } from "../errors";
-import { resetPassword } from "../auth";
+import{ User, PasswordReset }from'../model';
+import{ sendMail }from'../mail';
+import{ BadRequest }from'../errors';
+import{ resetPassword }from'../auth';
 
 const router = Router();
 
 router.post(
-  "/password/email",
+  '/password/email',
   catchAsync(async (req, res) => {
     // await validate(forgotPasswordSchema, req.body);
 
     const { email } = req.body;
     const user = await User.findOne({ email });
 
-    if (user) {
+    if(user){
       const token = PasswordReset.plaintextToken();
 
       const reset = await PasswordReset.create({ userId: user.id, token });
 
       await sendMail({
         to: email,
-        subject: "Reset your password",
+        subject: 'Reset your password',
         text: reset.url(token)
       });
     }
 
     res.json({
       message:
-        "If you have an account with us, you will receive an email with a link to reset your password"
+        'If you have an account with us, you will receive an email with a link to reset your password'
     });
   })
 );
 
 router.post(
-  "/password/reset",
+  '/password/reset',
   catchAsync(async ({ query, body }, res) => {
     // await validate(resetPasswordSchema, { query, body });
 
@@ -50,12 +50,12 @@ router.post(
     const reset = await PasswordReset.findById(id);
     let user;
 
-    if (
+    if(
       !reset ||
       !reset.isValid(token) ||
       !(user = await User.findById(reset.userId))
-    ) {
-      throw new BadRequest("Invalid password reset token");
+    ){
+      throw new BadRequest('Invalid password reset token');
     }
 
     await Promise.all([
@@ -65,13 +65,15 @@ router.post(
 
     await sendMail({
       to: user.email,
-      subject: "Password reset",
-      text: "Your password was successfully reset"
+      subject: 'Password reset',
+      text: 'Your password was successfully reset'
     });
 
-    res.json({ message: "OK" });
+    res.json({ message: 'OK' });
   })
 );
-
+router.get('/', (req, res) => {
+  res.render('index/reset');
+});
 module.exports = router;
 // export { router as reset };

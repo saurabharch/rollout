@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const PushMessageSchema = new Schema(
   {
@@ -7,25 +7,25 @@ const PushMessageSchema = new Schema(
       require: true,
       min: 4,
       max: 200,
-      default: "Hello World ! This is PushGeek"
+      default: 'Hello World ! This is PushGeek'
     },
     message: {
       type: String,
       require: true,
       min: 4,
       max: 300,
-      default: "Hello World ! New Push Message From Push Geek"
+      default: 'Hello World ! New Push Message From Push Geek'
     },
     url: {
       type: String,
       require: true,
       min: 4,
       max: 200,
-      default: "https://pushgeek.com"
+      default: 'https://pushgeek.com'
     },
     ttl: {
       type: String,
-      default: "3600"
+      default: '3600'
     },
     icon: {
       type: String,
@@ -52,22 +52,22 @@ const PushMessageSchema = new Schema(
     actions: {
       type: String,
       enum: {
-        values: ["yes", "no", "cancel", "nothing"],
-        message: "your action is set as `{VALUE}`"
+        values: ['yes', 'no', 'cancel', 'nothing'],
+        message: 'your action is set as `{VALUE}`'
       },
-      default: "cancel",
-      required: [false, "action type is set as cancel"]
+      default: 'cancel',
+      required: [false, 'action type is set as cancel']
     },
     requireInteraction: {
       type: Boolean,
       default: false,
-      required: [false, "action interation is by default false"]
+      required: [false, 'action interation is by default false']
     },
     vibrate: {
       type: String,
-      enum: ["500", "110", "450", "200", "170", "40"],
-      default: "500",
-      required: [false, "vibration key number default set as 500"]
+      enum: ['500', '110', '450', '200', '170', '40'],
+      default: '500',
+      required: [false, 'vibration key number default set as 500']
     },
     silent: {
       type: Boolean
@@ -87,7 +87,7 @@ const PushMessageSchema = new Schema(
     },
     sound: {
       type: String,
-      default: "/audio/notification.mp3"
+      default: '/audio/notification.mp3'
     },
     dir: {
       type: String
@@ -108,23 +108,23 @@ const PushMessageSchema = new Schema(
       //   values: ["urgent", "normal", "moderate"],
       //   message: "message broadcast segmented as `{VALUE}`"
       // },
-      default: "normal"
+      default: 'normal'
     },
     AuthUser: [
       {
         User: {
           type: Schema.Types.ObjectId,
-          ref: "user",
+          ref: 'user',
           autopopulate: true
         },
         Role: {
           type: Schema.Types.ObjectId,
-          ref: "role",
+          ref: 'role',
           autopopulate: true
         },
         OrgName: {
           type: Schema.Types.ObjectId,
-          ref: "organization",
+          ref: 'organization',
           autopopulate: true
         }
       }
@@ -136,6 +136,6 @@ const PushMessageSchema = new Schema(
   }
 );
 
-const Push = mongoose.model("push", PushMessageSchema);
+const Push = mongoose.model('push', PushMessageSchema);
 module.exports = Push;
 // export const Push = mongoose.model("push", PushMessageSchema);

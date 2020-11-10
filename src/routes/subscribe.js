@@ -1,27 +1,27 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const Subscription = require("../model/subscriber");
+const Subscription = require('../model/subscriber');
 
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
   const subscriptionModel = new Subscription(req.body);
   console.log(req.body);
   subscriptionModel.save((err, subscription) => {
-    if (err) {
+    if(err){
       console.error(`Error occurred while saving subscription. Err: ${err}`);
       res.status(500).json({
-        error: "Technical error occurred"
+        error: 'Technical error occurred'
       });
-    } else {
+    }else{
       res.json({
-        data: "Subscription saved."
+        data: 'Subscription saved.'
       });
     }
   });
 });
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   res.json({
-    data: "Invalid Request Bad"
+    data: 'Invalid Request Bad'
   });
 });
 module.exports = router;

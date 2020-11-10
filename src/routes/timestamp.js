@@ -1,28 +1,28 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
-router.get("/timestamp/:date_string?", (req, res) => {
-  if (req.params.date_string) {
-    var date_string = req.params.date_string;
+router.get('/timestamp/:date_string?', (req, res) => {
+  if(req.params.date_string){
+    const date_string = req.params.date_string;
 
     // check the date_string can be parsed to integer
-    if (!isNaN(date_string)) {
+    if(!isNaN(date_string)){
       var date = new Date(parseInt(date_string));
-    } else {
+    }else{
       var date = new Date(date_string);
     }
-  } else {
+  }else{
     var date = new Date();
   }
 
   // check the date_string is invalid date
-  if (isNaN(date.getTime())) {
+  if(isNaN(date.getTime())){
     res.json({
-      error: "Invalid Date"
+      error: 'Invalid Date'
     });
-  } else {
-    var unix = date.getTime();
-    var utc = date.toUTCString();
+  }else{
+    const unix = date.getTime();
+    const utc = date.toUTCString();
 
     res.json({
       unix: unix,

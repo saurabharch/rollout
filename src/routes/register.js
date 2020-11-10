@@ -1,15 +1,15 @@
-import { Router } from "express";
-import { guest, catchAsync } from "../middlewares";
+import{ Router }from'express';
+import{ guest, catchAsync }from'../middlewares';
 // import { validate, registerSchema } from "../validation";
-import { User } from "../model/user";
-import { BadRequest } from "../errors";
-import { logIn } from "../auth";
-import { sendMail } from "../mail";
+import{ User }from'../model/user';
+import{ BadRequest }from'../errors';
+import{ logIn }from'../auth';
+import{ sendMail }from'../mail';
 
 const router = Router();
 
 router.post(
-  "/register",
+  '/register',
   guest,
   catchAsync(async (req, res) => {
     // await validate(registerSchema, req.body);
@@ -18,8 +18,8 @@ router.post(
 
     const found = await User.exists({ email });
 
-    if (found) {
-      throw new BadRequest("Invalid email");
+    if(found){
+      throw new BadRequest('Invalid email');
       //   console.log("invalid email");
     }
 
@@ -35,11 +35,11 @@ router.post(
 
     await sendMail({
       to: email,
-      subject: "Verify your email address",
+      subject: 'Verify your email address',
       text: link
     });
 
-    res.json({ message: "OK" });
+    res.json({ message: 'OK' });
   })
 );
 

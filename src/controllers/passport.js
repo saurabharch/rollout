@@ -1,20 +1,20 @@
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const FacebookStrategy = require("passport-facebook").Strategy;
-const TwitterStrategy = require("passport-twitter").Strategy;
-const PinterestStrategy = require("passport-pinterest").Strategy;
-const InstagramStrategy = require("passport-instagram").Strategy;
-const mongoose = require("mongoose");
-const keys = require("../config/keys");
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
+const TwitterStrategy = require('passport-twitter').Strategy;
+const PinterestStrategy = require('passport-pinterest').Strategy;
+const InstagramStrategy = require('passport-instagram').Strategy;
+const mongoose = require('mongoose');
+const keys = require('../config/keys');
 // Load user model
-const User = mongoose.model("user");
+const User = mongoose.model('user');
 
-module.exports = function(passport) {
+module.exports = function(passport){
   passport.use(
     new GoogleStrategy(
       {
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL: "/auth/google/callback",
+        callbackURL: '/auth/google/callback',
         proxy: true
       },
       (accessToken, refreshToken, profile, done) => {
@@ -23,7 +23,7 @@ module.exports = function(passport) {
 
         const image = profile.photos[0].value.substring(
           0,
-          profile.photos[0].value.indexOf("?")
+          profile.photos[0].value.indexOf('?')
         );
 
         const newUser = {
@@ -31,7 +31,7 @@ module.exports = function(passport) {
           firstName: profile.name.givenName,
           lastName: profile.name.familyName,
           email: profile.emails[0].value,
-          provider: "google",
+          provider: 'google',
           image: image
         };
 
@@ -39,10 +39,10 @@ module.exports = function(passport) {
         User.findOne({
           sociaID: profile.id
         }).then(user => {
-          if (user) {
+          if(user){
             // Return user
             done(null, user);
-          } else {
+          }else{
             // Create user
             new User(newUser).save().then(user => done(null, user));
           }
@@ -56,8 +56,8 @@ module.exports = function(passport) {
       {
         clientID: keys.clientID,
         clientSecret: keys.clientSecret,
-        callbackURL: "/auth/facebook/callback",
-        profileFields: ["id", "displayName", "photos", "email", "familyName"]
+        callbackURL: '/auth/facebook/callback',
+        profileFields: ['id', 'displayName', 'photos', 'email', 'familyName']
       },
       (accessToken, refreshToken, profile, done) => {
         const image = profile.picture.data.url;
@@ -66,17 +66,17 @@ module.exports = function(passport) {
           firstName: profile.displayName,
           lastName: profile.familyName,
           email: profile.email,
-          provider: "facebook",
+          provider: 'facebook',
           image: image
         };
         // Check for existing user
         User.findOne({
           sociaID: profile.id
         }).then(user => {
-          if (user) {
+          if(user){
             // Return user
             done(null, user);
-          } else {
+          }else{
             // Create user
             new User(newUser).save().then(user => done(null, user));
           }
@@ -90,25 +90,25 @@ module.exports = function(passport) {
       {
         consumerKey: keys.ConsumerKey,
         consumerSecret: keys.ConsumerSecret,
-        callbackURL: "/auth/twitter/callback"
+        callbackURL: '/auth/twitter/callback'
       },
-      function(token, tokenSecret, profile, done) {
+      (token, tokenSecret, profile, done) => {
         // console.log(profile);
         const image = profile.profile_image_url;
         const newUser = {
           sociaID: profile.id,
           firstName: profile.displayName,
           email: profile.email,
-          provider: "twitter",
+          provider: 'twitter',
           image: image
         };
         User.findOne({
           sociaID: profile.id
         }).then(user => {
-          if (user) {
+          if(user){
             // Return user
             done(null, user);
-          } else {
+          }else{
             // Create user
             new User(newUser).save().then(user => done(null, user));
           }
@@ -122,27 +122,27 @@ module.exports = function(passport) {
       {
         clientID: keys.AppID,
         clientSecret: keys.AppSecret,
-        scope: ["read_public", "read_relationships"],
-        callbackURL: "/auth/pinterest/callback",
+        scope: ['read_public', 'read_relationships'],
+        callbackURL: '/auth/pinterest/callback',
         state: true
       },
-      function(accessToken, refreshToken, profile, done) {
+      (accessToken, refreshToken, profile, done) => {
         console.log(profile);
         const image = profile.photos[0].value;
         const newUser = {
           sociaID: profile.id,
           firstName: profile.displayName,
           email: profile.email,
-          provider: "pinterest",
+          provider: 'pinterest',
           image: image
         };
         User.findOne({
           sociaID: profile.id
         }).then(user => {
-          if (user) {
+          if(user){
             // Return user
             done(null, user);
-          } else {
+          }else{
             // Create user
             new User(newUser).save().then(user => done(null, user));
           }
@@ -156,9 +156,9 @@ module.exports = function(passport) {
       {
         clientID: keys.InstaId,
         clientSecret: keys.InstaSecret,
-        callbackURL: "/auth/instagram/callback"
+        callbackURL: '/auth/instagram/callback'
       },
-      function(accessToken, refreshToken, profile, done) {
+      (accessToken, refreshToken, profile, done) => {
         const image = profile._json.data.profile_picture;
         const newUser = {
           sociaID: profile.id,
@@ -170,10 +170,10 @@ module.exports = function(passport) {
         User.findOne({
           sociaID: profile.id
         }).then(user => {
-          if (user) {
+          if(user){
             // Return user
             done(null, user);
-          } else {
+          }else{
             // Create user
             new User(newUser).save().then(user => done(null, user));
           }

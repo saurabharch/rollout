@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const OrgNameSchema = new Schema(
   {
@@ -7,11 +7,11 @@ const OrgNameSchema = new Schema(
       required: true,
       lowercase: true,
       unique: true,
-      default: "pushgeek.com"
+      default: 'pushgeek.com'
     },
     orgUrl: {
       type: String,
-      default: "http://pushgeek.com"
+      default: 'http://pushgeek.com'
     },
     OrgImage: String,
     siteId: {
@@ -29,7 +29,7 @@ const OrgNameSchema = new Schema(
       {
         siteUrl: {
           type: Schema.Types.ObjectId,
-          ref: "domains",
+          ref: 'domains',
           unique: true,
           autopopulate: { maxDepth: 2 }
         }
@@ -39,14 +39,14 @@ const OrgNameSchema = new Schema(
       {
         User: {
           type: Schema.Types.ObjectId,
-          ref: "user",
+          ref: 'user',
           unique: true,
           autopopulate: true
         },
         rRole: [
           {
             type: Schema.Types.ObjectId,
-            ref: "Role",
+            ref: 'Role',
             unique: true,
             autopopulate: true
           }
@@ -60,6 +60,6 @@ const OrgNameSchema = new Schema(
   }
 );
 
-const Organization = mongoose.model("organization", OrgNameSchema);
+const Organization = mongoose.model('organization', OrgNameSchema);
 module.exports = Organization;
 // export const Organization = model("organization", OrgNameSchema);

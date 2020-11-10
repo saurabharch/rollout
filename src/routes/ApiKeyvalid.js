@@ -1,8 +1,8 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.json(`message: Valid`);
+router.get('/', (req, res) => {
+  res.json('message: Valid');
   //   res.render("index/partners");
 });
 

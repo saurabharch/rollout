@@ -1,12 +1,10 @@
-const express = require("express");
-const router = express.Router();
-import { authJwt, verifySignup } from "../middlewares";
-import { UserController } from "../jobs/controllers/UserController";
-import BullBoard from "bull-board";
-import { pQueue } from "../lib/Queue";
+import{ authJwt, verifySignup }from'../middlewares';
+import UserController from'../jobs/controller/UserController';
 
-BullBoard.setQueues(pQueue.queues.map(queue => queue.bull));
-router.post("/queues", [authJwt.verifyToken], UserController.store);
-router.get("/a/queues", [authJwt.verifyToken], BullBoard.UI);
+const express = require('express');
+const router = express.Router();
+
+
+router.post('/queues', [authJwt.verifyToken], UserController.store);
 
 module.exports = router;

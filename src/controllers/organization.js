@@ -1,15 +1,15 @@
-import Organization from "../model/organization";
+import Organization from'../model/organization';
 
 export const createOrganization = async (req, res) => {
   const { name, category, price, imgURL } = req.body;
 
-  try {
+  try{
     const newOrganization = new Organization({ name, category, price, imgURL });
 
     const organizationSaved = await newOrganization.save();
 
     res.status(201).json(organizationSaved);
-  } catch (error) {
+  }catch(error){
     console.log(error);
     return res.status(500).json(error);
   }

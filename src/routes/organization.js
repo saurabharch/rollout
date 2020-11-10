@@ -1,25 +1,25 @@
-const express = require("express");
+import*as organizationCtrl from'../controllers/organization';
+import{ authJwt }from'../middlewares';
+const express = require('express');
 const router = express.Router();
-import * as organizationCtrl from "../controllers/organization";
-import { authJwt } from "../middlewares";
-router.get("/", organizationCtrl.getOrgs);
+router.get('/', organizationCtrl.getOrgs);
 
-router.get("/:organizationId", organizationCtrl.getOrgById);
+router.get('/:organizationId', organizationCtrl.getOrgById);
 
 router.post(
-  "/",
+  '/',
   [authJwt.verifyToken, authJwt.isModerator],
   organizationCtrl.createOrganization
 );
 
 router.put(
-  "/:organizationId",
+  '/:organizationId',
   [authJwt.verifyToken, authJwt.isModerator],
   organizationCtrl.updateOrgId
 );
 
 router.delete(
-  "/:organizationId",
+  '/:organizationId',
   [authJwt.verifyToken, authJwt.isAdmin],
   organizationCtrl.deleteOrgById
 );
