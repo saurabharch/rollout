@@ -441,7 +441,7 @@ app.use("/legal", terms_service);
 app.use("/security", security);
 app.use("/plans", plans);
 app.use("/q", queue);
-app.use("/admin/queues",UI);
+app.use("/q/queues",UI);
 app.use("/api/key", ApiKey);
 app.use("/home", home); // url path http://${process.env.HOST}:${process.env.PORT}/home
 app.use("/subscribe", subscribe); // url path http://${process.env.HOST}:${process.env.PORT}/subscribe
