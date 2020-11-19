@@ -142,7 +142,7 @@
         "sitemap": "^6.3.2",
         "string-strip-html": "^6.0.4",
         "strip-bom": "^4.0.0",
-        "stripe": "^8.107.0",
+        "stripe": "^8.119.0",
         "uglifycss": "0.0.29",
         "uuid": "^8.3.0",
         "validator": "^13.1.1",
