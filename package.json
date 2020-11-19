@@ -133,7 +133,7 @@
         "pm2": "^4.4.1",
         "q": "^1.5.1",
         "rand-token": "^1.0.1",
-        "rate-limiter-flexible": "^2.0.0",
+        "rate-limiter-flexible": "^2.1.13",
         "raven": "^2.6.4",
         "redis": "^2.8.0",
         "sanitize-html": "^2.1.0",
