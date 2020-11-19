@@ -35,12 +35,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Kappy-Technologies-LLP/rollout.git"
+        "url": "git+https://github.com/saurabharch/rollout.git"
     },
     "bugs": {
-        "url": "https://github.com/Kappy-Technologies-LLP/rollout/issues"
+        "url": "https://github.com/saurabharch/rollout/issues"
     },
-    "homepage": "https://github.com/Kappy-Technologies-LLP/rollout#readme",
+    "homepage": "https://github.com/saurabharch/rollout#readme",
     "author": "Saurabh Kashyap <saurabhkashyap0001@gmail.com>",
     "keywords": [
         "Web Push",
