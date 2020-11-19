@@ -38,11 +38,11 @@ const myPlugin = {
   }
 };
 workbox.core.setCacheNameDetails({
-  prefix: "PushGeek",
+  prefix: "RollOut",
   suffix: "v1",
-  precache: "Pushgeek-precache-name",
-  runtime: "Pushgeek-runtime-name",
-  cacheId: "PushGeek",
+  precache: "Rollout-precache-name",
+  runtime: "Rollout-runtime-name",
+  cacheId: "RollOut",
   clientsClaim: "true",
   directoryIndex: "/"
 });
