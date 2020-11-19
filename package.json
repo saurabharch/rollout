@@ -1,7 +1,7 @@
 {
-    "name": "pushgeek-web-push-services",
+    "name": "rollout-web-push-services",
     "version": "1.0.01",
-    "description": "PushGeek is a Push Notification Engine,  Application is Written in Node.js and have Restful API features.",
+    "description": "RollOut is a Push Notification Engine,  Application is Written in Node.js and have Restful API features.",
     "main": "src/index.js",
     "scripts": {
         "copy": "copyfiles -u 1 src/**/**/* src/**/* src/* build",
