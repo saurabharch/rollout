@@ -1,8 +1,8 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)] [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout?ref=badge_shield)
 
-# GeekPush Rollout Server
+# Rollout Server
 <h1 align="center">
-  <img alt="PushGeek" src="https://raw.githubusercontent.com/Kappy-Technologies-LLP/rollout/master/src/public/images/Pushgeek.gif?token=AFKVKGUY2YCQUD2EQJ54XRS7WFIXI" width="180px" />
+  <img alt="RollOut" src="https://raw.githubusercontent.com/saurabharch/rollout/master/src/public/images/Pushgeek.gif?token=AFKVKGUY2YCQUD2EQJ54XRS7WFIXI" width="180px" />
 </h1>
 
 Rollout server is simple drip marketing automation tool which help to enggage more and more users with the website, which have features like
@@ -32,7 +32,7 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 - nudity detection
 - more coming soon
 
-## 🔥 [Instrustions](https://kappy-technologies-llp.github.io/rollout/)  🧑🏼‍💻 Commands
+## 🔥 [Instrustions](https://saurabharch.github.io/rollout/)  🧑🏼‍💻 Commands
 
 > Installing Nodejs , NPM and NVM
 
@@ -51,7 +51,7 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 - `git clone https://github.com/Kappy-Technologies-LLP/rollout`
 - `npm install`
 - `./node_modules/.bin/web-push generate-vapid-keys`
-- Generating Vapid Public and Private Key copy it and Update in config folder files [key_dev.js](https://github.com/Kappy-Technologies-LLP/rollout/blob/master/config/keys_dev.js) , [key_prod.js](https://github.com/Kappy-Technologies-LLP/rollout/blob/master/config/keys_prod.js) and also paste your Vapid Public Key in your Service Worker File [app.js](https://github.com/Kappy-Technologies-LLP/rollout/blob/master/public/app.js)
+- Generating Vapid Public and Private Key copy it and Update in config folder files [key_dev.js](https://github.com/saurabharch/rollout/blob/master/config/keys_dev.js) , [key_prod.js](https://github.com/saurabharch/rollout/blob/master/config/keys_prod.js) and also paste your Vapid Public Key in your Service Worker File [app.js](https://github.com/saurabharch/rollout/blob/master/public/app.js)
 - `node server.js`
 
 ## Running Imutable stack with PM2
