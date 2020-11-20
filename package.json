@@ -116,7 +116,7 @@
         "multer-s3": "^2.9.0",
         "node-cron": "^2.0.3",
         "node-uuid": "^1.4.8",
-        "nodemailer": "^6.4.13",
+        "nodemailer": "^6.4.16",
         "numeral": "^2.0.6",
         "oauthorize": "^0.1.0",
         "object-hash": "^2.0.3",
