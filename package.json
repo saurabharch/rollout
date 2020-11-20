@@ -108,7 +108,7 @@
         "mime-type": "^4.0.0",
         "mkdirp": "^1.0.4",
         "moment": "^2.27.0",
-        "mongo-sanitize": "^1.0.1",
+        "mongo-sanitize": "^1.1.0",
         "mongoose": "^5.10.5",
         "mongoose-paginate": "^5.0.3",
         "morgan": "^1.10.0",
