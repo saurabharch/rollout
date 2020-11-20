@@ -144,7 +144,7 @@
         "strip-bom": "^4.0.0",
         "stripe": "^8.107.0",
         "uglifycss": "0.0.29",
-        "uuid": "^8.3.0",
+        "uuid": "^8.3.1",
         "validator": "^13.1.1",
         "vhost": "^3.0.2",
         "web-push": "^3.4.3",
