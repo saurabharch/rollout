@@ -1,0 +1,47 @@
+{
+    "cartTitle": "PushGeek",
+    "cartDescription": "pushgeek",
+    "cartLogo": "/images/Pushgeek.gif",
+    "baseUrl": "http://localhost:5500",
+    "emailHost": "smtp-mail.outlook.com",
+    "emailPort": 587,
+    "emailSecure": false,
+    "emailUser": "hi@markmoffat.com",
+    "emailPassword": "this_is_the_smtp_password",
+    "emailAddress": "hi@markmoffat.com",
+    "productsPerRow": 3,
+    "productsPerPage": 6,
+    "footerHtml": "&lt;h4 class=&quot;text-center&quot;&gt;Powered by Kappy Technologies&lt;/h4&gt;",
+    "googleAnalytics": "",
+    "injectJs": "",
+    "customCss": "",
+    "currencySymbol": "₹",
+    "paymentGateway": "stripe",
+    "databaseConnectionString": "mongodb://0.0.0.0:27017/web-push",
+    "theme": "Rain",
+    "trackStock": false,
+    "orderHook": "",
+    "availableLanguages": [
+        "en",
+        "it",
+        "hi"
+    ],
+    "defaultLocale": "en",
+    "maxQuantity": 25,
+    "twitterHandle": "",
+    "facebookAppId": "",
+    "productOrderBy": "date",
+    "productOrder": "descending",
+    "modules": {
+        "enabled": {
+            "shipping": "shipping-basic",
+            "discount": "discount-voucher"
+        },
+        "loaded": {
+            "shipping": {},
+            "discount": {}
+        }
+    },
+    "showRelatedProducts": true,
+    "showHomepageVariants": false
+}

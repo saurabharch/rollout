@@ -1,0 +1,27 @@
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env
+./public/test1.js
+./public/sw-test.js
+./public/pushenggage.js
+./nginx/Dockerfile-custome
+./public/sw-test.js
+./public/test1.js
+./config/keys_prod.js
+./config/keys_dev.js
+./st.js
+./kp-push-2020.pem
+./model/user2.js
+./model/user1.js
+# Build
+build
+
+# package.json 25.sep.2020
+package.json
+package-*.json
+# environment variables
+.env
+/src/config/*-local.json
+.vscode
+**.DS_Store

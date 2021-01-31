@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="41px" viewBox="0 0 37 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>dropletinboxicon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50.055%" y1="2.475%" x2="50.055%" y2="96.438%" id="linearGradient-1">
+            <stop stop-color="#0069FF" stop-opacity="0.3" offset="0%"></stop>
+            <stop stop-color="#0069FF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="dropletinboxicon" transform="translate(1.000000, 1.000000)">
+            <polygon id="Path" stroke="#0069FF" stroke-width="2" opacity="0.2" points="0 10.121 0 28.229 17.271 38.257 34.45 28.229 34.45 10.121 17.271 0.186"></polygon>
+            <polygon id="Path" fill="url(#linearGradient-1)" fill-rule="nonzero" points="0 22.936 0 28.229 17.271 38.257 34.45 28.229 34.45 22.936 17.271 13"></polygon>
+            <polygon id="Path" stroke="#0069FF" stroke-width="2" points="0 22.936 0 28.229 17.271 38.257 34.45 28.229 34.45 22.936 17.271 13"></polygon>
+            <polyline id="Path" stroke="#0069FF" stroke-width="2" points="0 22.936 17.271 32.871 34.45 22.936"></polyline>
+            <path d="M17.2714,6.7786 C17.2714,6.7786 9.5643,12.4429 9.5643,18.2 C9.5643,22.4714 13,25.9071 17.2714,25.9071 C21.5429,25.9071 24.9786,22.4714 24.9786,18.2 C24.9786,12.6286 17.2714,6.7786 17.2714,6.7786 Z" id="Path" stroke="#120078" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <polyline id="Path" stroke="#0069FF" stroke-width="2" opacity="0.2" points="0 10.4 17.271 20.336 34.45 10.4"></polyline>
+        </g>
+    </g>
+</svg>

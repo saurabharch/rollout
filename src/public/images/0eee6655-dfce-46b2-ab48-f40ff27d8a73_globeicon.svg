@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="35px" height="41px" viewBox="0 0 35 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>globeicon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="49.963%" y1="1.851%" x2="49.963%" y2="99.243%" id="linearGradient-1">
+            <stop stop-color="#0069FF" stop-opacity="0.3" offset="0%"></stop>
+            <stop stop-color="#0069FF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="globeicon" transform="translate(1.000000, 1.000000)">
+            <circle id="Oval" fill="url(#linearGradient-1)" fill-rule="nonzero" cx="16.485" cy="22.815" r="16.185"></circle>
+            <ellipse id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="16.485" cy="22.815" rx="16.185" ry="6.143"></ellipse>
+            <path d="M0.3,22.815 C0.3,19.402 7.515,16.672 16.485,16.672 C25.455,16.672 32.67,19.402 32.67,22.815" id="Path" stroke="#0069FF" stroke-width="2" opacity="0.4"></path>
+            <path d="M16.485,39 C13.073,39 10.343,31.785 10.343,22.815 C10.343,13.845 13.073,6.63 16.485,6.63" id="Path" stroke="#0069FF" stroke-width="2" opacity="0.4"></path>
+            <path d="M32.67,22.815 C32.67,26.227 25.455,28.957 16.485,28.957 C7.515,28.957 0.3,26.227 0.3,22.816" id="Path" stroke="#0069FF" stroke-width="2"></path>
+            <path d="M16.485,6.63 C19.898,6.63 22.628,13.845 22.628,22.815 C22.628,31.785 19.898,39 16.485,39" id="Path" stroke="#0069FF" stroke-width="2"></path>
+            <circle id="Oval" stroke="#0069FF" stroke-width="2" cx="16.485" cy="22.815" r="16.185"></circle>
+            <g id="Group" transform="translate(9.075000, 0.000000)" stroke="#120078" stroke-width="2">
+                <path d="M14.332,6.923 C14.332,12.09 7.41,17.16 7.41,17.16 C7.41,17.16 0.487,11.895 0.487,6.922 C0.487,3.12 3.607,0 7.41,0 C11.213,0 14.332,3.12 14.332,6.923 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <circle id="Oval" cx="7.41" cy="7.02" r="2.34"></circle>
+            </g>
+        </g>
+    </g>
+</svg>
