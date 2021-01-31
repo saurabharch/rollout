@@ -97,7 +97,7 @@ router.post(
       });
       Cdata.push({"link":`${link}`});
       const FullData = Cdata;
-      UserController.store(FullData);
+      UserController.store(FullData,res);
       // await sendMail({
       //   to: email,
       //   subject: 'Pushgeek Verify email address',

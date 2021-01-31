@@ -1,8 +1,8 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)] [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout?ref=badge_shield)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)] [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout?ref=badge_shield)
 
 # PushGeek Rollout Server
 <h1 align="center">
-  <img alt="PushGeek" src="https://github.com/Kappy-Technologies-LLP/rollout/blob/master/src/public/images/Pushgeek.gif?raw=true" width="180px" />
+  <img alt="PushGeek" src="https://github.com/saurabharch/rollout/blob/master/src/public/images/Pushgeek.gif?raw=true" width="180px" />
 </h1>
 
 Rollout server is simple drip marketing automation tool which help to enggage more and more users with the website, which have features like
@@ -32,7 +32,7 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 - nudity detection
 - more coming soon
 
-## 🔥 [Instrustions](https://kappy-technologies-llp.github.io/rollout/)  🧑🏼‍💻 Commands
+## 🔥 [Instrustions](https://saurabharch.github.io/rollout/)  🧑🏼‍💻 Commands
 
 > Installing Nodejs , NPM and NVM
 
@@ -48,10 +48,10 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 
 > Clone Source Code
 
-- `git clone https://github.com/Kappy-Technologies-LLP/rollout`
+- `git clone https://github.com/saurabharch/rollout`
 - `npm install`
 - `./node_modules/.bin/web-push generate-vapid-keys`
-- Generating Vapid Public and Private Key copy it and Update in config folder files [key_dev.js](https://github.com/Kappy-Technologies-LLP/rollout/blob/master/src/config/keys_dev.js) , [key_prod.js](https://github.com/Kappy-Technologies-LLP/rollout/blob/master/src/config/keys_prod.js) and also paste your Vapid Public Key in your Service Worker File [app.js](https://github.com/Kappy-Technologies-LLP/rollout/blob/master/src/public/app.js)
+- Generating Vapid Public and Private Key copy it and Update in config folder files [key_dev.js](https://github.com/saurabharch/rollout/blob/master/src/config/keys_dev.js) , [key_prod.js](https://github.com/saurabharch/rollout/blob/master/src/config/keys_prod.js) and also paste your Vapid Public Key in your Service Worker File [app.js](https://github.com/saurabharch/rollout/blob/master/src/public/app.js)
 - `node server.js`
 
 ## Running Imutable stack with PM2
@@ -64,7 +64,7 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 - `sudo pm2 start --name server-name index.js` -- standalone running at by default port 5500 on a single intance
 - `sudo pm2 startup` -- save as running always after on every boot performe on system
 - `sudo pm2 save` -- save all the setting with pm2
-- Running Rollout Server using PM2 with babel as interpreter setting is [Here](https://github.com/Kappy-Technologies-LLP/rollout/wiki/Run-Rollout-Server-using-PM2-server-with-babel-as-interpreter)
+- Running Rollout Server using PM2 with babel as interpreter setting is [Here](https://github.com/saurabharch/rollout/wiki/Run-Rollout-Server-using-PM2-server-with-babel-as-interpreter)
 
 ## Setting Up with Nginx Proxy as a load balancer
 
@@ -188,6 +188,6 @@ Sweetspot = Monolith app and databases in containers
 
 ## 📝 License
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FKappy-Technologies-LLP%2Frollout?ref=badge_large)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout?ref=badge_large)
 
 #### 👋 [Official site](https://pushgeek.com)  Kappy Pushgeek is made with ❤️ by © RainDigi IT Pvt. Ltd.
