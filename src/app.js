@@ -32,8 +32,10 @@ const passport = require("passport");
 // import session, { Store } from "express-session";
 const session = require('express-session');
 const {APP_PORT, SESSION_OPTIONS } = require( "./config");
-const { UI,setQueues } = require('bull-board')
+const { router,setQueues} = require('bull-board')
+// const {router} = require('bull-board');
 import Queue from './lib/Queue';
+var TaskBoard = require('toureiro');
 // import { login, register, verify, reset } from "./routes";
 // Add the payment route
 const paymentRoute = require(`./lib/payments/${config.paymentGateway}`);
@@ -462,12 +464,14 @@ app.use((req, res, next) => {
 // app.use("/", index);
 // Setup the routes
 app.use('/plans', index);
+app.use('/toureiro', TaskBoard());
 app.use('/doc',doc);
 app.use('/features', features);
 app.use('/customer', customer);
 app.use('/product', product);
 app.use('/order', order);
 app.use('/user', user);
+app.use('/email', verify);
 app.use('/admin', admin);
 app.use('/reviews', reviews);
 app.use("/register", register);
@@ -486,6 +490,15 @@ app.use("/plans", plans);
 app.use("/admin", admin);
 app.use("/q", queue);
 app.use("/q/queues",UI);
+// let basePath = 'qq';
+
+// app.use(
+//   '/queues',
+//   (req, res, next) => {
+//     req.proxyUrl = basePath + '/queues';
+//     next();
+//   },
+//   router);
 app.use("/api/key", ApiKey);
 app.use("/home", home); // url path http://${process.env.HOST}:${process.env.PORT}/home
 app.use("/subscribe", subscribe); // url path http://${process.env.HOST}:${process.env.PORT}/subscribe
@@ -499,7 +512,7 @@ app.use("/api/ami", whoami); // url path http://${process.env.HOST}:${process.en
 app.use("/api/time", timestamp); // url path http://${process.env.HOST}:${process.env.PORT}/api/time//timestamp/:date_string?
 app.use("/api/status", systemStatus); // url path http://${process.env.HOST}:${process.env.PORT}/api/status/server
 app.use("/api/ai", textClassification); // url path http://${process.env.HOST}:${process.env.PORT}/api/ai/textResult?
-app.use('/email', verify);
+
 // catch 404 and forward to error handler
 // Payment route(s)
 _.forEach(config.paymentGateway, (gateway) => {

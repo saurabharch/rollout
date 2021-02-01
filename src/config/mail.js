@@ -4,8 +4,8 @@ import{ IN_PROD, APP_HOSTNAME }from'./app';
 const {
   SMTP_HOST = 'smtp.sendgrid.net',
   SMTP_PORT = 25,
-  SMTP_USERNAME = 'u-YmJdFYRJy2T-zl4Oz-ew',
-  SMTP_PASSWORD = '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'
+  SMTP_USERNAME = 'MLdctucuQ_6zUzymk0n4Hg',
+  SMTP_PASSWORD = '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'
 } = process.env;
 
 export const SMTP_OPTIONS = {

@@ -22,7 +22,8 @@ router.post(
 
     const { email, name, password } = JSON.stringify(req.body);
     // console.log(JSON.stringify(req.body));
-    
+    var testM = [];
+    const FullData ='';
     const found = await User.exists({email});
     const Roles = await Role.find({ name: ["user"] });
     console.log(colors.yellow(`Result: ${found}`))
@@ -93,11 +94,13 @@ router.post(
         username: data.username,
         email:data.email,
         firstName:data.firstName,
-        lastName:data.lastName
+        lastName:data.lastName,
+        link: link
       });
-      Cdata.push({"link":`${link}`});
-      const FullData = Cdata;
-      UserController.store(FullData,res);
+     FullData = Cdata;
+      const serial = '';
+      UserController.store(FullData);
+      testM.push(FullData);
       // await sendMail({
       //   to: email,
       //   subject: 'Pushgeek Verify email address',
@@ -106,9 +109,13 @@ router.post(
       // UserController.store
     } catch (error) {
       console.error(colors.red(`Failed Generating verification url :${error.message}`))
+      throw new BadRequest(error.message);
     }
-
-    res.json({message: 'Ok'});
+    console.log(JSON.stringify(testM));
+    res.status(200).json({
+      status: 'succes',
+      data: FullData,
+    })
   })
 );
 

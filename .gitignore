@@ -19,7 +19,7 @@ npm-debug.log
 build
 
 # package.json 25.sep.2020
-package.json
+# package.json
 package-*.json
 # environment variables
 .env
