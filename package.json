@@ -162,7 +162,7 @@
         "toureiro": "^0.2.13",
         "uglifycss": "0.0.29",
         "uuid": "^8.3.2",
-        "validator": "^13.1.1",
+        "validator": "^13.5.2",
         "vhost": "^3.0.2",
         "web-push": "^3.4.3",
         "xml-js": "^1.6.11",
