@@ -1,0 +1,46 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.19.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - toureiro > body-parser > debug:
+        patched: '2021-02-02T04:48:37.270Z'
+    - toureiro > express > debug:
+        patched: '2021-02-02T04:48:37.270Z'
+    - toureiro > express > finalhandler > debug:
+        patched: '2021-02-02T04:48:37.270Z'
+    - toureiro > express > send > debug:
+        patched: '2021-02-02T04:48:37.270Z'
+    - toureiro > express > serve-static > send > debug:
+        patched: '2021-02-02T04:48:37.270Z'
+  SNYK-JS-LODASH-567746:
+    - geoip-lite > async > lodash:
+        patched: '2021-02-02T04:48:37.270Z'
+    - pm2 > @pm2/js-api > async > lodash:
+        patched: '2021-02-02T04:48:37.270Z'
+  'npm:lodash:20180130':
+    - toureiro > lodash:
+        patched: '2021-02-02T04:48:37.270Z'
+    - toureiro > bull > lodash:
+        patched: '2021-02-02T04:48:37.270Z'
+  'npm:mime:20170907':
+    - toureiro > express > send > mime:
+        patched: '2021-02-02T04:48:37.270Z'
+    - toureiro > express > serve-static > send > mime:
+        patched: '2021-02-02T04:48:37.270Z'
+  'npm:ms:20170412':
+    - toureiro > body-parser > debug > ms:
+        patched: '2021-02-02T04:48:37.270Z'
+    - toureiro > express > debug > ms:
+        patched: '2021-02-02T04:48:37.270Z'
+    - toureiro > express > finalhandler > debug > ms:
+        patched: '2021-02-02T04:48:37.270Z'
+    - toureiro > express > send > debug > ms:
+        patched: '2021-02-02T04:48:37.270Z'
+    - toureiro > express > serve-static > send > debug > ms:
+        patched: '2021-02-02T04:48:37.270Z'
+    - toureiro > express > send > ms:
+        patched: '2021-02-02T04:48:37.270Z'
+    - toureiro > express > serve-static > send > ms:
+        patched: '2021-02-02T04:48:37.270Z'
