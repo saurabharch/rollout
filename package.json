@@ -72,7 +72,7 @@
         "@adyen/api-library": "^6.0.1",
         "@babel/runtime": "^7.12.5",
         "@tailwindcss/typography": "^0.3.1",
-        "ajv": "^6.12.5",
+        "ajv": "^7.0.0",
         "ajv-errors": "^1.0.1",
         "async": "^3.2.0",
         "audit": "0.0.6",
