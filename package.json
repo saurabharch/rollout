@@ -166,7 +166,7 @@
         "vhost": "^3.0.2",
         "web-push": "^3.4.3",
         "xml-js": "^1.6.11",
-        "yenv": "^2.1.1"
+        "yenv": "^3.0.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.11.6",

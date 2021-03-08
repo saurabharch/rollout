@@ -2907,6 +2907,11 @@ argparse@^1.0.10, argparse@^1.0.7:
   dependencies:
     sprintf-js "~1.0.2"
 
+argparse@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
+  integrity sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==
+
 arr-diff@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/arr-diff/-/arr-diff-1.1.0.tgz#687c32758163588fef7de7b36fabe495eb1a399a"
@@ -8690,6 +8695,13 @@ js-yaml@^3.14.0:
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
+
+js-yaml@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.0.0.tgz#f426bc0ff4b4051926cd588c71113183409a121f"
+  integrity sha512-pqon0s+4ScYUvX30wxQi3PogGFAlUyH0awepWvwkj4jD4v+ova3RiYw8bmA6x2rDrEaj8i/oWKoRxpVNW+Re8Q==
+  dependencies:
+    argparse "^2.0.1"
 
 jsbn@1.1.0:
   version "1.1.0"
@@ -15010,14 +15022,6 @@ yargs-parser@^10.0.0:
   dependencies:
     camelcase "^4.1.0"
 
-yargs-parser@^15.0.1:
-  version "15.0.1"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-15.0.1.tgz#54786af40b820dcb2fb8025b11b4d659d76323b3"
-  integrity sha512-0OAMV2mAZQrs3FkNpDQcBk1x5HXb8X4twADss4S0Iuk+2dGnLOE/fRHrsYm542GduMveyA77OF4wrNJuanRCWw==
-  dependencies:
-    camelcase "^5.0.0"
-    decamelize "^1.2.0"
-
 yargs-parser@^18.1.2:
   version "18.1.3"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-18.1.3.tgz#be68c4975c6b2abf469236b0c870362fab09a7b0"
@@ -15056,23 +15060,6 @@ yargs@13.3.2:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^13.1.2"
-
-yargs@^14.2.0:
-  version "14.2.3"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-14.2.3.tgz#1a1c3edced1afb2a2fea33604bc6d1d8d688a414"
-  integrity sha512-ZbotRWhF+lkjijC/VhmOT9wSgyBQ7+zr13+YLkhfsSiTriYsMzkTUFP18pFhWwBeMa5gUc1MzbhrO6/VB7c9Xg==
-  dependencies:
-    cliui "^5.0.0"
-    decamelize "^1.2.0"
-    find-up "^3.0.0"
-    get-caller-file "^2.0.1"
-    require-directory "^2.1.1"
-    require-main-filename "^2.0.0"
-    set-blocking "^2.0.0"
-    string-width "^3.0.0"
-    which-module "^2.0.0"
-    y18n "^4.0.0"
-    yargs-parser "^15.0.1"
 
 yargs@^15.3.1:
   version "15.4.1"
@@ -15145,16 +15132,16 @@ year@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/year/-/year-0.2.1.tgz#4083ae520a318b23ec86037f3000cb892bdf9bb0"
 
-yenv@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/yenv/-/yenv-2.1.1.tgz#f269a84b7885684f148305b6ef22473ffda497f7"
-  integrity sha512-fbjRZjpP9fi1Kdj8ehSXNf703qYCoeb80QoEwnPDjogy5abE1raxXJfr+wJLn6mFRcvp1pfyHfYg0N40y8MBCA==
+yenv@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/yenv/-/yenv-3.0.0.tgz#8fe7eadbccda6f4e4271bf12ba3169bbe207f16d"
+  integrity sha512-ghUzu49pchzamfLuJrplGlZc+N3dyPmFyv2B2W+ZzTvTuuwU3WJaR5P0zPNbixIuTr4Mo4iSPQ4R8P2eAhcSww==
   dependencies:
     coercer "^1.1.2"
     deep-extend "^0.6.0"
-    js-yaml "^3.13.1"
+    js-yaml "^4.0.0"
     keyblade "^0.3.2"
-    yargs "^14.2.0"
+    yargs "^16.2.0"
 
 yocto-queue@^0.1.0:
   version "0.1.0"
