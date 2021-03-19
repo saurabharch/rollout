@@ -179,7 +179,7 @@
         "babel-core": "6.26.3",
         "babel-jest": "26.3.0",
         "babel-watch": "7.3.0",
-        "chai": "4.2.0",
+        "chai": "4.3.4",
         "chai-spies": "1.0.0",
         "copyfiles": "2.4.1",
         "dotenv": "8.2.0",
