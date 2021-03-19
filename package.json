@@ -155,7 +155,7 @@
         "sharp": "^0.27.0",
         "siege": "^0.2.0",
         "sitemap": "^6.3.2",
-        "string-strip-html": "^6.0.4",
+        "string-strip-html": "^8.0.0",
         "strip-bom": "^4.0.0",
         "stripe": "^8.107.0",
         "tailwindcss": "^2.0.1",
