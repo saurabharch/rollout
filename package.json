@@ -142,7 +142,7 @@
         "passport-pinterest": "^1.0.0",
         "passport-twitter": "^1.0.4",
         "paypal-rest-sdk": "^1.8.1",
-        "pm2": "^4.4.1",
+        "pm2": "^4.5.5",
         "postcss": "^8.1.14",
         "postcss-cli": "^8.3.0",
         "q": "^1.5.1",
