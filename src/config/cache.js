@@ -9,7 +9,7 @@ export const REDIS_OPTIONS = {
   // port: +REDIS_PORT,
   // host: REDIS_HOST,
   // password: REDIS_PASSWORD
-  host: '127.0.0.1',
-  port: 6379
-  // password: 'o2VTQjWB1oLh3Q2Rq0slCT0zTV8ATkKm'
+  host: 'redis-16610.c244.us-east-1-2.ec2.cloud.redislabs.com',
+  port:16610
+  password: 'HOXm5SfHNIyNB8IceXZF5c6ie5Rb6RYg'
 };
