@@ -17,7 +17,7 @@
     "customCss": "",
     "currencySymbol": "₹",
     "paymentGateway": "stripe",
-    "databaseConnectionString": "mongodb://0.0.0.0:27017/web-push",
+    "databaseConnectionString": "mongodb://kappy:Kappy123*@cluster0.nikh7.mongodb.net/web-push?retryWrites=true&w=majority",
     "theme": "Rain",
     "trackStock": false,
     "orderHook": "",
