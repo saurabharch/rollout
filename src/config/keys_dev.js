@@ -4,7 +4,7 @@ module.exports = {
     accessKey: 'AKIAJ6TA7PR5VQ3R262A',
     secretKey: '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'
   },
-  mongoURI: 'mongodb://kappy:Kappy123*@ds215633.mlab.com:15633/web-push',
+  mongoURI: 'mongodb://kappy:Kappy123*@cluster0.nikh7.mongodb.net/web-pus?retryWrites=true&w=majority',
   privateKey: 'Lckqnvu2RrAKlG3uutce3o-kiI7HSc1LXsy5AdlryXQ',
   publicKey:
     'BLgFTwjElUH_Iz72TKDvmlsc-EcwziNP2X28BmN-znOXJhv35QybtfcN1HTh_eUlNffp12HkuruYpqtKNedN54s',
