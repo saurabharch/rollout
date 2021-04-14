@@ -174,7 +174,7 @@
         "@babel/node": "7.10.5",
         "@babel/plugin-transform-runtime": "7.12.10",
         "@babel/preset-env": "7.11.5",
-        "@shelf/jest-mongodb": "1.2.3",
+        "@shelf/jest-mongodb": "1.2.4",
         "ava": "3.15.0",
         "babel-core": "6.26.3",
         "babel-jest": "26.3.0",
