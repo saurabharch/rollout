@@ -143,7 +143,7 @@
         "passport-twitter": "^1.0.4",
         "paypal-rest-sdk": "^1.8.1",
         "pm2": "^4.5.5",
-        "postcss": "^8.1.14",
+        "postcss": "^8.2.10",
         "postcss-cli": "^8.3.0",
         "q": "^1.5.1",
         "rand-token": "^1.0.1",
