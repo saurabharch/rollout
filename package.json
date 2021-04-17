@@ -156,7 +156,7 @@
         "siege": "^0.2.0",
         "sitemap": "^6.3.2",
         "string-strip-html": "^8.0.0",
-        "strip-bom": "^4.0.0",
+        "strip-bom": "^5.0.0",
         "stripe": "^8.107.0",
         "tailwindcss": "^2.0.1",
         "toureiro": "^0.2.13",
