@@ -85,7 +85,7 @@
         "bull": "^3.18.1",
         "bull-board": "^1.3.0",
         "bullmq": "^1.14.0",
-        "cheerio": "^1.0.0-rc.3",
+        "cheerio": "^1.0.0-rc",
         "compression": "^1.7.4",
         "connect-ensure-login": "^0.1.1",
         "connect-mongodb-session": "^2.4.1",
