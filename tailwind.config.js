@@ -165,6 +165,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'Inter var',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
@@ -844,7 +845,7 @@ module.exports = {
     transitionDuration: ['responsive'],
     transitionProperty: ['responsive'],
     transitionTimingFunction: ['responsive'],
-    translate: ['responsive', 'hover', 'focus'],
+    translate: ['responsive', 'hover', 'focus','motion-reduce'],
     userSelect: ['responsive'],
     verticalAlign: ['responsive'],
     visibility: ['responsive'],
@@ -853,5 +854,6 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/aspect-ratio'),
+        require('@tailwindcss/forms')],
 }

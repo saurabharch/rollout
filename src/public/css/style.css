@@ -3,6 +3,7 @@
 } */
   
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+/* @import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css'); */
 
 :root {
   --primary-color: #006aff;
@@ -18,15 +19,16 @@
   padding: 0;
   margin: 0;
 }
+
 ul {
   list-style-type: none !important;
   text-decoration: none;
 }
-
+/* 
 a {
   text-decoration: none;
   color: #fff;
-}
+} */
 
 h1,
 h2 {
@@ -91,6 +93,15 @@ pre {
   position: relative;
 }
 
+.feather{
+     width:"16px !important";
+     height:"16px !important";
+     fill:var(--primary-color);
+     stroke:#fff;
+     stroke-width:"2 !important";
+     stroke-linecap:"round !important";
+     stroke-linejoin:"round !important";
+}
 .showcase h1 {
   font-size: 40px;
 }
@@ -219,7 +230,13 @@ pre {
     margin-top: 20px;
     margin-bottom: 10px;
 }
-
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="textarea"]
+{
+    font-family: 'Lato', sans-serif !important;
+}
 .features-sub-head img {
   width: 300px;
   justify-self: flex-end;
@@ -612,11 +629,11 @@ code[class*=language-], pre[class*=language-] {
     width:50%;
 }
 }
-a {
+/* a {
     color: #000e29;
     font-weight: 600;
     text-decoration: none;
-}
+} */
 .css-1t9copt p, .css-1t9copt a {
     font-size: 12px;
     text-align: center;
@@ -1683,7 +1700,7 @@ button {
     margin: 0em;
     font: 400 13.3333px Arial;
     padding: 1px 6px;
-    border-width: 2px;
+    /* border-width: 2px; */
     border-style: outset !important;
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
     border-image: initial !important;
@@ -3207,7 +3224,7 @@ form {
     -moz-appearance: none !important;
     appearance: none !important;
 }
-input {
+/* input {
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto !important;
     color: -internal-light-dark(black, white) !important;
@@ -3229,7 +3246,7 @@ input {
     border-style: inset !important;
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195)) !important;
     border-image: initial !important;
-}
+} */
 
 button {
     appearance: button;
@@ -3250,7 +3267,7 @@ button {
     margin: 0em;
     font: 400 13.3333px Arial;
     padding: 1px 6px;
-    border-width: 2px;
+    /* border-width: 2px; */
     border-style: outset;
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
     border-image: initial;
@@ -3266,8 +3283,8 @@ button {
 }
 .button {
     /* background-color: #fff; */
-    border-color: #dbdbdb;
-    border-width: 1px;
+    /* border-color: #dbdbdb;
+    border-width: 1px; */
     color: #363636;
     cursor: pointer;
     justify-content: center;
@@ -3279,7 +3296,7 @@ button {
     -moz-appearance: none;
     -webkit-appearance: none;
     align-items: center;
-    border: 1px solid transparent;
+    /* border: 1px solid transparent; */
     border-radius: 4px;
     box-shadow: none;
     display: inline-flex;
@@ -3666,7 +3683,7 @@ pre {
     overflow: auto;
     border-radius: 0.3em !important;
     background-color: rgb(29, 38, 47) !important;
-    min-height: 265px !important;
+    min-height: 65px !important;
     max-height: 265px !important;
     overflow-wrap: break-word !important;
     white-space: initial !important;
@@ -4200,10 +4217,10 @@ input {
     -webkit-tap-highlight-color: transparent;
 }
 
-a {
+/* a {
     color: #fff !important;
     text-decoration: none !important;
-}
+} */
 
 a {
     background-color: transparent;
@@ -4430,6 +4447,7 @@ select,
 button {
     text-rendering: auto;
     color: initial;
+    font-family: 'Lato', sans-serif;
     letter-spacing: normal;
     word-spacing: normal;
     text-transform: none;

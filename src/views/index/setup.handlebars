@@ -1,22 +1,152 @@
-<div class="col-md-4 offset-md-4 top-pad-50">
+{{!-- <div class="col-md-4 offset-md-4 top-pad-50" style="margin-bottom: 2rem;">
 	<form class="form-signin" id="userSetupForm" role="form" data-toggle="validator">
 		<h2 class="form-signin-heading text-center">expressCart Setup</h2>
-        <div class="form-group">
-	    	<label for="usersName">{{ @root.__ "Users name" }} *</label>
-	    	<input type="text" class="form-control" id="usersName" placeholder="{{ @root.__ "Users name" }}" required>
-	  	</div>
 		<div class="form-group">
-	    	<label for="userEmail">{{ @root.__ "User email" }} *</label>
-	    	<input type="email" class="form-control" id="userEmail" placeholder="{{ @root.__ "Email address" }}"  required>
-	  	</div>
-	  	<div class="form-group">
-		    <label for="userPassword">{{ @root.__ "User password" }} *</label>
-		    <input type="password" class="form-control" id="userPassword" placeholder="Password" required>
-	  	</div>
-	  	<div class="form-group">
-		    <label for="frm_userPassword_confirm">{{ @root.__ "Password confirm" }} *</label>
-		    <input type="password" data-match="#userPassword" placeholder="Confirm password" class="form-control" id="frm_userPassword_confirm" name="frm_userPassword_confirm" required>
-	  	</div>
+			<label for="usersName">{{ @root.__ "Users name" }} *</label>
+			<input type="text" class="form-control" id="usersName" placeholder="{{ @root.__ " Users name" }}" required>
+		</div>
+		<div class="form-group">
+			<label for="userEmail">{{ @root.__ "User email" }} *</label>
+			<input type="email" class="form-control" id="userEmail" placeholder="{{ @root.__ " Email address" }}"
+				required>
+		</div>
+		<div class="form-group">
+			<label for="userPassword">{{ @root.__ "User password" }} *</label>
+			<input type="password" class="form-control" id="userPassword" placeholder="Password" required>
+		</div>
+		<div class="form-group">
+			<label for="frm_userPassword_confirm">{{ @root.__ "Password confirm" }} *</label>
+			<input type="password" data-match="#userPassword" placeholder="Confirm password" class="form-control"
+				id="frm_userPassword_confirm" name="frm_userPassword_confirm" required>
+		</div>
 		<button class="btn  btn-outline-primary btn-block" type="submit">{{ @root.__ "Complete setup" }}</button>
 	</form>
+</div> --}}
+
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+
+<div class="container max-w-full mx-auto md:py-24 px-6">
+	<div class="max-w-sm mx-auto px-6">
+		<div class="relative flex flex-wrap">
+			<div class="w-full relative">
+				<div class="md:mt-6">
+					<div class="text-2xl text-weight-800 text-center font-semibold text-black">
+						First Intialization Setup
+					</div>
+					{{!-- <div class="text-center font-base text-black">
+						Fill the black field for as for administrative privilage
+					</div> --}}
+					<form class="mt-8" id="userSetupForm" role="form" data-toggle="validator"
+						x-data="{password: '',password_confirm: ''}">
+						<div class="mx-auto max-w-lg ">
+							<div class="py-1">
+								<span for="usersName" class="px-1 text-sm text-gray-600">{{ @root.__ "Username" }}
+									*</span>
+								<input placeholder="" type="text" id="usersName" placeholder="{{ @root.__ " Username"}}"
+									class="text-md block px-3 py-2 rounded-lg w-full
+                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
+									required>
+							</div>
+							<div class="py-1">
+								<span for="userEmail" class="px-1 text-sm text-gray-600">{{ @root.__ "Email" }} *</span>
+								<input placeholder="" type="email"
+									class="text-md block px-3 py-2 rounded-lg w-full
+                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
+									id="userEmail" placeholder="{{ @root.__ " Email" }}" required>
+							</div>
+							<div class="py-1">
+								<span for="userPassword" class="px-1 text-sm text-gray-600">{{ @root.__ "Admin password"
+									}} *</span>
+								<input placeholder="" type="password" id="userPassword" x-model="password"
+									class="text-md block px-3 py-2 rounded-lg w-full
+                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none" required>
+							</div>
+							<div class="py-1">
+								<span for="frm_userPassword_confirm" class="px-1 text-sm text-gray-600">{{ @root.__
+									"Password confirm" }} *</span>
+
+								<input placeholder="" type="password" data-match="#userPassword"
+									id="frm_userPassword_confirm" name="frm_userPassword_confirm"
+									x-model="password_confirm"
+									class="text-md block px-3 py-2 rounded-lg w-full
+                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
+									required>
+							</div>
+							<div class="flex justify-start mt-3 ml-4 p-1">
+								<ul>
+									<li class="flex items-center py-1">
+										<div :class="{'bg-green-200 text-green-700': password == password_confirm && password.length > 0, 'bg-red-200 text-red-700':password != password_confirm || password.length == 0}"
+											class=" rounded-full p-1 fill-current ">
+											<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path x-show="password == password_confirm && password.length > 0"
+													stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+													d="M5 13l4 4L19 7" />
+												<path x-show="password != password_confirm || password.length == 0"
+													stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+													d="M6 18L18 6M6 6l12 12" />
+
+											</svg>
+										</div>
+										<span
+											:class="{'text-green-700': password == password_confirm && password.length > 0, 'text-red-700':password != password_confirm || password.length == 0}"
+											class="font-medium text-sm ml-3"
+											x-text="password == password_confirm && password.length > 0 ? 'Passwords match' : 'Passwords do not match' "></span>
+									</li>
+									<li class="flex items-center py-1">
+										<div :class="{'bg-green-200 text-green-700': password.length > 7, 'bg-red-200 text-red-700':password.length < 7 }"
+											class=" rounded-full p-1 fill-current ">
+											<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path x-show="password.length > 7" stroke-linecap="round"
+													stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+												<path x-show="password.length < 7" stroke-linecap="round"
+													stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+
+											</svg>
+										</div>
+										<span
+											:class="{'text-green-700': password.length > 7, 'text-red-700':password.length < 7 }"
+											class="font-medium text-sm ml-3"
+											x-text="password.length > 7 ? 'The minimum length is reached' : 'At least 8 characters required' "></span>
+									</li>
+								</ul>
+							</div>
+							<div class="flex justify-start">
+								<label class="block text-gray-500 font-bold my-4 flex items-center">
+									<input class="leading-loose text-pink-600 top-0" type="checkbox" />
+									<span class="ml-2 text-sm py-2 text-gray-600 text-left">Accept the
+										<a href="#"
+											class="font-semibold text-black border-b-2 border-gray-200 hover:border-gray-500"
+											style="color:rgba(0, 0, 0, 0.699) !important;text-decoration:none;">
+											Terms and Conditions of the site
+										</a>and
+										<a href="#"
+											class="font-semibold text-black border-b-2 border-gray-200 hover:border-gray-500"
+											style="color:rgba(0, 0, 0, 0.699) !important; text-decoration:none;">
+											the information data policy.</a>
+									</span>
+								</label>
+							</div>
+							<button class="mt-3 text-lg text-center font-semibold
+            bg-gray-800 w-full text-white rounded-lg
+            px-6 py-3 block shadow-xl hover:text-white hover:bg-black">
+								Register
+							</button>
+						</div>
+					</form>
+
+					<div class="text-sm font-semibold block  py-6 flex justify-center">
+						<a href="#" class="text-black font-normal border-b-2 border-gray-200 hover:border-teal-500"
+							style="color:rgba(0, 0, 0, 0.699) !important;text-decoration:none;">You're
+							already member?
+							<span class="text-black font-semibold">
+								Login
+							</span>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

@@ -27,7 +27,7 @@ module.exports = {
       user: "ubuntu",
       host: "ec2-3-6-90-204.ap-south-1.compute.amazonaws.com",
       key: "C://UsersAT/systems/Downloads/kp-push-2020.pem",
-      repo: "https://github.com/Kappy-Technologies-LLP/rollout.git",
+      repo: "https://github.com/saurabharch/rollout.git",
       ref: "origin/master",
       path: "/home/rollout/rollout",
       "post-deploy":
@@ -36,7 +36,7 @@ module.exports = {
     development: {
       user: "saurabh",
       host: "http://localhost:5500",
-      repo: "https://github.com/Kappy-Technologies-LLP/rollout.git",
+      repo: "https://github.com/saurabharch/rollout.git",
       ref: "origin/master",
       path: ".",
       "post-deploy":
@@ -50,7 +50,7 @@ module.exports = {
   //     // host: "ec2-3-6-90-204.ap-south-1.compute.amazonaws.com,
   // key: "~/.ssh/rollout.pem",
   //     ref: "origin/master",
-  //     repo: "git@github.com:Kappy-Technologies-LLP/rollout.git",
+  //     repo: "git@github.com:saurabharch/rollout.git",
   //     path: "/var/www/production",
   //     "post-deploy":
   //       "npm install && pm2 reload ecosystem.config.js --env production"

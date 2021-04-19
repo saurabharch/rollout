@@ -32,10 +32,10 @@ const passport = require("passport");
 // import session, { Store } from "express-session";
 const session = require('express-session');
 const {APP_PORT, SESSION_OPTIONS } = require( "./config");
-const { router,setQueues} = require('bull-board')
+const { router,setQueues, UI} = require('bull-board')
 // const {router} = require('bull-board');
 import Queue from './lib/Queue';
-var TaskBoard = require('toureiro');
+// var TaskBoard = require('toureiro');
 // import { login, register, verify, reset } from "./routes";
 // Add the payment route
 const paymentRoute = require(`./lib/payments/${config.paymentGateway}`);
@@ -464,7 +464,7 @@ app.use((req, res, next) => {
 // app.use("/", index);
 // Setup the routes
 app.use('/plans', index);
-app.use('/toureiro', TaskBoard());
+// app.use('/toureiro', TaskBoard());
 app.use('/doc',doc);
 app.use('/features', features);
 app.use('/customer', customer);

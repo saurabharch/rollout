@@ -1,76 +1,210 @@
 <div class="home container-main is-fullhd">
     <div class="slices">
-{{#if user}}
-<section>
-    <div class="content1">
-        <h1 id="title">Welcome {{user}}</h1>
-        </h1>
-        <p id="steps">Simplyfied your push broadcast messaging with pushgeek.</p>
-    </div>
-</section>
-{{else}}
-<section class="hero hero css-czj4x5" id="LandingHeader"
-    style="background-color:#0069ff;background-image:url(/images/bg-home-hero-3-bb4b33b77274db09b969f629ad81c4d5.svg)">
-    {{!-- <center>
-        <div class="btn btn-medium btn-circle white shake-top" style="color:#333;margin-top:10vh;">Login
-            With
-        </div>
-    </center><br /><br /> --}}
-    <div class="hero-body" style="margin-left:-20px;">
-        <div class="container" >
-            <div class="css-fvx1ke e7hmhos0 md:ml-12">
-                <h1 class="h1 white hero-title css-wpp74j title" data-testid="hero_heading">Login & SignUp With</h1>
-                <p class="large white css-wpp74j subtitle" data-testid="hero_subheading">We make it simple to
-                    launch your push messaging enggament,scale up as you grow.</p>
-                <div class="ml-5 sm:items-center my-3" style="display:grid;grid-template-columns: 1fr 1fr 1fr 1fr !important;padding: 10px 30px 10px 0px;">
-        <div class="space-x-4 flex flex-row">
-     
-                    <div class="">
-                        <a href="/auth/google" class="white1 darken-1 waves-effect waves-light shake-top "
-                            aria-label="google" style="color:#666;padding-top:5px;letter-spacing: 1.5px;width: 50px;"
-                            alt="login with google">
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36"
-                                viewBox="0 0 48 48" style="fill:#000000;padding-top:1px;margin-top:5px;">
-                                <g id="surface1">
-                                    <path style=" fill:#FFC107;"
-                                        d="M 43.609375 20.082031 L 42 20.082031 L 42 20 L 24 20 L 24 28 L 35.304688 28 C 33.652344 32.65625 29.222656 36 24 36 C 17.371094 36 12 30.628906 12 24 C 12 17.371094 17.371094 12 24 12 C 27.058594 12 29.84375 13.152344 31.960938 15.039063 L 37.617188 9.382813 C 34.046875 6.054688 29.269531 4 24 4 C 12.953125 4 4 12.953125 4 24 C 4 35.046875 12.953125 44 24 44 C 35.046875 44 44 35.046875 44 24 C 44 22.660156 43.863281 21.351563 43.609375 20.082031 Z ">
-                                    </path>
-                                    <path style=" fill:#FF3D00;"
-                                        d="M 6.304688 14.691406 L 12.878906 19.511719 C 14.65625 15.109375 18.960938 12 24 12 C 27.058594 12 29.84375 13.152344 31.960938 15.039063 L 37.617188 9.382813 C 34.046875 6.054688 29.269531 4 24 4 C 16.316406 4 9.65625 8.335938 6.304688 14.691406 Z ">
-                                    </path>
-                                    <path style=" fill:#4CAF50;"
-                                        d="M 24 44 C 29.164063 44 33.859375 42.023438 37.410156 38.808594 L 31.21875 33.570313 C 29.210938 35.089844 26.714844 36 24 36 C 18.796875 36 14.382813 32.683594 12.71875 28.054688 L 6.195313 33.078125 C 9.503906 39.554688 16.226563 44 24 44 Z ">
-                                    </path>
-                                    <path style=" fill:#1976D2;"
-                                        d="M 43.609375 20.082031 L 42 20.082031 L 42 20 L 24 20 L 24 28 L 35.304688 28 C 34.511719 30.238281 33.070313 32.164063 31.214844 33.570313 C 31.21875 33.570313 31.21875 33.570313 31.21875 33.570313 L 37.410156 38.808594 C 36.972656 39.203125 44 34 44 24 C 44 22.660156 43.863281 21.351563 43.609375 20.082031 Z ">
-                                    </path>
-                                </g>
-                            </svg>
-                        </a>
+        {{#if user}}
+        <section>
+            <div class="content1">
+                <h1 id="title">Welcome {{user}}</h1>
+                </h1>
+                <p id="steps">Simplyfied your push broadcast messaging with pushgeek.</p>
+            </div>
+        </section>
+        {{else}}
+        <section class="hero hero css-czj4x5" id="LandingHeader"
+            style="background-color:#0069ff;background-image:url(/images/bg-home-hero-3-bb4b33b77274db09b969f629ad81c4d5.svg)">
+            {{!-- <center>
+                <div class="btn btn-medium btn-circle white shake-top" style="color:#333;margin-top:10vh;">Login
+                    With
+                </div>
+            </center><br /><br /> --}}
+            <div class="hero-body" style="margin-left:-20px;">
+                <div class="container">
+                    <div class="css-fvx1ke e7hmhos0 md:ml-12">
+                        <h1 class="h1 white hero-title css-wpp74j title" data-testid="hero_heading">Login & SignUp With
+                        </h1>
+                        <p class="large white css-wpp74j subtitle" data-testid="hero_subheading">We make it simple to
+                            launch your push messaging enggament,scale up as you grow.</p>
+                        <div class="ml-5 sm:items-center my-3"
+                            style="display:grid;grid-template-columns: 1fr 1fr 1fr 1fr !important;padding: 10px 30px 10px 0px;">
+                            <div class="space-x-4 flex flex-row">
+
+                                <div class="">
+                                    <a href="/auth/google"
+                                        class="transform hover:scale-110 motion-reduce:transform-none white1 darken-1 waves-effect waves-light shake-top "
+                                        aria-label="google"
+                                        style="color:#666;padding-top:5px;letter-spacing: 1.5px;width: 50px;"
+                                        alt="login with google">
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36"
+                                            viewBox="0 0 48 48" style="fill:#000000;padding-top:1px;margin-top:5px;">
+                                            <g id="surface1">
+                                                <path style=" fill:#FFC107;"
+                                                    d="M 43.609375 20.082031 L 42 20.082031 L 42 20 L 24 20 L 24 28 L 35.304688 28 C 33.652344 32.65625 29.222656 36 24 36 C 17.371094 36 12 30.628906 12 24 C 12 17.371094 17.371094 12 24 12 C 27.058594 12 29.84375 13.152344 31.960938 15.039063 L 37.617188 9.382813 C 34.046875 6.054688 29.269531 4 24 4 C 12.953125 4 4 12.953125 4 24 C 4 35.046875 12.953125 44 24 44 C 35.046875 44 44 35.046875 44 24 C 44 22.660156 43.863281 21.351563 43.609375 20.082031 Z ">
+                                                </path>
+                                                <path style=" fill:#FF3D00;"
+                                                    d="M 6.304688 14.691406 L 12.878906 19.511719 C 14.65625 15.109375 18.960938 12 24 12 C 27.058594 12 29.84375 13.152344 31.960938 15.039063 L 37.617188 9.382813 C 34.046875 6.054688 29.269531 4 24 4 C 16.316406 4 9.65625 8.335938 6.304688 14.691406 Z ">
+                                                </path>
+                                                <path style=" fill:#4CAF50;"
+                                                    d="M 24 44 C 29.164063 44 33.859375 42.023438 37.410156 38.808594 L 31.21875 33.570313 C 29.210938 35.089844 26.714844 36 24 36 C 18.796875 36 14.382813 32.683594 12.71875 28.054688 L 6.195313 33.078125 C 9.503906 39.554688 16.226563 44 24 44 Z ">
+                                                </path>
+                                                <path style=" fill:#1976D2;"
+                                                    d="M 43.609375 20.082031 L 42 20.082031 L 42 20 L 24 20 L 24 28 L 35.304688 28 C 34.511719 30.238281 33.070313 32.164063 31.214844 33.570313 C 31.21875 33.570313 31.21875 33.570313 31.21875 33.570313 L 37.410156 38.808594 C 36.972656 39.203125 44 34 44 24 C 44 22.660156 43.863281 21.351563 43.609375 20.082031 Z ">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="">
+                                    <a href="/auth/facebook"
+                                        class="transform hover:scale-110 motion-reduce:transform-none white1 darken-1 waves-effect waves-light shake-top"
+                                        style="color:#666;padding-top:5px;letter-spacing: 1.5px;width: 50px;"
+                                        aria-label="facebook" alt="login with facebook">
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36"
+                                            viewBox="0 0 48 48" style="fill:#000000;padding-top:5px;margin-top:5px;">
+                                            <g id="surface1">
+                                                <path style=" fill:#3F51B5;"
+                                                    d="M 42 37 C 42 39.761719 39.761719 42 37 42 L 11 42 C 8.238281 42 6 39.761719 6 37 L 6 11 C 6 8.238281 8.238281 6 11 6 L 37 6 C 39.761719 6 42 8.238281 42 11 Z ">
+                                                </path>
+                                                <path style=" fill:#FFFFFF;"
+                                                    d="M 34.367188 25 L 31 25 L 31 38 L 26 38 L 26 25 L 23 25 L 23 21 L 26 21 L 26 18.589844 C 26.003906 15.082031 27.460938 13 31.59375 13 L 35 13 L 35 17 L 32.714844 17 C 31.105469 17 31 17.601563 31 18.722656 L 31 21 L 35 21 Z ">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="">
+                                    <a href="/auth/twitter"
+                                        class="transform hover:scale-110 motion-reduce:transform-none white1 darken-1 waves-effect waves-light shake-top"
+                                        style="color:#666;padding-top:5px;letter-spacing: 1.5px;width: 50px;"
+                                        aria-label="twitter" alt="login with twitter">
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36"
+                                            viewBox="0 0 48 48" style="fill:#000000;padding-top:5px;margin-top:5px;">
+                                            <g id="surface1">
+                                                <path style=" fill:#03A9F4;"
+                                                    d="M 42 12.429688 C 40.675781 13.015625 39.253906 13.40625 37.753906 13.589844 C 39.277344 12.683594 40.453125 11.238281 41.003906 9.53125 C 39.574219 10.371094 37.992188 10.984375 36.3125 11.308594 C 34.96875 9.882813 33.050781 9 30.925781 9 C 26.847656 9 23.539063 12.277344 23.539063 16.320313 C 23.539063 16.890625 23.605469 17.449219 23.730469 17.988281 C 17.59375 17.683594 12.148438 14.765625 8.507813 10.335938 C 7.867188 11.417969 7.507813 12.683594 7.507813 14.023438 C 7.507813 16.5625 8.808594 18.800781 10.792969 20.117188 C 9.582031 20.082031 8.441406 19.742188 7.445313 19.203125 C 7.445313 19.226563 7.445313 19.257813 7.445313 19.289063 C 7.445313 22.839844 9.992188 25.796875 13.367188 26.472656 C 12.75 26.640625 12.097656 26.734375 11.425781 26.734375 C 10.949219 26.734375 10.484375 26.679688 10.035156 26.597656 C 10.972656 29.5 13.699219 31.621094 16.933594 31.683594 C 14.402344 33.644531 11.21875 34.820313 7.757813 34.820313 C 7.160156 34.820313 6.574219 34.785156 5.996094 34.714844 C 9.269531 36.785156 13.152344 38 17.320313 38 C 30.90625 38 38.339844 26.84375 38.339844 17.164063 C 38.339844 16.847656 38.328125 16.53125 38.3125 16.222656 C 39.761719 15.195313 41.011719 13.90625 42 12.429688 ">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="">
+                                    <a href="/auth/instagram"
+                                        class="transform hover:scale-110 motion-reduce:transform-none white1 darken-1 waves-effect waves-light shake-top"
+                                        style="color:#666;padding-top:5px;letter-spacing: 1.5px;width: 50px;"
+                                        aria-label="instagram" alt="login with instagram">
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36"
+                                            viewBox="0 0 64 64"
+                                            style="enable-background:new 0 0 64 64;;fill:#000000;padding-top:5px;margin-top:5px;">
+                                            <linearGradient id="SVGID_1__43625" gradientUnits="userSpaceOnUse" x1="32"
+                                                y1="6.6667" x2="32" y2="57.8724" spreadMethod="reflect">
+                                                <stop offset="0" style="stop-color:#1A6DFF"></stop>
+                                                <stop offset="1" style="stop-color:#C822FF"></stop>
+                                            </linearGradient>
+                                            <path style="fill:url(#SVGID_1__43625);"
+                                                d="M44,57H20c-7.168,0-13-5.832-13-13V20c0-7.168,5.832-13,13-13h24c7.168,0,13,5.832,13,13v24  C57,51.168,51.168,57,44,57z M20,9C13.935,9,9,13.935,9,20v24c0,6.065,4.935,11,11,11h24c6.065,0,11-4.935,11-11V20  c0-6.065-4.935-11-11-11H20z">
+                                            </path>
+                                            <linearGradient id="SVGID_2__43625" gradientUnits="userSpaceOnUse" x1="32"
+                                                y1="18.1667" x2="32" y2="45.6793" spreadMethod="reflect">
+                                                <stop offset="0" style="stop-color:#6DC7FF"></stop>
+                                                <stop offset="1" style="stop-color:#E6ABFF"></stop>
+                                            </linearGradient>
+                                            <path style="fill:url(#SVGID_2__43625);"
+                                                d="M32,45c-7.168,0-13-5.832-13-13c0-7.168,5.832-13,13-13c7.168,0,13,5.832,13,13  C45,39.168,39.168,45,32,45z M32,23c-4.962,0-9,4.038-9,9c0,4.963,4.038,9,9,9c4.963,0,9-4.037,9-9C41,27.038,36.963,23,32,23z">
+                                            </path>
+                                            <linearGradient id="SVGID_3__43625" gradientUnits="userSpaceOnUse" x1="46"
+                                                y1="12.75" x2="46" y2="23.0487" spreadMethod="reflect">
+                                                <stop offset="0" style="stop-color:#6DC7FF"></stop>
+                                                <stop offset="1" style="stop-color:#E6ABFF"></stop>
+                                            </linearGradient>
+                                            <circle style="fill:url(#SVGID_3__43625);" cx="46" cy="18" r="3"></circle>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="">
-                        <a href="/auth/facebook" class="white1 darken-1 waves-effect waves-light shake-top"
-                            style="color:#666;padding-top:5px;letter-spacing: 1.5px;width: 50px;" aria-label="facebook"
-                            alt="login with facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36"
-                                viewBox="0 0 48 48" style="fill:#000000;padding-top:5px;margin-top:5px;">
-                                <g id="surface1">
-                                    <path style=" fill:#3F51B5;"
-                                        d="M 42 37 C 42 39.761719 39.761719 42 37 42 L 11 42 C 8.238281 42 6 39.761719 6 37 L 6 11 C 6 8.238281 8.238281 6 11 6 L 37 6 C 39.761719 6 42 8.238281 42 11 Z ">
-                                    </path>
-                                    <path style=" fill:#FFFFFF;"
-                                        d="M 34.367188 25 L 31 25 L 31 38 L 26 38 L 26 25 L 23 25 L 23 21 L 26 21 L 26 18.589844 C 26.003906 15.082031 27.460938 13 31.59375 13 L 35 13 L 35 17 L 32.714844 17 C 31.105469 17 31 17.601563 31 18.722656 L 31 21 L 35 21 Z ">
-                                    </path>
-                                </g>
-                            </svg>
-                        </a>
+                    <div>
+
+                        <div class="card css-1hugv3f" data-testid="hero_box">
+                            <div class="card-header-title css-hyfkp">
+                                <h5 class="h5 darkblue css-wpp74j title" data-testid="hero_box_title">Start In Seconds
+                                </h5>
+                            </div>
+                            <div class="card-content">
+                                <form class="form-align-left css-12sjm0v e7hmhos2"
+                                    action="https://pushgeek.com/register" method="post">
+                                    <span class="form-wrapper">
+                                        <span class="error-text"></span>
+                                        <input type="text" aria-label="signup button" minlength="2" name="user[name]"
+                                            placeholder="First Name" required="">
+                                        <input type="email" aria-label="email" name="user[email]"
+                                            placeholder="Email Address" required="">
+                                        <input type="password" aria-label="password" minlength="8" name="user[password]"
+                                            placeholder="Password" required="">
+                                        <button tabindex="0" type="submit"
+                                            class="css-32erla is-primary btn btn-primary">Sign up
+                                            with email</button>
+                                    </span>
+                                </form>
+                            </div>
+                            {{!-- <div class="showcase-form card"> --}}
+                                {{!-- <h2>Request a Demo</h2> --}}
+
+                                {{!-- netlify form integration --}}
+                                <!--  <form name="contact" netlify-honeypot="bot-field" method="POST" data-netlify="true">
+                                                    <input type="hidden" name="form-name" value="contact">
+                                                    <p class="hidden">
+                                                        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                                                      </p>
+                                                    <div class="form-control">
+                                                        <input type="text" name="name" placeholder="Name" required>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="text" name="company" placeholder="Company Name" required>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <input type="email" name="email" placeholder="Email" required>
+                                                    </div>
+                                                    <input type="submit" value="Send" class="btn btn-primary">
+                                                </form> -->
+                                {{!-- <form>
+                                    <div class="form-control">
+                                        <input type="text" name="name" placeholder="Name" required>
+                                    </div>
+                                    <div class="form-control">
+                                        <input type="text" name="company" placeholder="Company Name" required>
+                                    </div>
+                                    <div class="form-control">
+                                        <input type="email" name="email" placeholder="Email" required>
+                                    </div>
+                                    <input type="submit" value="Send" class="btn btn-primary">
+                                </form> --}}
+                                {{!--
+                            </div> --}}
+                            <div class="css-1kwjdzk e7hmhos3">
+                                <button tabindex="0" formaction="/auth/google" id="Sign up with Google"
+                                    aria-label="Sign up with Google" class="css-re7ijt button">
+                                    <img data-src="/images/8d18ab05-0db4-4fd7-95d1-c5fbc4b83fc2_icon-google.svg"
+                                        src="/images/8d18ab05-0db4-4fd7-95d1-c5fbc4b83fc2_icon-google.svg"
+                                        alt="Sign up with Google"
+                                        class="null blur-up css-1pq2esu ls-is-cached lazyloaded"></button>
+                                <button tabindex="0" formaction="/auth/github" id="github_button"
+                                    aria-label="signup_button" class="css-18czx2n button"><img
+                                        data-src="/images/ae808fab-d9d7-458e-b368-05344b7ad308_icon-github.svg"
+                                        src="/images/ae808fab-d9d7-458e-b368-05344b7ad308_icon-github.svg" alt="icon"
+                                        class="null blur-up css-1pq2esu ls-is-cached lazyloaded"></button>
+                            </div>
+                        </div>
+                        <div class="css-1t9copt e7hmhos4 md:ml-100">
+                            <p>By signing up you agree to the <a href="/legal/terms-of-service-agreement">Terms of
+                                    Service.</a></p>
+                        </div>
                     </div>
-                    <div class="">
-                        <a href="/auth/twitter" class="white1 darken-1 waves-effect waves-light shake-top"
-                            style="color:#666;padding-top:5px;letter-spacing: 1.5px;width: 50px;" aria-label="twitter"
-                            alt="login with twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36"
-                                viewBox="0 0 48 48" style="fill:#000000;padding-top:5px;margin-top:5px;">
+                    {{!-- <div class="row">
+
+                        <a href="/auth/twitter"
+                            class="btn-large btn-circle white darken-1 waves-effect waves-light shake-top"
+                            style="color:#666;padding-top:5px;letter-spacing: 1.5px;">LOGIN WITH
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26"
+                                viewBox="0 0 48 48" style="fill:#000000;">
                                 <g id="surface1">
                                     <path style=" fill:#03A9F4;"
                                         d="M 42 12.429688 C 40.675781 13.015625 39.253906 13.40625 37.753906 13.589844 C 39.277344 12.683594 40.453125 11.238281 41.003906 9.53125 C 39.574219 10.371094 37.992188 10.984375 36.3125 11.308594 C 34.96875 9.882813 33.050781 9 30.925781 9 C 26.847656 9 23.539063 12.277344 23.539063 16.320313 C 23.539063 16.890625 23.605469 17.449219 23.730469 17.988281 C 17.59375 17.683594 12.148438 14.765625 8.507813 10.335938 C 7.867188 11.417969 7.507813 12.683594 7.507813 14.023438 C 7.507813 16.5625 8.808594 18.800781 10.792969 20.117188 C 9.582031 20.082031 8.441406 19.742188 7.445313 19.203125 C 7.445313 19.226563 7.445313 19.257813 7.445313 19.289063 C 7.445313 22.839844 9.992188 25.796875 13.367188 26.472656 C 12.75 26.640625 12.097656 26.734375 11.425781 26.734375 C 10.949219 26.734375 10.484375 26.679688 10.035156 26.597656 C 10.972656 29.5 13.699219 31.621094 16.933594 31.683594 C 14.402344 33.644531 11.21875 34.820313 7.757813 34.820313 C 7.160156 34.820313 6.574219 34.785156 5.996094 34.714844 C 9.269531 36.785156 13.152344 38 17.320313 38 C 30.90625 38 38.339844 26.84375 38.339844 17.164063 C 38.339844 16.847656 38.328125 16.53125 38.3125 16.222656 C 39.761719 15.195313 41.011719 13.90625 42 12.429688 ">
@@ -78,14 +212,11 @@
                                 </g>
                             </svg>
                         </a>
-                    </div>
-                    <div class="">
-                        <a href="/auth/instagram" class="white1 darken-1 waves-effect waves-light shake-top"
-                            style="color:#666;padding-top:5px;letter-spacing: 1.5px;width: 50px;" aria-label="instagram"
-                            alt="login with instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36"
-                                viewBox="0 0 64 64"
-                                style="enable-background:new 0 0 64 64;;fill:#000000;padding-top:5px;margin-top:5px;">
+                        <a href="/auth/instagram"
+                            class="btn-large btn-circle white darken-1 waves-effect waves-light shake-top"
+                            style="color:#666;padding-top:5px;letter-spacing: 1.5px;">LOGIN WITH
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26"
+                                viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;;fill:#000000;">
                                 <linearGradient id="SVGID_1__43625" gradientUnits="userSpaceOnUse" x1="32" y1="6.6667"
                                     x2="32" y2="57.8724" spreadMethod="reflect">
                                     <stop offset="0" style="stop-color:#1A6DFF"></stop>
@@ -110,148 +241,44 @@
                                 <circle style="fill:url(#SVGID_3__43625);" cx="46" cy="18" r="3"></circle>
                             </svg>
                         </a>
-                    </div>
-        </div>
+                        <br />
+                        <br />
+
+                    </div> --}}
+
+                </div>
+                <div>
+
                 </div>
             </div>
-            <div>
-                
-             <div class="card css-1hugv3f" data-testid="hero_box">
-                            <div class="card-header-title css-hyfkp">
-                                <h5 class="h5 darkblue css-wpp74j title" data-testid="hero_box_title">Start Now Seconds
-                                </h5>
-                            </div>
-                            <div class="card-content">
-                                <form class="form-align-left css-12sjm0v e7hmhos2"
-                                    action="https://pushgeek.com/register" method="post">
-                                    <span class="form-wrapper">
-                                        <span class="error-text"></span>
-                                        <input type="text" aria-label="signup button" minlength="2" name="user[name]"
-                                            placeholder="First Name" required="">
-                                        <input type="email" aria-label="email" name="user[email]"
-                                            placeholder="Email Address" required="">
-                                        <input type="password" aria-label="password" minlength="8" name="user[password]"
-                                            placeholder="Password" required="">
-                                        <button tabindex="0" type="submit"
-                                            class="css-32erla is-primary btn btn-primary">Sign up
-                                            with email</button>
-                                    </span>
-                                </form>
-                            </div>
-                            {{!-- <div class="showcase-form card"> --}}
-                            {{!-- <h2>Request a Demo</h2> --}}
-
-                            {{!-- netlify form integration --}}
-                            <!--  <form name="contact" netlify-honeypot="bot-field" method="POST" data-netlify="true">
-                                                    <input type="hidden" name="form-name" value="contact">
-                                                    <p class="hidden">
-                                                        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-                                                      </p>
-                                                    <div class="form-control">
-                                                        <input type="text" name="name" placeholder="Name" required>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <input type="text" name="company" placeholder="Company Name" required>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <input type="email" name="email" placeholder="Email" required>
-                                                    </div>
-                                                    <input type="submit" value="Send" class="btn btn-primary">
-                                                </form> -->
-                            {{!-- <form>
-                                <div class="form-control">
-                                    <input type="text" name="name" placeholder="Name" required>
-                                </div>
-                                <div class="form-control">
-                                    <input type="text" name="company" placeholder="Company Name" required>
-                                </div>
-                                <div class="form-control">
-                                    <input type="email" name="email" placeholder="Email" required>
-                                </div>
-                                <input type="submit" value="Send" class="btn btn-primary">
-                            </form> --}}
-                            {{!-- </div> --}}
-                            <div class="css-1kwjdzk e7hmhos3">
-                                <button tabindex="0" formaction="/auth/google" id="Sign up with Google"
-                                    aria-label="Sign up with Google" class="css-re7ijt button">
-                                    <img data-src="/images/8d18ab05-0db4-4fd7-95d1-c5fbc4b83fc2_icon-google.svg"
-                                        src="/images/8d18ab05-0db4-4fd7-95d1-c5fbc4b83fc2_icon-google.svg"
-                                        alt="Sign up with Google"
-                                        class="null blur-up css-1pq2esu ls-is-cached lazyloaded"></button>
-                                <button tabindex="0" formaction="/auth/github" id="github_button"
-                                    aria-label="signup_button" class="css-18czx2n button"><img
-                                        data-src="/images/ae808fab-d9d7-458e-b368-05344b7ad308_icon-github.svg"
-                                        src="/images/ae808fab-d9d7-458e-b368-05344b7ad308_icon-github.svg" alt="icon"
-                                        class="null blur-up css-1pq2esu ls-is-cached lazyloaded"></button>
-                            </div>
+        </section>
+        <div class="container">
+            <!-- This example requires Tailwind CSS v2.0+ -->
+            <div class="bg-gray-50">
+                <div
+                    class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+                    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                        <span class="block">Ready to dive in?</span>
+                        <span class="block text-indigo-600">Start your free trial today.</span>
+                    </h2>
+                    <div class="mt-8 lex lg:mt-0 lg:flex-shrink-0">
+                        <div class="inline-flex rounded-md shadow">
+                            <a href="#"
+                                class="transform hover:scale-110 motion-reduce:transform-none inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-50">
+                                Get started
+                            </a>
                         </div>
-            <div class="css-1t9copt e7hmhos4 md:ml-100">
-                <p>By signing up you agree to the <a href="/legal/terms-of-service-agreement">Terms of
-                        Service.</a></p>
+                        <div class="ml-3 inline-flex rounded-md shadow">
+                            <a href="#"
+                                class="transform hover:scale-110 motion-reduce:transform-none inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-red-400 hover:bg-indigo-50"
+                                style="text-color:#0000 !important;">
+                                Learn more
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </div>
-            {{!-- <div class="row">
-                                   
-                                        <a href="/auth/twitter" class="btn-large btn-circle white darken-1 waves-effect waves-light shake-top" style="color:#666;padding-top:5px;letter-spacing: 1.5px;">LOGIN WITH
-                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 48 48" style="fill:#000000;">
-                                                <g id="surface1">
-                                                    <path style=" fill:#03A9F4;" d="M 42 12.429688 C 40.675781 13.015625 39.253906 13.40625 37.753906 13.589844 C 39.277344 12.683594 40.453125 11.238281 41.003906 9.53125 C 39.574219 10.371094 37.992188 10.984375 36.3125 11.308594 C 34.96875 9.882813 33.050781 9 30.925781 9 C 26.847656 9 23.539063 12.277344 23.539063 16.320313 C 23.539063 16.890625 23.605469 17.449219 23.730469 17.988281 C 17.59375 17.683594 12.148438 14.765625 8.507813 10.335938 C 7.867188 11.417969 7.507813 12.683594 7.507813 14.023438 C 7.507813 16.5625 8.808594 18.800781 10.792969 20.117188 C 9.582031 20.082031 8.441406 19.742188 7.445313 19.203125 C 7.445313 19.226563 7.445313 19.257813 7.445313 19.289063 C 7.445313 22.839844 9.992188 25.796875 13.367188 26.472656 C 12.75 26.640625 12.097656 26.734375 11.425781 26.734375 C 10.949219 26.734375 10.484375 26.679688 10.035156 26.597656 C 10.972656 29.5 13.699219 31.621094 16.933594 31.683594 C 14.402344 33.644531 11.21875 34.820313 7.757813 34.820313 C 7.160156 34.820313 6.574219 34.785156 5.996094 34.714844 C 9.269531 36.785156 13.152344 38 17.320313 38 C 30.90625 38 38.339844 26.84375 38.339844 17.164063 C 38.339844 16.847656 38.328125 16.53125 38.3125 16.222656 C 39.761719 15.195313 41.011719 13.90625 42 12.429688 "></path>
-                                                </g>
-                                            </svg>
-                                        </a>
-                                        <a href="/auth/instagram" class="btn-large btn-circle white darken-1 waves-effect waves-light shake-top" style="color:#666;padding-top:5px;letter-spacing: 1.5px;">LOGIN WITH
-                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;;fill:#000000;">
-                                                <linearGradient id="SVGID_1__43625" gradientUnits="userSpaceOnUse" x1="32" y1="6.6667" x2="32" y2="57.8724" spreadMethod="reflect">
-                                                    <stop offset="0" style="stop-color:#1A6DFF"></stop>
-                                                    <stop offset="1" style="stop-color:#C822FF"></stop>
-                                                </linearGradient>
-                                                <path style="fill:url(#SVGID_1__43625);" d="M44,57H20c-7.168,0-13-5.832-13-13V20c0-7.168,5.832-13,13-13h24c7.168,0,13,5.832,13,13v24  C57,51.168,51.168,57,44,57z M20,9C13.935,9,9,13.935,9,20v24c0,6.065,4.935,11,11,11h24c6.065,0,11-4.935,11-11V20  c0-6.065-4.935-11-11-11H20z"></path>
-                                                <linearGradient id="SVGID_2__43625" gradientUnits="userSpaceOnUse" x1="32" y1="18.1667" x2="32" y2="45.6793" spreadMethod="reflect">
-                                                    <stop offset="0" style="stop-color:#6DC7FF"></stop>
-                                                    <stop offset="1" style="stop-color:#E6ABFF"></stop>
-                                                </linearGradient>
-                                                <path style="fill:url(#SVGID_2__43625);" d="M32,45c-7.168,0-13-5.832-13-13c0-7.168,5.832-13,13-13c7.168,0,13,5.832,13,13  C45,39.168,39.168,45,32,45z M32,23c-4.962,0-9,4.038-9,9c0,4.963,4.038,9,9,9c4.963,0,9-4.037,9-9C41,27.038,36.963,23,32,23z"></path>
-                                                <linearGradient id="SVGID_3__43625" gradientUnits="userSpaceOnUse" x1="46" y1="12.75" x2="46" y2="23.0487" spreadMethod="reflect">
-                                                    <stop offset="0" style="stop-color:#6DC7FF"></stop>
-                                                    <stop offset="1" style="stop-color:#E6ABFF"></stop>
-                                                </linearGradient>
-                                                <circle style="fill:url(#SVGID_3__43625);" cx="46" cy="18" r="3"></circle>
-                                            </svg>
-                                        </a>
-                                        <br/>
-                                        <br/> 
-                                        
-                                    </div> --}}
-
         </div>
-        <div>
-
-        </div>
-    </div>
-</section>
-<div class="container">
-     <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-gray-50">
-  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-      <span class="block">Ready to dive in?</span>
-      <span class="block text-indigo-600">Start your free trial today.</span>
-    </h2>
-    <div class="mt-8 lex lg:mt-0 lg:flex-shrink-0">
-      <div class="inline-flex rounded-md shadow">
-        <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-50">
-          Get started
-        </a>
-      </div>
-      <div class="ml-3 inline-flex rounded-md shadow">
-        <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-red-400 hover:bg-indigo-50" style="text-color:#0000 !important;">
-          Learn more
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-{{/if}}
+        {{/if}}
     </div>
 </div>

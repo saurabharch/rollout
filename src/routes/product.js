@@ -61,7 +61,7 @@ router.get('/admin/products/filter/:search', restrict, async (req, res, next) =>
         return;
     }
 
-    res.render('index/products', {
+    res.render('index/plans', {
         title: 'Results',
         results: results,
         resultType: 'filtered',

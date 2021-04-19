@@ -2,9 +2,9 @@ FROM node:alpine
 LABEL maintainer="rollout"
 MAINTAINER Saurabh Kashyap <saurabhkashyap0001@gmail.com>
 # Add hello scripts
-ADD installer ./installer
-RUN chmod +x ./installer
-RUN /installer
+ADD installer.sh installer.sh
+RUN chmod +x installer.sh
+# RUN bash installer.sh
 RUN apk add py-pip python-dev 
 RUN apk update \
     && apk upgrade \
@@ -49,12 +49,13 @@ WORKDIR ./app
 # COPY package.json ./
 ENV TERM=linux
 ARG NODE_ENV=production
-ARG REST_URL=http://localhost:3000
+ARG REST_URL=http://localhost:5500
 ENV NODE_ENV $NODE_ENV
 ENV REST_URL $REST_URL
 # Run npm install - install the npm dependencies
+RUN npm install -g npm@7.7.6
 RUN npm install
-COPY ./nginx/nginx.conf ./etc/nginx/nginx.conf
+COPY ./rollout-deployment/nginx/nginx.conf ./etc/nginx/nginx.conf
 # RUN mkdir -p /data/db && \
 #     chown -R mongodb /data/db
 
@@ -72,7 +73,8 @@ COPY . ./app
 # COPY ./docker.env ./docker.env
 
 # Expose application ports - (4300 - for API and 4301 - for front end)
-EXPOSE 5000 5000
+EXPOSE 5501 55000 80 443
+
 
 
 
@@ -80,6 +82,8 @@ RUN npm install pm2@latest -g
 RUN npm install
 # # Generate build
 # RUN npm run build
-CMD [ "pm2-runtime", "npm", "--", "start" ]
+# CMD [ "pm2-runtime", "npm", "--", "start" ]
+# RUN npm run dev
+CMD ["npm-run-all", "-p dev:*"]
 # ENTRYPOINT [ "./rollout-deployment/deployment-pm2.sh" ]
 USER node

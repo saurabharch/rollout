@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 mkdir ./etc/nginx
 echo "Hello, my name is Saurabh Creator of Rollout PaaS! Who am I talking to?"
 echo Type your name to continue:

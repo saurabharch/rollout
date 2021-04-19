@@ -14,6 +14,16 @@ const app = require('../config/app');
 const auth = require('../config/auth')
 const crypto = require('crypto');
 import UserController from'../jobs/controller/UserController';
+const {
+  clearSessionValue,
+  mongoSanitize,
+  getThemes,
+  getId,
+  allowedMimeType,
+  fileSizeLimit,
+  checkDirectorySync,
+  sendEmail
+} = require('../lib/common');
 router.post(
   '/',
   guest,
@@ -119,6 +129,17 @@ router.post(
   })
 );
 
+router.get('/', (req, res) => {
+  res.render('index/register', {
+      title: 'Register yourself',
+      referringUrl: req.header('Referer'),
+      config: req.app.config,
+      message: clearSessionValue(req.session, 'message'),
+      messageType: clearSessionValue(req.session, 'messageType'),
+      helpers: req.exphbs.helpers,
+      showFooter: 'showFooter'
+    });
+});
 
 module.exports = router;
 // export { router as register };

@@ -14,7 +14,7 @@
         "restart": "pm2 startOrRestart ecosystem.config.js",
         "pro:deploy": "pm2 deploy ecosystem.config.js production",
         "dev": "npm-run-all -p dev:*",
-        "//dev:tailwind": "postcss src/public/css/tailwind.css -o src/public/css/style1.css",
+        "dev:tailwind": "postcss src/public/css/tailwind.css -o src/public/css/style1.css",
         "dev:server": "nodemon src/index.js --exec babel-node",
         "dev:worker": "nodemon src/worker/queue.js --exec babel-node",
         "//dev:build": "gulp watch",
@@ -39,12 +39,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Kappy-Technologies-LLP/rollout.git"
+        "url": "git+https://github.com/saurabharch/rollout.git"
     },
     "bugs": {
-        "url": "https://github.com/Kappy-Technologies-LLP/rollout/issues"
+        "url": "https://github.com/saurabharch/rollout/issues"
     },
-    "homepage": "https://github.com/Kappy-Technologies-LLP/rollout#readme",
+    "homepage": "https://github.com/saurabharch/rollout#readme",
     "author": "Saurabh Kashyap <saurabhkashyap0001@gmail.com>",
     "keywords": [
         "Web Push",
@@ -71,6 +71,8 @@
     "dependencies": {
         "@adyen/api-library": "^6.0.1",
         "@babel/runtime": "^7.12.5",
+        "@tailwindcss/aspect-ratio": "^0.2.0",
+        "@tailwindcss/forms": "^0.2.1",
         "@tailwindcss/typography": "^0.3.1",
         "ajv": "^6.12.5",
         "ajv-errors": "^1.0.1",
@@ -84,7 +86,6 @@
         "brain.js": "^2.0.0-beta.2",
         "bull": "^3.18.1",
         "bull-board": "^0.10.0",
-        "bullmq": "^1.14.0",
         "cheerio": "^1.0.0-rc.3",
         "compression": "^1.7.4",
         "connect-ensure-login": "^0.1.1",
@@ -159,7 +160,6 @@
         "strip-bom": "^4.0.0",
         "stripe": "^8.107.0",
         "tailwindcss": "^2.0.1",
-        "toureiro": "^0.2.13",
         "uglifycss": "0.0.29",
         "uuid": "^8.3.2",
         "validator": "^13.1.1",

@@ -1,4 +1,4 @@
-import*as pushCtrl from'../controllers/push';
+import * as pushCtrl from'../controllers/push';
 import{ authJwt }from'../middlewares';
 const express = require('express');
 const router = express.Router();

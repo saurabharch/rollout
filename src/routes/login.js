@@ -6,6 +6,16 @@ import{ logIn, logOut }from'../auth';
 const express = require('express');
 const router = express.Router();
 const user = require('../model/user');
+const {
+  clearSessionValue,
+  mongoSanitize,
+  getThemes,
+  getId,
+  allowedMimeType,
+  fileSizeLimit,
+  checkDirectorySync,
+  sendEmail
+} = require('../lib/common');
 // import { Router } from 'express';
 // const auth = require('../middleware');
 // const catchAsync = require('../middleware/errors');
@@ -17,7 +27,7 @@ const user = require('../model/user');
 
 // const mongoose = require('mongoose');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   res.locals.metaTags = {
     title: 'PushGeek - Login',
     description:
@@ -31,7 +41,27 @@ router.get('/', (req, res) => {
   //     status: "ok",
   //     message: `Server is running keys are`
   //   });
-  res.render('index/login', { layout: 'main' });
+  const db = req.app.db;
+
+  const userCount = await db.users.countDocuments({});
+  // we check for a user. If one exists, redirect to login form otherwise setup
+  if(userCount && userCount == 0){
+    // set needsSetup to false as a user exists
+    req.session.needsSetup = true;
+    res.render('index/setup', {
+      title: 'Software Setup',
+      referringUrl: req.header('Referer'),
+      config: req.app.config,
+      message: clearSessionValue(req.session, 'message'),
+      messageType: clearSessionValue(req.session, 'messageType'),
+      helpers: req.exphbs.helpers,
+      showFooter: 'showFooter'
+    });
+  } else{
+    //  req.session.needsSetup = true;
+    res.render('index/login', { layout: 'main' });
+  }
+  
 });
 
 router.post(

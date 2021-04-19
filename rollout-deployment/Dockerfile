@@ -11,7 +11,7 @@ RUN apk update \
     && apk --no-cache add --update tcl apache2 ca-certificates
 
 # # # Install necessary tools
-# RUN apk add -y nano wget dialog net-tools
+RUN apk add -y nano wget dialog net-tools
 
 # # Download and Install Nginx
 # RUN apt-get install -y nginx  
@@ -71,10 +71,10 @@ RUN apt install -y git
 
 WORKDIR ./app
 # # Copy the package.json to workdir
-COPY package*.json ./
+COPY ../package*.json ./
 ENV TERM=linux
-ARG NODE_ENV=production
-ARG REST_URL=http://localhost:3000
+ARG NODE_ENV=development
+ARG REST_URL=http://localhost:5500
 ENV NODE_ENV $NODE_ENV
 ENV REST_URL $REST_URL
 # Run npm install - install the npm dependencies
@@ -91,10 +91,10 @@ COPY ./nginx/nginx.conf ./etc/nginx/nginx.conf
 
 
 # Copy application source
-COPY . ./app
+COPY ../ ./app
 
 # Copy .env.docker to workdir/.env - use the docker env
-# COPY ./docker.env ./docker.env
+COPY ../docker.env ./docker.env
 
 # Expose application ports - (4300 - for API and 4301 - for front end)
 EXPOSE 5501 55000 80 443
@@ -106,6 +106,6 @@ RUN npm install
 # # Generate build
 # RUN npm run build
 # CMD [ "pm2-runtime", "npm", "--", "start" ]
-ENTRYPOINT [ ".deployment-pm2.sh" ]
+ENTRYPOINT [ "./deploy-pm2.sh" ]
 USER node
-CMD [ "sudo pm2 start --name server-1 ./app/server.js -- --name server-1 --port 5500 --watch", "sudo pm2 save" , "sudo pm2 startup" , "sudo sudo service nginx restartsudo service nginx restart" , "sudo /etc/init.d/nginx reload"]
+CMD [ "sudo pm2 start npm run start:dev --name server-1 -- --name server-1 --port 5500 --watch", "sudo pm2 save" , "sudo pm2 startup" , "sudo service nginx restart", "sudo /etc/init.d/nginx reload"]

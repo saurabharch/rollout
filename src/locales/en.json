@@ -219,5 +219,19 @@
 	"Descending": "Descending",
 	"Ascending": "Ascending",
 	"Select the order in which the products should be sorted.": "Select the order in which the products should be sorted.",
-	"hi": "hi"
+	"hi": "hi",
+	"Empty\r\n                                cart": "Empty\r\n                                cart",
+	"Empty\r\n                                    cart": "Empty\r\n                                    cart",
+	"Empty\r\n                                            cart": "Empty\r\n                                            cart",
+	" Users name": " Users name",
+	" Email address": " Email address",
+	" Users\r\n\t\t\t\t\t\t\t\tname": " Users\r\n\t\t\t\t\t\t\t\tname",
+	" Email\r\n\t\t\t\t\t\t\t\taddress": " Email\r\n\t\t\t\t\t\t\t\taddress",
+	"Admin password": "Admin password",
+	" Users\r\n\t\t\t\t\t\t\t\t\tname": " Users\r\n\t\t\t\t\t\t\t\t\tname",
+	"Username": "Username",
+	" Username": " Username",
+	"Email": "Email",
+	" Email": " Email",
+	"\r\n\t\t\t\t\t\t\t\t\tUsersname": "\r\n\t\t\t\t\t\t\t\t\tUsersname"
 }

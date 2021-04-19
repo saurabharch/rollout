@@ -41,7 +41,7 @@ const numericRegex = /^\d*\.?\d*$/;
 
 // Admin section
 router.get('/', restrict, (req, res, next) => {
-  res.redirect('index/dashboard');
+  res.redirect('/dashboard');
 });
 
 // logout
@@ -62,7 +62,7 @@ if(process.env.NODE_ENV === 'test'){
 }
 
 // login form
-router.get('/admin/login', async (req, res) => {
+router.get('/login', async (req, res) => {
   const db = req.app.db;
 
   const userCount = await db.users.countDocuments({});
@@ -125,7 +125,7 @@ router.get('/setup', async (req, res) => {
   req.session.needsSetup = false;
   if(userCount === 0){
     req.session.needsSetup = true;
-    res.render('index/setup', {
+    res.render('/index/setup', {
       title: 'Setup',
       config: req.app.config,
       helpers: req.exphbs.helpers,
@@ -135,7 +135,7 @@ router.get('/setup', async (req, res) => {
     });
     return;
   }
-  res.redirect('index/admin/login');
+  res.redirect('/login');
 });
 
 // insert a user
