@@ -2228,17 +2228,10 @@
   resolved "https://registry.yarnpkg.com/@types/http-cache-semantics/-/http-cache-semantics-4.0.0.tgz#9140779736aa2655635ee756e2467d787cfe8a2a"
   integrity sha512-c3Xy026kOF7QOTn00hbIllV1dLR9hG9NkSrLQgCVs8NF6sBU+VGWjD3wLPhmh1TYAc7ugCFsvHYMN4VcBN1U1A==
 
-"@types/ioredis@*":
+"@types/ioredis@*", "@types/ioredis@^4.22.2":
   version "4.22.3"
   resolved "https://registry.yarnpkg.com/@types/ioredis/-/ioredis-4.22.3.tgz#72762efa0374c4a2e879ef697c6c3e4a47f9d641"
   integrity sha512-V23g0XZUmkm0Hp/GsQYV5Wz12ynm6h6lyi5v/o63iyqFV7+8t3k5YxCnFWVWFEjO6mvRI7V6f7YxNVxIjPsSUw==
-  dependencies:
-    "@types/node" "*"
-
-"@types/ioredis@^4.16.3":
-  version "4.19.3"
-  resolved "https://registry.yarnpkg.com/@types/ioredis/-/ioredis-4.19.3.tgz#577548fbd03200ef92a81fd745899316c6f28917"
-  integrity sha512-r9rXLYeZVmvTf0nKDmFYrpBeVzK5B6jgE2ncfkzPOAuRM5RTzKnYdW2wVn+ZONMnFxV6H4R3NrCdRdC3CL4nFA==
   dependencies:
     "@types/node" "*"
 
@@ -3931,15 +3924,15 @@ bull@^3.18.1:
     redis "^0.12.1"
     semver "^4.2.0"
 
-bullmq@^1.14.0:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/bullmq/-/bullmq-1.14.1.tgz#facd990c901e66cc3cce814a59d1226b11179358"
-  integrity sha512-FNuyK2spGxxip340K5ddcQqgKbzBlLcyfPjZxM8QGyoeVx61tX3ZSUeOlUdr1mQgg2YLhN4666oKAcUTo11MRw==
+bullmq@^1.14.1:
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/bullmq/-/bullmq-1.19.1.tgz#2b8dd1f6e401488be2a7fc225b53115b83a8c677"
+  integrity sha512-IERK0S6MNNpIZIRcLEzHdeKR70/a2FqAbeJebNwwx4w1ovliwqSuOnZtNVZrydagnNpE1sK6Y0lprynCJ054Qg==
   dependencies:
-    "@types/ioredis" "^4.16.3"
+    "@types/ioredis" "^4.22.2"
     cron-parser "^2.7.3"
     get-port "^5.0.0"
-    ioredis "^4.17.3"
+    ioredis "^4.25.0"
     lodash "^4.17.11"
     semver "^6.3.0"
     tslib "^1.10.0"
@@ -4571,6 +4564,11 @@ colorette@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-1.2.1.tgz#4d0b921325c14faf92633086a536db6e89564b1b"
   integrity sha512-puCDz0CzydiSYOrnXpz/PKd69zRrribezjtE9yd4zvytoRc8+RY/KJPvtPFKZS3E3wP6neGyMe0vOTlHO5L3Pw==
+
+colorette@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/colorette/-/colorette-1.2.2.tgz#cbcc79d5e99caea2dbf10eb3a26fd8b3e6acfa94"
+  integrity sha512-MKGMzyfeuutC/ZJ1cba9NqcNpfeqMUcYmyF1ZFY6/Cn7CNSAKx6a+s48sqLqyAiZuaP2TcqMhoo+dlwFnVxT9w==
 
 colors@^1.1.2, colors@^1.2.1:
   version "1.4.0"
@@ -7811,22 +7809,7 @@ ioredis@4.18.0:
     redis-parser "^3.0.0"
     standard-as-callback "^2.0.1"
 
-ioredis@^4.17.3:
-  version "4.17.3"
-  resolved "https://registry.yarnpkg.com/ioredis/-/ioredis-4.17.3.tgz#9938c60e4ca685f75326337177bdc2e73ae9c9dc"
-  integrity sha512-iRvq4BOYzNFkDnSyhx7cmJNOi1x/HWYe+A4VXHBu4qpwJaGT1Mp+D2bVGJntH9K/Z/GeOM/Nprb8gB3bmitz1Q==
-  dependencies:
-    cluster-key-slot "^1.1.0"
-    debug "^4.1.1"
-    denque "^1.1.0"
-    lodash.defaults "^4.2.0"
-    lodash.flatten "^4.4.0"
-    redis-commands "1.5.0"
-    redis-errors "^1.2.0"
-    redis-parser "^3.0.0"
-    standard-as-callback "^2.0.1"
-
-ioredis@^4.19.4:
+ioredis@^4.19.4, ioredis@^4.25.0:
   version "4.26.0"
   resolved "https://registry.yarnpkg.com/ioredis/-/ioredis-4.26.0.tgz#dbbfb5e5da085fc2b1de8174db50fa42f9fed66a"
   integrity sha512-nh39okWezWWZ35/RxXXzHksMFt4WCaev8SNO2kozRDeVdEAJj16EarqPP3JeHz8IEjEXN5CiVtbWMk62Z0eveQ==
@@ -10227,6 +10210,11 @@ nanoid@^3.1.20:
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.20.tgz#badc263c6b1dcf14b71efaa85f6ab4c1d6cfc788"
   integrity sha512-a1cQNyczgKbLX9jwbS/+d7W8fX/RfgYR7lVWwWOGIPNgK2m0MWvrGF6/m4kk6U3QcFMnZf3RIhL0v2Jgh/0Uxw==
 
+nanoid@^3.1.22:
+  version "3.1.22"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.22.tgz#b35f8fb7d151990a8aebd5aa5015c03cf726f844"
+  integrity sha512-/2ZUaJX2ANuLtTvqTlgqBQNJoQO398KyJgZloL0PZkC0dpysjncRUPsFe3DUPzz/y3h+u7C46np8RMuvF3jsSQ==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -11564,13 +11552,22 @@ postcss@^6.0.9:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-postcss@^8.0.2, postcss@^8.1.14, postcss@^8.1.6, postcss@^8.2.1:
+postcss@^8.0.2, postcss@^8.1.6, postcss@^8.2.1:
   version "8.2.4"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.2.4.tgz#20a98a39cf303d15129c2865a9ec37eda0031d04"
   integrity sha512-kRFftRoExRVXZlwUuay9iC824qmXPcQQVzAjbCCgjpXnkdMCJYBu2gTwAaFBzv8ewND6O8xFb3aELmEkh9zTzg==
   dependencies:
     colorette "^1.2.1"
     nanoid "^3.1.20"
+    source-map "^0.6.1"
+
+postcss@^8.2.10:
+  version "8.2.10"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.2.10.tgz#ca7a042aa8aff494b334d0ff3e9e77079f6f702b"
+  integrity sha512-b/h7CPV7QEdrqIxtAf2j31U5ef05uBDuvoXv6L51Q4rcS1jdlXAVKJv+atCFdUXYl9dyTHGyoMzIepwowRJjFw==
+  dependencies:
+    colorette "^1.2.2"
+    nanoid "^3.1.22"
     source-map "^0.6.1"
 
 prebuild-install@^5.3.5:
@@ -12333,10 +12330,6 @@ redent@^2.0.0:
   dependencies:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
-
-redis-commands@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/redis-commands/-/redis-commands-1.5.0.tgz#80d2e20698fe688f227127ff9e5164a7dd17e785"
 
 redis-commands@1.6.0:
   version "1.6.0"
