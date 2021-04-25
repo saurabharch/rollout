@@ -29,7 +29,7 @@ router.get(
   '/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
-    res.redirect('index/dashboard');
+    res.render('index/dashboard');
   }
 );
 
