@@ -182,7 +182,7 @@
         "chai": "^4.2.0",
         "chai-spies": "^1.0.0",
         "copyfiles": "^2.3.0",
-        "dotenv": "^8.2.0",
+        "dotenv": "8.6.0",
         "eslint": "^7.12.1",
         "eslint-config-prettier": "^6.15.0",
         "eslint-config-standard": "^16.0.1",
