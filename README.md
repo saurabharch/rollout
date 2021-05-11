@@ -146,38 +146,72 @@ sudo certbot --dry-run
 ```shell
 sudo ufw default deny incoming
 ```
-- ```shell
+```shell
 sudo ufw default allow outgoing
 ```
-- ```shell
+```shell
 sudo ufw allow ssh
 ```
-- `sudo ufw allow 'Nginx Full'`
-- `sudo ufw delete allow 'Nginx HTTP'`
-- `sudo ufw enable`
-- `sudo ufw allow http`
-- `sudo ufw allow https`
-- `sudo ufw status`
-- `sudo ufw status` (should say active)
+```shell
+sudo ufw allow 'Nginx Full'
+```
+```shell
+sudo ufw delete allow 'Nginx HTTP'
+```
+```shell
+sudo ufw enable
+```
+```shell
+sudo ufw allow http
+```
+```shell
+sudo ufw allow https
+```
+```shell
+sudo ufw status
+```
+- (should say active)
+```shell
+sudo ufw status
+```
 
 ## `sudo ufw allow 443/tcp` (should required)
 
-- `systemctl status nginx`
-- `sudo vim /etc/nginx/sites-available/rollout` (above config applied)
-- `sudo ln -s sites-available/rollout sites-enable/rollout`
-- `sudo nginx -t`
-- `sudo service nginx restart`
-- `sudo /etc/init.d/nginx reload`
+```shell
+systemctl status nginx
+```
+- (above config applied)
+```shell
+sudo vim /etc/nginx/sites-available/rollout
+```
+```shell
+sudo ln -s sites-available/rollout sites-enable/rollout
+```
+```shell
+sudo nginx -t
+```
+```shell
+sudo service nginx restart
+```
+```shell
+sudo /etc/init.d/nginx reload
+```
 
-- `sudo journalctl -xe`
+```shell
+sudo journalctl -xe
+```
 
 ### Check nginx service worker status
 
-- `sudo systemctl status nginx`
+```shell
+sudo systemctl status nginx
+```
 
 > installing fail2ban protecting DDoS
 
-- `sudo apt-get install fail2ban`
+```shell
+sudo apt-get install fail2ban
+```
 
 [refere config](https://www.webfoobar.com/node/36)
 
