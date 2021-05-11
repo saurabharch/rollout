@@ -36,13 +36,13 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 
 > Installing Nodejs , NPM and NVM
 
-- ```shell
-- sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+```shell
+ sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ```
 - `~/.nvm/nvm.sh`
-- ```shell
--   nvm install node
-- ```
+```shell
+ nvm install node
+```
 
 > Cross Check Installed Versions
 
