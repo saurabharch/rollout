@@ -12,6 +12,7 @@ self.addEventListener("push", function(event) {
       lang: 'en-CA',
       icon: _data.icon,
       tag: _data.tag,
+      // showTrigger: new TimestampTrigger(_data.showTrigger),
       timestamp: _data.timestamp,
       vibrate: [100, 200, 100]
     })

@@ -48,7 +48,7 @@ function focusWindow(event) {
 function dataNotification(event) {
   /**** START printNotificationData ****/
   const notificationData = event.notification.data;
-  console.log("");
+  console.log(notificationData);
   console.log("The data notification had the following parameters:");
   Object.keys(notificationData).forEach(key => {
     console.log(`  ${key}: ${notificationData[key]}`);

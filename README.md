@@ -36,88 +36,182 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 
 > Installing Nodejs , NPM and NVM
 
-- `sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash`
-- `~/.nvm/nvm.sh`
-- `nvm install node`
+```shell
+ sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+```
+```shell
+~/.nvm/nvm.sh
+```
+
+```shell
+ nvm install node
+```
 
 > Cross Check Installed Versions
 
-- `node -v`
-- `npm -v`
-- `nvm --version`
+```shell
+node -v
+```
+```shell
+npm -v
+```
+```shell
+nvm --version
+```
 
 > Clone Source Code
 
-- `git clone https://github.com/saurabharch/rollout`
-- `npm install`
-- `./node_modules/.bin/web-push generate-vapid-keys`
+```shell
+git clone https://github.com/saurabharch/rollout
+```
+```shell
+npm install
+```
+##OR
+```shell
+yarn install
+```
+```shell
+./node_modules/.bin/web-push generate-vapid-keys
+```
 - Generating Vapid Public and Private Key copy it and Update in config folder files [key_dev.js](https://github.com/saurabharch/rollout/blob/master/src/config/keys_dev.js) , [key_prod.js](https://github.com/saurabharch/rollout/blob/master/src/config/keys_prod.js) and also paste your Vapid Public Key in your Service Worker File [app.js](https://github.com/saurabharch/rollout/blob/master/src/public/app.js)
-- `node server.js`
+```shell
+node server.js
+```
 
 ## Running Imutable stack with PM2
 
-- `npm install -g pm2`
+```shell
+npm install -g pm2
+```
 
 > Run as root user in Linux
 
-- `sudo pm2 start --name server-name index.js -- --name server-name --port 5500 --watch` - in watch mode or simple
-- `sudo pm2 start --name server-name index.js` -- standalone running at by default port 5500 on a single intance
-- `sudo pm2 startup` -- save as running always after on every boot performe on system
-- `sudo pm2 save` -- save all the setting with pm2
+- in watch mode or simple
+```shell
+sudo pm2 start --name server-name index.js -- --name server-name --port 5500 --watch
+```
+- standalone running at by default port 5500 on a single intance
+```shell
+sudo pm2 start --name server-name index.js
+```
+- save as running always after on every boot performe on system
+```shell
+sudo pm2 startup
+```
+- save all the setting with pm2
+```shell
+sudo pm2 save
+```
 - Running Rollout Server using PM2 with babel as interpreter setting is [Here](https://github.com/saurabharch/rollout/wiki/Run-Rollout-Server-using-PM2-server-with-babel-as-interpreter)
 
 ## Setting Up with Nginx Proxy as a load balancer
 
 > ✋🏻 PREQUESTS
 
-- `sudo apt-get install nginx`
-- `sudo add-apt-repository ppa:certbot/certbot`
-- `sudo apt-get update`
-- `sudo apt install python-certbot-nginx`
-  > Generate SSL Certificate using certbot command
-- `sudo certbot --nginx -d pushgeek.com -d www.pushgeek.com`
+```shell
+sudo apt-get install nginx
+```
+```shell
+sudo add-apt-repository ppa:certbot/certbot
+```
+```shell
+sudo apt-get update
+```
+```shell
+sudo apt install python-certbot-nginx
+```
+
+ > Generate SSL Certificate using certbot command
+```shell
+sudo certbot --nginx -d pushgeek.com -d www.pushgeek.com
+```
 
 > Alternate Command
 
-- `sudo certbot certonly --standalone -d pushgeek.com www.pushgeek.com`
+```shell
+sudo certbot certonly --standalone -d pushgeek.com www.pushgeek.com
+```
 
 > Auto Renewal Certficate with certbot
 
-- `sudo certbot --dry-run`
+```shell
+sudo certbot --dry-run
+```
 
 > [More Help Visit Here](https://gist.github.com/saurabharch/24c06cffe23989ff77da6f2b22bf6ddb)
 
 > ALLOW PORTS FOR NGINX AND SETUP FIREWALL
 
-- `sudo ufw default deny incoming`
-- `sudo ufw default allow outgoing`
-- `sudo ufw allow ssh`
-- `sudo ufw allow 'Nginx Full'`
-- `sudo ufw delete allow 'Nginx HTTP'`
-- `sudo ufw enable`
-- `sudo ufw allow http`
-- `sudo ufw allow https`
-- `sudo ufw status`
-- `sudo ufw status` (should say active)
+```shell
+sudo ufw default deny incoming
+```
+```shell
+sudo ufw default allow outgoing
+```
+```shell
+sudo ufw allow ssh
+```
+```shell
+sudo ufw allow 'Nginx Full'
+```
+```shell
+sudo ufw delete allow 'Nginx HTTP'
+```
+```shell
+sudo ufw enable
+```
+```shell
+sudo ufw allow http
+```
+```shell
+sudo ufw allow https
+```
+```shell
+sudo ufw status
+```
+- (should say active)
+```shell
+sudo ufw status
+```
 
 ## `sudo ufw allow 443/tcp` (should required)
 
-- `systemctl status nginx`
-- `sudo vim /etc/nginx/sites-available/rollout` (above config applied)
-- `sudo ln -s sites-available/rollout sites-enable/rollout`
-- `sudo nginx -t`
-- `sudo service nginx restart`
-- `sudo /etc/init.d/nginx reload`
+```shell
+systemctl status nginx
+```
+- (above config applied)
+```shell
+sudo vim /etc/nginx/sites-available/rollout
+```
+```shell
+sudo ln -s sites-available/rollout sites-enable/rollout
+```
+```shell
+sudo nginx -t
+```
+```shell
+sudo service nginx restart
+```
+```shell
+sudo /etc/init.d/nginx reload
+```
 
-- `sudo journalctl -xe`
+```shell
+sudo journalctl -xe
+```
 
 ### Check nginx service worker status
 
-- `sudo systemctl status nginx`
+```shell
+sudo systemctl status nginx
+```
 
 > installing fail2ban protecting DDoS
 
-- `sudo apt-get install fail2ban`
+```shell
+sudo apt-get install fail2ban
+```
 
 [refere config](https://www.webfoobar.com/node/36)
 

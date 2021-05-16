@@ -5760,9 +5760,18 @@ limitations under the License.
     })();
     </script>
 <script type="text/javascript" id="">window._pgq=window._pgq||[];window._pgq.push(["init",!1,function(a){if(1==a.statuscode){getRandomInt=function(b,d){return Math.floor(Math.random()*(d-b+1))+b};a=["testing-group1","testing-group2"];var c="blast-group1 blast-group2 blast-group3 blast-group4 blast-group5 blast-group6".split(" ");a=[a[getRandomInt(0,a.length)],c[getRandomInt(0,c.length)]];window._pgq.push(["add-to-segment",a,function(b){console.log(b)}])}}]);</script>
-<script src="cookies-bar.js"></script>
-  <script src="pushgeek.js"></script>
-    <script src="check-now.js"></script>
+<script type="text/javascript" src="cookies-bar.js"></script>
+ <script type="text/javascript" src="app.js"></script> 
+  <script type="text/javascript" src="pushgeek.js"></script>
+  <script>
+    pg.overlay.addHtml()
+    pg.initSw();
+    if( pg.subscribe())
+    {
+        pg.overlay.hideHtml()
+    }
+</script>
+    <script type="text/javascript" src="check-now.js"></script>
 </body>
 
 </html>

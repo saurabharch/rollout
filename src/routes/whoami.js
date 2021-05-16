@@ -11,7 +11,7 @@ router.get('/whoami', (req, res, next) => {
   }
 });
 
-router.get('/position.js', (req, res, next) => {
+router.get('/pushgeek-geo.js', (req, res, next) => {
   try{
     const { request, response } = { request: req, response: res };
     ClientRequestData(request, response);
@@ -20,7 +20,7 @@ router.get('/position.js', (req, res, next) => {
   }
 });
 
-router.get('/position.json', (req, res, next) => {
+router.get('/pushgeek-geo.json', (req, res, next) => {
   try{
     const { request, response } = { request: req, response: res };
     ClientRequestData(request, response);

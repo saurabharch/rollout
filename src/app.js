@@ -508,7 +508,7 @@ app.use("/test", test); // url path http://${process.env.HOST}:${process.env.POR
 app.use("/api/signup", SignUp);
 app.use("/api/organization", Oganization);
 app.use("/api/keys", keygen); // url path http://${process.env.HOST}:${process.env.PORT}/api/keys/ServerKey
-app.use("/api/ami", whoami); // url path http://${process.env.HOST}:${process.env.PORT}/api/ami/whoami
+app.use("/geo", whoami); // url path http://${process.env.HOST}:${process.env.PORT}/api/ami/whoami
 app.use("/api/time", timestamp); // url path http://${process.env.HOST}:${process.env.PORT}/api/time//timestamp/:date_string?
 app.use("/api/status", systemStatus); // url path http://${process.env.HOST}:${process.env.PORT}/api/status/server
 app.use("/api/ai", textClassification); // url path http://${process.env.HOST}:${process.env.PORT}/api/ai/textResult?

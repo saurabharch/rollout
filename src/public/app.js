@@ -7,7 +7,7 @@ let applicationKey =
 try {
   var _pgSd = {
     site: {
-      sI: "https://pushgeek.com/images/apple-touch-icon.png",
+      sI: "http://localhost:5500/images/apple-touch-icon.png",
       sK: "ee08a9929fe7ea157ecd01aea9c53c14",
       sSd: "demo",
       sSi: "2",
@@ -54,7 +54,7 @@ try {
           closeBtnBg: "#ffffff",
           optin_close_btn_txt: "Close",
           optin_title:
-            "This website 'PushEngage' would like to send push notifications",
+            "This website 'PushGeek' would like to send push notifications",
           placement: "pg-mobile-bottom",
           cookie_duration: 7,
           optin_category: "delay",
@@ -76,8 +76,8 @@ try {
         siteType: "https"
       },
       allowedDomain: [
-        "pushgeek.com",
-        "demo.pushgeek.com",
+        // "PushGeek.com",
+        // "demo.PushGeek.com",
         "localhost:5500"
       ],
       vapidPubKey:`${applicationKey}`,
@@ -90,7 +90,7 @@ try {
       boxHtml:
         '<div id="PG-chicklet-inst-modal"><div id="PG-chicklet-inst-modal-content"><div id="PG-chicklet-inst-modal-body"><div id="PG-chicklet-inst-modal-body-message"><p style="font-size:18px;margin-bottom:40px;line-height:24px;text-align:center">You seem to have previously blocked/denied/unsubscribed push notifications. See the image below to know how to unblock/resubscribe them.</p><img id="PG-step-img" src=""></div><div id="PG-button-box"><a  id="PG-cancel-btn">Cancel</a> <a id="PG-retry-btn">Retry</a></div></div></div></div>',
       bWBoxImg: {
-        url: "https://assetscdn.localhost:5500/img/",
+        url: "http://localhost:5500/img/",
         chrome: "chrome.jpg",
         firefox: "firefox.jpg",
         chromeM: "chromeM.jpg",
@@ -105,9 +105,9 @@ try {
     getWidget: { status: false, style: "", html: "" },
     subA: true,
     welcomeNoti: {
-      notification_title: "Welcome to PushEngage",
+      notification_title: "Welcome to PushGeek",
       notification_message:
-        "Schedule a Demo With Us To Learn How to Use PushEngage Best",
+        "Schedule a Demo With Us To Learn How to Use PushGeek Best",
       notification_url: "https://www.localhost:5500/home",
       welcome_enabled: "true"
     },
@@ -116,18 +116,18 @@ try {
       value: [{ rule: "exact", value: "https://pushgeek-rewards-win.com/" }],
       active: "exclude"
     },
-    optinSubscriptionTrigger: false,
-    optinSubscriptionReminder: false,
+    optinSubscriptionTrigger: true,
+    optinSubscriptionReminder: true,
     safari: { pushId: "web.com.pushgeek.demo", default: false },
     gcm: { projectId: "360714148844" },
     api: {
       backendApi: "http://localhost:5500",
-      safariApi: "https://safari.pushgeek.com",
+      safariApi: "http://safari.localhost:5500",
       swv: "2.2.0",
       triggerApi: "http://localhost:5500/subscribe",
       pushJs: "http://localhost:5500/pushgeek.js",
       anyApi:
-        "https://noti-analytics.pushengage.com/p/v1/notification/view?device=dYnqvwF8hFM:APA91bEsPxWj1iQJjl_qW1EVnh3hQljLAEzaDZ8eQI9NiMyL0oe-gMfrMBZwqeY2EPco8tkR9SpvOKhFnilY672dlMqpKWNbg3YH1jDunJUW0qacivPpOWIBPL1CH9F8aq9aRDxHAOQO&swv=2.2.0&bv=87&tag=D-2-117-321-1607011361000-3de6418f4b757cd0cb019d5073e9771292a17515f8ac858bbac30caae091fa17&tz=+05:30",
+        "https://noti-analytics.pushgeek.com/p/v1/notification/view?device=dYnqvwF8hFM:APA91bEsPxWj1iQJjl_qW1EVnh3hQljLAEzaDZ8eQI9NiMyL0oe-gMfrMBZwqeY2EPco8tkR9SpvOKhFnilY672dlMqpKWNbg3YH1jDunJUW0qacivPpOWIBPL1CH9F8aq9aRDxHAOQO&swv=2.2.0&bv=87&tag=D-2-117-321-1607011361000-3de6418f4b757cd0cb019d5073e9771292a17515f8ac858bbac30caae091fa17&tz=+05:30",
       eventApi: "http://localhost:5500/log",
 
     },
@@ -135,9 +135,9 @@ try {
     overlay: {
       status: true,
       style:
-        '<style id="pg-overlay-backdrop-style">#pg-overlay-backdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483638;background-color:rgba(0,0,0,0.8);}#pg-overlay-backdrop #pg-overlay-backdrop-arrow-image{padding:0px;position:absolute;left:0;right:0;margin:0 auto;width:550px;top:135px;transform:rotate(-7deg)}#pg-overlay-backdrop-arrow-image img{width: 100px;height: 100px;padding: 0;margin: 0;}#pg-overlay-backdrop #pg-overlay-text{left:0;right:0;position:absolute;width:260px;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.2);background:#fff;color:#000;border-radius:5px;margin:0 auto;top:185px}#pg-overlay-text img{width:100%;border-radius:5px 5px 0 0}#pg-overlay-text img,#pg-overlay-text p{margin:0;padding:0}#pg-overlay-text p{margin:8px 10px;line-height:22px;max-height:400px;overflow:hidden;text-overflow:ellipsis}#pushengage-overlay-close{position:absolute;right:20px;top:30px;width:55px;height:32px;cursor:pointer}#pushengage-overlay-close:before{transform:rotate(45deg)}#pushengage-overlay-close:before,#pushengage-overlay-close:after{position:fixed;right:48px;content:" ";height:33px;width:3px;background-color:#ffffff}#pushengage-overlay-close:after{transform:rotate(-45deg)}</style>',
+        '<style id="pg-overlay-backdrop-style">#pg-overlay-backdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483638;background-color:rgba(0,0,0,0.8);}#pg-overlay-backdrop #pg-overlay-backdrop-arrow-image{padding:0px;position:absolute;left:0;right:0;margin:0 auto;width:550px;top:135px;transform:rotate(-7deg)}#pg-overlay-backdrop-arrow-image img{width: 100px;height: 100px;padding: 0;margin: 0;}#pg-overlay-backdrop #pg-overlay-text{left:0;right:0;position:absolute;width:260px;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.2);background:#fff;color:#000;border-radius:5px;margin:0 auto;top:185px}#pg-overlay-text img{width:100%;border-radius:5px 5px 0 0}#pg-overlay-text img,#pg-overlay-text p{margin:0;padding:0}#pg-overlay-text p{margin:8px 10px;line-height:22px;max-height:400px;overflow:hidden;text-overflow:ellipsis}#pushgeek-overlay-close{position:absolute;right:20px;top:30px;width:55px;height:32px;cursor:pointer}#pushgeek-overlay-close:before{transform:rotate(45deg)}#pushgeek-overlay-close:before,#pushgeek-overlay-close:after{position:fixed;right:48px;content:" ";height:33px;width:3px;background-color:#ffffff}#pushgeek-overlay-close:after{transform:rotate(-45deg)}</style>',
       html:
-        '<div id="pg-overlay-backdrop"><div id="pushengage-overlay-close"></div><div id="pg-overlay-backdrop-arrow-image"><img src="https://assetscdn.localhost:5500/site_assets/img/overlay-arrow.png"></div><div id="pg-overlay-text"><img id="pg-overlay-reminder-image" src=""><p>Click on Allow button and Subscribe to the push notifications</p></div></div>',
+        '<div id="pg-overlay-backdrop"><div id="pushgeek-overlay-close"></div><div id="pg-overlay-backdrop-arrow-image"><img src="http://localhost:5500/img/overlay-arrow.png"></div><div id="pg-overlay-text"><img id="pg-overlay-reminder-image" src=""><p>Click on Allow button and Subscribe to the push notifications</p></div></div>',
       powByHtml: "",
       powBycss: ""
     },
@@ -319,14 +319,14 @@ try {
     merchantSettings: {
       sm: function(parms) {
         var smPath = {
-          worker: "/sw-test.js",
+          worker: "/sw.js",
           manifest:
             "http://" + _pgSd.site.sSd + ".localhost:5500/manifest.json",
           workerStatus: true,
           scope: true
         };
         if (_pgSd.site.plateform == "shopify") {
-          smPath.worker = "/sw-test.js";
+          smPath.worker = "/sw.js";
         }
         switch (parms) {
           case "worker":
@@ -452,7 +452,7 @@ try {
       _pgD.funExecState.checkSubscriptionIframe = false;
     },
     getDataUrl: function(n) {
-      // this.window.location.href = "http://localhost:5500";
+      //this.window.location.href = "http://localhost:5500";
       const publicUrl = window.location.href;
       var url = publicUrl;
       n = n.replace(/[\[\]]/g, "\\$&");
@@ -612,7 +612,7 @@ try {
             return callback(true);
           var src = src
             ? src
-            : "http://" + _pgSd.site.sSd + ".localhost:5500/" + fName + ".js";
+            : "http://" + _pgSd.site.sSd + ".localhost:5500/geo/" + fName + ".js";
           var script = document.createElement("script");
           script.src = src;
           script.onload = function() {
@@ -1731,9 +1731,9 @@ try {
       profile: ["Profile added successfully", "Profile already exists"],
       error: [
         "Something went wrong",
-        "Your browser does not support or, you have disabled PushEngage web push notification",
+        "Your browser does not support or, you have disabled PushGeek web push notification",
         "User not subscribed",
-        "Your website url is not allowed, please configure in PushEngage correctly",
+        "Your website url is not allowed, please configure in PushGeek correctly",
         "Subscriber is not valid for request api"
       ],
       success: [
@@ -1894,8 +1894,8 @@ try {
               _pgE.optinSettings.placement +
               '" style="background:' +
               _pgE.optinSettings.bg +
-              ';visibility: hidden;">',
-            '<div id="pg-optin-3-bell-launcher-message" style="visibility: hidden; display: none;"><div id="pg-optin-3-mang-bell-launcher-message-body">',
+              ';visibility: visible;">',
+            '<div id="pg-optin-3-bell-launcher-message" style="visibility: visible; display: none;"><div id="pg-optin-3-mang-bell-launcher-message-body">',
             _pgE.optinSettings.optin_title,
             "</div></div>",
             '<div class="pg-optin-3_allowBtn pg-swing" id="pg_allow_btn"><svg style="width:40px;height:40px" viewBox="0 0 24 24" id="pg-optin-3-bell-icon"> <path fill="' +
@@ -1912,7 +1912,7 @@ try {
               _pgE.optinSettings.placement +
               '" style="background:' +
               _pgE.optinSettings.bg +
-              ';visibility: hidden;">',
+              ';visibility: visible;">',
             '<div class="pg-optin-1_imgWrapper" style="margin-right:352px"><img src="' +
               _pgSd.site.sI +
               '" style="max-width:60px;max-height:60px;"></div>',
@@ -1922,7 +1922,7 @@ try {
             '<div id="pg-action-btn-wrapper" class="pg-optin-1_actionbuttonWrapper" style="clear:both">',
             '<div style="float:left;height:22px;line-height:22px;margin-top:10px;' +
               powByCss +
-              '"><a href="https://www.localhost:5500" class="pg-optin-1_brandingWrapper" target="_blank">Powered by PushEngage</a></div>',
+              '"><a href="https://www.localhost:5500" class="pg-optin-1_brandingWrapper" target="_blank">Powered by PushGeek</a></div>',
             '<div id="pg_allow_btn" class="pg-optin-1_allowWrapper" style="background-color:' +
               _pgE.optinSettings.allowBtnBg +
               ';color:#fff;">' +

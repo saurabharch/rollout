@@ -15,6 +15,7 @@ router.post('/', (req, res) => {
       res.json({
         data: 'Subscription saved.'
       });
+      console.log(`${subscription}`)
     }
   });
 });

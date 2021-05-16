@@ -1891,8 +1891,8 @@ try {
               _pgE.optinSettings.placement +
               '" style="background:' +
               _pgE.optinSettings.bg +
-              ';visibility: hidden;">',
-            '<div id="pg-optin-3-bell-launcher-message" style="visibility: hidden; display: none;"><div id="pg-optin-3-mang-bell-launcher-message-body">',
+              ';visibility: visible;">',
+            '<div id="pg-optin-3-bell-launcher-message" style="visibility: visible; display: none;"><div id="pg-optin-3-mang-bell-launcher-message-body">',
             _pgE.optinSettings.optin_title,
             "</div></div>",
             '<div class="pg-optin-3_allowBtn pg-swing" id="pg_allow_btn"><svg style="width:40px;height:40px" viewBox="0 0 24 24" id="pg-optin-3-bell-icon"> <path fill="' +
@@ -1909,7 +1909,7 @@ try {
               _pgE.optinSettings.placement +
               '" style="background:' +
               _pgE.optinSettings.bg +
-              ';visibility: hidden;">',
+              ';visibility: visible;">',
             '<div class="pg-optin-1_imgWrapper" style="margin-right:352px"><img src="' +
               _pgSd.site.sI +
               '" style="max-width:60px;max-height:60px;"></div>',
