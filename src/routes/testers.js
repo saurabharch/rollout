@@ -1,9 +1,48 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-import {PN} from '../controllers/devices';
+// import {PN} from '../controllers/devices';
+import PushNotifications from "rollout-pushnotification";
 
+const settings = {
+    gcm: {
+        id: null,
+        phonegap: false, // phonegap compatibility mode, see below (defaults to false)
+    },
+    apn: {
+        token: {
+            key: './certs/key.p8', // optionally: fs.readFileSync('./certs/key.p8')
+            keyId: 'ABCD',
+            teamId: 'EFGH',
+        },
+        production: false // true for APN production environment, false for APN sandbox environment,
+    },
+    adm: {
+        client_id: null,
+        client_secret: null,
+    },
+    wns: {
+        client_id: null,
+        client_secret: null,
+        notificationMethod: 'sendTileSquareBlock',
+    },
+    web: {
+        vapidDetails: {
+            subject: 'mailto:saurabh@raindigi.com',
+            publicKey: keys.publicKey,
+            privateKey: keys.privateKey,
+        },
+        gcmAPIKey: 'gcmkey',
+        TTL: 2419200,
+        contentEncoding: 'aes128gcm',
+        headers: {}
+    },
+    isAlwaysUseFCM: false, // true all messages will be sent through node-gcm (which actually uses FCM)
+};
+
+const push = new PushNotifications(settings);
 router.get('/', (req, res) => {
+  const registrationIds = [];
   // const payload = {
   //   title: 'StoryBook',
   //   message: 'welcome friends',
@@ -130,7 +169,7 @@ push.send(registrationIds, data, (err, result) => {
 });
   console.log(data);
 // Multiple destinations
-const registrationIds = [];
+
 registrationIds.push('INSERT_YOUR_DEVICE_ID');
 // Or you could use it as a promise:
 push.send(registrationIds, data)
