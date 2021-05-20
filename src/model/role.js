@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 export const ROLES = ['user', 'admin', 'moderator', 'owner', 'superadmin'];
-const RoleSchema = new Schema(
+const RoleSchema = new mongoose.Schema(
   {
     name: {
       type: String,

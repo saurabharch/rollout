@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Subscription = require('../model/subscriber');
+const Pushsetting = require('../model/pushSetting')
 const q = require('q');
 const webpush = require('web-push');
 const keys = require('./../config/keys');
@@ -24,6 +25,7 @@ const settings = {
             keyId: 'ABCD',
             teamId: 'EFGH',
         },
+        
         production: false // true for APN production environment, false for APN sandbox environment,
     },
     adm: {
@@ -49,10 +51,15 @@ const settings = {
     isAlwaysUseFCM: false, // true all messages will be sent through node-gcm (which actually uses FCM)
 };
 
+
+ 
 const push = new PushNotifications(settings);
 
-router.post('/', ratelimit('pushlimit', 10, '', 1), (req, res) => {
+router.post('/', ratelimit('pushlimit', 10, '', 1), async(req, res) => {
+
   console.log(req.body);
+  // const seetingnewv = GetSettind();
+  // console.log(`${seetingnewv}`);
   // res.setHeader("X-RateLimit-Limit", 10);
   // res.setHeader("X-RateLimit-Remaining", 9);
   // res.setHeader("X-RateLimit-Reset", 1 * 60 * 1000);
@@ -155,52 +162,53 @@ router.post('/', ratelimit('pushlimit', 10, '', 1), (req, res) => {
   //   consolidationKey: 'my notification', // ADM
   // };
 
-    Subscription.find({}, (err, subscriptions) => {
+    await Subscription.find({}, (err, subscriptions) => {
       if(err){
         console.error('Error occurred while getting subscriptions');
         res.status(500).json({
           error: 'Technical error occurred'
         });
     }else{
-
+  
         // Latest Dynamic Method for multiplatform sending notification
         // You can use it in node callback style
         const parallelSubscriptionCalls = subscriptions.map(subscription => {
           return new Promise((resolve, reject) => {
-            // if(subscription.browser_info.device_type === 'Chrome')
-            // {
-                const pushSubscription = {
-                
-                endpoint: subscription.subscription.endpoint,
-                keys: {
-                  p256dh: subscription.subscription.keys.p256dh,
-                  auth: subscription.subscription.keys.auth
-                }
-              };
-              registrationIds.push(pushSubscription);
+                const subscriptionD = subscription.subscription.map(SUB => {
+                  
+                  return new Promise((resolve, reject) => {
+                    const subsObj = {
+                       endpoint: SUB.endpoint,
+                      keys: {
+                        p256dh:SUB.keys.p256dh,
+                        auth: SUB.keys.auth
+                      },
+                    }
+                    registrationIds.push(subsObj);
+                  });
+                  
+                });
+              });
+              
               // }
-            });
+          });
+          push.send(registrationIds, payload, (err, result) => {
+                  if (err) {
+                      console.log(err);
+                  } else {
+                    console.log(result);
+                  }
+          });
+        q.allSettled(parallelSubscriptionCalls).then(pushResults => {
+            if(pushResults.status != true){
+              const errorEndpoint = 1;
+                res.json({ res: JSON.parse(pushResults.endpoint) });
+              }
+              console.info(pushResults);
         });
-        push.send(registrationIds, payload, (err, result) => {
-                if (err) {
-                    console.log(err);
-                } else {
-                  console.log(result);
-                  // res.json({
-                  //   data: 'Push triggered'
-                  // });
-                }
-        });
-      q.allSettled(parallelSubscriptionCalls).then(pushResults => {
-          if(pushResults.status != true){
-            const errorEndpoint = 1;
-              res.json({ res: JSON.parse(pushResults.endpoint) });
-            }
-            console.info(pushResults);
-      });
-        res.json({
-          data: 'Push triggered'
-        });
+          res.json({
+            data: 'Push triggered'
+          });
     }
         // // Or you could use it as a promise:
         // push.send(registrationIds, data)

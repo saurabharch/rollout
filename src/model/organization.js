@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const OrgNameSchema = new Schema(
+const OrgNameSchema = new mongoose.Schema(
   {
     orgName: {
       type: String,
@@ -59,7 +59,7 @@ const OrgNameSchema = new Schema(
     versionKey: false
   }
 );
-
+OrgNameSchema.plugin(require('mongoose-autopopulate'));
 const Organization = mongoose.model('organization', OrgNameSchema);
 module.exports = Organization;
 // export const Organization = model("organization", OrgNameSchema);

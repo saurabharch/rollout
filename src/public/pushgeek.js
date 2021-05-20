@@ -356,13 +356,14 @@ try {
         var ip = false;
         var geoInfo;
         if (typeof pgGeoInfo == "undefined") geoInfo = _pgD.modifyGeo();
+        
         else {
           geoInfo = _pgD.modifyGeo(pgGeoInfo);
           ip = geoInfo.geobytesipaddress;
         }
         var availScreen = screen.availWidth + "*" + screen.availHeight;
         var data = {
-          relApiPath: "/subscribe",
+          relApiPath: "/api/subscribe",
           reqData: {
             site_id: _pgSd.site.sSi,
             browser_info: {

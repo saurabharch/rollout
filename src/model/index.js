@@ -5,6 +5,10 @@ const organization = require("./organization");
 const reset = require("./reset");
 const user = require("./user");
 const role = require("./role");
+const code = require("./code");
+const client = require("./client");
+const token = require("./token");
+const pushsetting = require("./pushSetting");
 
 module.exports = {
   ...role,
@@ -12,5 +16,9 @@ module.exports = {
   ...subscriber,
   ...organization,
   ...reset,
-  ...user
+  ...user,
+  ...code,
+  ...client,
+  ...token,
+  ...pushsetting
 };

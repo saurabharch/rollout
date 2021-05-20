@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const geoip = require('geoip-lite');
 const { ClientRequestData, ClientInfo } = require('../util/lib/ClientDetails');
-router.get('/whoami', (req, res, next) => {
+router.get('/', (req, res, next) => {
   try{
     const { request, response } = { request: req, response: res };
     ClientInfo(request, response);

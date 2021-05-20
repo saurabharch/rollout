@@ -65,7 +65,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post(
-  '/api/login',
+  '/',
   guest,
   catchAsync(async (req, res) => {
     // await validate(loginSchema, req.body);
@@ -85,7 +85,7 @@ router.post(
 );
 
 router.post(
-  '/api/logout',
+  '/logout',
   auth,
   catchAsync(async (req, res) => {
     await logOut(req, res);

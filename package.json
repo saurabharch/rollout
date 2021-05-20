@@ -121,6 +121,7 @@
         "mongodb": "^3.6.3",
         "mongodb-uri": "^0.9.7",
         "mongoose": "^5.12.7",
+        "mongoose-autopopulate": "^0.14.0",
         "mongoose-paginate": "^5.0.3",
         "morgan": "^1.10.0",
         "multer": "^1.4.2",
@@ -155,7 +156,7 @@
         "rand-token": "^1.0.1",
         "rate-limiter-flexible": "^2.0.0",
         "raven": "^2.6.4",
-        "redis": "^2.8.0",
+        "redis": "^3.1.2",
         "rollout-pushnotification": "^1.7.4",
         "sanitize-html": "^2.3.3",
         "serve-static": "^1.14.1",
@@ -165,6 +166,8 @@
         "string-strip-html": "^6.0.4",
         "strip-bom": "^4.0.0",
         "stripe": "^8.107.0",
+        "swagger-jsdoc": "^7.0.0-rc.6",
+        "swagger-ui-express": "^4.1.6",
         "tailwindcss": "^2.0.1",
         "uglifycss": "0.0.29",
         "uuid": "^8.3.2",
@@ -215,6 +218,6 @@
         "npm-run-all": "^4.1.5",
         "prettier": "^2.2.1",
         "supertest": "^4.0.2",
-        "workbox-cli": "^5.1.4"
+        "workbox-cli": "^6.1.5"
     }
 }

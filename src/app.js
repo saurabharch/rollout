@@ -16,6 +16,9 @@ var exphbs = require("express-handlebars");
 const path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+// const customCss = fs.readFileSync((process.cwd()+"/swagger.css"), 'utf8');
 const { getConfig, updateConfigLocal } = require('./lib/config');
 const { runIndexing } = require('./lib/indexing');
 const { addSchemas } = require('./lib/schema');
@@ -48,6 +51,7 @@ const csrf = require("csurf");
 // Load Routes
 // const index = require("./routes");
 const login = require("./routes/login");
+const logout = require("./routes/logout");
 const register = require("./routes/register");
 const verify = require("./routes/verify");
 const reset = require("./routes/reset");
@@ -62,7 +66,6 @@ const whoami = require("./routes/whoami");
 const timestamp = require("./routes/timestamp");
 const systemStatus = require("./routes/systemStatus");
 const textClassification = require("./routes/textClassification");
-// const login = require("./routes/login");
 const SignUp = require("./routes/user");
 const Oganization = require("./routes/organization");
 const index = require("./routes");
@@ -87,7 +90,7 @@ const user = require('./routes/user');
 const reviews = require('./routes/reviews');
 const doc = require('./routes/doc');
 const Email = require('./routes/verify');
-
+const pushSetting = require('./routes/pushSetting');
 const { SESS_OPTIONS } = require ("./config/auth");
 const morgan = require("morgan");
 const helmet = require("helmet");
@@ -103,6 +106,9 @@ require("./model/user");
 require("./model/organization");
 require("./model/role");
 require("./model/reset");
+require("./model/token");
+require("./model/code");
+require("./model/pushSetting");
 // require("./model/subscriber");
 //require('appmetrics-dash').monitor();
 // require('./models/Categories');
@@ -434,6 +440,8 @@ app.get("/api/version", (req, res) => {
     systemstatus: process.memoryUsage()
   });
 });
+// let express to use this
+
 // app.set('views', __dirname + '/public/js');
 
 // // Set global vars
@@ -464,6 +472,8 @@ app.use((req, res, next) => {
 // app.use("/", index);
 // Setup the routes
 app.use('/plans', index);
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {customCss}));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // app.use('/toureiro', TaskBoard());
 app.use('/doc',doc);
 app.use('/features', features);
@@ -474,16 +484,17 @@ app.use('/user', user);
 app.use('/email', verify);
 app.use('/admin', admin);
 app.use('/reviews', reviews);
-app.use("/register", register);
-app.use("/sdk",sdk);
-app.use("/verify", verify);
-app.use("/log", log);
+app.use("/api/register", register);
+app.use("/api/sdk",sdk);
+app.use("/api/verify", verify);
+app.use("/api/log", log);
 app.use("/analytics",Analytics);
 app.use("/active", active);
 app.use("/reset", reset);
-app.use("/login", login);
+app.use("/api/login", login);
+app.use("/api/logout",logout);
 app.use("/auth", auth); 
-app.use("/client",clinetController);
+app.use("/api/client",clinetController);
 app.use("/legal", terms_service);
 app.use("/security", security);
 app.use("/plans", plans);
@@ -501,14 +512,15 @@ app.use("/q/queues",UI);
 //   router);
 app.use("/api/key", ApiKey);
 app.use("/home", home); // url path http://${process.env.HOST}:${process.env.PORT}/home
-app.use("/subscribe", subscribe); // url path http://${process.env.HOST}:${process.env.PORT}/subscribe
-app.use("/unsubscribe", unsubscribe); // url path http://${process.env.HOST}:${process.env.PORT}/unsubscribe
-app.use("/push", push); //url path http://${process.env.HOST}:${process.env.PORT}/push
-app.use("/test", test); // url path http://${process.env.HOST}:${process.env.PORT}/test
+app.use("/api/subscribe", subscribe); // url path http://${process.env.HOST}:${process.env.PORT}/subscribe
+app.use("/api/unsubscribe", unsubscribe); // url path http://${process.env.HOST}:${process.env.PORT}/unsubscribe
+app.use("/api/push", push); //url path http://${process.env.HOST}:${process.env.PORT}/push
+app.use("/api/test", test); // url path http://${process.env.HOST}:${process.env.PORT}/test
+app.use("/api/pushsetting", pushSetting);
 app.use("/api/signup", SignUp);
 app.use("/api/organization", Oganization);
 app.use("/api/keys", keygen); // url path http://${process.env.HOST}:${process.env.PORT}/api/keys/ServerKey
-app.use("/geo", whoami); // url path http://${process.env.HOST}:${process.env.PORT}/api/ami/whoami
+app.use("/api/geo", whoami); // url path http://${process.env.HOST}:${process.env.PORT}/api/ami/whoami
 app.use("/api/time", timestamp); // url path http://${process.env.HOST}:${process.env.PORT}/api/time//timestamp/:date_string?
 app.use("/api/status", systemStatus); // url path http://${process.env.HOST}:${process.env.PORT}/api/status/server
 app.use("/api/ai", textClassification); // url path http://${process.env.HOST}:${process.env.PORT}/api/ai/textResult?

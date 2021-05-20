@@ -606,13 +606,13 @@ try {
           break;
         case "js":
           if (
-            fName == "position" &&
+            fName == "pushgeek-geo" &&
             !_pgSd.privacySettings.geoLocationEnabled
           )
             return callback(true);
           var src = src
             ? src
-            : "http://" + _pgSd.site.sSd + ".localhost:5500/geo/" + fName + ".js";
+            : "http://" + _pgSd.site.sSd + ".localhost:5500/api/geo/" + fName + ".js";
           var script = document.createElement("script");
           script.src = src;
           script.onload = function() {
@@ -1409,10 +1409,25 @@ try {
       }
       return timezone;
     },
+    getCordinates: function(){
+      var cordinate = [];
+      try{
+        
+         var postion = WebClient("http://demo.localhost:5500/api/geo/pushgeek-geo.js","GET" ,"");
+         var clientData = postion;
+         console.log(`${clientData}`);
+       return cordinates.push(clientDate);
+      } catch (e) {
+        
+      }
+      return cordinate;
+    },
     modifyGeo: function(geoInfo) {
       var timezone = _pgD.getTimezone();
+      var cordinates = _pgD.getCordinates();
       var geo = {
-        geobytestimezone: timezone
+        geobytestimezone: timezone,
+        data : cordinates
       };
       if (typeof geoInfo === "object") {
         geo = _pgD.objectAssign(geo, geoInfo);
@@ -3788,20 +3803,20 @@ function urlB64ToUint8Array(base64String) {
 //         );
 //   }
 // }
-// async function WebClient(url,method, callback){
-//   var xhttp = window.XMLHttpRequest ? new XMLHttpRequest : new ActiveXObject("Microsoft.XMLHTTP");
-//   await xhttp.open(method, url,true);
+async function WebClient(url,method, callback){
+  var xhttp = window.XMLHttpRequest ? new XMLHttpRequest : new ActiveXObject("Microsoft.XMLHTTP");
+  await xhttp.open(method, url,true);
   
-//   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-//   xhttp.onreadystatechange = function() {
-//     if (xhttp.status != 200 && xhttp.status != 304) {
-//       console.log("HTTP error " + xhttp.status, null);
-//     } else {  
-//     if (xhttp.readyState == 4 && this.status == 200) 
-//      var data = xhttp.responseText;
-//     //  console.log(data)
-//      return data;
-//     }
-//   };
-//   xhttp.send();
-// } 
+  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhttp.onreadystatechange = function() {
+    if (xhttp.status != 200 && xhttp.status != 304) {
+      console.log("HTTP error " + xhttp.status, null);
+    } else {  
+    if (xhttp.readyState == 4 && this.status == 200) 
+     var data = xhttp.responseText;
+    //  console.log(data)
+     return data;
+    }
+  };
+  xhttp.send();
+} 

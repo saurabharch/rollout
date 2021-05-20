@@ -51,13 +51,13 @@ router.get('/oauth2/authorize',isAuthenticated,  catchAsync(async (req, res) => 
 //     usersCtrl.createUser
 //   );
 // Create endpoint handlers for oauth2 authorize
-router.route('/api/oauth2/authorize')
+router.route('/oauth2/authorize')
   .get(isAuthenticated, oauth2Controller.authorization)
   .post(isAuthenticated, oauth2Controller.decision);
 // router.get('/api/oauth2/authorize',authController.isAuthenticated,oauth2Controller.authorization);
 // router.post('/api/oauth2/authorize',authController.isAuthenticated,oauth2Controller.decision);
 // Create endpoint handlers for oauth2 token
-router.route('/api/oauth2/token')
+router.route('/oauth2/token')
   .post(isClientAuthenticated, oauth2Controller.token);
 // router.post('/api/oauth2/token',authController.isClientAuthenticated,oauth2Controller.token);
 module.exports = router;

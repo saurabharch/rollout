@@ -7,7 +7,7 @@ const val = require('validator');
 
 const app = require('../config/app');
 const auth = require('../config/auth')
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
   {
     email: {
       type: String,
@@ -81,7 +81,8 @@ const userSchema = new Schema(
     roles: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Role'
+        ref: 'Role',
+        autopopulate:true
       }
     ],
     image: {
@@ -163,7 +164,7 @@ const userSchema = new Schema(
     versionKey: false
   }
 );
-
+userSchema.plugin(require('mongoose-autopopulate'));
 userSchema.pre('save', function(){
   return __awaiter(this, void 0, void 0, function(){
     let _a;

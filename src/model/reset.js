@@ -7,11 +7,12 @@ const {
   PASSWORD_RESET_TIMEOUT,
   APP_ORIGIN
 } = require('../config/auth');
-const passwordResetSchema = new Schema(
+const passwordResetSchema = new mongoose.Schema(
   {
     userId: {
       type: Schema.Types.ObjectId,
-      ref: 'user'
+      ref: 'user',
+      autopopulate:true
     },
     token: String,
     expiredAt: Date
@@ -21,6 +22,8 @@ const passwordResetSchema = new Schema(
     versionKey: false
   }
 );
+
+passwordResetSchema.plugin(require('mongoose-autopopulate'));
 passwordResetSchema.pre('save', function(){
   if(this.isModified('token')){
     this.token = PasswordReset.hashedToken(this.token);
@@ -45,6 +48,7 @@ passwordResetSchema.statics.plaintextToken = () => {
 passwordResetSchema.statics.hashedToken = plaintextToken => {
   return createHmac('sha256', APP_SECRET).update(plaintextToken).digest('hex');
 };
+
 
 const PasswordReset = mongoose.model('PasswordReset', passwordResetSchema);
 // export defaul Subscription;

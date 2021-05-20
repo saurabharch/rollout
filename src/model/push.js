@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const moment = require("moment");
-const PushMessageSchema = new Schema(
+const PushMessageSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -111,6 +111,11 @@ const PushMessageSchema = new Schema(
       // },
       default: 'normal'
     },
+    // setting:{
+    //   Pushsetting:Schema.Types.ObjectId,
+    //   ref:'push_settings',
+    //   autopopulate: true
+    // },
     AuthUser: [
       {
         User: {
@@ -136,7 +141,7 @@ const PushMessageSchema = new Schema(
     versionKey: false
   }
 );
-
+PushMessageSchema.plugin(require('mongoose-autopopulate'));
 const Push = mongoose.model('push', PushMessageSchema);
 module.exports = Push;
 // export const Push = mongoose.model("push", PushMessageSchema);

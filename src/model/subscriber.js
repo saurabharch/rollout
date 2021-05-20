@@ -15,42 +15,47 @@ const GeoSchema = new Schema({
 const clientSchema = new Schema({
 
 });
-const SubscriberSchema = new Schema(
+const SubscriberSchema = new mongoose.Schema(
   {
-    // browser_info: {[
-    // device_type: {type:String},
-    // browser_version: {type:String},
-    // user_agent: {type:String},
-    // language: {type:String},
-    // total_scr_width_height:{type:String},
-    // available_scr_width_height: {type:String},
-    // colour_resolution: {type:Number},
-    // host: {type:String},
-    // device: {type:String},
-    // pe_ref_url: {type:String}
-    // ]},
-    browser_info:Schema.Types.Mixed,
-    subscription: Schema.Types.Mixed,
-    // endpoint: String,
-    // expirationTime: String,
-    // keys: Schema.Types.Mixed,
-    // expirationTime:{
-    //   type:String,
-    //   default: moment(new Date(Date.now()+1000*60*60*24*365*5)).format('lll')//src = src ? src : ''
-    // },
-    project_id: {
-      type:String
-    },
-    vapid_public_key:{
-      type:String
-    },
-    subscription_url: {
-      type:String
-    },
-    // geobytestimezone: { type:String},
-    // token_refresh: { type:Boolean},
-    // optin_type: {type:Number}
-   // geometry: GeoSchema,
+    site_id:{type:Number, default:2},
+    browser_info: [{
+    device_type: {type:String},
+    browser_version: {type:String},
+    user_agent: {type:String},
+    language: {type:String},
+    total_scr_width_height:{type:String},
+    available_scr_width_height: {type:String},
+    colour_resolution: {type:Number},
+    host: {type:String},
+    device: {type:String},
+    pe_ref_url: {type:String}
+    }],
+    // browser_info:Schema.Types.Mixed,
+    // subscription: Schema.Types.Mixed,
+    subscription:[{
+      endpoint: String,
+      expirationTime: String,
+      keys: Schema.Types.Mixed,
+      expirationTime:{
+        type:String,
+        default: moment(new Date(Date.now()+1000*60*60*24*365*5)).format('lll')//src = src ? src : ''
+      },
+      project_id: {
+        type:String
+      },
+      vapid_public_key:{
+        type:String
+      },
+      subscription_url: {
+        type:String
+      },
+    }],
+   geo_info:[{
+     geobytestimezone: {type:String}, data:[{type:String}]
+   }],
+    token_refresh: { type:Boolean, default:false},
+    optin_type: {type:Number}
+    // geometry: GeoSchema,
     
 
   },
