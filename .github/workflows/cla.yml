@@ -18,7 +18,7 @@ jobs:
           path-to-signatures: cla-signatures.json
           path-to-cla-document: https://github.com/saurabhkashyap/.github/blob/master/CLA.md
           allowlist: dependabot-preview[bot], dependabot[bot], greenkeeper[bot], *bot, bot*
-          remote-organization-name: koj-co
+          remote-organization-name: raindigi
           remote-repository-name: .github
           signed-commit-message: ":wrench: @$contributorName has signed the CLA in #$pullRequestNo"
           create-file-commit-message: ":wrench: Creating a file for storing CLA signatures"
