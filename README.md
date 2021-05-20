@@ -294,6 +294,7 @@ Sweetspot = Monolith app and databases in containers
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout?ref=badge_large)
 
+CLA Sign is added
 #### 👋 [Official site](https://raindigi.com)  Pushgeek is made with ❤️ by © RainDigi IT Pvt. Ltd.
   
 ![Visitor Count](https://profile-counter.glitch.me/{saurabharch}/count.svg)
