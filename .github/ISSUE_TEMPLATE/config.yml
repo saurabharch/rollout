@@ -4,5 +4,5 @@ contact_links:
     url: https://github.com/saurabharch/rollout/issues/new?assignees=&labels=Rollout+Feature&template=rollout-feature-request.md&title=
     about: Suggest an idea for this project
   - name: Questions
-    url: https://github.com/saurabharch/saurabharch/discussions/new?category=q-a
+    url: https://github.com/saurabharch/rollout/issues/new?assignees=saurabharch&labels=Rollout+Feature&template=rollout-question.md&title=
     about: Please ask and answer questions here

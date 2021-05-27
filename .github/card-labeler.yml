@@ -1,11 +1,15 @@
 Roadmap:
-  Under Consideration:
-    - 'Under Consideration'
+  Project Card Event:
+    - "To Do"
   Planned:
-    - 'Planned'
-  In Progress: 
-    - 'In Progress'
-  Done + Testing:
-    - 'Done + Testing'
+    - "Planned"
+  In Progress:
+    - "In Progress"
+  Review in progress:
+    - "Review in progress"
+  Reviewer approved:
+    - "Reviewer approved"
+  Testing:
+    - "Testing"
   Live:
-    - 'Live'
+    - "Live"
