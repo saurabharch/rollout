@@ -263,6 +263,10 @@ sudo apt-get install fail2ban
 |___________________________server.js
 
 ```
+# Work in Action
+<h1 align="center">
+  <img alt="PushGeek" src="https://raw.githubusercontent.com/saurabharch/rollout/master/docs/screenshot.png?raw=true" width="180px" />
+</h1>
 
 ## Notes (Opinionated)
 
