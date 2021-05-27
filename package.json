@@ -12,7 +12,7 @@
         "demo:test": "ava",
         "start": "node build/index.js",
         "restart": "pm2 startOrRestart ecosystem.config.js",
-        "pro:deploy": "pm2 deploy ecosystem.config.js production",
+        "pro:deploy": "pm2 deploy ecosystem.config.js development",
         "dev": "npm-run-all -p dev:*",
         "dev:tailwind": "postcss src/public/css/tailwind.css -o src/public/css/style1.css",
         "dev:server": "nodemon src/index.js --exec babel-node",

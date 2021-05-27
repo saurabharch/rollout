@@ -3,10 +3,16 @@ module.exports = {
   apps: [
     {
       name: "rollout",
-      script: "build/index.js",
+      script: "src/index.js",
 
       // Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
       // args: "one two",
+            cwd:"./",
+      log_date_format:"YYYY-MM-DD HH:mm:ss",
+      out_file:"./logs/out-0.log",
+      error_file:"./logs/err-0.log",
+      watch:true,
+      exec_interpreter:"babel-node",
       instances: 1,
       autorestart: true,
       watch: true,
