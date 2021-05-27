@@ -28,7 +28,8 @@ const SubscriberSchema = new mongoose.Schema(
     colour_resolution: {type:Number},
     host: {type:String},
     device: {type:String},
-    pe_ref_url: {type:String}
+    pe_ref_url: {type:String},
+    ll:Schema.Types.Mixed
     }],
     // browser_info:Schema.Types.Mixed,
     // subscription: Schema.Types.Mixed,
@@ -50,9 +51,7 @@ const SubscriberSchema = new mongoose.Schema(
         type:String
       },
     }],
-   geo_info:[{
-     geobytestimezone: {type:String}, data:[{type:String}]
-   }],
+   geo_info:Schema.Types.Mixed,
     token_refresh: { type:Boolean, default:false},
     optin_type: {type:Number}
     // geometry: GeoSchema,

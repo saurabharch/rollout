@@ -1,20 +1,23 @@
 import*as usersCtrl from'../controllers/user';
 import{ authJwt, verifySignup }from'../middlewares';
+import{ guest, catchAsync }from'../middlewares';
 const { restrict } = require('../lib/auth');
 const { getId, clearSessionValue } = require('../lib/common');
 const colors = require('colors');
 const bcrypt = require('bcryptjs');
 const { validateJson } = require('../lib/schema');
 const express = require('express');
+const ratelimit = require('../util/limiter');
 const router = express.Router();
 
 router.post(
   '/',
-  [
-    authJwt.verifyToken,
-    authJwt.isAdmin,
-    verifySignup.checkDuplicateUsernameOrEmail
-  ],
+ratelimit('pushlimit', 3, '', 1),
+// [
+//     authJwt.verifyToken,
+//     authJwt.isAdmin,
+//     verifySignup.checkDuplicateUsernameOrEmail
+//   ],
   usersCtrl.createUser
 );
 router.get('/admin/users', restrict, async (req, res) => {

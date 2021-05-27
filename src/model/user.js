@@ -7,6 +7,7 @@ const val = require('validator');
 
 const app = require('../config/app');
 const auth = require('../config/auth')
+const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const userSchema = new mongoose.Schema(
   {
     email: {
@@ -15,6 +16,8 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       index: true,
       sparse:true,
+      match: [emailRegex, "Please enter a valid email address"],
+      trim: true,
       validate: {
         validator: function(email){
           return async email => !await User.exists({ email });
@@ -165,25 +168,15 @@ const userSchema = new mongoose.Schema(
   }
 );
 userSchema.plugin(require('mongoose-autopopulate'));
-userSchema.pre('save', function(){
-  return __awaiter(this, void 0, void 0, function(){
-    let _a;
-    return __generator(this, function(_b){
-      switch(_b.label){
-        case 0:
-          if(!this.isModified('password'))return [3 /* break */, 2];
-          _a = this;
-          return [
-            4 /* yield */,
-            bcryptjs.hash(this.password, auth.BCRYPT_WORK_FACTOR)
-          ];
-        case 1:
-          _a.password = _b.sent();
-          _b.label = 2;
-        case 2:
-          return [2];
-      }
-    });
+userSchema.pre('save', async function(next){
+ bcryptjs.hash(this.password, auth.BCRYPT_WORK_FACTOR, (error, hash) => {
+    if (error) {
+      return next(error);
+    } else {
+      this.password = hash;
+      this.confirmPassword = hash;
+      next();
+    }
   });
 });
 userSchema.methods.matchesPassword = function(password){

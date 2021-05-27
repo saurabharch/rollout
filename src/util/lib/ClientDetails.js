@@ -3,7 +3,7 @@ const ClientRequestData = async (request, response) => {
   try {
     //   var ip = request.headers["x-forwarded-for"] || request.connection.remoteAddress;
     var requestlenght = request.baseUrl;
-    if (!request.params[0] === "position.json") {
+    if (!request.params[0] === "pushgeek-geo.json") {
       request.status(301).json({ message: "Request Method Not Allowed" });
     } else {
       const forwarded = request.headers["x-forwarded-for"] || "103.209.71.41";
@@ -19,7 +19,7 @@ const ClientRequestData = async (request, response) => {
         cordinate: geo,
         // systemstatus: process.memoryUsage()
       };
-      await response.status(200).json(JSON.stringify(headers));
+      await response.status(200).json(headers);
     }
   } catch (error) {
     console.error(`Error occurred while saving subscription. Err: ${error}`);

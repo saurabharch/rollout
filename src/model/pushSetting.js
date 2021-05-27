@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 
 
-const settings = new mongoose.Schema({
+const Pushsettings = new mongoose.Schema({
     gcm:[{
          id: {type:String, default:null},
         phonegap: {type:Boolean,dafault:false},
@@ -12,12 +12,12 @@ const settings = new mongoose.Schema({
     }],
     apn: [{
         token:[{
-            key: {type:String,default:'./certs/key.p8'}, // optionally: fs.readFileSync('./certs/key.p8')
+            key: {type:String}, // optionally: fs.readFileSync('./certs/key.p8')
             keyId: {type:String,default:'ABCD'},
             teamId:{type:String, default:'EFGH'},
         }],
-      cert: {type:String, default:'cert.pem'},
-      key: {type:String,default:'key.pem'},
+      cert: {type:String},
+      key: {type:String},
       ca: {type:String, default:null},
       pfx: {type:String,default:null},
       passphrase: {type:String,default:null},
@@ -69,5 +69,5 @@ const settings = new mongoose.Schema({
         versionKey: false
 }
 );
-const Pushsetting = mongoose.model('push_settings', settings);
+const Pushsetting = mongoose.model('pushsetting', Pushsettings);
 module.exports = Pushsetting;

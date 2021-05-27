@@ -1409,26 +1409,27 @@ try {
       }
       return timezone;
     },
-    getCordinates: function(){
-      var cordinate = [];
-      try{
-        
-         var postion = WebClient("http://demo.localhost:5500/api/geo/pushgeek-geo.js","GET" ,"");
-         var clientData = postion;
-         console.log(`${clientData}`);
-       return cordinates.push(clientDate);
-      } catch (e) {
-        
-      }
-      return cordinate;
+    getCordinate: async function(data) {
+
+      // read our JSON
+      let response = await fetch('http://demo.localhost:5500/api/geo/pushgeek-geo.js');
+      data = await response.json();
+
+      // wait 3 seconds
+     // await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+      // console.log(data);
+      return data;
     },
     modifyGeo: function(geoInfo) {
+      // var cordinate = WebClient("http://demo.localhost:5500/api/geo/pushgeek-geo.json","GET");
+      var cordinates = _pgD.getCordinate();
+       console.log(`Cordinate Data : ${JSON.stringify(cordinates)}`)
       var timezone = _pgD.getTimezone();
-      var cordinates = _pgD.getCordinates();
+      // var cordinates = _pgD.getCordinates();
       var geo = {
-        geobytestimezone: timezone,
-        data : cordinates
+        geobytestimezone: timezone
       };
+      console.log(`All Geo Data : ${JSON.stringify(geo)}`)
       if (typeof geoInfo === "object") {
         geo = _pgD.objectAssign(geo, geoInfo);
         if (_pgSd.site.isEu && geo.geobytesipaddress) {
@@ -2760,7 +2761,7 @@ try {
           _pgSd.privacySettings.geoLocationEnabled &&
           _pg.ipDateChange(parseCookieSubData.ip)
         ) {
-          _pgD.insertFile("js", "position", false, function(res) {
+          _pgD.insertFile("js", "pushgeek-geo", false, function(res) {
             if (typeof peGeoInfo != "undefined") {
               var geoData = _pgD.modifyGeo(peGeoInfo);
               var updateIp = geoData.geobytesipaddress;

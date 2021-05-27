@@ -3,6 +3,7 @@ const router = express.Router();
 const Subscription = require('../model/subscriber');
 
 router.post('/', (req, res) => {
+  // console.log(`Data lonlat : ${JSON.stringify(req.body.browser_info.ll)}`)
   var Data = {
   site_id: req.body.site_id || 2,
   browser_info: {
@@ -28,11 +29,11 @@ router.post('/', (req, res) => {
     vapid_public_key: req.body.subscription.vapid_public_key  || 'BLgFTwjElUH_Iz72TKDvmlsc-EcwziNP2X28BmN-znOXJhv35QybtfcN1HTh_eUlNffp12HkuruYpqtKNedN54s'
   },
   subscription_url: req.body.subscription_url || 'http://localhost:5500',
-  geo_info: { geobytestimezone: req.body.geo_info.geobytestimezone, data: req.body.geo_info.data },
+  geo_info:req.body.geo_info,
   token_refresh: req.body.token_refresh,
   optin_type: req.body.optin_type
   }
-
+// console.log(`Geo Info : ${JSON.stringify(req.body.geo_info.data)}`)
   // console.log(`RAW requested Data : ${JSON.stringify(req.body)} \n\r`);
   // console.log(`Data Formated : \n${JSON.stringify(Data)}`);
   const subscriptionModel = new Subscription(Data);

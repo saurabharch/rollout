@@ -66,7 +66,7 @@ const PushMessageSchema = new mongoose.Schema(
     },
     vibrate: {
       type: String,
-      enum: ['500', '110', '450', '200', '170', '40'],
+      // enum: ['500', '110', '450', '200', '170', '40'],
       default: '100',
       required: [false, 'vibration key number default set as 500']
     },
@@ -112,29 +112,29 @@ const PushMessageSchema = new mongoose.Schema(
       default: 'normal'
     },
     // setting:{
-    //   Pushsetting:Schema.Types.ObjectId,
-    //   ref:'push_settings',
+    //   pushSettingId:Schema.Types.ObjectId,
+    //   ref:'pushsetting',
     //   autopopulate: true
     // },
-    AuthUser: [
-      {
-        User: {
-          type: Schema.Types.ObjectId,
-          ref: 'user',
-          autopopulate: true
-        },
-        Role: {
-          type: Schema.Types.ObjectId,
-          ref: 'role',
-          autopopulate: true
-        },
-        OrgName: {
-          type: Schema.Types.ObjectId,
-          ref: 'organization',
-          autopopulate: true
-        }
-      }
-    ]
+    // AuthUser: [
+    //   {
+    //     User: {
+    //       type: Schema.Types.ObjectId,
+    //       ref: 'user',
+    //       autopopulate: true
+    //     },
+    //     Role: {
+    //       type: Schema.Types.ObjectId,
+    //       ref: 'role',
+    //       autopopulate: true
+    //     },
+    //     OrgName: {
+    //       type: Schema.Types.ObjectId,
+    //       ref: 'organization',
+    //       autopopulate: true
+    //     }
+    //   }
+    // ]
   },
   {
     timestamps: true,

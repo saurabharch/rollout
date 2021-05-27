@@ -362,6 +362,8 @@ try {
           ip = geoInfo.geobytesipaddress;
         }
         var availScreen = screen.availWidth + "*" + screen.availHeight;
+        // let cordinate = fetch('http://demo.localhost:5500/api/geo/pushgeek-geo.js');
+        // var kalkhatta = cordinate.json()
         var data = {
           relApiPath: "/api/subscribe",
           reqData: {

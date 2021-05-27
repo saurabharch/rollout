@@ -2,38 +2,59 @@ import Push from'../model/push';
 import User from'../model/user';
 import Organisation from'../model/organization';
 import Domain from'../model/domains';
+import Pushsetting from "../model/pushSetting";
 const Subscription = require('../model/subscriber');
+import{ catchAsync, isAuthenticated, isClientAuthenticated }from'../middlewares';
 const q = require('q');
 const webpush = require('web-push');
 const keys = require('./../config/keys');
 const ratelimit = require('../util/limiter');
+import PushNotifications from 'rollout-pushnotification';
+const settings = {
+    gcm: {
+        id: null,
+        phonegap: false, // phonegap compatibility mode, see below (defaults to false)
+    },
+    // apn: {
+    //     token: {
+    //         key: '', //'./certs/key.p8', // optionally: fs.readFileSync('./certs/key.p8')
+    //         keyId: 'ABCD',
+    //         teamId: 'EFGH',
+    //     },
+        
+    //     production: false // true for APN production environment, false for APN sandbox environment,
+    // },
+    adm: {
+        client_id: null,
+        client_secret: null,
+    },
+    wns: {
+        client_id: null,
+        client_secret: null,
+        notificationMethod: 'sendTileSquareBlock',
+    },
+    web: {
+        vapidDetails: {
+            subject: 'mailto:saurabh@raindigi.com',
+            publicKey: keys.publicKey,
+            privateKey: keys.privateKey,
+        },
+        gcmAPIKey: 'gcmkey',
+        TTL: 2419200,
+        contentEncoding: 'aes128gcm',
+        headers: {}
+    },
+    isAlwaysUseFCM: false, // true all messages will be sent through node-gcm (which actually uses FCM)
+};
+
+
+ 
+const push = new PushNotifications(settings);
 export const createPush = async (req, res) => {
   const { name, category, price, imgURL } = req.body;
 
   try{
-    const payload = new Push({
-      title: req.body.title,
-      message: req.body.message,
-      url: req.body.url,
-      ttl: req.body.ttl,
-      icon: req.body.icon,
-      image: req.body.image,
-      badge: req.body.badge,
-      tag: req.body.tag,
-      urgency: req.body.urgency,
-      actions: req.body.actions,
-      vibrate: req.body.vibrate, //  body: 'With "requireInteraction: \'true\'".',
-      //   require
-      // Interaction: ,
-      silent: req.body.silent,
-      renotify: req.body.renotify,
-      sound: '/audio/notification.mp3',
-      dir: 'auto',
-      timestamp: Date.now() || req.params.Date,
-      AuthUser: {
-        OrgName: req.body.orgnisationId
-      }
-    });
+    const payload = new Push(req.body);
 
     const pushSaved = await payload.save();
 
@@ -78,87 +99,141 @@ export const deletePushById = async (req, res) => {
 
 export const broadcastPushById = async (req, res) => {
   const { pushId } = req.params;
-
-  const push = await Push.findById(pushId);
-  console.log(push);
+  console.log(`${pushId}`)
+  // const pushId = "60ad6156a81a61453c344dc5"
+  const registrationIds = [];
+  const payload = await Push.findById(pushId);
+  console.log(payload);
+  
   try{
-    Subscription.find({}, (err, subscriptions) => {
+  await Subscription.find({}, (err, subscriptions) => {
       if(err){
         console.error('Error occurred while getting subscriptions');
-        res.status(500).json({ error: 'Technical error occurred' });
-      }else{
+        res.status(500).json({
+          error: 'Technical error occurred'
+        });
+    }else{
+  
+        // Latest Dynamic Method for multiplatform sending notification
+        // You can use it in node callback style
         const parallelSubscriptionCalls = subscriptions.map(subscription => {
           return new Promise((resolve, reject) => {
-            //  console.log(`p256dh key: ${subscription.keys.p256dh}`);
-            const pushSubscription = {
-              endpoint: subscription.endpoint,
-              keys: {
-                p256dh: subscription.keys.p256dh,
-                auth: subscription.keys.auth
-              },
-              domain: subscription.domain
-            };
-            const DomainDetails = Domain.findOne({
-              siteUrl: pushSubscription.domain
-            });
-            console.log(`Domain Detailes: ${DomainDetails}`);
-            const OrgDetails = Organisation.findOne({
-              domains: DomainDetails._id
-            });
-            console.log(`Organisation Detailes: ${OrgDetails}`);
-            const userEmailId = User.findOne({ _id: OrgDetails._id }).then(
-              UserEmail => UserEmail.email
-            );
-            console.log(`Organisation Email Id: ${userEmailId}`);
-            const pushPayload = JSON.stringify(push);
-            const pushOptions = {
-              // gcmAPIKey: keys.GCM_Key,
-              vapidDetails: {
-                subject: pushSubscription.domain,
-                privateKey: keys.privateKey,
-                publicKey: keys.publicKey
-              },
-              TTL: payload.ttl,
-              headers: {}
-            };
-            // contentEncoding: "aes128gcm"
-            // proxy: "",
-            // agent: ""
-            webpush.setVapidDetails(
-              `mailto:${userEmailId}`,
-              keys.publicKey,
-              keys.privateKey,
-              'aes128gcm'
-            );
-            webpush
-              .sendNotification(pushSubscription, pushPayload, pushOptions)
-              .then(value => {
-                resolve({
-                  status: true,
-                  endpoint: subscription.endpoint,
-                  data: value
-                });
-              })
-              .catch(err => {
-                reject({
-                  status: false,
-                  endpoint: subscription.endpoint,
-                  data: err
+                const subscriptionD = subscription.subscription.map(SUB => {
+                  
+                  return new Promise((resolve, reject) => {
+                    const subsObj = {
+                       endpoint: SUB.endpoint,
+                      keys: {
+                        p256dh:SUB.keys.p256dh,
+                        auth: SUB.keys.auth
+                      },
+                    }
+                    registrationIds.push(subsObj);
+                  });
+                  
                 });
               });
+              
+              // }
           });
-        });
-
-        // Queue For Send All List of Subscirber Notification and settle down the Queue Job
+          push.send(registrationIds, payload, (err, result) => {
+                  if (err) {
+                      console.log(err);
+                  } else {
+                    console.log(result);
+                  }
+          });
         q.allSettled(parallelSubscriptionCalls).then(pushResults => {
-          if(pushResults.status != true){
-            const errorEndpoint = 1;
-            res.json({ res: JSON.parse(pushResults.endpoint) });
-          }
-          // console.info(pushResults);
+            if(pushResults.status != true){
+              const errorEndpoint = 1;
+                res.json({ res: JSON.parse(pushResults.endpoint) });
+              }
+              console.info(pushResults);
         });
-        res.json({ data: 'Push triggered' });
-      }
-    });
+          res.json({
+            data: 'Push triggered'
+          });
+    }
+  });
   }catch(error){}
 };
+
+export const saveMessageSetting = async(req,res) => {
+      const settings = {
+    gcm: {
+        id: req.body.gcmId,
+        phonegap: req.body.gcmPhonegap || false, // phonegap compatibility mode, see below (defaults to false)
+    },
+    apn: {
+        token: {
+            key: req.body.apnTokenKey || 'ABCD', // optionally: fs.readFileSync('./certs/key.p8')
+            keyId: req.body.apnTokenId || 'ABCD',
+            teamId: req.body.apnTokenTeamId || 'EFGH',
+        },
+        
+        production: req.body.apnProduction || false // true for APN production environment, false for APN sandbox environment,
+    },
+    adm: {
+        client_id: req.body.admClient_id || null,
+        client_secret: req.body.admClient_secret || null,
+    },
+    wns: {
+        client_id: req.body.wnsClient_id || null,
+        client_secret: req.body.wnsClient_secret || null,
+        notificationMethod: req.body.wnsNotificationMethod || 'sendTileSquareBlock',
+    },
+    web: {
+        vapidDetails: {
+            subject: req.body.webSubject || 'mailto:saurabh@raindigi.com',
+            publicKey: req.body.webPublicKey || keys.publicKey,
+            privateKey: req.body.webPrivateKey || keys.privateKey,
+        },
+        gcmAPIKey: req.body.webGcmAPIKey || 'gcmkey',
+        TTL: req.body.webTTL ||  2419200,
+        contentEncoding: req.body.webContentEncoding || 'aes128gcm',
+        headers: req.body.webHeaders || ''
+    },
+    isAlwaysUseFCM: req.body.isAlwaysUseFCM || false, // true all messages will be sent through node-gcm (which actually uses FCM)
+};
+ var setting = new Pushsetting();
+ const session = await setting.startSession();
+    session.startTransaction();
+    if(req.body.gcmId){
+      setting.gcm = settings.gcm;
+    }
+    if(req.body.apnTokenKey)
+    {
+      setting.apn = settings.apn;
+    }
+    if(req.body.admClient_id && req.body.admClient_secret)
+    {
+      setting.adm = settings.adm;
+    }
+    if(req.body.wnsClient_id && req.body.wnsClient_secret){
+      setting.wns = settings.wns;
+    }
+    if(req.body.webPublicKey && req.body.webPrivateKey || req.body.webGcmAPIKey )
+    {
+      setting.web = settings.web;
+    }
+    if(req.body.isAlwaysUseFCM){
+      setting.isAlwaysUseFCM = settings.isAlwaysUseFCM;
+    }
+    
+    await setting.save(setting).then(function(err) {
+    if (err)
+      return res.status(404).json(err.message);
+
+    res.status(200).json({ message: 'Client added to the locker!', data: setting });
+  });
+
+}
+
+export const GetMessageSettingById = async(req, res) => {
+  const {id} = req.param;
+  const SettingData = Pushsetting.findById(id);
+  if (err)
+      return res.status(404).json(err.message);
+
+    res.status(200).json({ message: 'Device Push Notification Message Settings!', data: SettingData });
+}

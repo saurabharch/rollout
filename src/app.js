@@ -118,7 +118,7 @@ require("./controllers/passport")(passport);
 // Load Keys
 
 const keys = require("./config/keys");
-const SW_JS_FILE = "public/sw-test.js";
+const SW_JS_FILE = "public/sw.js";
 const {
   createRoles,
   createAdmin,
