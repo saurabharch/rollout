@@ -1,7 +1,7 @@
 blank_issues_enabled: true
 contact_links:
   - name: Feature requests and ideas
-    url: https://github.com/saurabharch/rollout/discussions/new?category=ideas
+    url: https://github.com/saurabharch/rollout/issues/new?assignees=&labels=Rollout+Feature&template=rollout-feature-request.md&title=
     about: Suggest an idea for this project
   - name: Questions
     url: https://github.com/saurabharch/saurabharch/discussions/new?category=q-a
