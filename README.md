@@ -265,7 +265,7 @@ sudo apt-get install fail2ban
 ```
 # Work in Action
 <h1 align="center">
-  <img alt="PushGeek" src="https://raw.githubusercontent.com/saurabharch/rollout/master/docs/screenshot.png?raw=true" width="180px" />
+  <img alt="PushGeek" src="https://raw.githubusercontent.com/saurabharch/rollout/master/docs/screenshot.png?raw=true" width="380px" />
 </h1>
 
 ## Notes (Opinionated)
