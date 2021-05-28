@@ -164,7 +164,7 @@
         "siege": "^0.2.0",
         "sitemap": "^6.4.0",
         "string-strip-html": "^6.3.0",
-        "strip-bom": "^4.0.0",
+        "strip-bom": "^5.0.0",
         "stripe": "^8.150.0",
         "swagger-jsdoc": "^7.0.0-rc.6",
         "swagger-ui-express": "^4.1.6",
