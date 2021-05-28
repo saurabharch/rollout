@@ -6,9 +6,10 @@ import { v4 as uuidv4 } from 'uuid';
 const colors = require("colors");
 import{ BadRequest }from'../errors';
 import UserController from'../jobs/controller/UserController';
+ var FullData ='';
 export const createUser = async (req, res, next) => {
       var testM = [];
-    const FullData ='';
+     
       try{
     const { username, email, password, roles } = req.body;
     console.log(req.body);
@@ -21,23 +22,30 @@ export const createUser = async (req, res, next) => {
       password,
       roles: rolesFound.map(role => role._id)
     });
-
+    var data = {
+      roles: rolesFound.map(role => role._id),
+      username: req.body.username,
+      email:req.body.email,
+      password: req.body.password,
+      firstName:req.body.firstName,
+      lastName:req.body.lastName
+    }
     // encrypting password
     // user.password = await User.encryptPassword(user.password);
 
     // saving the new user
     const savedUser = await user.save();
       const link = user.verificationUrl();
+
       var Cdata = [];
-      Cdata.push({roles: data.roles,
-        username: data.username,
-        email:data.email,
-        firstName:data.firstName,
-        lastName:data.lastName,
+      Cdata.push({roles: savedUser.roles,
+        username: savedUser.username,
+        email:savedUser.email,
+        firstName:savedUser.firstName,
+        lastName:savedUser.lastName,
         link: link
       });
       FullData = Cdata;
-      const serial = '';
       UserController.store(FullData);
       testM.push(FullData);
     return res.status(200).json({

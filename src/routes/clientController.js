@@ -13,16 +13,18 @@ router.get('/',(req,res)=>{
 // router.route('/api')
 //   .post(authController.isAuthenticated, clientController.postClients)
 //   .get(authController.isAuthenticated, clientController.getClients);
-router.post('/oauth2/authorize',isAuthenticated,  catchAsync(async (req, res) => {
+router.post('/oauth2/authorize',  catchAsync(async (req, res) => {
       // Use the Client model to find all clients
   // Create a new instance of the Client model
+  const {client_id,response_type,redirect_uri} = req.params;
   var client = new Client();
 
   // Set the client properties that came from the POST data
   client.name = req.body.name;
   client.id = req.body.id;
   client.secret = req.body.secret;
-  client.userId = req.user._id;
+  client.userId = req.body._id;
+  client.redirect_uri = req.body.redirect_uri
 
   // Save the client and check for errors
   client.save(function(err) {
@@ -32,14 +34,15 @@ router.post('/oauth2/authorize',isAuthenticated,  catchAsync(async (req, res) =>
     res.json({ message: 'Client added to the locker!', data: client });
   });
 }));
-router.get('/oauth2/authorize',isAuthenticated,  catchAsync(async (req, res) => {
+router.get('/oauth2/authorize',  catchAsync(async (req, res) => {
      // Use the Client model to find all clients
-  Client.find({ userId: req.user._id }, function(err, clients) {
+     const {client_id,response_type,redirect_uri} = req.params;
+  Client.find({'id':{$in:client_id}}, function(err, clients) {
     if (err)
       return res.send(err);
 
     res.json(clients);
-  });
+  }).exec();
 }));
 // router.post(
 //     '/',

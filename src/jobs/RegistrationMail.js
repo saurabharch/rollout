@@ -1,11 +1,11 @@
 import Mail from'../lib/Mail';
-import MAIL_FROM from'../config/mail';
+import {MAIL_FROM} from'../config/mail';
 
 export default{
   key: 'RegistrationMail',
   async handle({ data }){
     const { user } = data;
-    console.log(`Send Data for Mail : ${user}`)
+    console.log(`Send Data for Mail : ${JSON.stringify(user)}`)
     await Mail.sendMail({
       from: `PushGeek <${MAIL_FROM}>`,
       to: `${user.firstName} <${user.email}>`,

@@ -3,24 +3,25 @@ import Push'../model/push';
 
 const GetMessageSender = async (req, res, next) => {
   try{
-    const user = await Pushsetting.findOne({ users: req.body.username });
-    if(message){ return res.status(200).json({ message: 'message sender username is valid' }); }
+    const message = await Pushsetting.findOne({ users: req.body.site_id });
+    if(message){ return res.status(200).json({ message: 'not valid message setting' }); }
     const email = await User.findOne({ email: req.body.email });
     if(email){ return res.status(200).json({ message: 'message sender email is valid' }); }
-    next();
+    
   }catch(error){
     res.status(500).json({ message: error });
   }
+  next();
 };
 
-const checkMessageExisted = (req, res, next) => {
+const checkMessageExisted = async (req, res, next) => {
   const { pushId } = req.params;
   if(pushId){
-      var Exists = push.findById(pushId)
+      const Exists = await Push.findById(pushId);
       if(!Exists){
         var data = req.params;
         return res.status(400).json({
-          message: `Push message is does not exists`
+          message: Exists+ ' Message Id doesn't exists'
         });
       }
   }
@@ -29,4 +30,4 @@ const checkMessageExisted = (req, res, next) => {
 };
 
 
-export{ checkDuplicateUsernameOrEmail, checkRolesExisted };
+export{ GetMessageSender, checkMessageExisted };

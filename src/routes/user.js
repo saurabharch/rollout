@@ -13,11 +13,12 @@ const router = express.Router();
 router.post(
   '/',
 ratelimit('pushlimit', 3, '', 1),
-// [
+[
 //     authJwt.verifyToken,
 //     authJwt.isAdmin,
-//     verifySignup.checkDuplicateUsernameOrEmail
-//   ],
+verifySignup.checkDuplicateUsernameOrEmail, 
+verifySignup.checkRolesExisted
+],
   usersCtrl.createUser
 );
 router.get('/admin/users', restrict, async (req, res) => {

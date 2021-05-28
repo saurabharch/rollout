@@ -2,6 +2,7 @@
 node_modules
 npm-debug.log
 .DS_Store
+log
 /*.env
 ./public/test1.js
 ./public/sw-test.js

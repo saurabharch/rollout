@@ -10,7 +10,7 @@ try {
       sI: "http://localhost:5500/images/apple-touch-icon.png",
       sK: "ee08a9929fe7ea157ecd01aea9c53c14",
       sSd: "demo",
-      sSi: "2",
+      sSi: "3",
       powBy: "1",
       isEu: true,
       isSponsored: false,

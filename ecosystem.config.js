@@ -7,7 +7,7 @@ module.exports = {
 
       // Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
       // args: "one two",
-            cwd:"./",
+      cwd:"./",
       log_date_format:"YYYY-MM-DD HH:mm:ss",
       out_file:"./logs/out-0.log",
       error_file:"./logs/err-0.log",
@@ -16,13 +16,20 @@ module.exports = {
       instances: 1,
       autorestart: true,
       watch: true,
+      // exec_mode:"fork",
+      env: {
+        COMMON_VARIABLE: 'true'
+      },
+      env_production : {
+        NODE_ENV: 'production'
+      }
       watch:
         process.env.NODE_ENV !== "production"
           ? path.resolve(__dirname, "./")
           : false,
       exec_mode: "cluster",
       max_memory_restart: "1G",
-      instances: 2,
+      instances: 1,
       env_production: {
         NODE_ENV: "production"
       }

@@ -4,7 +4,7 @@ export default{
   async store(data){
     const Data = data;
   // const {firstName,lastName,email,link} = Data
-    console.log(`1. Mail Registered Userdata: ${Data}`)
+    console.log(`1. Mail Registered Userdata: ${JSON.stringify(Data)}`)
    // const user = Data;
     const user = {
       firstName:Data.firstName,

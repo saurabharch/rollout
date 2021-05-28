@@ -98,15 +98,16 @@ export const deletePushById = async (req, res) => {
 };
 
 export const broadcastPushById = async (req, res) => {
-  const { pushId } = req.params;
-  console.log(`${pushId}`)
+  const { pushId,site_id} = req.params;
+  // const site_id = req.query;
+  console.log(`Push id : ${pushId} \nsite_id: ${site_id}`)
   // const pushId = "60ad6156a81a61453c344dc5"
   const registrationIds = [];
   const payload = await Push.findById(pushId);
   console.log(payload);
   
   try{
-  await Subscription.find({}, (err, subscriptions) => {
+  await Subscription.find({'site_id':{$in:site_id}}, (err, subscriptions) => {
       if(err){
         console.error('Error occurred while getting subscriptions');
         res.status(500).json({
@@ -116,7 +117,7 @@ export const broadcastPushById = async (req, res) => {
   
         // Latest Dynamic Method for multiplatform sending notification
         // You can use it in node callback style
-        const parallelSubscriptionCalls = subscriptions.map(subscription => {
+        const parallelSubscriptionCalls =  subscriptions.map(subscription => {
           return new Promise((resolve, reject) => {
                 const subscriptionD = subscription.subscription.map(SUB => {
                   
@@ -128,6 +129,7 @@ export const broadcastPushById = async (req, res) => {
                         auth: SUB.keys.auth
                       },
                     }
+                    console.log(subsObj);
                     registrationIds.push(subsObj);
                   });
                   
@@ -154,7 +156,7 @@ export const broadcastPushById = async (req, res) => {
             data: 'Push triggered'
           });
     }
-  });
+  }).cursor({ batchSize: 1000 }).exec();
   }catch(error){}
 };
 

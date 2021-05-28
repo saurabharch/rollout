@@ -132,7 +132,7 @@ router.post(
   pushCtrl.createPush
 );
 
-router.post('/send/:pushId',ratelimit('pushlimit', 10, '', 1), pushCtrl.broadcastPushById);
+router.post('/send/:pushId/:site_id',ratelimit('pushlimit', 10, '', 1), pushCtrl.broadcastPushById);
 router.put(
   '/:pushId',ratelimit('pushlimit', 10, '', 1),
   // [(authJwt.verifyToken, authJwt.isModerator)],
