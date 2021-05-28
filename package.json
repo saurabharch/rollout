@@ -179,11 +179,11 @@
         "yenv": "^2.1.1"
     },
     "devDependencies": {
-        "@babel/cli": "^7.11.6",
-        "@babel/core": "^7.11.6",
-        "@babel/node": "^7.10.5",
+        "@babel/cli": "7.14.3",
+        "@babel/core": "7.14.3",
+        "@babel/node": "7.14.2",
         "@babel/plugin-transform-runtime": "^7.12.1",
-        "@babel/preset-env": "^7.11.5",
+        "@babel/preset-env": "7.14.4",
         "@shelf/jest-mongodb": "^1.2.3",
         "ava": "^3.13.0",
         "babel-core": "^6.26.3",
