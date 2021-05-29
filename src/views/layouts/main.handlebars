@@ -6419,10 +6419,13 @@
         <script type="text/javascript" src="/app.js"></script>
         <script type="text/javascript" src="pushgeek.js"></script>
         <script type="text/javascript">
-            pg.overlay.addHtml()
             pg.initSw();
-            if (pg.subscribe()) {
-                pg.overlay.hideHtml()
+            if (!_pg.checkSubscriptionStatus()) {
+                pg.overlay.addHtml()
+                pg.initSw();
+                if (pg.subscribe()) {
+                    pg.overlay.hideHtml()
+                }
             }
         </script>
     </body>
