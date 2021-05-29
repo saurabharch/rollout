@@ -5853,11 +5853,15 @@ $( document ).ready(function() {
 <script type="text/javascript" src="pushgeek.js"></script>
  
 <script type="text/javascript">
-    pg.overlay.addHtml()
-    pg.initSw();
-    if( pg.subscribe())
+     pg.initSw();
+    if(!_pg.checkSubscriptionStatus())
     {
-        pg.overlay.hideHtml()
+        pg.overlay.addHtml()
+        pg.initSw();
+        if( pg.subscribe())
+        {
+            pg.overlay.hideHtml()
+        }
     }
 </script>
 <script>

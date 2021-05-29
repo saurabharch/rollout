@@ -12,7 +12,7 @@ const ClientRequestData = async (request, response) => {
         : request.connection.remoteAddress;
       var geo = await geoip.lookup(ip);
       console.log(process.memoryUsage());
-      const headers = {
+      var headers = {
         ipaddress: ip,
         language: request.headers["accept-language"],
         software: request.headers["user-agent"],
@@ -34,7 +34,7 @@ const ClientInfo = async (request, response) => {
     const ip =
       request.headers["x-forwarded-for"] || request.connection.remoteAddress;
 
-    const headers = {
+    var headers = {
       ipaddress: ip,
       language: request.headers["accept-language"],
       software: request.headers["user-agent"]

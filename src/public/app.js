@@ -135,7 +135,7 @@ try {
     overlay: {
       status: true,
       style:
-        '<style id="pg-overlay-backdrop-style">#pg-overlay-backdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483638;background-color:rgba(0,0,0,0.8);}#pg-overlay-backdrop #pg-overlay-backdrop-arrow-image{padding:0px;position:absolute;left:0;right:0;margin:0 auto;width:550px;top:135px;transform:rotate(-7deg)}#pg-overlay-backdrop-arrow-image img{width: 100px;height: 100px;padding: 0;margin: 0;}#pg-overlay-backdrop #pg-overlay-text{left:0;right:0;position:absolute;width:260px;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.2);background:#fff;color:#000;border-radius:5px;margin:0 auto;top:185px}#pg-overlay-text img{width:100%;border-radius:5px 5px 0 0}#pg-overlay-text img,#pg-overlay-text p{margin:0;padding:0}#pg-overlay-text p{margin:8px 10px;line-height:22px;max-height:400px;overflow:hidden;text-overflow:ellipsis}#pushgeek-overlay-close{position:absolute;right:20px;top:30px;width:55px;height:32px;cursor:pointer}#pushgeek-overlay-close:before{transform:rotate(45deg)}#pushgeek-overlay-close:before,#pushgeek-overlay-close:after{position:fixed;right:48px;content:" ";height:33px;width:3px;background-color:#ffffff}#pushgeek-overlay-close:after{transform:rotate(-45deg)}</style>',
+        '<style id="pg-overlay-backdrop-style">#pg-overlay-backdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483638;background-color:rgba(0,0,0,0.8);}#pg-overlay-backdrop #pg-overlay-backdrop-arrow-image{padding:0px;position:absolute;left:0;right:0;margin:0 auto;width:550px;top:135px;transform:rotate(-7deg)}#pg-overlay-backdrop-arrow-image img{width: 100px;height: 100px;padding: 0;margin: 0;}#pg-overlay-backdrop #pg-overlay-text{left:0;right:0;position:absolute;width:260px;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.2);background:#fff;color:#000;border-radius:5px;margin:0 auto;top:185px}#pg-overlay-text img{width:100%;border-radius:5px 5px 0 0}#pg-overlay-text img,#pg-overlay-text p{margin:0;padding:0}#pg-overlay-text p{margin:8px 10px;line-height:22px;max-height:400px;overflow:hidden;text-overflow:ellipsis;padding: 0rem .6rem 0rem 1rem;}#pushgeek-overlay-close{position:absolute;right:20px;top:30px;width:55px;height:32px;cursor:pointer}#pushgeek-overlay-close:before{transform:rotate(45deg)}#pushgeek-overlay-close:before,#pushgeek-overlay-close:after{position:fixed;right:48px;content:" ";height:33px;width:3px;background-color:#ffffff}#pushgeek-overlay-close:after{transform:rotate(-45deg)}</style>',
       html:
         '<div id="pg-overlay-backdrop"><div id="pushgeek-overlay-close"></div><div id="pg-overlay-backdrop-arrow-image"><img src="http://localhost:5500/img/overlay-arrow.png"></div><div id="pg-overlay-text"><img id="pg-overlay-reminder-image" src=""><p>Click on Allow button and Subscribe to the push notifications</p></div></div>',
       powByHtml: "",
@@ -319,14 +319,14 @@ try {
     merchantSettings: {
       sm: function(parms) {
         var smPath = {
-          worker: "/sw.js",
+          worker: "/sw-test.js",
           manifest:
             "http://" + _pgSd.site.sSd + ".localhost:5500/manifest.json",
           workerStatus: true,
           scope: true
         };
         if (_pgSd.site.plateform == "shopify") {
-          smPath.worker = "/sw.js";
+          smPath.worker = "/sw-test.js";
         }
         switch (parms) {
           case "worker":

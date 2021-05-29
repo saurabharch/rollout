@@ -1,4 +1,5 @@
 "user strict";
+let notificationUrl = "";
 let examplepage = "";
 function openWindow(event) {
   /**** START notificationOpenWindow ****/
@@ -82,6 +83,11 @@ function isClientFocused() {
 
 function demoMustShowNotificationCheck(event) {
   /**** START showNotificationRequired ****/
+  let _data = event.data ? JSON.parse(event.data.text()) : {};
+  console.log("Push received: ", event.data);
+  console.log(JSON.parse(event.data.text()));
+  notificationUrl = _data.url;
+  
   const promiseChain = isClientFocused().then(clientIsFocused => {
     if (clientIsFocused) {
       console.log("Don't need to show a notification.");
@@ -89,7 +95,18 @@ function demoMustShowNotificationCheck(event) {
     }
 
     // Client isn't focused, we need to show a notification.
-    return self.registration.showNotification("Had to show a notification.");
+    return self.registration.showNotification(_data.title, {
+        body: _data.message,
+        image: _data.image,
+        badge: _data.badge,
+        ttl: _data.ttl,
+        url: _data.url,
+        tag: _data.tag,
+        icon: _data.icon,
+        timestamp: _data.timestamp,
+        vibrate: _data.vibrate,
+        lang: _data.lang,
+      });
   });
 
   event.waitUntil(promiseChain);
