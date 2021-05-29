@@ -10,6 +10,7 @@ const webpush = require('web-push');
 const keys = require('./../config/keys');
 const ratelimit = require('../util/limiter');
 import PushNotifications from 'rollout-pushnotification';
+const { clearKey } = require("../util/cache");
 const settings = {
     gcm: {
         id: null,
@@ -57,7 +58,7 @@ export const createPush = async (req, res) => {
     const payload = new Push(req.body);
 
     const pushSaved = await payload.save();
-
+    clearKey(Push);
     res.status(201).json(pushSaved);
   }catch(error){
     console.log(error);
@@ -68,12 +69,16 @@ export const createPush = async (req, res) => {
 export const getPushById = async (req, res) => {
   const { pushId } = req.params;
 
-  const push = await Push.findById(pushId);
+  const push = await Push.findById(pushId).cache({
+        time: 10
+      }).exec();
   res.status(200).json(push);
 };
 
 export const getPushList = async (req, res) => {
-  const Pushes = await Push.find();
+  const Pushes = await Push.find().cache({
+        time: 10
+      }).exec();
   return res.json(Pushes);
 };
 
@@ -84,15 +89,19 @@ export const updatePushId = async (req, res) => {
     {
       new: true
     }
-  );
+  ).cache({
+        time: 10
+      }).exec();
   res.status(204).json(updatedPush);
 };
 
 export const deletePushById = async (req, res) => {
   const { pushId } = req.params;
 
-  await Push.findByIdAndDelete(pushId);
-
+  await Push.findByIdAndDelete(pushId).cache({
+        time: 10
+      }).exec();
+   clearKey(Push);
   // code 200 is ok too
   res.status(204).json();
 };
@@ -103,7 +112,9 @@ export const broadcastPushById = async (req, res) => {
   console.log(`Push id : ${pushId} \nsite_id: ${site_id}`)
   // const pushId = "60ad6156a81a61453c344dc5"
   const registrationIds = [];
-  const payload = await Push.findById(pushId);
+  const payload = await Push.findById(pushId).cache({
+        time: 10
+      }).exec();
   console.log(payload);
   
   try{
@@ -156,7 +167,9 @@ export const broadcastPushById = async (req, res) => {
             data: 'Push triggered'
           });
     }
-  }).cursor({ batchSize: 1000 }).exec();
+  }).cache({
+        time: 10
+      }).cursor({ batchSize: 1000 }).exec();
   }catch(error){}
 };
 
@@ -227,13 +240,15 @@ export const saveMessageSetting = async(req,res) => {
       return res.status(404).json(err.message);
 
     res.status(200).json({ message: 'Client added to the locker!', data: setting });
-  });
+  },{session});
 
 }
 
 export const GetMessageSettingById = async(req, res) => {
   const {id} = req.param;
-  const SettingData = Pushsetting.findById(id);
+  const SettingData = Pushsetting.findById(id).cache({
+        time: 10
+      }).exec();
   if (err)
       return res.status(404).json(err.message);
 
