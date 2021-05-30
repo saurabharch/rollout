@@ -4,6 +4,7 @@ const Subscription = require('../model/subscriber');
 
 router.post('/', (req, res) => {
   // console.log(`Data lonlat : ${JSON.stringify(req.body.browser_info.ll)}`)
+  console.log(req.body);
   var Data = {
   site_id: req.body.site_id || 2,
   browser_info: {
@@ -42,7 +43,15 @@ router.post('/', (req, res) => {
     if(err){
       console.error(`Error occurred while saving subscription. Err: ${err}`);
       res.status(500).json({
-        error: 'Technical error occurred'
+        error: 'Technical error occurred',
+        "error_code": 1001,
+          "data": {},
+          "error_message": "Something went wrong.",
+          "error": {
+              "message": "Something went wrong.",
+              "code": 1001,
+              "details": []
+          }
       });
     }else{
       res.json({

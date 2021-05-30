@@ -11,6 +11,7 @@ const keys = require('./../config/keys');
 const ratelimit = require('../util/limiter');
 import PushNotifications from 'rollout-pushnotification';
 const { clearKey } = require("../util/cache");
+import PushController from'../jobs/controller/PushController';
 const settings = {
     gcm: {
         id: null,
@@ -92,6 +93,7 @@ export const updatePushId = async (req, res) => {
   ).cache({
         time: 10
       }).exec();
+  clearKey(Push.collection.collectionName);
   res.status(204).json(updatedPush);
 };
 
@@ -108,8 +110,12 @@ export const deletePushById = async (req, res) => {
 
 export const broadcastPushById = async (req, res) => {
   const { pushId,site_id} = req.params;
+  var notificationData = {
+    pushId,
+    site_id
+  }
   // const site_id = req.query;
-  console.log(`Push id : ${pushId} \nsite_id: ${site_id}`)
+  //console.log(`Push id : ${pushId} \nsite_id: ${site_id}`)
   // const pushId = "60ad6156a81a61453c344dc5"
   const registrationIds = [];
   const payload = await Push.findById(pushId).cache({
@@ -140,7 +146,7 @@ export const broadcastPushById = async (req, res) => {
                         auth: SUB.keys.auth
                       },
                     }
-                    console.log(subsObj);
+                    //console.log(subsObj);
                     registrationIds.push(subsObj);
                   });
                   
@@ -149,13 +155,18 @@ export const broadcastPushById = async (req, res) => {
               
               // }
           });
-          push.send(registrationIds, payload, (err, result) => {
-                  if (err) {
-                      console.log(err);
-                  } else {
-                    console.log(result);
-                  }
-          });
+            var notificationData = {
+                    registrationIds,
+                    payload
+          }
+            PushController.notification(notificationData)
+          // push.send(registrationIds, payload, (err, result) => {
+          //         if (err) {
+          //             console.log(err);
+          //         } else {
+          //           console.log(result);
+          //         }
+          // });
         q.allSettled(parallelSubscriptionCalls).then(pushResults => {
             if(pushResults.status != true){
               const errorEndpoint = 1;
@@ -168,7 +179,7 @@ export const broadcastPushById = async (req, res) => {
           });
     }
   }).cache({
-        time: 10
+        time: 100
       }).cursor({ batchSize: 1000 }).exec();
   }catch(error){}
 };
@@ -236,12 +247,13 @@ export const saveMessageSetting = async(req,res) => {
     }
     
     await setting.save(setting).then(function(err) {
+      clearKey(Pushsetting.collection.collectionName);
     if (err)
       return res.status(404).json(err.message);
 
     res.status(200).json({ message: 'Client added to the locker!', data: setting });
   },{session});
-
+  
 }
 
 export const GetMessageSettingById = async(req, res) => {

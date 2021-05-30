@@ -73,7 +73,7 @@ try {
           optin_type: 4,
           optin_name: "Push Single Step Opt-in"
         },
-        siteType: "https"
+        siteType: "http"
       },
       allowedDomain: [
         // "PushGeek.com",

@@ -3,8 +3,7 @@ import Queue from'../../lib/Queue';
 export default{
   async store(data){
     const Data = data;
-  // const {firstName,lastName,email,link} = Data
-    console.log(`1. Mail Registered Userdata: ${JSON.stringify(Data)}`)
+  //  console.log(`1. Mail Registered Userdata: ${JSON.stringify(Data)}`)
    // const user = Data;
     const user = {
       firstName:Data.firstName,
@@ -12,6 +11,7 @@ export default{
       email:Data.email,
       link:Data.link
     };
+  
     // ADD job For RegistrationMail
     await Queue.add('RegistrationMail', {user});
 
