@@ -54,12 +54,15 @@ const settings = {
 const push = new PushNotifications(settings);
 export const createPush = async (req, res) => {
   const { name, category, price, imgURL } = req.body;
-
+  const session = await Push.startSession();
+  session.startTransaction();
   try{
     const payload = new Push(req.body);
 
-    const pushSaved = await payload.save();
+    const pushSaved = await payload.save().session(session);
     clearKey(Push);
+    session.commitTransaction();
+    session.endSession();
     res.status(201).json(pushSaved);
   }catch(error){
     console.log(error);
@@ -68,43 +71,58 @@ export const createPush = async (req, res) => {
 };
 
 export const getPushById = async (req, res) => {
+  const session = await Push.startSession();
+  session.startTransaction();
   const { pushId } = req.params;
 
   const push = await Push.findById(pushId).cache({
         time: 10
       }).exec();
+  session.commitTransaction();
+  session.endSession();
   res.status(200).json(push);
 };
 
 export const getPushList = async (req, res) => {
-  const Pushes = await Push.find().cache({
+   const session = await Push.startSession();
+    session.startTransaction();
+  const Pushes = await Push.find().session(session).cache({
         time: 10
       }).exec();
+  session.commitTransaction();
+  session.endSession();
   return res.json(Pushes);
 };
 
 export const updatePushId = async (req, res) => {
+   const session = await Push.startSession();
+    session.startTransaction();
   const updatedPush = await Push.findByIdAndUpdate(
     req.params.pushId,
     req.body,
     {
       new: true
     }
-  ).cache({
+  ).session(session).cache({
         time: 10
       }).exec();
+  session.commitTransaction();
+  session.endSession();
   clearKey(Push.collection.collectionName);
   res.status(204).json(updatedPush);
 };
 
 export const deletePushById = async (req, res) => {
   const { pushId } = req.params;
-
+ const session = await Push.startSession();
+       session.startTransaction();
   await Push.findByIdAndDelete(pushId).cache({
         time: 10
-      }).exec();
+      }).session(session).exec();
    clearKey(Push);
   // code 200 is ok too
+  session.commitTransaction();
+  session.endSession();
   res.status(204).json();
 };
 
@@ -118,15 +136,21 @@ export const broadcastPushById = async (req, res) => {
   //console.log(`Push id : ${pushId} \nsite_id: ${site_id}`)
   // const pushId = "60ad6156a81a61453c344dc5"
   const registrationIds = [];
-  const payload = await Push.findById(pushId).cache({
+  const session = await Push.startSession();
+  const payload = await Push.findById(pushId).session(session).cache({
         time: 10
       }).exec();
+      // assert.ok(payload.$session());
+      session.commitTransaction();
+      session.endSession();
   console.log(payload);
   
   try{
+    const subSession = Subscription.startSession();
   await Subscription.find({'site_id':{$in:site_id}}, (err, subscriptions) => {
       if(err){
         console.error('Error occurred while getting subscriptions');
+        subSession.abortTransaction();
         res.status(500).json({
           error: 'Technical error occurred'
         });
@@ -178,9 +202,11 @@ export const broadcastPushById = async (req, res) => {
             data: 'Push triggered'
           });
     }
-  }).cache({
+  },{ session: subSession }).cache({
         time: 100
       }).cursor({ batchSize: 1000 }).exec();
+      subSession.commitTransaction();
+      subSession.endSession();
   }catch(error){}
 };
 
@@ -246,23 +272,29 @@ export const saveMessageSetting = async(req,res) => {
       setting.isAlwaysUseFCM = settings.isAlwaysUseFCM;
     }
     
-    await setting.save(setting).then(function(err) {
+    await setting.save(setting).session(session).then(function(err) {
       clearKey(Pushsetting.collection.collectionName);
     if (err)
+      session.abortTransaction();
       return res.status(404).json(err.message);
-
+    session.commitTransaction();
+    session.endSession();
     res.status(200).json({ message: 'Client added to the locker!', data: setting });
-  },{session});
-  
+  });
+   
 }
 
 export const GetMessageSettingById = async(req, res) => {
   const {id} = req.param;
-  const SettingData = Pushsetting.findById(id).cache({
+  const session = await Pushsetting.startSession();
+    session.startTransaction();
+  const SettingData = Pushsetting.findById(id).session(session).cache({
         time: 10
       }).exec();
   if (err)
+      session.abortTransaction();
       return res.status(404).json(err.message);
-
+    session.commitTransaction();
+    session.endSession();
     res.status(200).json({ message: 'Device Push Notification Message Settings!', data: SettingData });
 }
