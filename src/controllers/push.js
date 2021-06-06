@@ -3,6 +3,8 @@ import User from'../model/user';
 import Organisation from'../model/organization';
 import Domain from'../model/domains';
 import Pushsetting from "../model/pushSetting";
+// import {vapidKeygen} from "../util/lib/VapidKeyGen";
+const vapidKeygen = require('../util/lib/VapidKeyGen');
 const Subscription = require('../model/subscriber');
 import{ catchAsync, isAuthenticated, isClientAuthenticated }from'../middlewares';
 const q = require('q');
@@ -211,6 +213,8 @@ export const broadcastPushById = async (req, res) => {
 };
 
 export const saveMessageSetting = async(req,res) => {
+  //  const vapidkey = vapidKeygen(req, res);
+  console.log(`Save Setting Data : ${JSON.stringify(req.body)}`)
       const settings = {
     gcm: {
         id: req.body.gcmId,
@@ -237,7 +241,7 @@ export const saveMessageSetting = async(req,res) => {
     web: {
         vapidDetails: {
             subject: req.body.webSubject || 'mailto:saurabh@raindigi.com',
-            publicKey: req.body.webPublicKey || keys.publicKey,
+            publicKey: req.body.webPublicKey ||  keys.publicKey,
             privateKey: req.body.webPrivateKey || keys.privateKey,
         },
         gcmAPIKey: req.body.webGcmAPIKey || 'gcmkey',
@@ -246,9 +250,10 @@ export const saveMessageSetting = async(req,res) => {
         headers: req.body.webHeaders || ''
     },
     isAlwaysUseFCM: req.body.isAlwaysUseFCM || false, // true all messages will be sent through node-gcm (which actually uses FCM)
+    site_id:req.body.site_id
 };
  var setting = new Pushsetting();
- const session = await setting.startSession();
+ const session = await Pushsetting.startSession();
     session.startTransaction();
     if(req.body.gcmId){
       setting.gcm = settings.gcm;
@@ -272,14 +277,19 @@ export const saveMessageSetting = async(req,res) => {
       setting.isAlwaysUseFCM = settings.isAlwaysUseFCM;
     }
     
-    await setting.save(setting).session(session).then(function(err) {
-      clearKey(Pushsetting.collection.collectionName);
+    await setting.save().then(function(err) {
+      // clearKey(Pushsetting.collection.collectionName);
     if (err)
-      session.abortTransaction();
-      return res.status(404).json(err.message);
-    session.commitTransaction();
-    session.endSession();
-    res.status(200).json({ message: 'Client added to the locker!', data: setting });
+      {
+        session.abortTransaction();
+         return res.status(404).json(err.message);
+      }
+      else{
+          session.commitTransaction();
+          session.endSession();
+       return res.status(200).json({ message: 'Client added to the locker!', data: setting });
+      }
+    
   });
    
 }
@@ -297,4 +307,31 @@ export const GetMessageSettingById = async(req, res) => {
     session.commitTransaction();
     session.endSession();
     res.status(200).json({ message: 'Device Push Notification Message Settings!', data: SettingData });
+}
+
+export const SaveDomainName = async(req,res, next) => {
+  const {siteUrl,siteImages} = req.body;
+  
+  const IsAvailableDomain = await Domain.findOne({ 'siteUrl':siteUrl }).exec();
+  console.log(`${IsAvailableDomain}`)
+  if(IsAvailableDomain){ return res.status(404).json({ message: 'Domain is associated with some other organisation \n\rPlease chose new Domain Name' }); }
+   const session = await Domain.startSession();
+   session.startTransaction();
+  try{
+   if(IsAvailableDomain == null){
+     const DomainData = new Domain()
+    DomainData.siteUrl = siteUrl;
+    DomainData.siteImages = siteImages || '';
+    const DomainDataSaved = await DomainData.save().session(session);
+    clearKey(DomainData);
+    session.commitTransaction();
+    session.endSession();
+    return res.status(201).json(DomainDataSaved);
+   } 
+  next();
+   
+  }catch(error){
+    session.abortTransaction();
+     res.status(500).json({ message: error });
+  }
 }

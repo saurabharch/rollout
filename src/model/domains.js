@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+ const AutoIncrement = require('mongoose-sequence')(mongoose);
 const Schema = mongoose.Schema;
 const DomainNameSchema = new mongoose.Schema(
   {
@@ -14,6 +15,11 @@ const DomainNameSchema = new mongoose.Schema(
     startTime: {
       type: Date,
       default: Date.now
+    },
+    setting:{
+       type: Schema.Types.ObjectId,
+            ref: 'pushsetting',
+            autopopulate:{maxDepth: 2 }
     }
   },
   {
@@ -21,7 +27,8 @@ const DomainNameSchema = new mongoose.Schema(
     versionKey: false
   }
 );
-
+DomainNameSchema.plugin(require('mongoose-autopopulate'));
+DomainNameSchema.plugin(AutoIncrement, {id:'site_seq',inc_field: 'siteId'});
 const Domains = mongoose.model('domains', DomainNameSchema);
 module.exports = Domains;
 // export const Domains = model('domains', DomainNameSchema);

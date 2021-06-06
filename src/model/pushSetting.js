@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 
 
-const Pushsettings = new mongoose.Schema({
+const PushsettingsSchema = new mongoose.Schema({
     gcm:[{
          id: {type:String, default:null},
         phonegap: {type:Boolean,dafault:false},
@@ -62,12 +62,18 @@ const Pushsettings = new mongoose.Schema({
         userId:{type:String , default:''}
     }],
     isAlwaysUseFCM: {type:Boolean, default:false}, // true all messages will be sent through node-gcm (which actually uses FCM)
-    _parent: Schema.ObjectId
+    _parent: Schema.ObjectId,
+    siteId:{
+            type: Schema.Types.ObjectId,
+            ref: 'domains',
+            autopopulate:{maxDepth: 2 }
+    }
 },
  {
         timestamps: true,
         versionKey: false
 }
 );
-const Pushsetting = mongoose.model('pushsetting', Pushsettings);
+PushsettingsSchema.plugin(require('mongoose-autopopulate'));
+const Pushsetting = mongoose.model('pushsetting', PushsettingsSchema);
 module.exports = Pushsetting;

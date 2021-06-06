@@ -1,6 +1,6 @@
 import User from'../model/user';
 import{ ROLES }from'../model/role';
-
+import Domain from'../model/domains';
 const checkDuplicateUsernameOrEmail = async (req, res, next) => {
   try{
     const user = await User.findOne({ username: req.body.username }).exec();
@@ -27,4 +27,16 @@ const checkRolesExisted = (req, res, next) => {
   next();
 };
 
-export{ checkDuplicateUsernameOrEmail, checkRolesExisted };
+const CheckDomainExistOrNot = async(req,res,next) => {
+try {
+  
+  const IsAvailableDomain = await Domain.findOne({ siteUrl:req.body.siteUrl }).exec();
+  console.log(`${IsAvailableDomain}`)
+  if(IsAvailableDomain){ return res.status(409).json({ message: 'Domain is associated with some other organisation \n\rPlease chose new Domain Name' }); }
+  next()
+} catch (error) {
+   res.status(500).json({ message: error.message });
+} 
+};
+
+export{ checkDuplicateUsernameOrEmail, checkRolesExisted,CheckDomainExistOrNot };

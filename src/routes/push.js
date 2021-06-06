@@ -1,4 +1,5 @@
 import * as pushCtrl from'../controllers/push';
+import * as VapidCrtl from '../controllers/VapidKey';
 import{ authJwt }from'../middlewares';
 const express = require('express');
 const router = express.Router();
@@ -10,6 +11,7 @@ const webpush = require('web-push');
 const keys = require('./../config/keys');
 const ratelimit = require('../util/limiter');
 const moment = require('moment');
+import{verifySignup}from'../middlewares';
 // const {PN} = require("../controllers/devices");
 // import PN from '../controllers/devices';
 // import PushNotifications from 'node-pushnotifications';
@@ -144,5 +146,10 @@ router.delete(
   // [(authJwt.verifyToken, authJwt.isAdmin)],
   pushCtrl.deletePushById
 );
+
+// ADD Push Domain
+
+router.post('/domain',ratelimit('pushlimit', 10, '', 1), pushCtrl.SaveDomainName)
+router.post('/vapidkey/:site_id',ratelimit('pushlimit', 10, '', 1), VapidCrtl.SaveVapidKeyAgainstDomain)
 
 module.exports = router;
