@@ -1,5 +1,10 @@
 import Queue from'bull';
+const humanInterval = require('human-interval')
+
+const differenceInMilliseconds = require('date-fns/differenceInMilliseconds')
+const parseISO = require('date-fns/parseISO')
 import redisConfig from'../config/redis';
+
 import*as jobs from'../jobs';
 
 
@@ -13,11 +18,49 @@ const queues = Object.values(jobs).map(job => ({
 export default{
   
   queues,
+  removeRepeatable(name, repeat) {
+    const queue = this.get(name)
+
+    return queue.bull.removeRepeatable('__default__', repeat)
+  },
+
+  getRepeatableJobs(name) {
+    const queue = this.get(name)
+    const jobs = queue.bull.getRepeatableJobs()
+
+    return jobs
+  },
+
+  schedule(name, data, date, options) {
+    let delay
+
+    if (typeof date === 'number' || date instanceof Number) {
+      delay = date
+    } else {
+      if (typeof date === 'string' || date instanceof String) {
+        const byHuman = humanInterval(date)
+        if (!isNaN(byHuman)) {
+          delay = byHuman
+        } else {
+          delay = differenceInMilliseconds(parseISO(date), new Date())
+        }
+      } else {
+        delay = differenceInMilliseconds(date, new Date())
+      }
+    }
+
+    if (delay > 0) {
+      return this.add(name, data, { ...options, delay })
+    } else {
+      throw new Error('Invalid schedule time')
+    }
+  },
   add(name, data){
     const queue = this.queues.find(queue => queue.name === name);
     
     return queue.bull.add(data, queue.options);
   },
+
   process(){
     return this.queues.forEach(queue => {
       queue.bull.process(queue.handle);

@@ -5,6 +5,11 @@
     "db": {
         "connection": "MONGO_CONNECTION_STRING"
     },
+    "redis": {
+        "host": "REDIS_HOSTNAME",
+        "port": "REDIS_PORT",
+        "secret": "REDIS_PASSWORD"
+    },
     "admin": {
         "token": "ADMIN_TOKEN"
     },
