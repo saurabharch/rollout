@@ -83,6 +83,12 @@ yarn install
 ```shell
 ./node_modules/.bin/web-push generate-vapid-keys
 ```
+OR
+
+-bellow command is used setup envriment variable also copy the vapid key from shell terminal and update in .env generated file and update it VAPID_PUBLIC_KEYS => public Key: and VAPID_PRIVATE_KEYS => private Key: , respectively
+```shell
+cp env.example .env
+```
 - Generating Vapid Public and Private Key copy it and Update in config folder files [key_dev.js](https://github.com/saurabharch/rollout/blob/master/src/config/keys_dev.js) , [key_prod.js](https://github.com/saurabharch/rollout/blob/master/src/config/keys_prod.js) and also paste your Vapid Public Key in your Service Worker File [app.js](https://github.com/saurabharch/rollout/blob/master/src/public/app.js)
 ```shell
 node server.js
