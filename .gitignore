@@ -16,6 +16,8 @@ log
 ./kp-push-2020.pem
 ./model/user2.js
 ./model/user1.js
+.env
+.env.*
 # Build
 build
 
