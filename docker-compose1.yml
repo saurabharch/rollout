@@ -19,7 +19,7 @@ services:
       MONGODB_DATABASE: "${dbname_env}"
       MONGODB_PASS: "${db_pass}"
   redis:
-    image: "redis:4.0.14-alpine"
+    image: "redis:6.2.5-alpine"
     hostname: redis
     container_name: rollout-redis
     ports: ["6379:6379"]
