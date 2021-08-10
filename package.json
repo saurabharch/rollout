@@ -72,7 +72,7 @@
         "node": "14.x"
     },
     "dependencies": {
-        "@adyen/api-library": "^6.0.3",
+        "@adyen/api-library": "^9.0.0",
         "@babel/runtime": "^7.14.0",
         "@elastic/elasticsearch": "^7.13.0",
         "@parse/node-apn": "^4.1.1",
