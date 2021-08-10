@@ -1572,10 +1572,20 @@
     "@opencensus/core" "^0.0.8"
     uuid "^3.2.1"
 
-"@parse/node-apn@4.1.1", "@parse/node-apn@^4.1.1":
+"@parse/node-apn@4.1.1":
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@parse/node-apn/-/node-apn-4.1.1.tgz#ff1e59fea9a788795f9f0105b77cb10ec91eccbf"
   integrity sha512-stWlQE95w5T0vkVYscoq/S3eXPQ1qzdQbKKQ8GAdw4CSNxRWLWgOH50byUR30thnQ93RshLCH5ROkvXMqzzLtw==
+  dependencies:
+    debug "4.3.2"
+    jsonwebtoken "8.5.1"
+    node-forge "0.10.0"
+    verror "1.10.0"
+
+"@parse/node-apn@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@parse/node-apn/-/node-apn-5.0.0.tgz#470f4479e4966f842094a3b626979b4d3c8fca75"
+  integrity sha512-S6435WR+QLcUqUuLcG4evGpvfA/F+V37fyiupfeRmoWd+ATlwkfPA8oyt8JCq9kostgtXcrGxtuZjOgdlWlm1g==
   dependencies:
     debug "4.3.2"
     jsonwebtoken "8.5.1"
