@@ -1,4 +1,4 @@
-FROM openjdk:11.0.10-jre-buster
+FROM openjdk:11.0.12-jre-buster
 
 ENV KAFKA_VERSION 2.8.0
 ENV SCALA_VERSION 2.13 
