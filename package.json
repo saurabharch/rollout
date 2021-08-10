@@ -130,7 +130,7 @@
         "mkdirp": "^1.0.4",
         "moment": "^2.29.1",
         "mongo-sanitize": "^1.1.0",
-        "mongodb": "^3.6.9",
+        "mongodb": "^4.0.0",
         "mongodb-uri": "^0.9.7",
         "mongoose": "^5.12.11",
         "mongoose-autopopulate": "^0.14.0",
