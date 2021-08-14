@@ -1,0 +1,9 @@
+const IMAGE_STATES = {
+  PROCESSING: 'PROCESSING',
+  RESIZED: 'RESIZED',
+  ERRORED: 'ERRORED',
+};
+
+module.exports = {
+  IMAGE_STATES,
+};
