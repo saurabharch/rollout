@@ -1,5 +1,6 @@
 const uglifycss = require('uglifycss');
-const escape = require('html-entities').AllHtmlEntities;
+// const escape = require('html-entities').AllHtmlEntities;
+import {decode,encode} from 'html-entities';
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
@@ -21,9 +22,9 @@ const getConfig = () => {
         }
     });
 
-    config.customCss = typeof config.customCss !== 'undefined' ? escape.decode(config.customCss) : null;
-    config.footerHtml = typeof config.footerHtml !== 'undefined' ? escape.decode(config.footerHtml) : null;
-    config.googleAnalytics = typeof config.googleAnalytics !== 'undefined' ? escape.decode(config.googleAnalytics) : null;
+    config.customCss = typeof config.customCss !== 'undefined' ? decode(config.customCss) : null;
+    config.footerHtml = typeof config.footerHtml !== 'undefined' ? decode(config.footerHtml) : null;
+    config.googleAnalytics = typeof config.googleAnalytics !== 'undefined' ? decode(config.googleAnalytics) : null;
 
     // setup theme
     config.themeViews = '';
@@ -78,14 +79,14 @@ const updateConfig = (fields) => {
     _.forEach(fields, (value, key) => {
         settingsFile[key] = value;
         if(key === 'customCss_input'){
-            settingsFile.customCss = escape.encode(uglifycss.processString(value));
+            settingsFile.customCss = encode(uglifycss.processString(value));
         }
         if(key === 'footerHtml_input'){
-            const footerHtml = typeof value !== 'undefined' || value === '' ? escape.encode(value) : '';
+            const footerHtml = typeof value !== 'undefined' || value === '' ? encode(value) : '';
             settingsFile.footerHtml = footerHtml;
         }
         if(key === 'googleAnalytics_input'){
-            const googleAnalytics = typeof value !== 'undefined' ? escape.encode(value) : '';
+            const googleAnalytics = typeof value !== 'undefined' ? encode(value) : '';
             settingsFile.googleAnalytics = googleAnalytics;
         }
     });

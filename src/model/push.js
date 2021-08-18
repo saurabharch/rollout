@@ -111,30 +111,24 @@ const PushMessageSchema = new mongoose.Schema(
       // },
       default: 'normal'
     },
-    // setting:{
-    //   pushSettingId:Schema.Types.ObjectId,
-    //   ref:'pushsetting',
-    //   autopopulate: true
-    // },
-    // AuthUser: [
-    //   {
-    //     User: {
-    //       type: Schema.Types.ObjectId,
-    //       ref: 'user',
-    //       autopopulate: true
-    //     },
-    //     Role: {
-    //       type: Schema.Types.ObjectId,
-    //       ref: 'role',
-    //       autopopulate: true
-    //     },
-    //     OrgName: {
-    //       type: Schema.Types.ObjectId,
-    //       ref: 'organization',
-    //       autopopulate: true
-    //     }
-    //   }
-    // ]
+    setting:{
+      type:Schema.Types.ObjectId,
+      ref:'pushsetting',
+      autopopulate: true
+    },
+    setting:[
+      {
+       type: Schema.Types.ObjectId,
+            ref: 'user',
+            autopopulate:{maxDepth: 2 }
+    }
+    ],
+     project_id:{
+          type: Schema.Types.ObjectId,
+          ref: 'project',
+          autopopulate: true
+    }
+   
   },
   {
     timestamps: true,

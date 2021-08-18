@@ -61,8 +61,8 @@ export const createPush = async (req, res) => {
   try{
     const payload = new Push(req.body);
 
-    const pushSaved = await payload.save().session(session);
-    clearKey(Push);
+    const pushSaved = await payload.save();
+    //clearKey(Push);
     session.commitTransaction();
     session.endSession();
     res.status(201).json(pushSaved);
@@ -88,7 +88,7 @@ export const getPushById = async (req, res) => {
 export const getPushList = async (req, res) => {
    const session = await Push.startSession();
     session.startTransaction();
-  const Pushes = await Push.find().session(session).cache({
+  const Pushes = await Push.find().cache({
         time: 10
       }).exec();
   session.commitTransaction();
@@ -105,7 +105,7 @@ export const updatePushId = async (req, res) => {
     {
       new: true
     }
-  ).session(session).cache({
+  ).cache({
         time: 10
       }).exec();
   session.commitTransaction();
@@ -120,7 +120,7 @@ export const deletePushById = async (req, res) => {
        session.startTransaction();
   await Push.findByIdAndDelete(pushId).cache({
         time: 10
-      }).session(session).exec();
+      }).exec();
    clearKey(Push);
   // code 200 is ok too
   session.commitTransaction();
@@ -139,7 +139,7 @@ export const broadcastPushById = async (req, res) => {
   // const pushId = "60ad6156a81a61453c344dc5"
   const registrationIds = [];
   const session = await Push.startSession();
-  const payload = await Push.findById(pushId).session(session).cache({
+  const payload = await Push.findById(pushId).cache({
         time: 10
       }).exec();
       // assert.ok(payload.$session());
@@ -148,7 +148,7 @@ export const broadcastPushById = async (req, res) => {
   console.log(payload);
   
   try{
-    const subSession = Subscription.startSession();
+    // const subSession = Subscription.startSession();
   await Subscription.find({'site_id':{$in:site_id}}, (err, subscriptions) => {
       if(err){
         console.error('Error occurred while getting subscriptions');
@@ -204,7 +204,7 @@ export const broadcastPushById = async (req, res) => {
             data: 'Push triggered'
           });
     }
-  },{ session: subSession }).cache({
+  }).cache({
         time: 100
       }).cursor({ batchSize: 1000 }).exec();
       subSession.commitTransaction();
@@ -278,7 +278,7 @@ export const saveMessageSetting = async(req,res) => {
     }
     
     await setting.save().then(function(err) {
-      // clearKey(Pushsetting.collection.collectionName);
+      clearKey(Pushsetting.collection.collectionName);
     if (err)
       {
         session.abortTransaction();

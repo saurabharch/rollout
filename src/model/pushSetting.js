@@ -67,7 +67,17 @@ const PushsettingsSchema = new mongoose.Schema({
             type: Schema.Types.ObjectId,
             ref: 'domains',
             autopopulate:{maxDepth: 2 }
-    }
+    },
+    User:[ {
+          type: Schema.Types.ObjectId,
+          ref: 'user',
+          autopopulate: true
+        }],
+    project_id:{
+      type: Schema.Types.ObjectId,
+          ref: 'project',
+          autopopulate: true
+    },
 },
  {
         timestamps: true,

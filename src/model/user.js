@@ -160,6 +160,11 @@ const userSchema = new mongoose.Schema(
       //   "Youtube handler is already taken."
       // ]
     },
+    project_id:[{
+      type: Schema.Types.ObjectId,
+          ref: 'project',
+          autopopulate: true
+    }],
     _parent: Schema.ObjectId
   },
   {

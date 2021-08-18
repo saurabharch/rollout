@@ -18,7 +18,7 @@ const DomainNameSchema = new mongoose.Schema(
     },
     setting:{
        type: Schema.Types.ObjectId,
-            ref: 'pushsetting',
+            ref: 'user',
             autopopulate:{maxDepth: 2 }
     }
   },

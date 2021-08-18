@@ -48,7 +48,8 @@ export default{
   key: 'PushNotification',
   async handle({ data }){
     const { notificationData } = data;
-   //console.log(` Registered Ids : ${notificationData.registrationIds} \n\rNotification Payload : ${notificationData.payload}`);
+    const settings = Pushsetting.findById('')
+   console.log(` Registered Ids : ${notificationData.registrationIds} \n\rNotification Payload : ${notificationData.payload}`);
           push.send(notificationData.registrationIds, notificationData.payload, (err, result) => {
                   if (err) {
                       console.log(err);

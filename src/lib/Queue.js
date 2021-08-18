@@ -1,4 +1,5 @@
-import Queue from'bull';
+// import Queue from'bull';
+const Queue = require('bull');
 const humanInterval = require('human-interval')
 
 const differenceInMilliseconds = require('date-fns/differenceInMilliseconds')
@@ -57,7 +58,7 @@ export default{
   },
   add(name, data){
     const queue = this.queues.find(queue => queue.name === name);
-    
+    // console.log(` Queue Data : ${JSON.stringify(data)} \nQueue Report : ${JSON.stringify(queue)}`);
     return queue.bull.add(data, queue.options);
   },
 
@@ -73,3 +74,34 @@ export default{
   }
 };
 
+// import Queue from'bull';
+// import redisConfig from'../config/redis';
+// import*as jobs from'../jobs';
+
+
+// const queues = Object.values(jobs).map(job => ({
+//   bull: new Queue(job.key, redisConfig),
+//   name: job.key,
+//   handle: job.handle,
+//   options: job.options
+// }));
+
+// export default{
+  
+//   queues,
+//   add(name, data){
+//     const queue = this.queues.find(queue => queue.name === name);
+    
+//     return queue.bull.add(data, queue.options);
+//   },
+//   process(){
+//     return this.queues.forEach(queue => {
+//       queue.bull.process(queue.handle);
+
+//       queue.bull.on('failed', (job, err) => {
+//         console.log('Job failed', queue.key, job.data);
+//         console.log(err);
+//       });
+//     });
+//   }
+// };

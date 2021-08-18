@@ -35,8 +35,13 @@ const passport = require("passport");
 // import session, { Store } from "express-session";
 const session = require('express-session');
 const {APP_PORT, SESSION_OPTIONS } = require( "./config");
-const { router,setQueues, UI} = require('bull-board')
-// const {router} = require('bull-board');
+  
+const { createBullBoard } = require('@bull-board/api')
+const { BullAdapter } = require('@bull-board/api/bullAdapter')
+// const { BullMQAdapter } = require('@bull-board/api/bullMQAdapter')
+const { ExpressAdapter } = require('@bull-board/express')
+
+// const { router,setQueues, UI} = require('bull-board')
 import Queue from './lib/Queue';
 // var TaskBoard = require('toureiro');
 // import { login, register, verify, reset } from "./routes";
@@ -109,6 +114,8 @@ require("./model/reset");
 require("./model/token");
 require("./model/code");
 require("./model/pushSetting");
+require("./model/project");
+require("./model/client");
 // require("./model/subscriber");
 //require('appmetrics-dash').monitor();
 // require('./models/Categories');
@@ -215,7 +222,23 @@ if (
   process.exit(2);
 }
 });
-setQueues(Queue.queues.map(queue => queue.bull));
+// setQueues(Queue.queues.map(queue => queue.bull));
+const serverAdapter  = new ExpressAdapter();
+
+// console.log(`Mapped Queues : ${Queue.queues.map(queue => queue.bull)}`);
+Queue.queues.map(queue => {
+  const  {  addQueue, removeQueue, setQueues, replaceQueues }  = createBullBoard({
+    queues: [new BullAdapter( queue.bull)],
+    serverAdapter:serverAdapter
+  });
+});
+
+// setQueues(Queue.queues.map(queue => queue.bull));
+
+
+// ... express server configuration
+
+
 // console.log(store);
 const app = express();
 i18n.configure({
@@ -469,12 +492,17 @@ app.use((req, res, next) => {
 //     app.put('/'+ service +'/:id', serviceModule.update);
 //     app.delete('/'+ service +'/:id', serviceModule.delete);
 // }
-// app.use("/", index);
+
 // Setup the routes
-app.use('/plans', index);
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {customCss}));
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+//** Router Page Renders */
+
+
+
 // app.use('/toureiro', TaskBoard());
+// app.use("/", index);
+app.use("/home", home); // url path http://${process.env.HOST}:${process.env.PORT}/home
+app.use('/plans', index);
 app.use('/doc',doc);
 app.use('/features', features);
 app.use('/customer', customer);
@@ -484,23 +512,18 @@ app.use('/user', user);
 app.use('/email', verify);
 app.use('/admin', admin);
 app.use('/reviews', reviews);
-app.use("/api/register", register);
-app.use("/api/sdk",sdk);
-app.use("/api/verify", verify);
-app.use("/api/log", log);
 app.use("/analytics",Analytics);
 app.use("/active", active);
 app.use("/reset", reset);
-app.use("/api/login", login);
-app.use("/api/logout",logout);
 app.use("/auth", auth); 
-app.use("/api/client",clinetController);
 app.use("/legal", terms_service);
 app.use("/security", security);
 app.use("/plans", plans);
 app.use("/admin", admin);
 app.use("/q", queue);
-app.use("/q/queues",UI);
+
+serverAdapter.setBasePath('/queues')
+app.use('/queues', serverAdapter.getRouter());
 // let basePath = 'qq';
 
 // app.use(
@@ -510,8 +533,17 @@ app.use("/q/queues",UI);
 //     next();
 //   },
 //   router);
+
+
+//** CORE APIS */
+app.use("/api/register", register);
+app.use("/api/sdk",sdk);
+app.use("/api/verify", verify);
+app.use("/api/log", log);
 app.use("/api/key", ApiKey);
-app.use("/home", home); // url path http://${process.env.HOST}:${process.env.PORT}/home
+app.use("/api/login", login);
+app.use("/api/logout",logout);
+app.use("/api/client",clinetController);
 app.use("/api/subscribe", subscribe); // url path http://${process.env.HOST}:${process.env.PORT}/subscribe
 app.use("/api/unsubscribe", unsubscribe); // url path http://${process.env.HOST}:${process.env.PORT}/unsubscribe
 app.use("/api/push", push); //url path http://${process.env.HOST}:${process.env.PORT}/push
@@ -524,7 +556,8 @@ app.use("/api/geo", whoami); // url path http://${process.env.HOST}:${process.en
 app.use("/api/time", timestamp); // url path http://${process.env.HOST}:${process.env.PORT}/api/time//timestamp/:date_string?
 app.use("/api/status", systemStatus); // url path http://${process.env.HOST}:${process.env.PORT}/api/status/server
 app.use("/api/ai", textClassification); // url path http://${process.env.HOST}:${process.env.PORT}/api/ai/textResult?
-
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {customCss}));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // catch 404 and forward to error handler
 // Payment route(s)
 _.forEach(config.paymentGateway, (gateway) => {

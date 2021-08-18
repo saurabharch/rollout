@@ -52,7 +52,13 @@ const OrgNameSchema = new mongoose.Schema(
           }
         ]
       }
-    ]
+    ],
+    projects:[
+       {
+          type: Schema.Types.ObjectId,
+          ref: 'project',
+          autopopulate: true
+        }]
   },
   {
     timestamps: true,

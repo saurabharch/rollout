@@ -42,8 +42,10 @@ const SubscriberSchema = new mongoose.Schema(
         default: moment(new Date(Date.now()+1000*60*60*24*365*5)).format('lll')//src = src ? src : ''
       },
       project_id: {
-        type:String
-      },
+       type: Schema.Types.ObjectId,
+          ref: 'project',
+          autopopulate: true
+    },
       vapid_public_key:{
         type:String
       },
@@ -74,5 +76,6 @@ const SubscriberSchema = new mongoose.Schema(
 
 // mongoose.model("subscriber", SubscriberSchema, "subscriber");
 // // module.exports = mongoose.model("subscribers", SubscriberSchema);
+SubscriberSchema.plugin(require('mongoose-autopopulate'));
 const Subscriber = mongoose.model('subscriber', SubscriberSchema);
 module.exports = Subscriber;

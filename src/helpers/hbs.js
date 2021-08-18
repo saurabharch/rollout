@@ -8,18 +8,18 @@ const {
 // get config
 const config = getConfig();
 // Language initialize
-// i18n.configure({
-//   locales: config.availableLanguages,
-//   defaultLocale: config.defaultLocale,
-//   cookie: "locale",
-//   queryParameter: "lang",
-//   directory: `${__dirname}/locales`,
-//   directoryPermissions: "755",
-//   api: {
-//     __: "__", // now req.__ becomes req.__
-//     __n: "__n" // and req.__n can be called as req.__n
-//   }
-// });
+i18n.configure({
+  locales: config.availableLanguages,
+  defaultLocale: config.defaultLocale,
+  cookie: "locale",
+  queryParameter: "lang",
+  directory: `${__dirname}/locales`,
+  directoryPermissions: "755",
+  api: {
+    __: "__", // now req.__ becomes req.__
+    __n: "__n" // and req.__n can be called as req.__n
+  }
+});
 module.exports = {
   truncate: function(str, len){
     if(str.length > len && str.length > 0){

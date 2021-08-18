@@ -1,8 +1,19 @@
-<div class="container">
+{{!-- <div class="container">
     <div class="col s8 offset-2 center m2">
         {{!-- <h1>{{message}}</h1>
-        <h2>{{error.status}}</h2> --}}
-        
+        <h2>{{error.status}}</h2>
+
         <pre class="code">{{error.stack}}</pre>
+    </div>
+</div> --}}
+
+
+<div class="mt-16 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative border border-gray-200 rounded-lg px-4 py-2 overflow-hidden sm:px-6 sm:py-2 lg:p-12 xl:p-16">
+        <h1 class="code">{{message}}</h1>
+        <h2 class="code">{{error.status}}</h2>
+
+        <pre class="code">{{error.stack}}</pre>
+
     </div>
 </div>

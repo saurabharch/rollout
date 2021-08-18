@@ -9,6 +9,7 @@ const code = require("./code");
 const client = require("./client");
 const token = require("./token");
 const pushsetting = require("./pushSetting");
+const project = require("./project");
 
 module.exports = {
   ...role,
@@ -20,5 +21,6 @@ module.exports = {
   ...code,
   ...client,
   ...token,
-  ...pushsetting
+  ...pushsetting,
+  ...project
 };
