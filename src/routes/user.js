@@ -1,7 +1,7 @@
 import*as usersCtrl from'../controllers/user';
 import{ authJwt, verifySignup }from'../middlewares';
 import{ guest, catchAsync }from'../middlewares';
-const { restrict } = require('../lib/auth');
+const { restrict,checkPassword } = require('../lib/auth');
 const { getId, clearSessionValue } = require('../lib/common');
 const colors = require('colors');
 const bcrypt = require('bcryptjs');
@@ -211,7 +211,7 @@ router.post('/admin/user/update', restrict, async (req, res) => {
 });
 
 // insert a user
-router.post('/admin/user/insert', restrict, async (req, res) => {
+router.post('/admin/user/insert', restrict, checkPassword, async (req, res) => {
   const db = req.app.db;
 
   // Check number of users
