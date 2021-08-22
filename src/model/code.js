@@ -13,8 +13,13 @@ var CodeSchema   = new mongoose.Schema({
             autopopulate: true
     }
   ],
-  clientId: { type: String, required: true }
-});
+  clientId: { type: String, required: true } 
+},
+{
+    timestamps: true,
+    versionKey: false
+}
+);
 
 // Export the Mongoose model
 CodeSchema.plugin(require('mongoose-autopopulate'));

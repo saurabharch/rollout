@@ -27,6 +27,10 @@ var ProjectSchema   = new mongoose.Schema({
      autopopulate: true
  }],
   ProjectId: { type: String, required: true }
+},
+{
+    timestamps: true,
+    versionKey: false
 });
 
 // Export the Mongoose model

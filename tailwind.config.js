@@ -4,7 +4,7 @@ module.exports = {
     './src/**/*.handlebars',
     './src/**/*.html'
   ],
-  presets: [],
+  // presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {

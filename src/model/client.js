@@ -14,6 +14,10 @@ var ClientSchema = new mongoose.Schema({
 
   }],
   redirect_uri: {type:String, require:true}
+},
+{
+    timestamps: true,
+    versionKey: false
 });
 
 ClientSchema.plugin(require('mongoose-autopopulate'));

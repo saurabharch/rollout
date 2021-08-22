@@ -335,3 +335,69 @@ export const SaveDomainName = async(req,res, next) => {
      res.status(500).json({ message: error });
   }
 }
+
+export const GetByIdDomainName = async(req, res, next) => {
+  const {org_id,_id} = req.param;
+  const session = await Organisation.startSession();
+    session.startTransaction();
+  const SettingData = Organisation.findById(org_id).cursor().map(function (doc) {
+    doc.domains = `${_id}`;
+    return doc;
+  }).session(session).cache({
+        time: 10
+      }).exec();
+  if (err)
+      session.abortTransaction();
+      return res.status(404).json(err.message);
+    session.commitTransaction();
+    session.endSession();
+    res.status(200).json({ message: 'Domain Name', data: SettingData });
+}
+
+export const GetAllOrgName = async(req,res,next) =>{
+  const {user_id} = req.param;
+  const session = await Domain.startSession();
+    session.startTransaction();
+  const DomainData = await Domain.findById({}).populate('user').session(session).cache({
+        time: 10
+      }).execPopulate();
+     
+  if (err)
+      session.abortTransaction();
+      return res.status(404).json(err.message);
+    session.commitTransaction();
+    session.endSession();
+    res.status(200).json({ message: 'Domain Name', data: DomainData });
+}
+
+export const DelDomainName = async(req,res,next) => {
+  const{_id} = req.param;
+ const session = await Domain.startSession();
+       session.startTransaction();
+  await Domain.findByIdAndDelete(_id).cache({
+        time: 10
+      }).exec();
+   clearKey(Domain);
+  // code 200 is ok too
+  session.commitTransaction();
+  session.endSession();
+  res.status(204).json();
+}
+
+export const UpdateDomainName = async(req,res,next) => {
+   const session = await Domain.startSession();
+    session.startTransaction();
+  const updatedDomain = await Domain.findByIdAndUpdate(
+    req.params._id,
+    req.body,
+    {
+      new: true
+    }
+  ).cache({
+        time: 10
+      }).exec();
+  session.commitTransaction();
+  session.endSession();
+  clearKey(Domain.collection.collectionName);
+  res.status(204).json(updatedDomain);
+}

@@ -147,9 +147,25 @@ router.delete(
   pushCtrl.deletePushById
 );
 
+// Get Push Domain by single id With Organisation Id
+
+router.get('/domain/:org_id/:_id',ratelimit('pushlimit', 10, '', 1), pushCtrl.GetByIdDomainName)
+
+// Get All Push Organization Name By User Id
+router.get('/domain/:user_id',ratelimit('pushlimit', 10, '', 1), pushCtrl.GetAllOrgName)
+
+
 // ADD Push Domain
 
 router.post('/domain',ratelimit('pushlimit', 10, '', 1), pushCtrl.SaveDomainName)
+
+// Delete Push Domain
+
+router.delete('/domain/:_id',ratelimit('pushlimit', 10, '', 1), pushCtrl.DelDomainName)
+
+// Update Push Domain
+router.put('/domain/:_id',ratelimit('pushlimit', 10, '', 1), pushCtrl.UpdateDomainName)
+
 router.post('/vapidkey/:site_id',ratelimit('pushlimit', 10, '', 1), VapidCrtl.SaveVapidKeyAgainstDomain)
 
 module.exports = router;

@@ -6,6 +6,10 @@ var TokenSchema   = new mongoose.Schema({
   value: { type: String, required: true },
   userId: { type: String, required: true },
   clientId: { type: String, required: true }
+},
+{
+    timestamps: true,
+    versionKey: false
 });
 
 // Export the Mongoose model
