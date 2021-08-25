@@ -358,10 +358,11 @@ export const GetAllOrgName = async(req,res,next) =>{
   const {user_id} = req.param;
   const session = await Domain.startSession();
     session.startTransaction();
-  const DomainData = await Domain.findById({}).populate('user').session(session).cache({
+  const DomainData = await Domain.findById({}).populate({path: 'user',
+    match:{ _id: { $regex: user_id } }}).session(session).cache({
         time: 10
       }).execPopulate();
-     
+     console.log(`Domain Data Against Userid: ${DomainData}`)
   if (err)
       session.abortTransaction();
       return res.status(404).json(err.message);

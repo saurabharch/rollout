@@ -118,31 +118,33 @@ router.post('/', ratelimit('pushlimit', 10, '', 1), async(req, res) => {
   }
 });
 
-
+// Get All Push List
 router.get('/pushlist',ratelimit('pushlimit', 10, '', 1), 
 // [authJwt.verifyToken, authJwt.isModerator], 
 pushCtrl.getPushList);
 
-router.get('/:pushId',
-ratelimit('pushlimit', 10, '', 1),
+// Get push By Id
+router.get('/:pushId',ratelimit('pushlimit', 10, '', 1),
 // [authJwt.verifyToken, authJwt.isModerator],
 pushCtrl.getPushById);
 
-router.post(
-  '/create',ratelimit('pushlimit', 10, '', 1),
+// Save a Push Notification
+router.post('/create',ratelimit('pushlimit', 10, '', 1),
   // [authJwt.verifyToken, authJwt.isModerator],
   pushCtrl.createPush
 );
 
+// Broadcast a push notification by push id or site id
 router.post('/send/:pushId/:site_id',ratelimit('pushlimit', 10, '', 1), pushCtrl.broadcastPushById);
-router.put(
-  '/:pushId',ratelimit('pushlimit', 10, '', 1),
+
+// Update Push notification
+router.put('/:pushId',ratelimit('pushlimit', 10, '', 1),
   // [(authJwt.verifyToken, authJwt.isModerator)],
   pushCtrl.updatePushId
 );
 
-router.delete(
-  '/:pushId',ratelimit('pushlimit', 10, '', 1),
+// Delete the push notification By Id
+router.delete('/:pushId',ratelimit('pushlimit', 10, '', 1),
   // [(authJwt.verifyToken, authJwt.isAdmin)],
   pushCtrl.deletePushById
 );
@@ -166,6 +168,8 @@ router.delete('/domain/:_id',ratelimit('pushlimit', 10, '', 1), pushCtrl.DelDoma
 // Update Push Domain
 router.put('/domain/:_id',ratelimit('pushlimit', 10, '', 1), pushCtrl.UpdateDomainName)
 
+
+// Generate  push notifcation vapid key against the id
 router.post('/vapidkey/:site_id',ratelimit('pushlimit', 10, '', 1), VapidCrtl.SaveVapidKeyAgainstDomain)
 
 module.exports = router;
