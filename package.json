@@ -242,6 +242,6 @@
         "postcss": "^8.3.6",
         "prettier": "^2.3.2",
         "supertest": "^6.1.5",
-        "workbox-cli": "^6.2.4"
+        "workbox-cli": "6.3.0"
     }
 }
