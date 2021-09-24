@@ -52,6 +52,7 @@ const PushsettingsSchema = new mongoose.Schema({
             subject: {type:String, default:'mailto:saurabh@raindigi.com'},
             publicKey: {type:String, default:'BLgFTwjElUH_Iz72TKDvmlsc-EcwziNP2X28BmN-znOXJhv35QybtfcN1HTh_eUlNffp12HkuruYpqtKNedN54s'},
             privateKey: {type:String, default:'Lckqnvu2RrAKlG3uutce3o-kiI7HSc1LXsy5AdlryXQ'},
+            status:{type:Boolean,default:true}
         }],
         gcmAPIKey: {type:String, default: ''},
         TTL: {type:Number, default:'2419200'},

@@ -169,7 +169,5 @@ router.delete('/domain/:_id',ratelimit('pushlimit', 10, '', 1), pushCtrl.DelDoma
 router.put('/domain/:_id',ratelimit('pushlimit', 10, '', 1), pushCtrl.UpdateDomainName)
 
 
-// Generate  push notifcation vapid key against the id
-router.post('/vapidkey/:site_id',ratelimit('pushlimit', 10, '', 1), VapidCrtl.SaveVapidKeyAgainstDomain)
 
 module.exports = router;

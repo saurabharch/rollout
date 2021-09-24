@@ -6,7 +6,7 @@ export const SaveVapidKeyAgainstDomain = async(req,res, next) => {
     const {site_id, project_id} = req.params;
         const {webSubject} = req.body;
         const vapidkey = await vapidKeygen;
-        const findDomain = await Pushsetting.findOneAndUpdate({'site_id':{$in:site_id},}, (err, pushData) => {
+        const findDomain = await Pushsetting.findOneAndUpdate({'siteId':{$in:siteId},}, (err, pushData) => {
             if(err){
                 return res.status(500).json({
                     message: err.message
@@ -22,3 +22,25 @@ export const SaveVapidKeyAgainstDomain = async(req,res, next) => {
         })
     next();
 }
+
+export const EnableVapidKey = async(req,res) =>{
+    const{_id} = req.body._id;
+    const {action} = req.param;
+    const VapidAction = await Pushsetting.findOneAndUpdate({'site_id':{$in:site_id},}, (err, pushData) => {
+            if(err){
+                return res.status(500).json({
+                    message: err.message
+                })
+            }
+            else {
+                console.log(`push Setting Data for vapid action ===> ${pushData}`);
+               try {
+                 pushData.web.vapidDetails.status=action;
+                 pushData.update();
+               } catch (error) {
+                   console.log(`push setting vapid key action error message ===> ${error.message}`)
+               }
+            
+            }
+    }
+    )};

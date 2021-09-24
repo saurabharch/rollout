@@ -1,4 +1,5 @@
 import * as pushCtrl from'../controllers/push';
+import * as VapidCrtl from '../controllers/VapidKey'
 import{ authJwt }from'../middlewares';
 const express = require('express');
 import{ catchAsync, isAuthenticated, isClientAuthenticated }from'../middlewares';
@@ -9,7 +10,8 @@ const oauth2Controller = require('../controllers/oauth2');
 const keys = require('./../config/keys');
 import Pushsetting from "../model/pushSetting";
 
-router.get('/',catchAsync (async (req,res) => {
+// Get All Push Message Settings
+router.get('/',ratelimit('pushlimit', 10, '', 1),catchAsync (async (req,res) => {
     var SettingData = '';
     var setData = [];
     SettingData = await Pushsetting.find({}, async(err, Pushsettings) => {
@@ -26,7 +28,18 @@ router.get('/',catchAsync (async (req,res) => {
    })
 }));
 
-router.post('/save', pushCtrl.saveMessageSetting);
-router.get('/:id', pushCtrl.GetMessageSettingById)
+// Save Push Setting
+router.post('/save',ratelimit('pushlimit', 10, '', 1), pushCtrl.saveMessageSetting);
+
+
+// Get Push Message Setting By :ID
+router.get('/:id',ratelimit('pushlimit', 10, '', 1), pushCtrl.GetMessageSettingById)
+
+// Generate  push notifcation vapid key against the id
+router.post('/vapidkey/:site_id',ratelimit('pushlimit', 10, '', 1), VapidCrtl.SaveVapidKeyAgainstDomain)
+
+// Enable/Disable VapidKey
+router.post('/vapidkey/:action',ratelimit('pushlimit', 10, '', 1),VapidCrtl.EnableVapidKey)
+
 
 module.exports = router;

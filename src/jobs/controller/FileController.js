@@ -13,7 +13,6 @@ export default{
 
     // Adding job GenerateThumnails and save against the user account
     await Queue.add('GenerateThumnails', { InputData });
-
     await Queue.add('ThumnailReport', { InputData });
     return res.json(InputData);
   }

@@ -11,21 +11,22 @@ RUN apk update \
     && apk --no-cache add --update tcl apache2 ca-certificates
 
 # # # Install necessary tools
-# RUN apk add -y nano wget dialog net-tools
+RUN apk add -y nano wget dialog net-tools
 
 # # Download and Install Nginx
-# RUN apt-get install -y nginx  
+RUN apt-get install -y nginx  
 
 # # Remove the default Nginx configuration file
-# RUN rm -v /etc/nginx/nginx.conf
+RUN rm -v /etc/nginx/nginx.conf
 
 # # Copy a configuration file from the current directory
+COPY ./rollout-deployment/nginx/nginx.conf ./etc/nginx/nginx.conf
 # ADD ./nginx/nginx.conf .conf/etc/nginx/
 # # Append "daemon off;" to the configuration file
-# RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
-# # Expose ports
-EXPOSE 80
+# # # Expose ports
+# EXPOSE 80
 
 # Set the default command to execute when creating a new container
 # ENTRYPOINT [ "../rollout-deployment/mongo-run.sh" ]
@@ -47,6 +48,7 @@ RUN apk update \
 WORKDIR ./app
 # # Copy the package.json to workdir
 # COPY package.json ./
+
 ENV TERM=linux
 ARG NODE_ENV=production
 ARG REST_URL=http://localhost:5500
@@ -55,7 +57,6 @@ ENV REST_URL $REST_URL
 # Run npm install - install the npm dependencies
 RUN npm install -g npm@7.7.6
 RUN npm install
-COPY ./rollout-deployment/nginx/nginx.conf ./etc/nginx/nginx.conf
 # RUN mkdir -p /data/db && \
 #     chown -R mongodb /data/db
 
@@ -70,10 +71,10 @@ COPY ./rollout-deployment/nginx/nginx.conf ./etc/nginx/nginx.conf
 COPY . ./app
 
 # Copy .env.docker to workdir/.env - use the docker env
-# COPY ./docker.env ./docker.env
+COPY ./docker.env ./docker.env
 
 # Expose application ports - (4300 - for API and 4301 - for front end)
-EXPOSE 5501 55000 80 443
+EXPOSE 5501 5500 80 443
 
 
 

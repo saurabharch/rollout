@@ -131,7 +131,8 @@ const {
   createAdmin,
   createOrganization,
   createDomain,
-  updateOrganisation
+  updateOrganisation,
+  TestResponse
 } =  require("./util/initialSetup");
 
 
@@ -253,6 +254,7 @@ i18n.configure({
     __n: "__n" // and req.__n can be called as req.__n
   }
 });
+
 createRoles();
 setTimeout(() => {
   createAdmin();

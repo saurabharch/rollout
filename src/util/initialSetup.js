@@ -4,6 +4,7 @@ import Organisation from "../model/organization";
 import Domain from "../model/domains";
 // const mongoose = require("mongoose");
 // const User = mongoose.model("user");
+import RequestResponseTime from "../util/lib/client-response-feedback";
 
 import bcrypt from "bcryptjs";
 
@@ -68,7 +69,7 @@ export const createOrganization = async () => {
       domains: domains.map(Dname => Dname._id)
     });
   }
-  console.log("Organisation Created");
+  console.log(`Organisation Created ${RequestResponseTime('https://facebook.com')}`);
 };
 
 export const createAdmin = async () => {
@@ -90,7 +91,7 @@ export const createAdmin = async () => {
       lastName: "kashyap",
       sex: "M"
     });
-    console.log("Admin User Created!");
+    console.log(`Admin User Created! ${RequestResponseTime('https://google.com')}`);
   }
 };
 
@@ -151,9 +152,13 @@ export const updateOrganisation = async () => {
       // org.AuthUser.push({ $each: roles_id, $position: 0 });
       org.save();
     });
-    console.log("Organisation is updated successfully");
+    console.log(`Organisation is updated successfully ${RequestResponseTime('https://google.com')}`);
   } else {
     console.log("Organisation already Available !");
   }
 };
 export const updateUser = async () => {};
+
+export const TestResponse = async() => {
+   console.log(`Test Response: ${RequestResponseTime('http://localhost:5500/api/status')}`);
+}
