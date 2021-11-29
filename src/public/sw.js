@@ -9,9 +9,14 @@ self.addEventListener("push", function(event) {
   event.waitUntil(
     self.registration.showNotification(_data.title, {
       body: _data.message,
-      lang: 'en-CA',
+     // lang: 'en-CA',
       icon: _data.icon,
       tag: _data.tag,
+      image: _data.image,
+      badge: _data.badge,
+      ttl: _data.ttl,
+      url: _data.url,
+      lang: _data.lang,
       // showTrigger: new TimestampTrigger(_data.showTrigger),
       timestamp: _data.timestamp,
       vibrate: [100, 200, 100]

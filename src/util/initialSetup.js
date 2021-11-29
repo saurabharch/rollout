@@ -69,7 +69,7 @@ export const createOrganization = async () => {
       domains: domains.map(Dname => Dname._id)
     });
   }
-  console.log(`Organisation Created ${RequestResponseTime('https://facebook.com')}`);
+  // console.log(`Organisation Created ${RequestResponseTime('https://facebook.com')}`);
 };
 
 export const createAdmin = async () => {
@@ -152,7 +152,7 @@ export const updateOrganisation = async () => {
       // org.AuthUser.push({ $each: roles_id, $position: 0 });
       org.save();
     });
-    console.log(`Organisation is updated successfully ${RequestResponseTime('https://google.com')}`);
+    // console.log(`Organisation is updated successfully ${RequestResponseTime('https://google.com')}`);
   } else {
     console.log("Organisation already Available !");
   }
@@ -160,5 +160,5 @@ export const updateOrganisation = async () => {
 export const updateUser = async () => {};
 
 export const TestResponse = async() => {
-   console.log(`Test Response: ${RequestResponseTime('http://localhost:5500/api/status')}`);
+  //  console.log(`Test Response: ${RequestResponseTime('http://localhost:5500/api/status')}`);
 }

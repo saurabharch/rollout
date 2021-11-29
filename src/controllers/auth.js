@@ -1,9 +1,10 @@
 import Client from "../model/client";
-import User from'../model/user';
+// import User from'../model/user';
+const User = require("../model/user");
 import Role from'../model/role';
-
+// import comparePassword from '../model/user';
 import jwt from'jsonwebtoken';
-import config from'../config/auth';
+const config = require('../config/auth');
 
 export const signUp = async (req, res) => {
   try{
@@ -40,33 +41,65 @@ export const signUp = async (req, res) => {
   }
 };
 
-export const signin = async (req, res) => {
+export const signin = async (req, res, callback, next) => {
   try{
     // Request body email can be an email or username
-    const userFound = await User.findOne({ email: req.body.email }).populate(
-      'roles'
-    );
+    const {username, password, email} = req.body;
+    // const userFound = await User.findOne({ email: req.body.email } ||{ username: req.body.username}).populate(
+    //   'roles'
+    // );
 
-    if(!userFound)return res.status(400).json({ message: 'User Not Found' });
+    // if(!userFound)return res.status(400).json({ message: 'User Not Found' });
 
-    const matchPassword = await User.comparePassword(
-      req.body.password,
-      userFound.password
-    );
+    // const matchPassword = await User.comparePassword(
+    //   req.body.password,
+    //   userFound.password
+    // );
 
-    if(!matchPassword){
- return res.status(401).json({
-        token: null,
-        message: 'Invalid Password'
-      });
-}
-
+    // if(!matchPassword){
+    //   return res.status(401).json({
+    //         token: null,
+    //         message: 'Invalid Password'
+    //       });
+    // }
+    const userFound = User.findOne({username: username}).exec(function(error, user) {
+      if (error) {
+        callback({error: true})
+      } else if (!user) {
+        callback({error: true})
+      } else {
+        user.comparePassword(password, function(matchError, isMatch) {
+          if (matchError) {
+            callback({error: true})
+          } else if (!isMatch) {
+            callback({error: true})
+          } else {
+            callback({success: true})
+          }
+        })
+      }
+    });
     const token = jwt.sign({ id: userFound._id }, config.SESS_OPTIONS.SESS_SECRET, {
       expiresIn: 86400 // 24 hours
     });
-
-    res.json({ token });
+// const token = jwt.sign({ id: userFound._id }, config.SESS_OPTIONS.SESS_SECRET, {
+//       expiresIn: 86400 // 24 hours
+//     });
+   if(token){
+     res.status(200).json({token});
+   }else{
+      res.send(token);
+   }  
+  console.log(`${token}`)
+  //     try{
+  //          const decoded  = jwt.verify(token,config.SESS_OPTIONS.SESS_SECRET);
+  //          req.userData = decoded;
+  //          next();
+  //       }catch(error){
+  //           return res.status(401).json({message:'Auth failed'});
+  //       }
   }catch(error){
     console.log(error);
   }
+   next();   
 };

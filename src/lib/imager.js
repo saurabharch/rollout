@@ -4,7 +4,7 @@ var mime = require('mime');
 var co = require('co');
 var pkgcloud = require('pkgcloud');
 var debug = require('debug')('imager');
-
+var minioClient = require('./minio-lib');
 /**
  * Expose
  */
@@ -28,9 +28,17 @@ function Imager (presets, storage) {
       }
     };
   }
-  this.client = pkgcloud.storage.createClient(storage);
-  this.presets = presets;
-  this.container = storage.container;
+  if(storage.amazone || storage.rackspace || storage.local)
+  {
+    this.client = pkgcloud.storage.createClient(storage);
+    this.presets = presets;
+    this.container = storage.container;
+  }else{
+    // storage present is minio
+    this.client = minioClient.createBucket(storage.bucketname);
+    this.presets = presets;
+    this.container = storage.container;
+  }
 }
 
 /**

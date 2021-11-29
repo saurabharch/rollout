@@ -13,6 +13,10 @@ import bcrypt from "bcryptjs";
 const app = require('../config/app');
 const auth = require('../config/auth')
 const crypto = require('crypto');
+const responseData = require("../util/reponseStatus");
+const sendResponse = require("../util/response");
+var message = require('../util/responseMessages')
+var APP_CONSTANT = require("../util/constants");
 import UserController from'../jobs/controller/UserController';
 const {
   clearSessionValue,
@@ -30,7 +34,7 @@ router.post(
   catchAsync(async (req, res) => {
     // await validate(registerSchema, req.body);
 
-    const { email, name, password } = JSON.stringify(req.body);
+    const { email, name, password } = req.body;
     // console.log(JSON.stringify(req.body));
     var testM = [];
     const FullData ='';
@@ -38,15 +42,16 @@ router.post(
     const Roles = await Role.find({ name: ["user"] });
     console.log(colors.yellow(`Result: ${found}`))
     if(found){
-      console.log(`found result${found}`);
-      throw new BadRequest('Invalid email');
+      // console.log(`found result${found}`);
+      // throw new BadRequest('Invalid email');
+      sendResponse(res,responseData.EMAIL_ALREADY_EXITS)
     }
     //const sociaID = uuidv4();
     const username = req.body.email.split('@')[0];
     console.log( `username: ${username}`)
     const sliceUsername = username;
     const userFound =  await User.exists({username});
-    const username1 = userFound ? `${sliceUsername}`+ Math.floor( Math.random() * (1000000) + 1): username;
+    var username1 = userFound ? `${sliceUsername}`+ Math.floor( Math.random() * (1000000) + 1): username;
     console.log(colors.red(`Generated Username: ${username1}`))
     
     const {firstName,lastName}=
@@ -70,9 +75,10 @@ router.post(
       email:data.email,
       password: data.password,
       firstName:data.firstName,
-      lastName:data.lastName
+      lastName:data.lastName,
+      loginTime: new Date(),
     });
-    logIn(req, user.id);
+    logIn(req, user);
 
     try {
       // const verificationUrl = function(){
@@ -105,7 +111,8 @@ router.post(
         email:data.email,
         firstName:data.firstName,
         lastName:data.lastName,
-        link: link
+        link: link,
+        loginTime: data.loginTime
       });
      FullData = Cdata;
       const serial = '';

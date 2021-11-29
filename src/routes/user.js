@@ -23,6 +23,7 @@ verifySignup.checkRolesExisted
 );
 router.get('/admin/users', restrict, async (req, res) => {
   const db = req.app.db;
+  console.log(`${req.app.db}`)
   const users = await db.users.find({}, { projection: { userPassword: 0 } }).toArray();
 
   if(req.apiAuthenticated){

@@ -73,4 +73,3 @@ server {
     ssl_certificate /etc/letsencrypt/live/pushgeek.com-0001/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/pushgeek.com-0001/privkey.pem; # managed by Certbot
 }
-

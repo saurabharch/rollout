@@ -166,7 +166,7 @@ const RequestResponseTime = async(request, response, next) =>{
         });
 
     } catch (error) {
-         return response.status(302).json("Bad Request Result");
+         return response.status(200).json("Bad Request Result");
     }
     next()
 }

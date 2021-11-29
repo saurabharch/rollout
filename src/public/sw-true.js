@@ -19,7 +19,7 @@ else {
     else {
         host = "http://localhost:5500/sdk/";
     }
-    swPath = host + version + "/sw-true.js";
+    swPath = host + version + "/sw.js";
 }
 importScripts(swPath);
 

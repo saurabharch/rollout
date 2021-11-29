@@ -138,13 +138,13 @@ export const broadcastPushById = async (req, res) => {
   //console.log(`Push id : ${pushId} \nsite_id: ${site_id}`)
   // const pushId = "60ad6156a81a61453c344dc5"
   const registrationIds = [];
-  const session = await Push.startSession();
+  // const session = await Push.startSession();
   const payload = await Push.findById(pushId).cache({
         time: 10
       }).exec();
       // assert.ok(payload.$session());
-      session.commitTransaction();
-      session.endSession();
+      // session.commitTransaction();
+      // session.endSession();
   console.log(payload);
   
   try{
@@ -152,7 +152,7 @@ export const broadcastPushById = async (req, res) => {
   await Subscription.find({'site_id':{$in:site_id}}, (err, subscriptions) => {
       if(err){
         console.error('Error occurred while getting subscriptions');
-        subSession.abortTransaction();
+        // subSession.abortTransaction();
         res.status(500).json({
           error: 'Technical error occurred'
         });
@@ -207,8 +207,8 @@ export const broadcastPushById = async (req, res) => {
   }).cache({
         time: 100
       }).cursor({ batchSize: 1000 }).exec();
-      subSession.commitTransaction();
-      subSession.endSession();
+      // subSession.commitTransaction();
+      // subSession.endSession();
   }catch(error){}
 };
 

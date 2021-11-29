@@ -52,7 +52,7 @@ const cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
 const compression = require("compression");
 const csrf = require("csurf");
-
+const expressSanitizer = require('express-sanitizer');
 // Load Routes
 // const index = require("./routes");
 const login = require("./routes/login");
@@ -255,19 +255,23 @@ i18n.configure({
   }
 });
 
-createRoles();
-setTimeout(() => {
-  createAdmin();
-}, 1000);
-setTimeout(() => {
-  createDomain();
-}, 1000);
-setTimeout(() => {
-  createOrganization();
-}, 1000);
-setTimeout(() => {
-  updateOrganisation();
-}, 500);
+// First Time Initialization Test
+
+// createRoles();
+// setTimeout(() => {
+//   createAdmin();
+// }, 1000);
+// setTimeout(() => {
+//   createDomain();
+// }, 1000);
+// setTimeout(() => {
+//   createOrganization();
+// }, 1000);
+// setTimeout(() => {
+//   updateOrganisation();
+// }, 500);
+
+
 app.set("pkg", pkg);
 app.set("json spaces", 4);
 // app.use(secure);
@@ -277,10 +281,21 @@ app.set("json spaces", 4);
 // app.use(csrf({ cookie: true }));
 // const app = express();
 //app.options("*", cors());
-// app.use(express.json());
-
+app.use(express.json());
+// Mount express-sanitizer middleware here
+app.use(expressSanitizer());
 app.use(session({ ...SESSION_OPTIONS, store }));
-app.use(compression());
+app.use(compression({ filter: shouldCompress }));
+function shouldCompress (req, res) {
+  if (req.headers['x-no-compression']) {
+    // don't compress responses with this request header
+    return false
+  }
+
+  // fallback to standard filter function
+  return compression.filter(req, res)
+}
+
 app.disable("x-powered-by");
 // in order to serve files, you should add the two following middlewares
 app.set("trust proxy", true);
@@ -411,7 +426,7 @@ app.use(passport.session());
 // app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 // parse application/json
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 app.use(
   bodyParser.json({
     // Only on Stripe URL's which need the rawBody
@@ -455,7 +470,7 @@ app.enable("trust proxy");
 // app.use(cors("*"));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-app.get("/api/version", (req, res) => {
+app.get("/server/version", (req, res) => {
   res.json({
     message: "Welcome to PushGeek",
     name: app.get("pkg").name,
@@ -511,7 +526,7 @@ app.use('/customer', customer);
 app.use('/product', product);
 app.use('/order', order);
 app.use('/user', user);
-app.use('/email', verify);
+app.use('/email', require('./routes/verify'));
 app.use('/admin', admin);
 app.use('/reviews', reviews);
 app.use("/analytics",Analytics);
@@ -521,7 +536,7 @@ app.use("/auth", auth);
 app.use("/legal", terms_service);
 app.use("/security", security);
 app.use("/plans", plans);
-app.use("/admin", admin);
+// app.use("/admin", admin);
 app.use("/q", queue);
 
 serverAdapter.setBasePath('/queues')
@@ -540,11 +555,11 @@ app.use('/queues', serverAdapter.getRouter());
 //** CORE APIS */
 app.use("/api/register", register);
 app.use("/api/sdk",sdk);
-app.use("/api/verify", verify);
+app.use("/api", Email);
 app.use("/api/log", log);
 app.use("/api/key", ApiKey);
-app.use("/api/login", login);
-app.use("/api/logout",logout);
+app.use("/login", login);
+app.use("/logout",logout);
 app.use("/api/client",clinetController);
 app.use("/api/subscribe", subscribe); // url path http://${process.env.HOST}:${process.env.PORT}/subscribe
 app.use("/api/unsubscribe", unsubscribe); // url path http://${process.env.HOST}:${process.env.PORT}/unsubscribe
@@ -562,10 +577,10 @@ app.use("/api/ai", textClassification); // url path http://${process.env.HOST}:$
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // catch 404 and forward to error handler
 // Payment route(s)
-_.forEach(config.paymentGateway, (gateway) => {
-  console.log(`${gateway}`);
-  app.use(`/stripe`, require(`./lib/payments/stripe`));
-});
+// _.forEach(config.paymentGateway, (gateway) => {
+//   console.log(`${gateway}`);
+   app.use(`/stripe`, require(`./lib/payments/stripe`));
+// });
 // error handler
 app.use(function(err, req, res, next) {
   if (err.code !== "EBADCSRFTOKEN") return next(err);

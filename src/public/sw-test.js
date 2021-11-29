@@ -179,6 +179,7 @@ self.addEventListener("push", function(event) {
         demoSendMessageToPage(event);
         break;
       default:
+        demoSendMessageToPage(event);
         console.warn("Unsure of how to handle push event: ", event.data);
         break;
     }

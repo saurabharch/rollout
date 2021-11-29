@@ -286,7 +286,7 @@ in query line example as below:
 ```bash
   db.collectionName.find().explain("executionStats").exec()
 ```
-# Work in Action
+``# Work in Action
 <h1 align="center">
   <img alt="PushGeek" src="https://raw.githubusercontent.com/saurabharch/rollout/master/docs/screenshot.png?raw=true" width="380px" />
 </h1>

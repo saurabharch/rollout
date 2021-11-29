@@ -383,24 +383,3 @@ exports.variants = {
   }
 };
 
-exports.storages = {
-  local: {
-    provider: 'local',
-    path: '/tmp',
-    mode: 0777
-  },
-  rackspace: {
-    provider: 'rackspace',
-    username: process.env.IMAGER_RACKSPACE_USERNAME,
-    apiKey: process.env.IMAGER_RACKSPACE_KEY,
-    authUrl: 'https://lon.auth.api.rackspacecloud.com',
-    region: 'IAD', // https://github.com/pkgcloud/pkgcloud/issues/276
-    container: process.env.IMAGER_RACKSPACE_CONTAINER
-  },
-  amazon: {
-    provider: 'amazon',
-    key: process.env.IMAGER_S3_KEY,
-    keyId: process.env.IMAGER_S3_KEYID,
-    container: process.env.IMAGER_S3_BUCKET
-  }
-}

@@ -1,3 +1,4 @@
+import*as authCtrl from'../controllers/auth';
 import{ catchAsync, guest, auth }from'../middlewares';
 // import { validate, loginSchema } from "../validation";
 // import{ user }from'../model';
@@ -5,7 +6,7 @@ import{ BadRequest }from'../errors';
 import{ logIn, logOut }from'../auth';
 const express = require('express');
 const router = express.Router();
-const user = require('../model/user');
+const User = require('../model/user');
 const {
   clearSessionValue,
   mongoSanitize,
@@ -67,21 +68,22 @@ router.get('/', async (req, res) => {
 router.post(
   '/',
   guest,
-  catchAsync(async (req, res) => {
-    // await validate(loginSchema, req.body);
+  // catchAsync(async (req, res) => {
+  //   // await validate(loginSchema, req.body);
 
-    const { email, password } = req.body;
+  //   const { email, password } = req.body;
 
-    const User = await user.findOne({ email });
+  //   const User = await User.findOne({ email });
 
-    if(!User || !await user.matchesPassword(password)){
-      throw new BadRequest('Incorrect email or password');
-    }
+  //   if(!User || !await User.comparePassword(password)){
+  //     throw new BadRequest('Incorrect email or password');
+  //   }
 
-    logIn(req, User.id);
+  //   logIn(req, User._id);
 
-    res.json({ message: 'OK' });
-  })
+  //   res.json({ message: 'OK' });
+  // })
+  authCtrl.signin
 );
 
 router.post(

@@ -9,12 +9,13 @@ export default{
       firstName:Data.firstName,
       lastName:Data.lastName,
       email:Data.email,
+      username: Data.username,
       link:Data.link
     };
   
     // ADD job For RegistrationMail
     await Queue.add('RegistrationMail', {user});
-
+     // FIXME:
     await Queue.add('UserReport', {user});
     var test = [];
     test.push(user);

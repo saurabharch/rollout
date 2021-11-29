@@ -222,7 +222,7 @@ router.get('/dashboard', csrfProtection, restrict, async (req, res) => {
     dashboardData.productsSold = 0;
   }
 
-  res.render('index/dashboard', {
+  res.render('/dashboard', {
     title: 'Cart dashboard',
     session: req.session,
     admin: true,
@@ -238,7 +238,7 @@ router.get('/dashboard', csrfProtection, restrict, async (req, res) => {
 
 // settings
 router.get('/settings', csrfProtection, restrict, (req, res) => {
-  res.render('index/settings', {
+  res.render('/settings', {
     title: 'Cart settings',
     session: req.session,
     admin: true,
