@@ -1,26 +1,43 @@
 const mongoose = require('mongoose');
  const AutoIncrement = require('mongoose-sequence')(mongoose);
 const Schema = mongoose.Schema;
+const urlPattern = /(http|https):\/\/(\w+:{0,1}\w*#)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%#!\-/]))?/;
+const urlRegExp = new RegExp(urlPattern);
 const DomainNameSchema = new mongoose.Schema(
   {
     siteUrl: {
       type: String,
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      },
       default: 'https://pushgeek.com',
       require: true,
       lowercase: true,
-      unique: true
+      unique: true,
+      index:true
     },
-    siteImages: String,
+    siteImages: {
+      type:String,
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      }
+    },
     siteId: Number,
     startTime: {
       type: Date,
       default: Date.now
-    },
-    setting:{
-       type: Schema.Types.ObjectId,
-            ref: 'user',
-            autopopulate:{maxDepth: 2 }
     }
+    // setting:{
+    //    type: Schema.Types.ObjectId,
+    //         ref: 'user',
+    //        autopopulate: true
+    // }
   },
   {
     timestamps: true,

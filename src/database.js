@@ -17,7 +17,7 @@ const MongoStore = require('connect-mongodb-session')(session);
 mongoose.Promise = global.Promise;
 
 // Mongoose Connect
-mongoose
+ mongoose
   .connect(MONGO_URI, MONGO_OPTIONS)
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(colors.red(`MongoDB Connection:${err}`)));
@@ -43,7 +43,7 @@ module.exports = {
       .then(() => console.log('MongoDB Connected'))
       .catch(err => console.error(colors.red(`MongoDB Connection:${err}`)));
   },
-  disconnect: done => {
-    mongoose.disconnect(done);
+  disconnect: async done => {
+   await mongoose.disconnect(done);
   }
 };

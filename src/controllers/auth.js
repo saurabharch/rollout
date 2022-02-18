@@ -45,23 +45,7 @@ export const signin = async (req, res, callback, next) => {
   try{
     // Request body email can be an email or username
     const {username, password, email} = req.body;
-    // const userFound = await User.findOne({ email: req.body.email } ||{ username: req.body.username}).populate(
-    //   'roles'
-    // );
-
-    // if(!userFound)return res.status(400).json({ message: 'User Not Found' });
-
-    // const matchPassword = await User.comparePassword(
-    //   req.body.password,
-    //   userFound.password
-    // );
-
-    // if(!matchPassword){
-    //   return res.status(401).json({
-    //         token: null,
-    //         message: 'Invalid Password'
-    //       });
-    // }
+    
     const userFound = User.findOne({username: username}).exec(function(error, user) {
       if (error) {
         callback({error: true})
@@ -103,3 +87,11 @@ export const signin = async (req, res, callback, next) => {
   }
    next();   
 };
+
+export const LoginWithOtp = async(req,res,callback,next) => {
+  
+}
+
+export const verifyJWT = async(req,res,callback,next) => {
+
+}

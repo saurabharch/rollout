@@ -35,7 +35,7 @@ export const createUser = async (req, res, next) => {
 
     // saving the new user
     const savedUser = await user.save();
-      const link = user.verificationUrl();
+      const link = await user.verificationUrl();
 
       var Cdata = [];
       Cdata.push({roles: savedUser.roles,

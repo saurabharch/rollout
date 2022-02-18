@@ -157,26 +157,25 @@ export const broadcastPushById = async (req, res) => {
           error: 'Technical error occurred'
         });
     }else{
-  
-        // Latest Dynamic Method for multiplatform sending notification
-        // You can use it in node callback style
+         
+        
         const parallelSubscriptionCalls =  subscriptions.map(subscription => {
           return new Promise((resolve, reject) => {
-                const subscriptionD = subscription.subscription.map(SUB => {
+                // const subscriptionD = subscription.subscription.map(SUB => {
                   
-                  return new Promise((resolve, reject) => {
+                  // return new Promise((resolve, reject) => {
                     const subsObj = {
-                       endpoint: SUB.endpoint,
+                       endpoint: subscription.endpoint,
                       keys: {
-                        p256dh:SUB.keys.p256dh,
-                        auth: SUB.keys.auth
+                        p256dh:subscription.keys.p256dh,
+                        auth: subscription.keys.auth
                       },
                     }
-                    //console.log(subsObj);
+                    //console.log(`registration ids: ${JSON.stringify(subsObj)}`);
                     registrationIds.push(subsObj);
-                  });
+                  // });
                   
-                });
+                // });
               });
               
               // }
@@ -185,7 +184,7 @@ export const broadcastPushById = async (req, res) => {
                     registrationIds,
                     payload
           }
-            PushController.notification(notificationData)
+           PushController.notification(notificationData);
           // push.send(registrationIds, payload, (err, result) => {
           //         if (err) {
           //             console.log(err);
@@ -215,6 +214,9 @@ export const broadcastPushById = async (req, res) => {
 export const saveMessageSetting = async(req,res) => {
   //  const vapidkey = vapidKeygen(req, res);
   console.log(`Save Setting Data : ${JSON.stringify(req.body)}`)
+  const SiteId = await Domain.find({siteId:req.body.site_id}).exec();
+     var ID = SiteId._id;
+     console.log(ID);
       const settings = {
     gcm: {
         id: req.body.gcmId,
@@ -249,10 +251,11 @@ export const saveMessageSetting = async(req,res) => {
         contentEncoding: req.body.webContentEncoding || 'aes128gcm',
         headers: req.body.webHeaders || ''
     },
-    isAlwaysUseFCM: req.body.isAlwaysUseFCM || false, // true all messages will be sent through node-gcm (which actually uses FCM)
-    site_id:req.body.site_id
+    isAlwaysUseFCM: req.body.isAlwaysUseFCM || false // true all messages will be sent through node-gcm (which actually uses FCM)
+
 };
- var setting = new Pushsetting();
+ try{
+   var setting = new Pushsetting();
  const session = await Pushsetting.startSession();
     session.startTransaction();
     if(req.body.gcmId){
@@ -276,21 +279,30 @@ export const saveMessageSetting = async(req,res) => {
     if(req.body.isAlwaysUseFCM){
       setting.isAlwaysUseFCM = settings.isAlwaysUseFCM;
     }
+    if(req.body.site_id){
+      setting.siteId = ID;
+      //setting.siteId._id = SiteId._id;
+    }
     
-    await setting.save().then(function(err) {
-      clearKey(Pushsetting.collection.collectionName);
+    await setting.save().then(function(err,data) {
+      // console.log(`Push setting Error Message : ${JSON.stringify(err)}`)
+      clearKey(setting);
     if (err)
       {
         session.abortTransaction();
-         return res.status(404).json(err.message);
+         return res.status(500).json(err);
       }
       else{
+        data.upset({siteId})
           session.commitTransaction();
           session.endSession();
-       return res.status(200).json({ message: 'Client added to the locker!', data: setting });
+       return res.status(201).json({ message: 'Client added to the locker!', data: setting });
       }
     
   });
+ } catch(err) {
+   console.log(err.message)
+ }
    
 }
 
@@ -322,7 +334,7 @@ export const SaveDomainName = async(req,res, next) => {
      const DomainData = new Domain()
     DomainData.siteUrl = siteUrl;
     DomainData.siteImages = siteImages || '';
-    const DomainDataSaved = await DomainData.save().session(session);
+    const DomainDataSaved = await DomainData.save();
     clearKey(DomainData);
     session.commitTransaction();
     session.endSession();
@@ -332,7 +344,7 @@ export const SaveDomainName = async(req,res, next) => {
    
   }catch(error){
     session.abortTransaction();
-     res.status(500).json({ message: error });
+     res.status(500).json({ message: error.message });
   }
 }
 

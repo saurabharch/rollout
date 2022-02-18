@@ -8,6 +8,8 @@ const ObjectId = Schema.ObjectId;
 let constantStatus = require("./../util/constants");
 const app = require('../config/app');
 const auth = require('../config/auth')
+const urlPattern = /(http|https):\/\/(\w+:{0,1}\w*#)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%#!\-/]))?/;
+const urlRegExp = new RegExp(urlPattern);
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const UserSchema = new mongoose.Schema(
   {
@@ -93,8 +95,26 @@ const UserSchema = new mongoose.Schema(
         autopopulate:true
       }
     ],
-    image: {
-      type: String
+    image:  {
+      type: String,
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      },
+      default: 'https://pushgeek.com',
+      lowercase: true,
+    },
+    OrgImage: {
+      type: String,
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      },
+      lowercase: true,
     },
     sociaID: {
       type: String,
@@ -150,8 +170,27 @@ const UserSchema = new mongoose.Schema(
       //   "Facebook handler is already taken."
       // ]
     },
-    youtubelink: {
-      type: String
+    youtubelink:  {
+      type:String,
+      type: String,
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      },
+      default: 'https://pushgeek.com',
+      lowercase: true,
+    },
+    OrgImage: {
+      type: String,
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      },
+      lowercase: true,
       // index: { unique: true },
       // validate: {
       //   validator: function(youtubelink){
@@ -249,14 +288,21 @@ UserSchema.methods.comparePassword = function(password, callback) {
   bcryptjs.compare(password, this.password, function(error, isMatch) {
     if (error) {
       return callback(error)
-    } else {
-      callback(null, isMatch)
+    } else if(isMatch && !User.email){
+       return done(null, false, {message: "Please confirm your email first!"});
+    }else if(isMatch && User.email){
+       return done(null, user);
+    }
+    else {
+      return done(null, false, {message: "Invalid password"});
+      //return callback(null, isMatch)
     }
   })
 }
 
 UserSchema.methods.verificationUrl = function(){
   const token = crypto.createHash('sha1').update(this.email).digest('hex');
+  console.log(`email token: ${this.email}`);
   const expires = Date.now() + auth.EMAIL_VERIFICATION_TIMEOUT;
   
   const url =
@@ -299,5 +345,30 @@ UserSchema.set('toJSON', {
 
 // mongoose.model("User", userSchema, "User");
 // exports.User = mongoose.model("User", userSchema);
+
+
+
+// The same E11000 error can occur when you call `update()`
+// This function **must** take 3 parameters. If you use the
+// `passRawResult` function, this function **must** take 4
+// parameters
+UserSchema.post('update', function(error, res, next) {
+  if (error.name === 'MongoServerError' && error.code === 11000) {
+    next(new Error('There was a duplicate key error'));
+  } else {
+    next(); // The `update()` call will still error out.
+  }
+});
+
+// Handler **must** take 3 parameters: the error that occurred, the document
+// in question, and the `next()` function
+UserSchema.post('save', function(error, doc, next) {
+  if (error.name === 'MongoServerError' && error.code === 11000) {
+    next(new Error('There was a duplicate key error'));
+  } else {
+    next();
+  }
+});
+
 const User = mongoose.model('user', UserSchema);
 module.exports = User;

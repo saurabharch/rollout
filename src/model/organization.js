@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const urlPattern = /(http|https):\/\/(\w+:{0,1}\w*#)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%#!\-/]))?/;
+const urlRegExp = new RegExp(urlPattern);
 const OrgNameSchema = new mongoose.Schema(
   {
     orgName: {
@@ -7,13 +9,31 @@ const OrgNameSchema = new mongoose.Schema(
       required: true,
       lowercase: true,
       unique: true,
-      default: 'pushgeek.com'
+      default: 'pushgeek.com',
+      index:true
     },
-    orgUrl: {
+    orgUrl:  {
       type: String,
-      default: 'http://pushgeek.com'
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      },
+      default: 'https://pushgeek.com',
+      lowercase: true,
     },
-    OrgImage: String,
+    OrgImage: {
+      type: String,
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      },
+      default: 'https://pushgeek.com',
+      lowercase: true,
+    },
     siteId: {
       type: Number,
       default: 0
@@ -31,28 +51,28 @@ const OrgNameSchema = new mongoose.Schema(
           type: Schema.Types.ObjectId,
           ref: 'domains',
           unique: true,
-          autopopulate: { maxDepth: 2 }
+          autopopulate: true
         }
       }
     ],
-    AuthUser: [
-      {
-        User: {
-          type: Schema.Types.ObjectId,
-          ref: 'user',
-          unique: true,
-          autopopulate: true
-        },
-        rRole: [
-          {
-            type: Schema.Types.ObjectId,
-            ref: 'Role',
-            unique: true,
-            autopopulate: true
-          }
-        ]
-      }
-    ],
+    // AuthUser: [
+    //   {
+    //     User: {
+    //       type: Schema.Types.ObjectId,
+    //       ref: 'user',
+    //       unique: true,
+    //       autopopulate: true
+    //     },
+    //     rRole: [
+    //       {
+    //         type: Schema.Types.ObjectId,
+    //         ref: 'Role',
+    //         unique: true,
+    //         autopopulate: true
+    //       }
+    //     ]
+    //   }
+    // ],
     projects:[
        {
           type: Schema.Types.ObjectId,

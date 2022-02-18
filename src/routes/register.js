@@ -81,25 +81,6 @@ router.post(
     logIn(req, user);
 
     try {
-      // const verificationUrl = function(){
-      //   const token = crypto.createHash('sha1').update(user.email).digest('hex');
-      //   const expires = Date.now() + auth.EMAIL_VERIFICATION_TIMEOUT;
-      //   const url =
-      //     `${app.APP_ORIGIN
-      //     }/email/verify?id=${
-      //     user.id
-      //     }&token=${
-      //     token
-      //     }&expires=${
-      //     expires}`;
-      //   console.log(`Real Verification Url: ${url}`)
-      //   const signature = signVerificationUrl(url);
-      //   return `${url}&signature=${signature}`;
-      // };
-      // const signVerificationUrl = function(url){
-      //   const sign = crypto.createHmac('sha256', 'S3Cr3t').update(url).digest('hex');
-      //   return sign
-      // };
      const link = user.verificationUrl();
 
      
@@ -130,7 +111,7 @@ router.post(
     }
     console.log(JSON.stringify(testM));
     res.status(200).json({
-      status: 'succes',
+      status: 'success',
       data: FullData,
     })
   })

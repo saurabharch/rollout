@@ -10,6 +10,7 @@ const client = require("./client");
 const token = require("./token");
 const pushsetting = require("./pushSetting");
 const project = require("./project");
+const session = require("./session");
 
 module.exports = {
   ...role,
@@ -22,5 +23,6 @@ module.exports = {
   ...client,
   ...token,
   ...pushsetting,
-  ...project
+  ...project,
+  ...session,
 };

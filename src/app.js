@@ -29,11 +29,13 @@ const config = getConfig();
 // const session = require("express-session");
 const serveStatic = require("serve-static");
 const vhost = require("vhost");
+// const permissionsPolicy = require("permissions-policy");
 const passport = require("passport");
 // const RateLimit = require('express-rate-limit');
 // const cors = require("cors");
 // import session, { Store } from "express-session";
 const session = require('express-session');
+const expAutoSan = require('express-autosanitizer');
 const {APP_PORT, SESSION_OPTIONS } = require( "./config");
   
 const { createBullBoard } = require('@bull-board/api')
@@ -61,6 +63,7 @@ const register = require("./routes/register");
 const verify = require("./routes/verify");
 const reset = require("./routes/reset");
 const push = require("./routes/push");
+const project = require("./routes/project");
 const subscribe = require("./routes/subscribe");
 const unsubscribe = require("./routes/unsubscribe");
 const clinetController = require("./routes/clientController");
@@ -116,6 +119,8 @@ require("./model/code");
 require("./model/pushSetting");
 require("./model/project");
 require("./model/client");
+require("./model/session");
+
 // require("./model/subscriber");
 //require('appmetrics-dash').monitor();
 // require('./models/Categories');
@@ -284,6 +289,7 @@ app.set("json spaces", 4);
 app.use(express.json());
 // Mount express-sanitizer middleware here
 app.use(expressSanitizer());
+app.use(expAutoSan.all);
 app.use(session({ ...SESSION_OPTIONS, store }));
 app.use(compression({ filter: shouldCompress }));
 function shouldCompress (req, res) {
@@ -561,6 +567,7 @@ app.use("/api/key", ApiKey);
 app.use("/login", login);
 app.use("/logout",logout);
 app.use("/api/client",clinetController);
+app.use("/api/project", project);
 app.use("/api/subscribe", subscribe); // url path http://${process.env.HOST}:${process.env.PORT}/subscribe
 app.use("/api/unsubscribe", unsubscribe); // url path http://${process.env.HOST}:${process.env.PORT}/unsubscribe
 app.use("/api/push", push); //url path http://${process.env.HOST}:${process.env.PORT}/push

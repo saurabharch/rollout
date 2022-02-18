@@ -11,9 +11,9 @@ const { APP_PORT } = require('./config');
 // const https = require('https');
 // const fs = require('fs');
 // // Certificate
-// const privateKey = fs.readFileSync('/etc/letsencrypt/live/johnahn7.com/privkey.pem', 'utf8');
-// const certificate = fs.readFileSync('/etc/letsencrypt/live/johnahn7.com/cert.pem', 'utf8');
-// const ca = fs.readFileSync('/etc/letsencrypt/live/johnahn7.com/chain.pem', 'utf8');
+// const privateKey = fs.readFileSync('/etc/letsencrypt/live/pushgeeks.com/privkey.pem', 'utf8');
+// const certificate = fs.readFileSync('/etc/letsencrypt/live/pushgeeks.com/cert.pem', 'utf8');
+// const ca = fs.readFileSync('/etc/letsencrypt/live/pushgeeks.com/chain.pem', 'utf8');
 
 // const credentials = {
 //   key: privateKey,

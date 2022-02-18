@@ -319,14 +319,14 @@ try {
     merchantSettings: {
       sm: function(parms) {
         var smPath = {
-          worker: "/sw-test.js",
+          worker: "/sw.js",
           manifest:
             "http://" + _pgSd.site.sSd + ".localhost:5500/manifest.json",
           workerStatus: true,
           scope: true
         };
         if (_pgSd.site.plateform == "shopify") {
-          smPath.worker = "/sw-test.js";
+          smPath.worker = "/sw.js";
         }
         switch (parms) {
           case "worker":

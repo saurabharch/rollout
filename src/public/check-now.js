@@ -1,5 +1,5 @@
 "use strict";
-const cross_origin_script_url = "http://localhost:5500/sw-test.js?ver=2.2.0"
+const cross_origin_script_url = "http://localhost:5500/sw.js?ver=2.2.0"
   //"http://localhost:5500/service-worker.js?ver=2.2.0";
 
 const worker = new Worker(getWorkerURL(cross_origin_script_url));

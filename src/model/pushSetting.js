@@ -59,32 +59,59 @@ const PushsettingsSchema = new mongoose.Schema({
         contentEncoding: {type:String, default:'aes128gcm'},
         headers: {type:String, default:''}
     }],
-    users:[{
-        userId:{type:String , default:''}
-    }],
+    // users:[{
+    //       type: mongoose.Schema.Types.ObjectId,
+    //       ref: 'user',
+    //       autopopulate: true,
+    //       default:''
+    //     }],
     isAlwaysUseFCM: {type:Boolean, default:false}, // true all messages will be sent through node-gcm (which actually uses FCM)
     _parent: Schema.ObjectId,
     siteId:{
-            type: Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'domains',
-            autopopulate:{maxDepth: 2 }
+            autopopulate: true
     },
     User:[ {
-          type: Schema.Types.ObjectId,
+          type: mongoose.Schema.Types.ObjectId,
           ref: 'user',
           autopopulate: true
         }],
     project_id:{
-      type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
           ref: 'project',
           autopopulate: true
     },
 },
  {
-        timestamps: true,
-        versionKey: false
-}
+    timestamps: true,
+    versionKey: false
+  }
 );
+
+// The same E11000 error can occur when you call `update()`
+// This function **must** take 3 parameters. If you use the
+// `passRawResult` function, this function **must** take 4
+// parameters
+PushsettingsSchema.post('update', function(error, res, next) {
+  if (error.name === 'MongoServerError' && error.code === 11000) {
+    next(new Error('There was a duplicate key error'));
+  } else {
+    next(); // The `update()` call will still error out.
+  }
+});
+
+
+// Handler **must** take 3 parameters: the error that occurred, the document
+// in question, and the `next()` function
+PushsettingsSchema.post('save', function(error, doc, next) {
+  if (error.name === 'MongoServerError' && error.code === 11000) {
+    next(new Error('There was a duplicate key error'));
+  } else {
+    next();
+  }
+});
+
 PushsettingsSchema.plugin(require('mongoose-autopopulate'));
 const Pushsetting = mongoose.model('pushsetting', PushsettingsSchema);
 module.exports = Pushsetting;

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const urlPattern = /(http|https):\/\/(\w+:{0,1}\w*#)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%#!\-/]))?/;
+const urlRegExp = new RegExp(urlPattern);
 const moment = require("moment");
 const PushMessageSchema = new mongoose.Schema(
   {
@@ -8,7 +10,8 @@ const PushMessageSchema = new mongoose.Schema(
       require: true,
       min: 4,
       max: 200,
-      default: 'Hello World ! This is PushGeek'
+      default: 'Hello World ! This is PushGeek',
+      index:true
     },
     message: {
       type: String,
@@ -17,29 +20,50 @@ const PushMessageSchema = new mongoose.Schema(
       max: 300,
       default: 'Hello World ! New Push Message From Push Geek'
     },
-    url: {
+    url:  {
       type: String,
-      require: true,
-      min: 4,
-      max: 200,
-      default: 'https://pushgeek.com'
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      },
+      default: 'https://pushgeek.com',
+      lowercase: true,
     },
     ttl: {
       type: String,
       default: '3600'
     },
-    icon: {
+    icon:  {
       type: String,
-      min: 10,
-      max: 600
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      },
+      lowercase: true,
     },
-    image: {
+    image:  {
       type: String,
-      min: 4,
-      max: 600
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      },
+      lowercase: true,
     },
-    badge: {
-      type: String
+    badge:  {
+      type: String,
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      },
+      lowercase: true,
     },
     tag: {
       type: String
@@ -56,8 +80,8 @@ const PushMessageSchema = new mongoose.Schema(
         values: ['yes', 'no', 'cancel', 'nothing'],
         message: 'your action is set as `{VALUE}`'
       },
-      default: 'cancel',
-      required: [false, 'action type is set as cancel']
+      default: 'yes',
+      required: [false, 'action type is set as {VALUE}']
     },
     requireInteraction: {
       type: Boolean,
@@ -68,7 +92,7 @@ const PushMessageSchema = new mongoose.Schema(
       type: String,
       // enum: ['500', '110', '450', '200', '170', '40'],
       default: '100',
-      required: [false, 'vibration key number default set as 500']
+      required: [false, 'vibration key number default set as 100']
     },
     silent: {
       type: Boolean
@@ -86,8 +110,15 @@ const PushMessageSchema = new mongoose.Schema(
       // },
       // default: [false, "re-notification alert is disabled."]
     },
-    sound: {
+    sound:  {
       type: String,
+      validate: {
+        validator: function(value) {
+          return value.match(urlRegExp);
+        },
+        message: props => `${props.value} is not a valid URL`
+      },
+      lowercase: true,
       default: '/audio/notification.mp3'
     },
     dir: {
@@ -116,13 +147,13 @@ const PushMessageSchema = new mongoose.Schema(
       ref:'pushsetting',
       autopopulate: true
     },
-    setting:[
-      {
-       type: Schema.Types.ObjectId,
-            ref: 'user',
-            autopopulate:{maxDepth: 2 }
-    }
-    ],
+    // setting:[
+    //   {
+    //    type: Schema.Types.ObjectId,
+    //         ref: 'user',
+    //         autopopulate: true
+    // }
+    // ],
      project_id:{
           type: Schema.Types.ObjectId,
           ref: 'project',
@@ -135,6 +166,29 @@ const PushMessageSchema = new mongoose.Schema(
     versionKey: false
   }
 );
+
+// The same E11000 error can occur when you call `update()`
+// This function **must** take 3 parameters. If you use the
+// `passRawResult` function, this function **must** take 4
+// parameters
+PushMessageSchema.post('update', function(error, res, next) {
+  if (error.name === 'MongoServerError' && error.code === 11000) {
+    next(new Error('There was a duplicate key error'));
+  } else {
+    next(); // The `update()` call will still error out.
+  }
+});
+
+
+// Handler **must** take 3 parameters: the error that occurred, the document
+// in question, and the `next()` function
+PushMessageSchema.post('save', function(error, doc, next) {
+  if (error.name === 'MongoServerError' && error.code === 11000) {
+    next(new Error('There was a duplicate key error'));
+  } else {
+    next();
+  }
+});
 PushMessageSchema.plugin(require('mongoose-autopopulate'));
 const Push = mongoose.model('push', PushMessageSchema);
 module.exports = Push;

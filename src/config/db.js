@@ -3,7 +3,7 @@ const {
   MONGO_USERNAME = '',
   MONGO_PASSWORD = '',
   MONGO_HOST = 'localhost',
-  MONGO_PORT = 15633,
+  MONGO_PORT = 27017,
   MONGO_DATABASE = 'web-push'
 } = process.env;
 
@@ -13,7 +13,8 @@ const {
 export const MONGO_URI = 'mongodb://localhost:27017/web-push'
 
 export const MONGO_OPTIONS = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true
+  useNewUrlParser:true,
+  // useCreateIndex:true,
+  // useFindAndModify:false,
+  useUnifiedTopology: true
 };

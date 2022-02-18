@@ -8,13 +8,13 @@ const ratelimit = require('../util/limiter');
 const authController = require('../middlewares/auth');
 const oauth2Controller = require('../controllers/oauth2');
 const keys = require('./../config/keys');
-import Pushsetting from "../model/pushSetting";
+const Pushsetting = require('../model/pushSetting')
 
 // Get All Push Message Settings
 router.get('/',ratelimit('pushlimit', 10, '', 1),catchAsync (async (req,res) => {
     var SettingData = '';
     var setData = [];
-    SettingData = await Pushsetting.find({}, async(err, Pushsettings) => {
+    SettingData = await Pushsetting.find({}, async(err, Pushpayloads) => {
       if(err){
         console.error('Error occurred while getting subscriptions');
         res.status(500).json({
@@ -22,7 +22,7 @@ router.get('/',ratelimit('pushlimit', 10, '', 1),catchAsync (async (req,res) => 
         });
     }else{
         res.status(200).json({
-            setting: Pushsettings
+            setting: Pushpayloads
         });
     }
    })
