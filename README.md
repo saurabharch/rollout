@@ -1,13 +1,25 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)] [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout?ref=badge_shield)
 
 > #  Buy a coffee for me
-<a href="https://www.buymeacoffee.com/saurabharch" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
 
 <a href='https://ko-fi.com/saurabharch' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
   
 -  issuehunt: saurabharch
 -  otechie: saurabharch
+  
+## Support
 
+If you need paid support, consulting, or just want support/sponsor the ongoing development of this project, you can in the following ways:
+
+|Description | Link |
+|-	|:-:|
+| Buy a coffee for me | <a href="https://www.buymeacoffee.com/saurabharch" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+| Donate or Book 1 hour consult | [![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
+| Per-minute consulting |   <a href="http://otechie.com/smashah"><img src="https://api.otechie.com/consultancy/saurabharch/badge.svg" alt="Consulting"></a>
+| Hire me! | [![Consulting Request][consult-shield]][consult]
+  
+  
 # PushGeek Rollout Server
 <h1 align="center">
   <img alt="PushGeek" src="https://github.com/saurabharch/rollout/blob/master/src/public/images/Pushgeek.gif?raw=true" width="180px" />
