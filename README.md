@@ -328,8 +328,8 @@ Sweetspot = Monolith app and databases in containers
 
 [Saurabh Kashyap](https://github.com/saurabharch)
   
-[consult-shield](https://img.shields.io/badge/Require%20Paid%20Support%20or%20Consulting%3F-Click%20Here-blue?style=for-the-badge&logo=paypal)
-[consult](mailto:saurabh@raindigi.com?subject=Rollout%20Consulting)
+[consult-shield]: https://img.shields.io/badge/Require%20Paid%20Support%20or%20Consulting%3F-Click%20Here-blue?style=for-the-badge&logo=paypal
+[consult]: mailto:saurabh@raindigi.com?subject=Rollout%20Consulting
 
 ## 📝 License
 
