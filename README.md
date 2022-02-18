@@ -327,7 +327,8 @@ Sweetspot = Monolith app and databases in containers
 ## 👨🏼‍💻 Author
 
 [Saurabh Kashyap](https://github.com/saurabharch)
-  
+[buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
+[buymeacoffee]: https://www.buymeacoffee.com/saurabharch
 [consult-shield]: https://img.shields.io/badge/Require%20Paid%20Support%20or%20Consulting%3F-Click%20Here-blue?style=for-the-badge&logo=paypal
 [consult]: mailto:saurabh@raindigi.com?subject=Rollout%20Consulting
 
