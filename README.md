@@ -16,7 +16,7 @@ If you need paid support, consulting, or just want support/sponsor the ongoing d
 |-	|:-:|
 | Buy a coffee for me | <a href="https://www.buymeacoffee.com/saurabharch" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 | Donate or Book 1 hour consult | [![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
-| Per-minute consulting |   <a href="http://otechie.com/smashah"><img src="https://api.otechie.com/consultancy/saurabharch/badge.svg" alt="Consulting"></a>
+| Per-minute consulting |   <a href="http://otechie.com/saurabharch"><img src="https://api.otechie.com/consultancy/saurabharch/badge.svg" alt="Consulting"></a>
 | Hire me! | [![Consulting Request][consult-shield]][consult]
   
   
