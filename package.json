@@ -140,7 +140,7 @@
         "mongodb": "^4.1.0",
         "mongodb-uri": "^0.9.7",
         "mongoose": "^5.13.7",
-        "mongoose-autopopulate": "^0.14.0",
+        "mongoose-autopopulate": "^0.16.0",
         "mongoose-paginate": "^5.0.3",
         "mongoose-sequence": "^5.3.1",
         "morgan": "^1.10.0",
