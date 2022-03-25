@@ -150,7 +150,7 @@
         "node-cron": "^3.0.0",
         "node-gcm": "^1.0.4",
         "node-uuid": "^1.4.8",
-        "nodemailer": "^6.6.3",
+        "nodemailer": "^6.6.1",
         "numeral": "^2.0.6",
         "oauth2orize": "^1.11.0",
         "oauthorize": "^0.1.0",
