@@ -555,7 +555,7 @@ app.use("/api/keys", keygen); // url path http://${process.env.HOST}:${process.e
 app.use("/api/geo", whoami); // url path http://${process.env.HOST}:${process.env.PORT}/api/ami/whoami
 app.use("/api/time", timestamp); // url path http://${process.env.HOST}:${process.env.PORT}/api/time//timestamp/:date_string?
 app.use("/api/status", systemStatus); // url path http://${process.env.HOST}:${process.env.PORT}/api/status/server
-app.use("/api/ai", textClassification); // url path http://${process.env.HOST}:${process.env.PORT}/api/ai/textResult?
+//app.use("/api/ai", textClassification); // url path http://${process.env.HOST}:${process.env.PORT}/api/ai/textResult?
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {customCss}));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // catch 404 and forward to error handler
