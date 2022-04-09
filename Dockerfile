@@ -5,25 +5,25 @@ MAINTAINER Saurabh Kashyap <saurabhkashyap0001@gmail.com>
 ADD installer.sh installer.sh
 RUN chmod +x installer.sh
 # RUN bash installer.sh
-RUN apk add py-pip python-dev 
+RUN apk add py-pip python3 
 RUN apk update \
     && apk upgrade \
     && apk --no-cache add --update tcl apache2 ca-certificates
 
 # # # Install necessary tools
-RUN apk add -y nano wget dialog net-tools
+#RUN apt-get install  -y nano wget dialog net-tools
 
 # # Download and Install Nginx
-RUN apt-get install -y nginx  
+#RUN apt-get install -y nginx  
 
 # # Remove the default Nginx configuration file
-RUN rm -v /etc/nginx/nginx.conf
+#RUN rm -v /etc/nginx/nginx.conf
 
 # # Copy a configuration file from the current directory
-COPY ./rollout-deployment/nginx/nginx.conf ./etc/nginx/nginx.conf
+#COPY ./rollout-deployment/nginx/nginx.conf ./etc/nginx/nginx.conf
 # ADD ./nginx/nginx.conf .conf/etc/nginx/
 # # Append "daemon off;" to the configuration file
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+#RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 # # # Expose ports
 # EXPOSE 80
@@ -74,7 +74,7 @@ COPY . ./app
 COPY ./docker.env ./docker.env
 
 # Expose application ports - (4300 - for API and 4301 - for front end)
-EXPOSE 5501 5500 80 443
+EXPOSE 5501 5500
 
 
 
