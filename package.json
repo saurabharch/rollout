@@ -77,7 +77,7 @@
     ],
     "license": "MIT",
     "engines": {
-        "node": "16.x"
+        "node": "14.x"
     },
     "dependencies": {
         "@adyen/api-library": "^9.0.0",
