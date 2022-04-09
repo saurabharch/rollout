@@ -2,30 +2,30 @@ name: Docker Nightly Image CI
 
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: "0 1 * * *"
   workflow_dispatch:
     inputs:
       repository:
-        description: 'GitHub repository to create image off.'
+        description: "GitHub repository to create image off."
         required: true
-        default: 'saurabharch/rollout'
+        default: "saurabharch/rollout"
       branch:
-        description: 'GitHub branch to create image off.'
+        description: "GitHub branch to create image off."
         required: true
-        default: 'master'
+        default: "master"
       tag:
-        description: 'Name of the docker tag to create.'
+        description: "Name of the docker tag to create."
         required: true
-        default: 'nightly'
+        default: "nightly"
       merge-master:
-        description: 'Merge with master.'
+        description: "Merge with master."
         type: boolean
         required: true
         default: false
       success-url:
-        description: 'URL to call after Docker Image got built successfully.'
+        description: "URL to call after Docker Image got built successfully."
         required: false
-        default: ''
+        default: ""
 
 jobs:
   build:
@@ -54,7 +54,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./docker/images/rollout-custom/Dockerfile
+          file: ./Dockerfile
           platforms: linux/amd64
           push: true
           tags: saurabharch/rollout:${{ github.event.inputs.tag || 'nightly' }}
