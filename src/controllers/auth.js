@@ -5,6 +5,9 @@ import Role from'../model/role';
 // import comparePassword from '../model/user';
 import jwt from'jsonwebtoken';
 const config = require('../config/auth');
+// const otpMiddleware = require('../middlewares/otpMiddleware');
+import otpMiddleware from '../middlewares';
+
 
 export const signUp = async (req, res) => {
   try{
@@ -90,6 +93,27 @@ export const signin = async (req, res, callback, next) => {
 
 export const LoginWithOtp = async(req,res,callback,next) => {
   
+   otpMiddleware.createNewOTP(req.body, (error, results) => {
+    if (error) {
+      return next(error);
+    }
+    return res.status(200).send({
+      message: "Success",
+      data: results,
+    });
+  });
+}
+
+export const VerifyWithOtp = async(req,res,callback,next) => {
+   otpMiddleware.verifyOTP(req.body, (error, results) => {
+    if (error) {
+      return next(error);
+    }
+    return res.status(200).send({
+      message: "Success",
+      data: results,
+    });
+  });
 }
 
 export const verifyJWT = async(req,res,callback,next) => {

@@ -3,6 +3,7 @@ import{ verifySignup }from'../middlewares';
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const ratelimit = require('../util/limiter');
 
 router.use((req, res, next) => {
   res.header(
@@ -13,20 +14,22 @@ router.use((req, res, next) => {
 });
 
 router.post(
-  '/signup',
+  '/signup',ratelimit('pushlimit', 10, '', 1),
   [verifySignup.checkDuplicateUsernameOrEmail, verifySignup.checkRolesExisted],
   authCtrl.signUp
 );
 
-router.post('/signin', authCtrl.signin);
+router.post('/signin',ratelimit('pushlimit', 10, '', 1), authCtrl.signin);
 
 router.get(
   '/google',
+  ratelimit('pushlimit', 10, '', 1),
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
 router.get(
   '/google/callback',
+  ratelimit('pushlimit', 10, '', 1),
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
     res.render('index/dashboard');
@@ -35,6 +38,7 @@ router.get(
 
 router.get(
   '/facebook',
+  ratelimit('pushlimit', 10, '', 1),
   passport.authenticate('facebook', {
     scope: [{ scope: ['email', 'public_profile', 'user_location'] }]
   })
@@ -42,16 +46,18 @@ router.get(
 
 router.get(
   '/facebook/callback',
+  ratelimit('pushlimit', 10, '', 1),
   passport.authenticate('facebook', {
     successRedirect: '/dashboard',
     failureRedirect: '/'
   })
 );
 
-router.get('/twitter', passport.authenticate('twitter'));
+router.get('/twitter',ratelimit('pushlimit', 10, '', 1), passport.authenticate('twitter'));
 
 router.get(
   '/twitter/callback',
+  ratelimit('pushlimit', 10, '', 1),
   passport.authenticate('twitter', {
     failureRedirect: '/'
   }),
@@ -61,10 +67,11 @@ router.get(
   }
 );
 
-router.get('/pinterest', passport.authenticate('pinterest'));
+router.get('/pinterest',ratelimit('pushlimit', 10, '', 1), passport.authenticate('pinterest'));
 
 router.get(
   '/pinterest/callback',
+  ratelimit('pushlimit', 10, '', 1),
   passport.authenticate('pinterest', {
     failureRedirect: '/'
   }),
@@ -74,10 +81,11 @@ router.get(
   }
 );
 
-router.get('/instagram', passport.authenticate('instagram'));
+router.get('/instagram',ratelimit('pushlimit', 10, '', 1), passport.authenticate('instagram'));
 
 router.get(
   '/instagram/callback',
+  ratelimit('pushlimit', 10, '', 1),
   passport.authenticate('instagram', {
     failureRedirect: '/'
   }),
@@ -87,7 +95,7 @@ router.get(
   }
 );
 
-router.get('/verify', (req, res) => {
+router.get('/verify',ratelimit('pushlimit', 10, '', 1), (req, res) => {
   if(req.user){
     console.log(req.user);
   }else{
@@ -95,9 +103,13 @@ router.get('/verify', (req, res) => {
   }
 });
 
-router.get('/logout', (req, res) => {
+router.get('/logout',ratelimit('pushlimit', 10, '', 1), (req, res) => {
   req.logout();
   res.redirect('/');
 });
+
+router.post('/otplogin',ratelimit('pushlimit', 10, '', 1), authCtrl.LoginWithOtp);
+
+router.post('/verifyotp',ratelimit('pushlimit', 10, '', 1),authCtrl.VerifyWithOtp);
 
 module.exports = router;

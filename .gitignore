@@ -16,16 +16,16 @@ log
 ./kp-push-2020.pem
 ./model/user2.js
 ./model/user1.js
-.env
 .env.bak
 # Build
 build
 
 # package.json 25.sep.2020
 # package.json
-package-*.json
+#package-*.json
 # environment variables
 .env
 /src/config/*-local.json
 .vscode
 **.DS_Store
+docker.env

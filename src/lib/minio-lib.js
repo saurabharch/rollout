@@ -24,7 +24,7 @@ export const minioClient = new Minio.Client ({
         }
 
         if (!exists) {
-             await minioClient.makeBucket(req.body.bucketname, function(e) {
+               minioClient.makeBucket(req.body.bucketname, function(e) {
                 if (e) {
                     return res.status(502).json({
                         message: e.message

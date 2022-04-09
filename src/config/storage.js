@@ -2,7 +2,7 @@ exports.storages = {
   local: {
     provider: 'local',
     path: '/uploads',
-    mode: 0777
+    mode: '0777'
   },
   rackspace: {
     provider: 'rackspace',
@@ -19,8 +19,8 @@ exports.storages = {
     container: process.env.IMAGER_S3_BUCKET
   },
   MINIO:{
-    provider:'minio'
-    endPoint: process.env.MINIO_ENDPOIN,
+    provider:'minio',
+    endPoint: process.env.MINIO_ENDPOINT,
     port: process.env.MINIO_PORT,
     useSSL: process.env.MINIO_SSL_STATUS,
     accessKey: process.env.MINIO_ACCESS_KEY,

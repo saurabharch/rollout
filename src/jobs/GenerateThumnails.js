@@ -17,8 +17,8 @@ export default{
      await imager.upload(InputData.InputBuffere, function (err, avatar) {
         avatar =>
         {
-          thumb: [ 'https://'+ config.storages.amazon.container +'.s3.amazonaws.com//user/1/thumb/'+ InputData.filename, ],
-          large: [ 'https://'+ config.storages.amazon.container +'.s3.amazonaws.com/user/1/large/' InputData.filename, ]
+          thumb = [ 'https://'+ config.storages.amazon.container +'.s3.amazonaws.com//user/1/thumb/'+ InputData.filename, ];
+          large = [ 'https://'+ config.storages.amazon.container +'.s3.amazonaws.com/user/1/large/'+InputData.filename, ];
         }
       }).then(p => console.log(`${p.avatar}`));
     }

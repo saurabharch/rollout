@@ -7,7 +7,7 @@ const ratelimit = require('../util/limiter');
 export const UnSubscribe = async(req,res,next) => {
 
     console.log(req);
-  Subscription.remove({
+  await Subscription.remove({
     endpoint: subscription.endpoint,
     keys: {
       p256dh: subscription.keys.p256dh,

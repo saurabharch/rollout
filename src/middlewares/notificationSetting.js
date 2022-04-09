@@ -1,5 +1,5 @@
-import Pushsetting from'../model/pushSetting';
-import Push'../model/push';
+import Pushsetting from '../model/pushSetting';
+import Push from '../model/push';
 
 const GetMessageSender = async (req, res, next) => {
   try{
@@ -21,7 +21,7 @@ const checkMessageExisted = async (req, res, next) => {
       if(!Exists){
         var data = req.params;
         return res.status(400).json({
-          message: Exists+ ' Message Id doesn't exists'
+          message: Exists+ ' Message Id does not exists'
         });
       }
   }

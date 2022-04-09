@@ -38,14 +38,14 @@ export default{
         avatar =>
         {
 
-            WebIcon:[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webicon519X519'+ InputData.filename, ],
-            WebIcon96X96:[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webicon96X96-'+ InputData.filename, ],
-            WebIcon144X144:[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webicon144X144-'+ InputData.filename, ],
-            WebIcon310X310:[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webicon310X310-'+ InputData.filename, ],
-            WebFevicon16X16:[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webfevicon16X16-'+ InputData.filename, ],
-            WebFevicon32X32:[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webfevicon32X32-'+ InputData.filename, ],
-            WebFevicon96X96:[ 'https://'+storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webfevicon96X96-'+ InputData.filename, ],
-            WebFevicon:[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webfevicon-'+ InputData.filename, ],
+            WebIcon=[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webicon519X519'+ InputData.filename, ];
+            WebIcon96X96=[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webicon96X96-'+ InputData.filename, ];
+            WebIcon144X144=[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webicon144X144-'+ InputData.filename, ];
+            WebIcon310X310=[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webicon310X310-'+ InputData.filename, ];
+            WebFevicon16X16=[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webfevicon16X16-'+ InputData.filename, ];
+            WebFevicon32X32=[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webfevicon32X32-'+ InputData.filename, ];
+            WebFevicon96X96=[ 'https://'+storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webfevicon96X96-'+ InputData.filename, ];
+            WebFevicon=[ 'https://'+ storage.amazon.container +'.s3.amazonaws.com/user/1/webicon/webfevicon-'+ InputData.filename, ];
         }
       }).then(p => console.log(`${p.avatar}`));
     }

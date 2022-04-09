@@ -3,6 +3,7 @@ import{ catchAsync, isAuthenticated, isClientAuthenticated }from'../middlewares'
 const router = express.Router();
 const authController = require('../middlewares/auth');
 const oauth2Controller = require('../controllers/oauth2');
+const ratelimit = require('../util/limiter');
 // const clientController = require('../controllers/client');
 // Load required packages
 import Client from "../model/client";
@@ -13,7 +14,7 @@ router.get('/',(req,res)=>{
 // router.route('/api')
 //   .post(authController.isAuthenticated, clientController.postClients)
 //   .get(authController.isAuthenticated, clientController.getClients);
-router.post('/oauth2/authorize',  catchAsync(async (req, res) => {
+router.post('/oauth2/authorize',ratelimit('pushlimit', 10, '', 1),  catchAsync(async (req, res) => {
       // Use the Client model to find all clients
   // Create a new instance of the Client model
   const {client_id,response_type,redirect_uri} = req.params;
@@ -34,7 +35,7 @@ router.post('/oauth2/authorize',  catchAsync(async (req, res) => {
     res.json({ message: 'Client added to the locker!', data: client });
   });
 }));
-router.get('/oauth2/authorize',  catchAsync(async (req, res) => {
+router.get('/oauth2/authorize',ratelimit('pushlimit', 10, '', 1),  catchAsync(async (req, res) => {
      // Use the Client model to find all clients
      const {client_id,response_type,redirect_uri} = req.params;
   Client.find({'id':{$in:client_id}}, function(err, clients) {
@@ -55,12 +56,12 @@ router.get('/oauth2/authorize',  catchAsync(async (req, res) => {
 //   );
 // Create endpoint handlers for oauth2 authorize
 router.route('/oauth2/authorize')
-  .get(isAuthenticated, oauth2Controller.authorization)
-  .post(isAuthenticated, oauth2Controller.decision);
+  .get(ratelimit('pushlimit', 10, '', 1),isAuthenticated, oauth2Controller.authorization)
+  .post(ratelimit('pushlimit', 10, '', 1),isAuthenticated, oauth2Controller.decision);
 // router.get('/api/oauth2/authorize',authController.isAuthenticated,oauth2Controller.authorization);
 // router.post('/api/oauth2/authorize',authController.isAuthenticated,oauth2Controller.decision);
 // Create endpoint handlers for oauth2 token
 router.route('/oauth2/token')
-  .post(isClientAuthenticated, oauth2Controller.token);
+  .post(ratelimit('pushlimit', 10, '', 1),isClientAuthenticated, oauth2Controller.token);
 // router.post('/api/oauth2/token',authController.isClientAuthenticated,oauth2Controller.token);
 module.exports = router;

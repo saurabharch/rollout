@@ -26,7 +26,7 @@ const { APP_PORT } = require('./config');
 ////////////////////////////////////////////////// HTTPS  ///////////////////////////////////////////////// 
 (async () => {
   // const server = await app(store);
-
+  console.log(`Application running at : ${APP_PORT}`)
   app.listen(APP_PORT, () => console.log(`http://localhost:${APP_PORT}`));
 })();
 // app.listen(port, () => {
