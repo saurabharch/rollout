@@ -200,7 +200,7 @@
         "sitemap": "^7.0.0",
         "string-strip-html": "^8.3.0",
         "strip-bom": "^5.0.0",
-        "stripe": "^8.169.0",
+        "stripe": "^8.210.0",
         "swagger-jsdoc": "^7.0.0-rc.6",
         "swagger-ui-express": "^4.1.6",
         "tailwindcss": "^2.2.7",
