@@ -127,7 +127,7 @@
         "express-session": "^1.17.2",
         "feather-icons": "^4.28.0",
         "file-type": "^16.5.3",
-        "geoip-lite": "^1.4.2",
+        "geoip-lite": "^1.4.5",
         "glob": "^7.1.7",
         "gm": "^1.23.1",
         "got": "^11.8.2",
