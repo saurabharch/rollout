@@ -85,7 +85,7 @@
         "@bull-board/api": "^3.5.2",
         "@bull-board/express": "^3.5.2",
         "@bull-board/ui": "^3.5.2",
-        "@elastic/elasticsearch": "^7.14.0",
+        "@elastic/elasticsearch": "^8.0.0",
         "@parse/node-apn": "^5.0.0",
         "@tailwindcss/aspect-ratio": "^0.2.1",
         "@tailwindcss/forms": "^0.3.3",
