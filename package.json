@@ -186,7 +186,7 @@
         "postcss-nesting": "^8.0.1",
         "postcss-preset-env": "^6.7.0",
         "q": "^1.5.1",
-        "ramda": "^0.27.1",
+        "ramda": "^0.28.0",
         "rand-token": "^1.0.1",
         "rate-limiter-flexible": "^2.2.4",
         "raven": "^2.6.4",
