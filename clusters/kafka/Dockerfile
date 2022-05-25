@@ -1,4 +1,4 @@
-FROM openjdk:11.0.10-jre-buster
+FROM openjdk:11.0.15-jre-buster
 
 RUN apt-get update && \
     apt-get install -y curl
