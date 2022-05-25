@@ -4,11 +4,13 @@
 //   REDIS_HOST = "redis-17102.c212.ap-south-1-1.ec2.cloud.redislabs.com",
 //   REDIS_PASSWORD = "o2VTQjWB1oLh3Q2Rq0slCT0zTV8ATkKm"
 // } = process.env;
-import { RedisMemoryServer } from 'redis-memory-server';
-const redisServer = new RedisMemoryServer();
+// import { RedisMemoryServer } from 'redis-memory-server';
 
-const host_redis = await redisServer.getHost();
-const port_redis = await redisServer.getPort();
+// const redisServer = new RedisMemoryServer();
+
+// const host = await redisServer.getHost();
+// const port = await redisServer.getPort();
+// console.log(`${redisServer.getInstanceInfo()}`)
 export const REDIS_OPTIONS = {
   // port: +REDIS_PORT,
   // host: REDIS_HOST,

@@ -1,11 +1,11 @@
 // import Queue from'bull';
-const Queue = require('bull');
+// const Queue = require('bull');
 const humanInterval = require('human-interval')
-
+import { Queue } from 'bullmq';
 const differenceInMilliseconds = require('date-fns/differenceInMilliseconds')
 const parseISO = require('date-fns/parseISO')
 import redisConfig from'../config/redis';
-
+const { BULLMQ } = require( "../config/keys");
 import*as jobs from'../jobs';
 
 
@@ -64,7 +64,7 @@ export default{
 
   process(){
     return this.queues.forEach(queue => {
-      queue.bull.process(queue.handle);
+      queue.bull.add(queue.handle);
 
       queue.bull.on('failed', (job, err) => {
         console.log('Job failed', queue.key, job.data);

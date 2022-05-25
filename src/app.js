@@ -40,7 +40,7 @@ const {APP_PORT, SESSION_OPTIONS } = require( "./config");
   
 const { createBullBoard } = require('@bull-board/api')
 const { BullAdapter } = require('@bull-board/api/bullAdapter')
-// const { BullMQAdapter } = require('@bull-board/api/bullMQAdapter')
+const { BullMQAdapter } = require('@bull-board/api/bullMQAdapter')
 const { ExpressAdapter } = require('@bull-board/express')
 
 // const { router,setQueues, UI} = require('bull-board')
@@ -73,7 +73,7 @@ const home = require("./routes/home");
 const whoami = require("./routes/whoami");
 const timestamp = require("./routes/timestamp");
 const systemStatus = require("./routes/systemStatus");
-const textClassification = require("./routes/textClassification");
+// const textClassification = require("./routes/textClassification");
 const SignUp = require("./routes/user");
 const Oganization = require("./routes/organization");
 const index = require("./routes");
@@ -228,18 +228,22 @@ if (
   process.exit(2);
 }
 });
+
+
+
 // setQueues(Queue.queues.map(queue => queue.bull));
 const serverAdapter  = new ExpressAdapter();
 
 // console.log(`Mapped Queues : ${Queue.queues.map(queue => queue.bull)}`);
 Queue.queues.map(queue => {
   const  {  addQueue, removeQueue, setQueues, replaceQueues }  = createBullBoard({
-    queues: [new BullAdapter( queue.bull)],
+    queues: [new BullAdapter( queue.bull), new BullMQAdapter(queue.bull)],
     serverAdapter:serverAdapter
   });
 });
 
 // setQueues(Queue.queues.map(queue => queue.bull));
+
 
 
 // ... express server configuration
@@ -259,6 +263,7 @@ i18n.configure({
     __n: "__n" // and req.__n can be called as req.__n
   }
 });
+
 
 // First Time Initialization Test
 
@@ -496,6 +501,7 @@ app.use((req, res, next) => {
   next();
 });
 
+
 // Use Routes
 //app.use("/",index);
 
@@ -579,7 +585,7 @@ app.use("/api/keys", keygen); // url path http://${process.env.HOST}:${process.e
 app.use("/api/geo", whoami); // url path http://${process.env.HOST}:${process.env.PORT}/api/ami/whoami
 app.use("/api/time", timestamp); // url path http://${process.env.HOST}:${process.env.PORT}/api/time//timestamp/:date_string?
 app.use("/api/status", systemStatus); // url path http://${process.env.HOST}:${process.env.PORT}/api/status/server
-app.use("/api/ai", textClassification); // url path http://${process.env.HOST}:${process.env.PORT}/api/ai/textResult?
+//app.use("/api/ai", textClassification); // url path http://${process.env.HOST}:${process.env.PORT}/api/ai/textResult?
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {customCss}));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // catch 404 and forward to error handler
