@@ -95,7 +95,7 @@
         "async": "^3.2.1",
         "audit": "0.0.6",
         "aws-sdk": "^2.968.0",
-        "axios": "^0.21.1",
+        "axios": "^0.27.0",
         "badwords-list": "^1.0.0",
         "bcryptjs": "^2.4.3",
         "bluebird": "^3.7.2",
