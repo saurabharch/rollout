@@ -114,6 +114,39 @@ cp env.example .env
 node server.js
 ```
 
+## APNS Push Certificates
+
+Setup your app for Remote Push Notifications using [the
+docs](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns)
+and download the Remote Push Notifications certificate `.cer` files
+for Development and Production. Import them both into your keychain.
+
+Open Keychain Access and export both the certificate *and* private key
+(highlight them both) to a `.p12` file. I recommend saving them as:
+
+```
+apns_dev_Certificates.p12
+apns_prod_Certificates.p12
+```
+
+Then create the corresponding `.pem` files:
+
+```
+#dev
+openssl pkcs12 -clcerts -nokeys -out apns_dev_cert.pem -in apns_dev_Certificates.p12
+openssl pkcs12 -nocerts -out apns_dev_key.pem -in apns_dev_Certificates.p12
+
+#prod
+openssl pkcs12 -clcerts -nokeys -out apns_prod_cert.pem -in apns_prod_Certificates.p12 
+openssl pkcs12 -nocerts -out apns_prod_key.pem -in apns_prod_Certificates.p12
+
+# optional to remove passphrase from keys
+openssl rsa -in apns_dev_key.pem -out apns_dev_key.unencrypted.pem
+openssl rsa -in apns_prod_key.pem -out apns_prod_key.unencrypted.pem
+```
+
+Copy the `*.pem` files into the `certs` folder of this repo.
+
 ## Running Imutable stack with PM2
 
 ```shell
