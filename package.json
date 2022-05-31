@@ -194,7 +194,7 @@
         "rollout-pushnotification": "^1.7.5",
         "sanitize-html": "^2.4.0",
         "serve-static": "^1.14.1",
-        "sharp": "^0.28.3",
+        "sharp": "^0.30.4",
         "siege": "^0.2.0",
         "sitemap": "^7.0.0",
         "string-strip-html": "^8.3.0",
