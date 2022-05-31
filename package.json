@@ -228,7 +228,7 @@
         "chai": "^4.3.4",
         "chai-spies": "^1.0.0",
         "copyfiles": "^2.4.1",
-        "dotenv": "^10.0.0",
+        "dotenv": "16.0.1",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-config-standard": "^16.0.3",
