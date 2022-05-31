@@ -1,10 +1,16 @@
+const fs = require('fs');
+const path = require('path');
+const certificate = fs.readFileSync(path.join(__dirname,'certs', 'pushgeek.com-cert.pem'));
+const privateAuthKey = fs.readFileSync(path.join(__dirname,'certs','pushgeek.com-key.pem'));
 module.exports = {
   aws: {
     bucketName: 'bseb-file-container',
     accessKey: 'AKIAJ6TA7PR5VQ3R262A',
     secretKey: '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'
   },
-  mongoURI: 'mongodb://kappy:Kappy123*@ds215633.mlab.com:15633/web-push',
+  mongoURI:
+    "mongodb+srv://rolloutdb:BsGn8RRrknBtNn06@rolloutcluster.bo9wn6f.mongodb.net/web-push?retryWrites=true&w=majority",
+  // mongoURI: 'mongodb://kappy:Kappy123*@ds215633.mlab.com:15633/web-push',
   privateKey: 'Lckqnvu2RrAKlG3uutce3o-kiI7HSc1LXsy5AdlryXQ',
   publicKey:
     'BLgFTwjElUH_Iz72TKDvmlsc-EcwziNP2X28BmN-znOXJhv35QybtfcN1HTh_eUlNffp12HkuruYpqtKNedN54s',
@@ -49,8 +55,8 @@ module.exports = {
       //     keyId: '',
       //     teamId: '',
       // },
-      cert: 'cert.pem',
-      key: 'key.pem',
+      cert: certificate,
+      key: privateAuthKey,
       ca: null,
       pfx: null,
       passphrase: null,

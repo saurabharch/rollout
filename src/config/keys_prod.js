@@ -1,12 +1,16 @@
+const fs = require('fs');
+const path = require('path');
+const certificate = fs.readFileSync(path.join(__dirname,'certs',`${process.env.HOSTNAME}-cert.pem`));
+const privateAuthKey = fs.readFileSync(path.join(__dirname,'certs',`${process.env.HOSTNAME}-key.pem`));
 module.exports = {
   aws: {
     bucketName: 'bseb-file-container',
     accessKey: 'AKIAJ6TA7PR5VQ3R262A',
     secretKey: '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'
   },
-  // mongoURI:
-  //   "mongodb+srv://kappy:Kappy123*@cluster0-nikh7.mongodb.net/test?retryWrites=true&w=majority", //
-  mongoURI: 'mongodb://kappy:Kappy123*@ds215633.mlab.com:15633/web-push',
+  mongoURI:
+    "mongodb+srv://rolloutdb:BsGn8RRrknBtNn06@rolloutcluster.bo9wn6f.mongodb.net/web-push?retryWrites=true&w=majority", //
+  // mongoURI: 'mongodb://kappy:Kappy123*@ds215633.mlab.com:15633/web-push',
   privateKey: process.env.VAPID_PRIVATE_KEY,
   publicKey: process.env.VAPID_PUBLIC_KEY,
   GCM_Key: process.env.GCM_KEY,
@@ -49,8 +53,8 @@ module.exports = {
       //     keyId: '',
       //     teamId: '',
       // },
-      cert: 'cert.pem',
-      key: 'key.pem',
+      cert: certificate,
+      key: privateAuthKey,
       ca: null,
       pfx: null,
       passphrase: null,

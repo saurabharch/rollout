@@ -4,8 +4,13 @@ MAINTAINER Saurabh Kashyap <saurabhkashyap0001@gmail.com>
 # Add hello scripts
 ADD installer.sh installer.sh
 RUN chmod +x installer.sh
+ADD gen-cert.sh gen-cert.sh
+RUN chmod +x gen-cert.sh
+ENV HOSTNAME $HOSTNAME
+RUN bash gen-cert.sh ${HOSTNAME} && rm -rf gen-cert.sh
+
 # RUN bash installer.sh
-RUN apk add py-pip python3 
+RUN apk add py-pip python3 openssl
 RUN apk update \
     && apk upgrade \
     && apk --no-cache add --update tcl apache2 ca-certificates

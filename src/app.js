@@ -1,5 +1,5 @@
 const fs = require("fs");
-// import "dotenv/config";
+require('dotenv').config()
 const yenv = require("yenv");
 if (fs.existsSync("./env.yaml")) {
   process.env = yenv("env.yaml", { strict: false });

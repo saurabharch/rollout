@@ -147,6 +147,12 @@ openssl rsa -in apns_prod_key.pem -out apns_prod_key.unencrypted.pem
 
 Copy the `*.pem` files into the `certs` folder of this repo.
 
+## OR
+
+```shell
+./gen-cert.sh example.com
+```
+
 ## Running Imutable stack with PM2
 
 ```shell
