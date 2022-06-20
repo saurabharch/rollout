@@ -139,7 +139,7 @@
         "i18n-iso-countries": "^6.8.0",
         "ioredis": "^4.27.7",
         "is_js": "^0.9.0",
-        "is-online": "^9.0.1",
+        "is-online": "^10.0.0",
         "jsonwebtoken": "^8.5.1",
         "lodash": "^4.17.21",
         "lunr": "^2.3.9",
