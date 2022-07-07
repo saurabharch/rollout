@@ -147,7 +147,7 @@
         "mime-db": "^1.49.0",
         "mime-type": "^4.0.0",
         "mkdirp": "^1.0.4",
-        "moment": "^2.29.1",
+        "moment": "^2.29.4",
         "mongo-sanitize": "^1.1.0",
         "mongodb": "^4.1.0",
         "mongodb-uri": "^0.9.7",
