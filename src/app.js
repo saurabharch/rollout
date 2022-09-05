@@ -1174,15 +1174,15 @@ initDb(config.databaseConnectionString, async (err, db) => {
     await addSchemas();
 
     // Start the app
-    try{
-        await app.listen(app.get('port'));
-        app.emit('appStarted');
-        if(process.env.NODE_ENV !== 'test'){
-            console.log(colors.green(`Rollout Server running on host: http://localhost:${APP_PORT}`));
-        }
-    }catch(ex){
-        console.error(colors.red(`Error starting Rollout app:${ex.message}`));
-        process.exit(2);
-    }
+    // try{
+    //     await app.listen(app.get('port'));
+    //     app.emit('appStarted');
+    //     if(process.env.NODE_ENV !== 'test'){
+    //         console.log(colors.green(`Rollout Server running on host: http://localhost:${APP_PORT}`));
+    //     }
+    // }catch(ex){
+    //     console.error(colors.red(`Error starting Rollout app:${ex.message}`));
+    //     process.exit(2);
+    // }
 });
 module.exports = app;

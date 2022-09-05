@@ -1,6 +1,7 @@
 const  Map  = require('immutable').Map;
 // import uuid from 'uuid/v1'
-const uuidv4 = require('uuid/v4');
+// const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 var winston = require('../../config/winston');
 
 class Subscription {

@@ -148,6 +148,7 @@
         "human-interval": "^2.0.1",
         "i18n": "^0.13.4",
         "i18n-iso-countries": "^6.8.0",
+        "immutable": "^4.1.0",
         "ioredis": "^4.28.5",
         "is_js": "^0.9.0",
         "is-online": "^9.0.1",

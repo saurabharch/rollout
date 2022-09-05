@@ -17779,3 +17779,953 @@ warn: Problem getting project with id: chat req.originalUrl:  /chat/projects
 warn: ProjectSetter project not found with id: chat
 info: filtering token YWRtaW5Acm9sbG91dC5jb206YWRtaW5hZG1pbg==
 info: filtering decoded null
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: ModulesManager not present
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: PubModulesManager init messageTransformer module not found
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager init scheduler module not found
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager Chat21 channel is disabled. Attention!!
+info: ChannelManager listener NOT started 
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger disabled 
+info: ChannelManager - Chat21 channel routes not initialized.
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+error: uncaughtException: Cannot find module '../websocket/webSocketServer'
+Require stack:
+- D:\ROLLOUT PACKAGES\rollout\src\index.js
+Error: Cannot find module '../websocket/webSocketServer'
+Require stack:
+- D:\ROLLOUT PACKAGES\rollout\src\index.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\src\/index.js:22:23)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Module._compile (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:136:24)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Object.newLoader [as .js] (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:141:7)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\node\lib\_babel-node.js:176:21)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:17:47 {"date":"Tue Sep 06 2022 05:14:10 GMT+0530 (India Standard Time)","error":{"code":"MODULE_NOT_FOUND","message":"Cannot find module '../websocket/webSocketServer'\nRequire stack:\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js","requireStack":["D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"stack":"Error: Cannot find module '../websocket/webSocketServer'\nRequire stack:\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:778:27)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:22:23)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js:176:21)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at node:internal/main/run_main_module:17:47"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":9900},"process":{"argv":["node","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"cwd":"D:\\ROLLOUT PACKAGES\\rollout","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":148199243,"external":154053931,"heapTotal":190619648,"heapUsed":166973216,"rss":351465472},"pid":40136,"uid":null,"version":"v16.13.0"},"stack":"Error: Cannot find module '../websocket/webSocketServer'\nRequire stack:\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:778:27)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:22:23)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js:176:21)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at node:internal/main/run_main_module:17:47","trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":933,"method":"_resolveFilename","native":false},{"column":27,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":778,"method":"_load","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1005,"method":"require","native":false},{"column":18,"file":"node:internal/modules/cjs/helpers","function":"require","line":102,"method":null,"native":false},{"column":23,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js","function":null,"line":22,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Module._compile","line":136,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Object.newLoader [as .js]","line":141,"method":"js]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false},{"column":12,"file":"node:internal/modules/run_main","function":"Function.executeUserEntryPoint [as runMain]","line":81,"method":"executeUserEntryPoint [as runMain]","native":false},{"column":21,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js","function":null,"line":176,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false},{"column":12,"file":"node:internal/modules/run_main","function":"Function.executeUserEntryPoint [as runMain]","line":81,"method":"executeUserEntryPoint [as runMain]","native":false},{"column":47,"file":"node:internal/main/run_main_module","function":null,"line":17,"method":null,"native":false}]}
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: ModulesManager not present
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: PubModulesManager init messageTransformer module not found
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager init scheduler module not found
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager Chat21 channel is disabled. Attention!!
+info: ChannelManager listener NOT started 
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger disabled 
+info: ChannelManager - Chat21 channel routes not initialized.
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+error: uncaughtException: Cannot find module '../middleware/valid-token'
+Require stack:
+- D:\ROLLOUT PACKAGES\rollout\src\websocket\webSocketServer.js
+- D:\ROLLOUT PACKAGES\rollout\src\index.js
+Error: Cannot find module '../middleware/valid-token'
+Require stack:
+- D:\ROLLOUT PACKAGES\rollout\src\websocket\webSocketServer.js
+- D:\ROLLOUT PACKAGES\rollout\src\index.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\src\websocket\/webSocketServer.js:10:18)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Module._compile (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:136:24)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Object.newLoader [as .js] (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:141:7)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\src\/index.js:22:23)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Module._compile (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:136:24)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Object.newLoader [as .js] (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:141:7)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\node\lib\_babel-node.js:176:21) {"date":"Tue Sep 06 2022 05:14:55 GMT+0530 (India Standard Time)","error":{"code":"MODULE_NOT_FOUND","message":"Cannot find module '../middleware/valid-token'\nRequire stack:\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\webSocketServer.js\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js","requireStack":["D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\webSocketServer.js","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"stack":"Error: Cannot find module '../middleware/valid-token'\nRequire stack:\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\webSocketServer.js\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:778:27)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\/webSocketServer.js:10:18)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:22:23)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js:176:21)"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":9945},"process":{"argv":["node","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"cwd":"D:\\ROLLOUT PACKAGES\\rollout","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":145825401,"external":147571829,"heapTotal":198242304,"heapUsed":171354392,"rss":356327424},"pid":5984,"uid":null,"version":"v16.13.0"},"stack":"Error: Cannot find module '../middleware/valid-token'\nRequire stack:\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\webSocketServer.js\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:778:27)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\/webSocketServer.js:10:18)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:22:23)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js:176:21)","trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":933,"method":"_resolveFilename","native":false},{"column":27,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":778,"method":"_load","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1005,"method":"require","native":false},{"column":18,"file":"node:internal/modules/cjs/helpers","function":"require","line":102,"method":null,"native":false},{"column":18,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\/webSocketServer.js","function":null,"line":10,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Module._compile","line":136,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Object.newLoader [as .js]","line":141,"method":"js]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1005,"method":"require","native":false},{"column":18,"file":"node:internal/modules/cjs/helpers","function":"require","line":102,"method":null,"native":false},{"column":23,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js","function":null,"line":22,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Module._compile","line":136,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Object.newLoader [as .js]","line":141,"method":"js]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false},{"column":12,"file":"node:internal/modules/run_main","function":"Function.executeUserEntryPoint [as runMain]","line":81,"method":"executeUserEntryPoint [as runMain]","native":false},{"column":21,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js","function":null,"line":176,"method":null,"native":false}]}
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: ModulesManager not present
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: PubModulesManager init messageTransformer module not found
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager init scheduler module not found
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager Chat21 channel is disabled. Attention!!
+info: ChannelManager listener NOT started 
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger disabled 
+info: ChannelManager - Chat21 channel routes not initialized.
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+error: uncaughtException: Cannot find module '../middleware/has-role'
+Require stack:
+- D:\ROLLOUT PACKAGES\rollout\src\websocket\webSocketServer.js
+- D:\ROLLOUT PACKAGES\rollout\src\index.js
+Error: Cannot find module '../middleware/has-role'
+Require stack:
+- D:\ROLLOUT PACKAGES\rollout\src\websocket\webSocketServer.js
+- D:\ROLLOUT PACKAGES\rollout\src\index.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\src\websocket\/webSocketServer.js:17:19)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Module._compile (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:136:24)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Object.newLoader [as .js] (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:141:7)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\src\/index.js:22:23)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Module._compile (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:136:24)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Object.newLoader [as .js] (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:141:7)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\node\lib\_babel-node.js:176:21) {"date":"Tue Sep 06 2022 05:15:52 GMT+0530 (India Standard Time)","error":{"code":"MODULE_NOT_FOUND","message":"Cannot find module '../middleware/has-role'\nRequire stack:\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\webSocketServer.js\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js","requireStack":["D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\webSocketServer.js","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"stack":"Error: Cannot find module '../middleware/has-role'\nRequire stack:\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\webSocketServer.js\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:778:27)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\/webSocketServer.js:17:19)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:22:23)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js:176:21)"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":10001},"process":{"argv":["node","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"cwd":"D:\\ROLLOUT PACKAGES\\rollout","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":145827763,"external":147574191,"heapTotal":199434240,"heapUsed":165715952,"rss":357130240},"pid":40492,"uid":null,"version":"v16.13.0"},"stack":"Error: Cannot find module '../middleware/has-role'\nRequire stack:\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\webSocketServer.js\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:778:27)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\/webSocketServer.js:17:19)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:22:23)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js:176:21)","trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":933,"method":"_resolveFilename","native":false},{"column":27,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":778,"method":"_load","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1005,"method":"require","native":false},{"column":18,"file":"node:internal/modules/cjs/helpers","function":"require","line":102,"method":null,"native":false},{"column":19,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\/webSocketServer.js","function":null,"line":17,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Module._compile","line":136,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Object.newLoader [as .js]","line":141,"method":"js]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1005,"method":"require","native":false},{"column":18,"file":"node:internal/modules/cjs/helpers","function":"require","line":102,"method":null,"native":false},{"column":23,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js","function":null,"line":22,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Module._compile","line":136,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Object.newLoader [as .js]","line":141,"method":"js]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false},{"column":12,"file":"node:internal/modules/run_main","function":"Function.executeUserEntryPoint [as runMain]","line":81,"method":"executeUserEntryPoint [as runMain]","native":false},{"column":21,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js","function":null,"line":176,"method":null,"native":false}]}
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: ModulesManager not present
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: PubModulesManager init messageTransformer module not found
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager init scheduler module not found
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager Chat21 channel is disabled. Attention!!
+info: ChannelManager listener NOT started 
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger disabled 
+info: ChannelManager - Chat21 channel routes not initialized.
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+error: uncaughtException: Cannot find module 'immutable'
+Require stack:
+- D:\ROLLOUT PACKAGES\rollout\src\websocket\pubsub.js
+- D:\ROLLOUT PACKAGES\rollout\src\websocket\webSocketServer.js
+- D:\ROLLOUT PACKAGES\rollout\src\index.js
+Error: Cannot find module 'immutable'
+Require stack:
+- D:\ROLLOUT PACKAGES\rollout\src\websocket\pubsub.js
+- D:\ROLLOUT PACKAGES\rollout\src\websocket\webSocketServer.js
+- D:\ROLLOUT PACKAGES\rollout\src\index.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\src\websocket\/pubsub.js:1:15)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Module._compile (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:136:24)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Object.newLoader [as .js] (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:141:7)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\src\websocket\/webSocketServer.js:18:16)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Module._compile (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:136:24)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Object.newLoader [as .js] (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:141:7)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18) {"date":"Tue Sep 06 2022 05:16:18 GMT+0530 (India Standard Time)","error":{"code":"MODULE_NOT_FOUND","message":"Cannot find module 'immutable'\nRequire stack:\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\pubsub.js\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\webSocketServer.js\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js","requireStack":["D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\pubsub.js","D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\webSocketServer.js","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"stack":"Error: Cannot find module 'immutable'\nRequire stack:\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\pubsub.js\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\webSocketServer.js\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:778:27)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\/pubsub.js:1:15)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\/webSocketServer.js:18:16)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":10028},"process":{"argv":["node","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"cwd":"D:\\ROLLOUT PACKAGES\\rollout","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":145650383,"external":147372147,"heapTotal":203628544,"heapUsed":176702680,"rss":362098688},"pid":29644,"uid":null,"version":"v16.13.0"},"stack":"Error: Cannot find module 'immutable'\nRequire stack:\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\pubsub.js\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\webSocketServer.js\n- D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:778:27)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\/pubsub.js:1:15)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\/webSocketServer.js:18:16)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)","trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":933,"method":"_resolveFilename","native":false},{"column":27,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":778,"method":"_load","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1005,"method":"require","native":false},{"column":18,"file":"node:internal/modules/cjs/helpers","function":"require","line":102,"method":null,"native":false},{"column":15,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\/pubsub.js","function":null,"line":1,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Module._compile","line":136,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Object.newLoader [as .js]","line":141,"method":"js]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1005,"method":"require","native":false},{"column":18,"file":"node:internal/modules/cjs/helpers","function":"require","line":102,"method":null,"native":false},{"column":16,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\websocket\\/webSocketServer.js","function":null,"line":18,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Module._compile","line":136,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Object.newLoader [as .js]","line":141,"method":"js]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1005,"method":"require","native":false},{"column":18,"file":"node:internal/modules/cjs/helpers","function":"require","line":102,"method":null,"native":false}]}
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: ModulesManager not present
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: PubModulesManager init messageTransformer module not found
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager init scheduler module not found
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager Chat21 channel is disabled. Attention!!
+info: ChannelManager listener NOT started 
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger disabled 
+info: ChannelManager - Chat21 channel routes not initialized.
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+error: uncaughtException: httpServer is not defined
+ReferenceError: httpServer is not defined
+    at _callee$ (D:\ROLLOUT PACKAGES\rollout\src\/index.js:119:24)
+    at tryCatch (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:86:17)
+    at Generator._invoke (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:66:24)
+    at Generator.next (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:117:21)
+    at asyncGeneratorStep (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:3:24)
+    at _next (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:25:9)
+    at D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:32:7
+    at new Promise (<anonymous>)
+    at D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:21:12
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\src\/index.js:95:1)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Module._compile (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:136:24)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Object.newLoader [as .js] (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:141:7)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\node\lib\_babel-node.js:176:21)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12) {"date":"Tue Sep 06 2022 05:17:50 GMT+0530 (India Standard Time)","error":{"message":"httpServer is not defined","stack":"ReferenceError: httpServer is not defined\n    at _callee$ (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:119:24)\n    at tryCatch (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:86:17)\n    at Generator._invoke (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:66:24)\n    at Generator.next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:117:21)\n    at asyncGeneratorStep (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:3:24)\n    at _next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:25:9)\n    at D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:32:7\n    at new Promise (<anonymous>)\n    at D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:21:12\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:95:1)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js:176:21)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":10120},"process":{"argv":["node","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"cwd":"D:\\ROLLOUT PACKAGES\\rollout","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":158299440,"external":159997904,"heapTotal":232452096,"heapUsed":205031872,"rss":402784256},"pid":40448,"uid":null,"version":"v16.13.0"},"stack":"ReferenceError: httpServer is not defined\n    at _callee$ (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:119:24)\n    at tryCatch (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:86:17)\n    at Generator._invoke (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:66:24)\n    at Generator.next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:117:21)\n    at asyncGeneratorStep (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:3:24)\n    at _next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:25:9)\n    at D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:32:7\n    at new Promise (<anonymous>)\n    at D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:21:12\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:95:1)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js:176:21)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)","trace":[{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js","function":"_callee$","line":119,"method":null,"native":false},{"column":17,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"tryCatch","line":86,"method":null,"native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"Generator._invoke","line":66,"method":"_invoke","native":false},{"column":21,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"Generator.next","line":117,"method":"next","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":"asyncGeneratorStep","line":3,"method":null,"native":false},{"column":9,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":"_next","line":25,"method":null,"native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":null,"line":32,"method":null,"native":false},{"column":null,"file":null,"function":"new Promise","line":null,"method":null,"native":false},{"column":12,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":null,"line":21,"method":null,"native":false},{"column":1,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js","function":null,"line":95,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Module._compile","line":136,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Object.newLoader [as .js]","line":141,"method":"js]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false},{"column":12,"file":"node:internal/modules/run_main","function":"Function.executeUserEntryPoint [as runMain]","line":81,"method":"executeUserEntryPoint [as runMain]","native":false},{"column":21,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js","function":null,"line":176,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false}]}
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: ModulesManager not present
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: PubModulesManager init messageTransformer module not found
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager init scheduler module not found
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager Chat21 channel is disabled. Attention!!
+info: ChannelManager listener NOT started 
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger disabled 
+info: ChannelManager - Chat21 channel routes not initialized.
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+info: Starting websocket on path: /
+error: uncaughtException: httpServer is not defined
+ReferenceError: httpServer is not defined
+    at Server.onListening (D:\ROLLOUT PACKAGES\rollout\src\/index.js:87:14)
+    at Server.emit (node:events:402:35)
+    at Server.emit (node:domain:475:12)
+    at emitListeningNT (node:net:1368:10)
+    at processTicksAndRejections (node:internal/process/task_queues:82:21) {"date":"Tue Sep 06 2022 05:19:26 GMT+0530 (India Standard Time)","error":{"message":"httpServer is not defined","stack":"ReferenceError: httpServer is not defined\n    at Server.onListening (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:87:14)\n    at Server.emit (node:events:402:35)\n    at Server.emit (node:domain:475:12)\n    at emitListeningNT (node:net:1368:10)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":10215},"process":{"argv":["node","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"cwd":"D:\\ROLLOUT PACKAGES\\rollout","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":158278038,"external":159995903,"heapTotal":225898496,"heapUsed":202680368,"rss":393318400},"pid":34668,"uid":null,"version":"v16.13.0"},"stack":"ReferenceError: httpServer is not defined\n    at Server.onListening (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:87:14)\n    at Server.emit (node:events:402:35)\n    at Server.emit (node:domain:475:12)\n    at emitListeningNT (node:net:1368:10)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)","trace":[{"column":14,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js","function":"Server.onListening","line":87,"method":"onListening","native":false},{"column":35,"file":"node:events","function":"Server.emit","line":402,"method":"emit","native":false},{"column":12,"file":"node:domain","function":"Server.emit","line":475,"method":"emit","native":false},{"column":10,"file":"node:net","function":"emitListeningNT","line":1368,"method":null,"native":false},{"column":21,"file":"node:internal/process/task_queues","function":"processTicksAndRejections","line":82,"method":null,"native":false}]}
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: ModulesManager not present
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: PubModulesManager init messageTransformer module not found
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager init scheduler module not found
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager Chat21 channel is disabled. Attention!!
+info: ChannelManager listener NOT started 
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger disabled 
+info: ChannelManager - Chat21 channel routes not initialized.
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+info: Starting websocket on path: /
+error: uncaughtException: httpServer is not defined
+ReferenceError: httpServer is not defined
+    at Server.onListening (D:\ROLLOUT PACKAGES\rollout\src\/index.js:87:14)
+    at Server.emit (node:events:402:35)
+    at Server.emit (node:domain:475:12)
+    at emitListeningNT (node:net:1368:10)
+    at processTicksAndRejections (node:internal/process/task_queues:82:21) {"date":"Tue Sep 06 2022 05:19:50 GMT+0530 (India Standard Time)","error":{"message":"httpServer is not defined","stack":"ReferenceError: httpServer is not defined\n    at Server.onListening (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:87:14)\n    at Server.emit (node:events:402:35)\n    at Server.emit (node:domain:475:12)\n    at emitListeningNT (node:net:1368:10)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":10239},"process":{"argv":["node","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"cwd":"D:\\ROLLOUT PACKAGES\\rollout","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":145640266,"external":154673446,"heapTotal":192159744,"heapUsed":156251256,"rss":348090368},"pid":41040,"uid":null,"version":"v16.13.0"},"stack":"ReferenceError: httpServer is not defined\n    at Server.onListening (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:87:14)\n    at Server.emit (node:events:402:35)\n    at Server.emit (node:domain:475:12)\n    at emitListeningNT (node:net:1368:10)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)","trace":[{"column":14,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js","function":"Server.onListening","line":87,"method":"onListening","native":false},{"column":35,"file":"node:events","function":"Server.emit","line":402,"method":"emit","native":false},{"column":12,"file":"node:domain","function":"Server.emit","line":475,"method":"emit","native":false},{"column":10,"file":"node:net","function":"emitListeningNT","line":1368,"method":null,"native":false},{"column":21,"file":"node:internal/process/task_queues","function":"processTicksAndRejections","line":82,"method":null,"native":false}]}
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: ModulesManager not present
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: PubModulesManager init messageTransformer module not found
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager init scheduler module not found
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager Chat21 channel is disabled. Attention!!
+info: ChannelManager listener NOT started 
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger disabled 
+info: ChannelManager - Chat21 channel routes not initialized.
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+info: Starting websocket on path: /
+warn: Error creating the user email already present
+info: Admin user already exists
+error: uncaughtException: listen EADDRINUSE: address already in use :::5500
+Error: listen EADDRINUSE: address already in use :::5500
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at Function.listen (D:\ROLLOUT PACKAGES\rollout\node_modules\express\lib\application.js:635:24)
+    at _callee4$ (D:\ROLLOUT PACKAGES\rollout\src\/app.js:1178:19)
+    at tryCatch (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:86:17)
+    at Generator._invoke (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:66:24)
+    at Generator.next (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:117:21)
+    at asyncGeneratorStep (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:3:24)
+    at _next (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:25:9)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {"date":"Tue Sep 06 2022 05:22:54 GMT+0530 (India Standard Time)","error":{"address":"::","code":"EADDRINUSE","errno":-4091,"message":"listen EADDRINUSE: address already in use :::5500","port":5500,"stack":"Error: listen EADDRINUSE: address already in use :::5500\n    at Server.setupListenHandle [as _listen2] (node:net:1334:16)\n    at listenInCluster (node:net:1382:12)\n    at Server.listen (node:net:1469:7)\n    at Function.listen (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\express\\lib\\application.js:635:24)\n    at _callee4$ (D:\\ROLLOUT PACKAGES\\rollout\\src\\/app.js:1178:19)\n    at tryCatch (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:86:17)\n    at Generator._invoke (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:66:24)\n    at Generator.next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:117:21)\n    at asyncGeneratorStep (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:3:24)\n    at _next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:25:9)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)","syscall":"listen"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":10423},"process":{"argv":["node","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"cwd":"D:\\ROLLOUT PACKAGES\\rollout","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":145854854,"external":160288114,"heapTotal":209461248,"heapUsed":176965000,"rss":366608384},"pid":26272,"uid":null,"version":"v16.13.0"},"stack":"Error: listen EADDRINUSE: address already in use :::5500\n    at Server.setupListenHandle [as _listen2] (node:net:1334:16)\n    at listenInCluster (node:net:1382:12)\n    at Server.listen (node:net:1469:7)\n    at Function.listen (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\express\\lib\\application.js:635:24)\n    at _callee4$ (D:\\ROLLOUT PACKAGES\\rollout\\src\\/app.js:1178:19)\n    at tryCatch (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:86:17)\n    at Generator._invoke (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:66:24)\n    at Generator.next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:117:21)\n    at asyncGeneratorStep (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:3:24)\n    at _next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:25:9)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)","trace":[{"column":16,"file":"node:net","function":"Server.setupListenHandle [as _listen2]","line":1334,"method":"setupListenHandle [as _listen2]","native":false},{"column":12,"file":"node:net","function":"listenInCluster","line":1382,"method":null,"native":false},{"column":7,"file":"node:net","function":"Server.listen","line":1469,"method":"listen","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\express\\lib\\application.js","function":"Function.listen","line":635,"method":"listen","native":false},{"column":19,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/app.js","function":"_callee4$","line":1178,"method":null,"native":false},{"column":17,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"tryCatch","line":86,"method":null,"native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"Generator._invoke","line":66,"method":"_invoke","native":false},{"column":21,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"Generator.next","line":117,"method":"next","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":"asyncGeneratorStep","line":3,"method":null,"native":false},{"column":9,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":"_next","line":25,"method":null,"native":false},{"column":5,"file":"node:internal/process/task_queues","function":"processTicksAndRejections","line":96,"method":null,"native":false}]}
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: ModulesManager not present
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: PubModulesManager init messageTransformer module not found
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager init scheduler module not found
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager Chat21 channel is disabled. Attention!!
+info: ChannelManager listener NOT started 
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger disabled 
+info: ChannelManager - Chat21 channel routes not initialized.
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+info: Starting websocket on path: /
+warn: Error creating the user email already present
+info: Admin user already exists
+error: uncaughtException: listen EADDRINUSE: address already in use :::5500
+Error: listen EADDRINUSE: address already in use :::5500
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at Function.listen (D:\ROLLOUT PACKAGES\rollout\node_modules\express\lib\application.js:635:24)
+    at _callee4$ (D:\ROLLOUT PACKAGES\rollout\src\/app.js:1178:19)
+    at tryCatch (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:86:17)
+    at Generator._invoke (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:66:24)
+    at Generator.next (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:117:21)
+    at asyncGeneratorStep (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:3:24)
+    at _next (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:25:9)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {"date":"Tue Sep 06 2022 05:23:18 GMT+0530 (India Standard Time)","error":{"address":"::","code":"EADDRINUSE","errno":-4091,"message":"listen EADDRINUSE: address already in use :::5500","port":5500,"stack":"Error: listen EADDRINUSE: address already in use :::5500\n    at Server.setupListenHandle [as _listen2] (node:net:1334:16)\n    at listenInCluster (node:net:1382:12)\n    at Server.listen (node:net:1469:7)\n    at Function.listen (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\express\\lib\\application.js:635:24)\n    at _callee4$ (D:\\ROLLOUT PACKAGES\\rollout\\src\\/app.js:1178:19)\n    at tryCatch (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:86:17)\n    at Generator._invoke (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:66:24)\n    at Generator.next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:117:21)\n    at asyncGeneratorStep (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:3:24)\n    at _next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:25:9)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)","syscall":"listen"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":10448},"process":{"argv":["node","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"cwd":"D:\\ROLLOUT PACKAGES\\rollout","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":145915430,"external":154745590,"heapTotal":195567616,"heapUsed":167136880,"rss":352391168},"pid":40592,"uid":null,"version":"v16.13.0"},"stack":"Error: listen EADDRINUSE: address already in use :::5500\n    at Server.setupListenHandle [as _listen2] (node:net:1334:16)\n    at listenInCluster (node:net:1382:12)\n    at Server.listen (node:net:1469:7)\n    at Function.listen (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\express\\lib\\application.js:635:24)\n    at _callee4$ (D:\\ROLLOUT PACKAGES\\rollout\\src\\/app.js:1178:19)\n    at tryCatch (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:86:17)\n    at Generator._invoke (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:66:24)\n    at Generator.next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:117:21)\n    at asyncGeneratorStep (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:3:24)\n    at _next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:25:9)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)","trace":[{"column":16,"file":"node:net","function":"Server.setupListenHandle [as _listen2]","line":1334,"method":"setupListenHandle [as _listen2]","native":false},{"column":12,"file":"node:net","function":"listenInCluster","line":1382,"method":null,"native":false},{"column":7,"file":"node:net","function":"Server.listen","line":1469,"method":"listen","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\express\\lib\\application.js","function":"Function.listen","line":635,"method":"listen","native":false},{"column":19,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/app.js","function":"_callee4$","line":1178,"method":null,"native":false},{"column":17,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"tryCatch","line":86,"method":null,"native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"Generator._invoke","line":66,"method":"_invoke","native":false},{"column":21,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"Generator.next","line":117,"method":"next","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":"asyncGeneratorStep","line":3,"method":null,"native":false},{"column":9,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":"_next","line":25,"method":null,"native":false},{"column":5,"file":"node:internal/process/task_queues","function":"processTicksAndRejections","line":96,"method":null,"native":false}]}
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: ModulesManager not present
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: PubModulesManager init messageTransformer module not found
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager init scheduler module not found
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager Chat21 channel is disabled. Attention!!
+info: ChannelManager listener NOT started 
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger disabled 
+info: ChannelManager - Chat21 channel routes not initialized.
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+info: Starting websocket on path: /
+error: uncaughtException: https_server is not defined
+ReferenceError: https_server is not defined
+    at _callee$ (D:\ROLLOUT PACKAGES\rollout\src\/index.js:136:5)
+    at tryCatch (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:86:17)
+    at Generator._invoke (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:66:24)
+    at Generator.next (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:117:21)
+    at asyncGeneratorStep (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:3:24)
+    at _next (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:25:9)
+    at D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:32:7
+    at new Promise (<anonymous>)
+    at D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:21:12
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\src\/index.js:85:1)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Module._compile (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:136:24)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Object.newLoader [as .js] (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:141:7)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\node\lib\_babel-node.js:176:21)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12) {"date":"Tue Sep 06 2022 05:24:45 GMT+0530 (India Standard Time)","error":{"message":"https_server is not defined","stack":"ReferenceError: https_server is not defined\n    at _callee$ (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:136:5)\n    at tryCatch (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:86:17)\n    at Generator._invoke (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:66:24)\n    at Generator.next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:117:21)\n    at asyncGeneratorStep (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:3:24)\n    at _next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:25:9)\n    at D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:32:7\n    at new Promise (<anonymous>)\n    at D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:21:12\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:85:1)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js:176:21)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":10534},"process":{"argv":["node","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"cwd":"D:\\ROLLOUT PACKAGES\\rollout","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":158325855,"external":160043720,"heapTotal":233504768,"heapUsed":204345136,"rss":401108992},"pid":41316,"uid":null,"version":"v16.13.0"},"stack":"ReferenceError: https_server is not defined\n    at _callee$ (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:136:5)\n    at tryCatch (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:86:17)\n    at Generator._invoke (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:66:24)\n    at Generator.next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:117:21)\n    at asyncGeneratorStep (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:3:24)\n    at _next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:25:9)\n    at D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:32:7\n    at new Promise (<anonymous>)\n    at D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:21:12\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:85:1)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js:176:21)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)","trace":[{"column":5,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js","function":"_callee$","line":136,"method":null,"native":false},{"column":17,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"tryCatch","line":86,"method":null,"native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"Generator._invoke","line":66,"method":"_invoke","native":false},{"column":21,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"Generator.next","line":117,"method":"next","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":"asyncGeneratorStep","line":3,"method":null,"native":false},{"column":9,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":"_next","line":25,"method":null,"native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":null,"line":32,"method":null,"native":false},{"column":null,"file":null,"function":"new Promise","line":null,"method":null,"native":false},{"column":12,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":null,"line":21,"method":null,"native":false},{"column":1,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js","function":null,"line":85,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Module._compile","line":136,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Object.newLoader [as .js]","line":141,"method":"js]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false},{"column":12,"file":"node:internal/modules/run_main","function":"Function.executeUserEntryPoint [as runMain]","line":81,"method":"executeUserEntryPoint [as runMain]","native":false},{"column":21,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js","function":null,"line":176,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false}]}
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: ModulesManager not present
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: PubModulesManager init messageTransformer module not found
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager init scheduler module not found
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager Chat21 channel is disabled. Attention!!
+info: ChannelManager listener NOT started 
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger disabled 
+info: ChannelManager - Chat21 channel routes not initialized.
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+info: Starting websocket on path: /
+error: uncaughtException: https_server is not defined
+ReferenceError: https_server is not defined
+    at _callee$ (D:\ROLLOUT PACKAGES\rollout\src\/index.js:136:5)
+    at tryCatch (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:86:17)
+    at Generator._invoke (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:66:24)
+    at Generator.next (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:117:21)
+    at asyncGeneratorStep (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:3:24)
+    at _next (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:25:9)
+    at D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:32:7
+    at new Promise (<anonymous>)
+    at D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\runtime\helpers\asyncToGenerator.js:21:12
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\src\/index.js:85:1)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Module._compile (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:136:24)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Object.newLoader [as .js] (D:\ROLLOUT PACKAGES\rollout\node_modules\pirates\lib\index.js:141:7)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at Object.<anonymous> (D:\ROLLOUT PACKAGES\rollout\node_modules\@babel\node\lib\_babel-node.js:176:21)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12) {"date":"Tue Sep 06 2022 05:26:39 GMT+0530 (India Standard Time)","error":{"message":"https_server is not defined","stack":"ReferenceError: https_server is not defined\n    at _callee$ (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:136:5)\n    at tryCatch (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:86:17)\n    at Generator._invoke (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:66:24)\n    at Generator.next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:117:21)\n    at asyncGeneratorStep (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:3:24)\n    at _next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:25:9)\n    at D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:32:7\n    at new Promise (<anonymous>)\n    at D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:21:12\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:85:1)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js:176:21)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":10648},"process":{"argv":["node","D:\\ROLLOUT PACKAGES\\rollout\\src\\index.js"],"cwd":"D:\\ROLLOUT PACKAGES\\rollout","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":158299679,"external":160017544,"heapTotal":232325120,"heapUsed":205762152,"rss":400142336},"pid":27064,"uid":null,"version":"v16.13.0"},"stack":"ReferenceError: https_server is not defined\n    at _callee$ (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:136:5)\n    at tryCatch (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:86:17)\n    at Generator._invoke (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:66:24)\n    at Generator.next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js:117:21)\n    at asyncGeneratorStep (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:3:24)\n    at _next (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:25:9)\n    at D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:32:7\n    at new Promise (<anonymous>)\n    at D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js:21:12\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js:85:1)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:136:24)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Object.newLoader [as .js] (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js:141:7)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n    at Object.<anonymous> (D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js:176:21)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)","trace":[{"column":5,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js","function":"_callee$","line":136,"method":null,"native":false},{"column":17,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"tryCatch","line":86,"method":null,"native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"Generator._invoke","line":66,"method":"_invoke","native":false},{"column":21,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\regeneratorRuntime.js","function":"Generator.next","line":117,"method":"next","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":"asyncGeneratorStep","line":3,"method":null,"native":false},{"column":9,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":"_next","line":25,"method":null,"native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":null,"line":32,"method":null,"native":false},{"column":null,"file":null,"function":"new Promise","line":null,"method":null,"native":false},{"column":12,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\runtime\\helpers\\asyncToGenerator.js","function":null,"line":21,"method":null,"native":false},{"column":1,"file":"D:\\ROLLOUT PACKAGES\\rollout\\src\\/index.js","function":null,"line":85,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":24,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Module._compile","line":136,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":7,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\pirates\\lib\\index.js","function":"Object.newLoader [as .js]","line":141,"method":"js]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false},{"column":12,"file":"node:internal/modules/run_main","function":"Function.executeUserEntryPoint [as runMain]","line":81,"method":"executeUserEntryPoint [as runMain]","native":false},{"column":21,"file":"D:\\ROLLOUT PACKAGES\\rollout\\node_modules\\@babel\\node\\lib\\_babel-node.js","function":null,"line":176,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1101,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1153,"method":".js","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":981,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":822,"method":"_load","native":false}]}
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: ModulesManager not present
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: PubModulesManager init messageTransformer module not found
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager init scheduler module not found
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager Chat21 channel is disabled. Attention!!
+info: ChannelManager listener NOT started 
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger disabled 
+info: ChannelManager - Chat21 channel routes not initialized.
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+info: Starting websocket on path: /
+warn: Error creating the user email already present
+info: Admin user already exists
