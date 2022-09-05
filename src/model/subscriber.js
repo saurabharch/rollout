@@ -12,9 +12,6 @@ const GeoSchema = new Schema({
     index: '2dsphere'
   }
 });
-const clientSchema = new Schema({
-
-});
 const SubscriberSchema = new mongoose.Schema(
   {
     site_id:{type:Number, default:2,index:true},
