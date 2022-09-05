@@ -1,9 +1,9 @@
 var Minio = require('minio')
 const multer = require('multer');
-const uuid = require('uuid/v4');
+import { v4 as uuidv4 } from 'uuid';
 const { getRedisConnectionInstance } = require('../common/redis');
 
-const redisInstance = await getRedisConnectionInstance();
+// const redisInstance = await getRedisConnectionInstance();
 
 export const minioClient = new Minio.Client ({
     endPoint: process.env.MINIO_ENDPOIN,
@@ -95,7 +95,7 @@ export var uploadObject = () => (multer({storage: multer.memoryStorage()}).singl
 			// get url
 			const url = await minioClient.presignedGetObject(req.body.bucketname, fileName);
             return res.status(200).json({url})
-		//	var id = uuid();
+		//	var id = uuidv4();
 			// link valid for 3 minutes (180 seconds)
 			// save link to redis
 		// 	redisInstance.setex(id, 180, url, (err, reply) => {

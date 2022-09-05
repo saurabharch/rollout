@@ -70,7 +70,7 @@ router.get('/login', async (req, res) => {
   if(userCount && userCount > 0){
     // set needsSetup to false as a user exists
     req.session.needsSetup = false;
-    res.render('index/login', {
+    res.render('/login', {
       title: 'Login',
       referringUrl: req.header('Referer'),
       config: req.app.config,
@@ -82,7 +82,7 @@ router.get('/login', async (req, res) => {
   }else{
     // if there are no users set the "needsSetup" session
     req.session.needsSetup = true;
-    res.redirect('index/setup');
+    res.redirect('/setup');
   }
 });
 
@@ -125,7 +125,7 @@ router.get('/setup', async (req, res) => {
   req.session.needsSetup = false;
   if(userCount === 0){
     req.session.needsSetup = true;
-    res.render('/index/setup', {
+    res.render('/setup', {
       title: 'Setup',
       config: req.app.config,
       helpers: req.exphbs.helpers,
@@ -351,7 +351,7 @@ router.get(
   async (req, res) => {
     const db = req.app.db;
 
-    res.render('index/settings-page', {
+    res.render('/settings-page', {
       title: 'Static pages',
       session: req.session,
       admin: true,
@@ -388,7 +388,7 @@ router.get(
       return;
     }
 
-    res.render('index/settings-page', {
+    res.render('/settings-page', {
       title: 'Static pages',
       page: page,
       button_text: 'Update',
@@ -572,7 +572,7 @@ router.get(
 
     const discounts = await db.discounts.find({}).toArray();
 
-    res.render('index/settings-discounts', {
+    res.render('/settings-discounts', {
       title: 'Discount code',
       config: req.app.config,
       session: req.session,
@@ -597,7 +597,7 @@ router.get(
 
     const discount = await db.discounts.findOne({ _id: getId(req.params.id) });
 
-    res.render('index/settings-discount-edit', {
+    res.render('/settings-discount-edit', {
       title: 'Discount code edit',
       session: req.session,
       admin: true,

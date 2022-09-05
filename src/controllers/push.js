@@ -9,7 +9,7 @@ const Subscription = require('../model/subscriber');
 import{ catchAsync, isAuthenticated, isClientAuthenticated }from'../middlewares';
 const q = require('q');
 const webpush = require('web-push');
-const keys = require('./../config/keys');
+const keys = require('../../config/keys');
 const ratelimit = require('../util/limiter');
 import PushNotifications from 'rollout-pushnotification';
 const { clearKey } = require("../util/cache");
@@ -184,6 +184,7 @@ export const broadcastPushById = async (req, res) => {
                     registrationIds,
                     payload
           }
+          // console.log(`${JSON.stringify(notificationData)}`);
            PushController.notification(notificationData);
           // push.send(registrationIds, payload, (err, result) => {
           //         if (err) {

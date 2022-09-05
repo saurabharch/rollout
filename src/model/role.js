@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-export const ROLES = ['user', 'admin', 'moderator', 'owner', 'superadmin'];
+export const ROLES = ['user','guest','teammate', 'admin','supervisor', 'owner', 'moderator', 'superadmin'];
 const RoleSchema = new mongoose.Schema(
   {
     name: {
       type: String,
       lowercase: true,
       enum: {
-        values: ['user', 'admin', 'owner', 'moderator', 'superadmin'],
+        values: ['user','guest','teammate', 'admin','supervisor', 'owner', 'moderator', 'superadmin'],
         message: 'you role is assigned as `{VALUE}`'
       }
     }

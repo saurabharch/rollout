@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-const keys = require('./../config/keys');
+const keys = require('../../config/keys');
 import PushNotifications from "rollout-pushnotification";
 
 const settings = {

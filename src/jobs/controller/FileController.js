@@ -1,4 +1,4 @@
-import Queue from'../../lib/Queue';
+const QueueService = require('../../lib/Queue');
 
 export default{
   async Thumbnail(req, res){
@@ -12,8 +12,14 @@ export default{
     };
 
     // Adding job GenerateThumnails and save against the user account
-    await Queue.add('GenerateThumnails', { InputData });
-    await Queue.add('ThumnailReport', { InputData });
+    await QueueService.add('GenerateThumnails', { InputData });
+    await QueueService.add('ThumnailReport', { InputData });
+    await QueueService.add('GenerateThumnails', { InputData });
+    await QueueService.add('ThumnailReport', { InputData }); 
+    await QueueService.add('GenerateThumnails', { InputData });
+    await QueueService.add('ThumnailReport', { InputData }); 
+    await QueueService.add('GenerateWebBrowserIcons', { InputData });
+    await QueueService.add('GeneratedWebBrowserIconReports', { InputData });
     return res.json(InputData);
   }
 };

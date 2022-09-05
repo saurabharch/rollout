@@ -1,4 +1,4 @@
-const config = require('config');
+const config = require('./config');
 const S3Lib = require('./s3-lib');
 
 const { accessKeyId, secretAccessKey, bucketName } = config.get('aws');

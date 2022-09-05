@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Subscription = require('../model/subscriber');
-const keys = require('./../config/keys');
+const keys = require('../../config/keys');
 const ratelimit = require('../util/limiter');
 
 export const UnSubscribe = async(req,res,next) => {

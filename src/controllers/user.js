@@ -6,10 +6,10 @@ import { v4 as uuidv4 } from 'uuid';
 const colors = require("colors");
 import{ BadRequest }from'../errors';
 import UserController from'../jobs/controller/UserController';
- var FullData ='';
+ 
 export const createUser = async (req, res, next) => {
       var testM = [];
-     
+      var FullData ='';
       try{
     const { username, email, password, roles } = req.body;
     console.log(req.body);

@@ -1,4 +1,4 @@
-const config = require('config');
+const config = require('./config');
 const JWT = require('jsonwebtoken');
 
 const jwtSecret = config.get('jwt.secret');

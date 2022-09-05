@@ -1,4 +1,4 @@
-const config = require('config');
+const config = require('./config');
 
 const StripeLib = require('./stripe-lib');
 const PaymentLib = require('./payment-lib');

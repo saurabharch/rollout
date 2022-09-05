@@ -1,5 +1,4 @@
 const multer = require('multer');
-const ffmpeg = require('fluent-ffmpeg');
 
 export default{
     key: 'ThumnailReport',

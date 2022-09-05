@@ -119,7 +119,7 @@ const PushMessageSchema = new mongoose.Schema(
         message: props => `${props.value} is not a valid URL`
       },
       lowercase: true,
-      default: '/audio/notification.mp3'
+      default: 'http://localhost:5500/audio/notification.mp3'
     },
     dir: {
       type: String

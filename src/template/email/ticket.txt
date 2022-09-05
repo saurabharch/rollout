@@ -1,0 +1,11 @@
+\# Please type your reply above this line \#
+
+Ticket number: #{{message.request.ticket_id}}
+
+{{message.senderFullname}}
+
+{{message.text}}
+
+Continue the conversation by chat here: {{seamlessPage}}{{tokenQueryString}}
+
+Powered by Tiledesk : https://tiledesk.com

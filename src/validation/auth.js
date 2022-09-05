@@ -5,7 +5,7 @@ import {
   EMAIL_VERIFICATION_TOKEN_BYTES,
   EMAIL_VERIFICATION_SIGNATURE_BYTES,
   PASSWORD_RESET_BYTES
-} from "../config";
+} from "../../config";
 
 const id = Joi.objectId().required();
 

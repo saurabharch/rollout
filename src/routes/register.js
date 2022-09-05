@@ -10,8 +10,8 @@ import { v4 as uuidv4 } from 'uuid';
 const colors = require("colors");
 const router = Router();
 import bcrypt from "bcryptjs";
-const app = require('../config/app');
-const auth = require('../config/auth')
+const app = require('../../config/app');
+const auth = require('../../config/auth')
 const crypto = require('crypto');
 const responseData = require("../util/reponseStatus");
 const sendResponse = require("../util/response");
@@ -28,6 +28,7 @@ const {
   checkDirectorySync,
   sendEmail
 } = require('../lib/common');
+var  FullData;
 router.post(
   '/',
   guest,
@@ -37,7 +38,7 @@ router.post(
     const { email, name, password } = req.body;
     // console.log(JSON.stringify(req.body));
     var testM = [];
-    const FullData ='';
+    
     const found = await User.exists({email});
     const Roles = await Role.find({ name: ["user"] });
     console.log(colors.yellow(`Result: ${found}`))

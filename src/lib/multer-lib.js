@@ -1,5 +1,5 @@
 const multer = require('multer');
-const config = require('config');
+const config = require('./config');
 
 const ValidationError = require('../errors/validation-error');
 

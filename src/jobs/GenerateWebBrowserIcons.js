@@ -1,10 +1,10 @@
 import sharp from'sharp';
 import Imager from '../lib/imager';
-var config = require('../config/imager-config');
-var storage = require('../config/storage');
+var config = require('../../config/imager-config');
+var storage = require('../../config/storage');
 var minioClient = require('./minio-lib');
 export default{
-    key: 'GenerateThumnails',
+    key: 'GenerateWebBrowserIcons',
     async handle({ data }){
       const { InputData } = data;
     // await sharp(InputData.InputBuffere);

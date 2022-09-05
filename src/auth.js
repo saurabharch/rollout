@@ -1,12 +1,15 @@
 import { Request, Response } from "express";
-import { SESSION_NAME } from "./config";
+import { EMAIL_VERIFICATION_TIMEOUT } from "../config/auth";
 import User from "./model/user";
 import SessionModel from './model/session';
 const responseData = require("./util/reponseStatus");
 const sendResponse = require("./util/response");
 var message = require('./util/responseMessages')
 var APP_CONSTANT = require("./util/constants");
-const config = require("config");
+require('dotenv').config()
+const cert = process.env.SESSION_SECRET;
+const Jwt = require("jsonwebtoken");
+//import Jwt from'jsonwebtoken';
 export const isLoggedIn = req => !!req.session.userId;
 
 export const logIn = async (req, user) => {
@@ -151,7 +154,7 @@ var logoutPreviousSession = async function (userId, deviceId) {
 var createToken = async function (payload, userData) {
   try {
     let tokenData = {};
-    let expiretime = config.get("development.access_token_expire_time");
+    let expiretime = EMAIL_VERIFICATION_TIMEOUT;
     tokenData["id"] = userData._id;
     tokenData["deviceId"] = payload.deviceId;
     tokenData["timestamp"] = new Date().getTime();

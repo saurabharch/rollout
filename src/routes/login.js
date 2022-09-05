@@ -66,7 +66,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post(
-  '/',
+  '/signin',
   guest,
   // catchAsync(async (req, res) => {
   //   // await validate(loginSchema, req.body);
@@ -83,6 +83,7 @@ router.post(
 
   //   res.json({ message: 'OK' });
   // })
+  //logIn,
   authCtrl.signin
 );
 

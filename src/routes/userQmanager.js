@@ -1,4 +1,4 @@
-import{ authJwt, verifySignup }from'../middlewares';
+import{ authJwt }from'../middlewares';
 import UserController from'../jobs/controller/UserController';
 
 const express = require('express');

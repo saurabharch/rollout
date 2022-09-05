@@ -1,7 +1,7 @@
 
 import Project from'../model/project';
 import{ catchAsync, isAuthenticated, isClientAuthenticated }from'../middlewares';
-const keys = require('./../config/keys');
+const keys = require('../../config/keys');
 const ratelimit = require('../util/limiter');
 const UUID = require('uuid-int');
 export const createProject = async (req, res) => {

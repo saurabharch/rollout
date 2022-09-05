@@ -31,3 +31,4 @@ build
 docker.env
 .cert
 .pem
+setting.json

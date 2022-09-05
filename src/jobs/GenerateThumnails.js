@@ -1,6 +1,6 @@
-import sharp from'sharp';
-import Imager from '../lib/imager';
-var config = require('../config/imager-config');
+const  sharp = require('sharp');
+const Imager = require('../lib/imager');
+var config = require('../../config/imager-config');
 export default{
     key: 'GenerateThumnails',
     async handle({ data }){

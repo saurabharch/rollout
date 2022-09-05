@@ -1,0 +1,19 @@
+{
+  "name": "@saurabharch/rollout-chat-app",
+  "description": "The rollout Chat module",
+  "version": "1.0.0",
+  "private": false,
+  "author": "Saurabh Kashyap",
+  "license": "AGPL-3.0",
+  "homepage": "https://www.rollout.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saurabharch/rollout"
+  },
+  "dependencies": {
+    "@chat21/chat21-node-sdk": "^1.1.4",
+    "winston": "^3.3.3",
+    "firebase-admin": "^9.5.0"
+  },
+  "devDependencies": {}
+}

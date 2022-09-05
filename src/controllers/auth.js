@@ -4,7 +4,7 @@ const User = require("../model/user");
 import Role from'../model/role';
 // import comparePassword from '../model/user';
 import jwt from'jsonwebtoken';
-const config = require('../config/auth');
+const config = require('../../config/auth');
 // const otpMiddleware = require('../middlewares/otpMiddleware');
 import otpMiddleware from '../middlewares';
 
@@ -46,10 +46,12 @@ export const signUp = async (req, res) => {
 
 export const signin = async (req, res, callback, next) => {
   try{
+    console.log(`${req.body.username}`);
     // Request body email can be an email or username
     const {username, password, email} = req.body;
-    
-    const userFound = User.findOne({username: username}).exec(function(error, user) {
+    const userFound = '';
+    if(!email) {
+       userFound = User.findOne({username: username}).exec(function(error, user) {
       if (error) {
         callback({error: true})
       } else if (!user) {
@@ -66,12 +68,28 @@ export const signin = async (req, res, callback, next) => {
         })
       }
     });
+    }else{
+       userFound = User.findOne({email: email}).exec(function(error, user) {
+      if (error) {
+        callback({error: true})
+      } else if (!user) {
+        callback({error: true})
+      } else {
+        user.comparePassword(password, function(matchError, isMatch) {
+          if (matchError) {
+            callback({error: true})
+          } else if (!isMatch) {
+            callback({error: true})
+          } else {
+            callback({success: true})
+          }
+        })
+      }
+    });
+    }
     const token = jwt.sign({ id: userFound._id }, config.SESS_OPTIONS.SESS_SECRET, {
       expiresIn: 86400 // 24 hours
     });
-// const token = jwt.sign({ id: userFound._id }, config.SESS_OPTIONS.SESS_SECRET, {
-//       expiresIn: 86400 // 24 hours
-//     });
    if(token){
      res.status(200).json({token});
    }else{

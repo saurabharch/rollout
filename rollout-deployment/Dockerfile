@@ -40,7 +40,8 @@ RUN sudo ufw status
 RUN sudo ufw status
 RUN sudo ufw allow 443/tcp
 RUN sudo systemctl status nginx
-
+RUN sudo npm install -g node-gyp
+RUN sudo npm install --save nan
 # # Remove the default Nginx configuration file
 RUN rm -v /etc/nginx/nginx.conf
 

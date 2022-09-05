@@ -3,7 +3,7 @@ import PushNotifications from 'rollout-pushnotification';
 import Pushsetting from "../model/pushSetting";
 import Push from'../model/push';
 import User from'../model/user';
-const keys = require('./../config/keys');
+const keys = require('../../config/keys');
 const Subscription = require('../model/subscriber');
 const fs = require('fs');
 const isOnline = require('is-online');
@@ -64,16 +64,16 @@ export default{
   key: 'PushNotification',
   async handle({ data }){
     const { notificationData } = data;
-    console.log(`notification data: ${JSON.stringify(data)}`)
-    const settings = Pushsetting.findById('')
+    // console.log(`notification data: ${JSON.stringify(data)}`)
+    // const settings = Pushsetting.findById('')
     isOnline().then(async online => {
     if(online){
         try {
-                console.log("We have internet");
-           // console.log(` Registered Ids : ${notificationData.registrationIds} \n\rNotification Payload : ${notificationData.payload}`);
+            console.log("We have internet");
+           console.log(` Registered Ids : ${notificationData.registrationIds} \n\rNotification Payload : ${notificationData.payload}`);
             // Latest Dynamic Method for multi-platform sending notification
             // You can use it in node callback style
-            //await push.send(notificationData.registrationIds, notificationData.payload);
+                // await push.send(notificationData.registrationIds, notificationData.payload);
                 await push.send(notificationData.registrationIds, notificationData.payload, (err, result) => {
                          if (err) {
                              console.log(JSON.stringify(err));
@@ -168,10 +168,10 @@ export default{
                     //             }
                     //         }
                     // });
-                await push.moveToCompleted('done', true)
+                 await push.moveToCompleted('done', true)
             }catch(error) {
                         if (error.response) {
-                           await push.moveToFailed({message: 'job failed'})
+                            await push.moveToFailed({message: 'job failed'})
                         }
             }
         } else {

@@ -1,3 +1,4 @@
+require('dotenv').config({path:__dirname+'../../config/.env'})
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
@@ -9,7 +10,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var BearerStrategy = require('passport-http-bearer').Strategy;
 const mongoose = require('mongoose');
 var passport = require('passport');
-const keys = require('../config/keys');
+const keys = require('../../config/keys');
 // Load user model
 const User = mongoose.model('user');
 import Role from "../model/role";

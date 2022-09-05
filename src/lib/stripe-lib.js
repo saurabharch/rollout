@@ -1,6 +1,6 @@
 const Stripe = require('stripe');
 
-const config = require('config');
+const config = require('./config');
 const { PaymentError } = require('../errors');
 
 const secretKey = config.get('stripe.secretKey');

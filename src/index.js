@@ -4,9 +4,9 @@
 
 // console.log("Server on port", app.get("port"));
 const app = require('./app');
-import './database';
-const { APP_PORT } = require('./config');
-
+// import './database';
+const { APP_PORT } = require('../config');
+require('dotenv').config()
 //////////////////////////////////////////START FOR HTTPS  ///////////////////////////////////////////// 
 const fs = require('fs');
 const path = require('path');

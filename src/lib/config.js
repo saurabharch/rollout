@@ -1,13 +1,13 @@
 const uglifycss = require('uglifycss');
 // const escape = require('html-entities').AllHtmlEntities;
-import {decode,encode} from 'html-entities';
+const {decode,encode} = require('html-entities');
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 
 const getConfig = () => {
-    let config = JSON.parse(fs.readFileSync(path.join(__dirname, '../config', 'settings.json'), 'utf8'));
-    const localConfigFilePath = path.join(__dirname, '../config', 'settings-local.json');
+    let config = JSON.parse(fs.readFileSync(path.join(__dirname, '../../config', 'settings.json'), 'utf8'));
+    const localConfigFilePath = path.join(__dirname, '../../config', 'settings-local.json');
 
     // Check for local config file and merge with base settings
     if(fs.existsSync(localConfigFilePath)){
@@ -56,7 +56,7 @@ const getConfig = () => {
 
 const getPaymentConfig = () => {
     const siteConfig = getConfig();
-    const gateConfigFile = path.join(__dirname, '../config', 'payment', 'config', `${siteConfig.paymentGateway}.json`);
+    const gateConfigFile = path.join(__dirname, '../../config', 'payment', 'config', `${siteConfig.paymentGateway}.json`);
 
     let config = [];
     if(fs.existsSync(gateConfigFile)){
@@ -116,7 +116,7 @@ const updateConfig = (fields) => {
 
     // If we have a local settings file (not git tracked) we loop its settings and save
     // and changes made to them. All other settings get updated to the base settings file.
-    const localSettingsFile = path.join(__dirname, '../config', 'settings-local.json');
+    const localSettingsFile = path.join(__dirname, '../../config', 'settings-local.json');
     if(fs.existsSync(localSettingsFile)){
         const localSettings = JSON.parse(fs.readFileSync(localSettingsFile));
         _.forEach(localSettings, (value, key) => {
@@ -136,7 +136,7 @@ const updateConfig = (fields) => {
     }
 
     // write base settings file
-    const baseSettingsFile = path.join(__dirname, '../config', 'settings.json');
+    const baseSettingsFile = path.join(__dirname, '../../config', 'settings.json');
     try{
         fs.writeFileSync(baseSettingsFile, JSON.stringify(settingsFile, null, 4));
         return true;
@@ -146,7 +146,7 @@ const updateConfig = (fields) => {
 };
 
 const updateConfigLocal = (field) => {
-    const localSettingsFile = path.join(__dirname, '../config', 'settings-local.json');
+    const localSettingsFile = path.join(__dirname, '../../config', 'settings-local.json');
     try{
         let localSettings = {};
         if(fs.existsSync(localSettingsFile)){

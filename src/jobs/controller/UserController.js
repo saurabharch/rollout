@@ -1,4 +1,4 @@
-import Queue from'../../lib/Queue';
+const QueueService = require('../../lib/Queue');
 
 export default{
   async store(data){
@@ -14,9 +14,9 @@ export default{
     };
   
     // ADD job For RegistrationMail
-    await Queue.add('RegistrationMail', {user});
+    await QueueService.add('RegistrationMail', {user});
      // FIXME:
-    await Queue.add('UserReport', {user});
+    await QueueService.add('UserReport', {user});
     var test = [];
     test.push(user);
     test.push({"message": "successfull added in queue channel"})

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const redis = require("redis");
 const util = require("util");
-import{ REDIS_OPTIONS }from'../config';
+import{ REDIS_OPTIONS } from '../../config';
 
 const client = redis.createClient({
  REDIS_OPTIONS,

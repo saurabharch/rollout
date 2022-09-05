@@ -6,7 +6,7 @@ const {
   APP_SECRET,
   PASSWORD_RESET_TIMEOUT,
   APP_ORIGIN
-} = require('../config/auth');
+} = require('../../config/auth');
 const passwordResetSchema = new mongoose.Schema(
   {
     userId: {

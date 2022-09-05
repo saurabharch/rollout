@@ -1,5 +1,5 @@
-import Mail from'../lib/Mail';
-import {MAIL_FROM} from'../config/mail';
+const Mail = require('../lib/Mail');
+const {MAIL_FROM} = require('../../config/mail');
 const isOnline = require('is-online');
 var template = require('../lib/mailtemplategen');
 
@@ -57,7 +57,7 @@ export default{
             }
      }
     }else{
-        console.log("Houston we have a problem");
+        console.log("Saurabh we have a problem");
     }
   });
   }

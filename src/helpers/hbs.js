@@ -284,6 +284,10 @@ module.exports = {
     }
       return '';
   },
+  copyCode:function(id){
+    //console.log(`copyCode id name: ${id}`);
+    return id != null || 'undefined' ? `<span onclick="CopyToClipboard('${id}');return false;" class="flex justify-end fa fa-clipboard" style="cursor:pointer"></span>` : '';
+  },
   facebookShare: function(host, title){
     if(!host){
       return '';

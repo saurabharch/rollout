@@ -1,0 +1,30 @@
+{
+    "jwt": {
+        "secret": "JWT_SECRET"
+    },
+    "db": {
+        "connection": "MONGO_CONNECTION_STRING"
+    },
+    "redis": {
+        "host": "REDIS_HOSTNAME",
+        "port": "REDIS_PORT",
+        "password": "REDIS_PASSWORD",
+        "database": "REDIS_DATABASE"
+    },
+    "admin": {
+        "token": "ADMIN_TOKEN"
+    },
+    "aws": {
+        "accessKeyId": "AWS_ACCESS_ID",
+        "secretAccessKey": "AWS_SECRET_KEY",
+        "bucketName": "BUCKET_NAME"
+    },
+    "stripe": {
+        "secretKey": "STRIPE_SECRET_KEY"
+    },
+    "elasticSearch": {
+        "host": "ES_HOST",
+        "password": "ES_PASSWORD",
+        "username": "ES_USERNAME"
+    }
+}

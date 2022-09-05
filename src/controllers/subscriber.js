@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Subscription = require('../model/subscriber');
 import{ authJwt, verifySignup }from'../middlewares';
-const keys = require('./../config/keys');
+const keys = require('../../config/keys');
 const ratelimit = require('../util/limiter');
 
 export const NewSubscriber = async(req,res,next) => {
 
 // console.log(`Data lonlat : ${JSON.stringify(req.body.browser_info.ll)}`)
-  // console.log(req.body);
+  console.log(req.body);
   // const session = await Subscription.startSession();
   // session.startTransaction();
   var Data = {
@@ -39,10 +39,11 @@ export const NewSubscriber = async(req,res,next) => {
   geo_info:req.body.geo_info,
   token_refresh: req.body.token_refresh,
   optin_type: req.body.optin_type
-  }
+  };
   const subscriptionModel = new Subscription(Data);
   
-    await subscriptionModel.save((err, subscription) => {
+    try{
+      await subscriptionModel.save((err, subscription) => {
     if(err){
       console.error(`Error occurred while saving subscription. Err: ${err}`);
       res.status(500).json({
@@ -61,14 +62,19 @@ export const NewSubscriber = async(req,res,next) => {
       res.status(200).json({
         data: 'Subscription saved.'
       });
+      next();
       console.log(`${subscription}`)
     }
     
   });
+    }
+    catch{
+
+    }
   // session.commitTransaction();
   // session.endSession();
   // clearKey(Subscription.collection.collectionName);
-  res.status(200).json(updatedSubscriber);
+  res.status(200).json(subscriptionModel);
   next();
 }
 

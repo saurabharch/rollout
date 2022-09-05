@@ -1,6 +1,6 @@
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 
-dotenv.config();
+// dotenv.config();
 
 const Promise = require('bluebird');
 const mongodb = require('../storages/mongodb');
@@ -8,19 +8,21 @@ const mongodb = require('../storages/mongodb');
 mongodb.init();
 
 const ElasticSearchLib = require('../libs/elastic-search-lib');
-const ProductsModel = require('../models/product-model');
+const User = require('../models/user');
 
 async function start() {
-  await ElasticSearchLib.dropProductsIndex();
-  await ElasticSearchLib.createProductsIndex();
+  await ElasticSearchLib.dropUserIndex();
+  await ElasticSearchLib.createUserIndex();
 
-  const products = await ProductsModel.find();
-  await Promise.map(products, (product) => {
-    const { _id, name, images } = product;
+  const user = await User.find();
+  await Promise.map(users, (user) => {
+    const { _id, username, email,active,image } = user;
     return ElasticSearchLib.indexProduct({
       id: _id.toString(),
-      name,
-      images,
+      username,
+      email,
+      active,
+      image
     });
   }, { concurrency: 10 });
 }

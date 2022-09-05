@@ -1,3 +1,4 @@
+require('dotenv').config({path:__dirname+'./config/.env'})
 const CONFIG = {
   RAW_FILE_LOCATION: `${process.cwd()}/tmp`,
   PERMANENT_LOCATION: `${process.cwd()}/images`,

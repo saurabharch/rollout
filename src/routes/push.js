@@ -8,7 +8,7 @@ const Subscription = require('../model/subscriber');
 const Pushsetting = require('../model/pushSetting')
 const q = require('q');
 const webpush = require('web-push');
-const keys = require('./../config/keys');
+const keys = require('../../config/keys');
 const ratelimit = require('../util/limiter');
 const moment = require('moment');
 import{verifySignup}from'../middlewares';

@@ -1,5 +1,5 @@
 import nodemailer, { SendMailOptions } from "nodemailer";
-import { SMTP_OPTIONS, MAIL_FROM } from "./config";
+import { SMTP_OPTIONS, MAIL_FROM } from "../config";
 
 const transporter = nodemailer.createTransport(SMTP_OPTIONS);
 

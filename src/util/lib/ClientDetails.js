@@ -12,7 +12,7 @@ const ClientRequestData = async (request, response) => {
         ? forwarded.split(/, /)[0]
         : request.connection.remoteAddress;
       var geo = await geoip.lookup(ip);
-      console.log(process.memoryUsage());
+      //console.log(process.memoryUsage());
       var headers = {
         ipaddress: ip,
         language: request.headers["accept-language"],
@@ -61,7 +61,7 @@ const ClientI = async (request, response) => {
         : request.connection.remoteAddress;
      // var ip = realIp.getClientIp(request);
       var geo = await geoip.lookup(ip);
-      console.log(process.memoryUsage());
+      //console.log(process.memoryUsage());
       var headers = {
         ipaddress: ip,
         language: request.headers["accept-language"],

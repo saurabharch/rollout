@@ -22,7 +22,7 @@ module.exports = {
       },
       env_production : {
         NODE_ENV: 'production'
-      }
+      },
       watch:
         process.env.NODE_ENV !== "production"
           ? path.resolve(__dirname, "./")
@@ -39,7 +39,7 @@ module.exports = {
     production: {
       user: "ubuntu",
       host: "ec2-3-6-90-204.ap-south-1.compute.amazonaws.com",
-      key: "C://UsersAT/systems/Downloads/kp-push-2020.pem",
+      key: "C://UsersAT/systems/Downloads/rollout-push-2020.pem",
       repo: "https://github.com/saurabharch/rollout.git",
       ref: "origin/master",
       path: "/home/rollout/rollout",

@@ -1,7 +1,7 @@
 const express = require('express');
 const { indexOrders } = require('../indexing');
 const { getId, sendEmail, getEmailTemplate, getCountryNameToCode } = require('../common');
-const { getPaymentConfig } = require('../config');
+const { getPaymentConfig } = require('../../config');
 const { emptyCart } = require('../cart');
 const axios = require('axios');
 const ObjectId = require('mongodb').ObjectID;

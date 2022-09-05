@@ -32,7 +32,9 @@
     <link href="#/de/" rel="hreflang" hreflang="de">
     <link href="#/en/" rel="alternate" hreflang="en">
     <meta content="#0098e3" name="theme-color">
-    <script src="https://unpkg.com/feather-icons"></script>
+    {{!--
+    <script src="https://unpkg.com/feather-icons"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js.map"></script>
     <script>var monsterinsights_frontend = {js_events_tracking: "true", is_debug_mode: "false", download_extensions: "doc,exe,js,pdf,ppt,tgz,zip,xls", inbound_paths: "/recommended/", home_url: "#", track_download_as: "event", internal_label: "aff", hash_tracking: "false"}</script>
     <script>var advanced_ads_responsive = {reload_on_resize: "0"}</script>
     <script>var advanced_ads_pro_visitor_conditions = {referrer_cookie_name: "advanced_ads_pro_visitor_referrer", referrer_exdays: "365", page_impr_cookie_name: "advanced_ads_page_impressions", page_impr_exdays: "3650"}</script>
@@ -825,7 +827,7 @@
         <div id="cart" class="col-md-12 pad-left-12 top-pad-10 pushy pushy-right">
             <div class="row {{checkout}}">
                 <div class="col-sm-12 text-right">
-                    <button class="pushy-link btn btn-primary" type="button">{{{feather 'x'}}}</button>
+                    <button class="pushy-link btn btn-sm btn-primary" type="button">{{{feather 'x'}}}</button>
                 </div>
             </div>
             <div class="row">
@@ -833,8 +835,8 @@
                     {{> (getTheme 'cart')}}
                     <div class="row">
                         <div class="col-sm-12 {{showCartButtons @root.session.cart}} cart-buttons">
-                            <button class="btn btn-danger float-left" id="empty-cart" type="button">
-                                {{ @root.__ "Empty cart" }}</button>
+                            <button class="btn btn-danger float-left" id="empty-cart" type="button">{{ @root.__ "Empty
+                                cart" }}</button>
                             <a href="/checkout/information" class="btn btn-primary float-right">Checkout</a>
                         </div>
                     </div>
@@ -866,7 +868,7 @@
                 <div class="d-flex h-100">
                     <div class="col-12 align-self-center">
                         {{#isNull @root.config.footerHtml}}
-                        <h5 class="text-center">Powered by Kappy Technologies</h5>
+                        <h5 class="text-center">Powered by RainDigi IT Pvt. Ltd.</h5>
                         {{else}}
                         {{{@root.config.footerHtml}}}
                         {{/isNull}}
@@ -6416,6 +6418,16 @@
         {{/if}}
         <script>
             feather.replace();
+        </script>
+        <script>
+            function CopyToClipboard(id) {
+                var r = document.createRange();
+                r.selectNode(document.getElementById(id));
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(r);
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+            }
         </script>
         <script type="text/javascript" src="/app.js"></script>
         <script type="text/javascript" src="pushgeek.js"></script>

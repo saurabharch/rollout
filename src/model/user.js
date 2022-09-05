@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-import { v4 as uuidv4 } from 'uuid';
+const { v4: uuidv4 } = require('uuid');
 const bcryptjs = require('bcryptjs');
 const crypto = require('crypto');
 const val = require('validator');
 const ObjectId = Schema.ObjectId;
 let constantStatus = require("./../util/constants");
-const app = require('../config/app');
-const auth = require('../config/auth')
+const app = require('../../config/app');
+const auth = require('../../config/auth')
 const urlPattern = /(http|https):\/\/(\w+:{0,1}\w*#)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%#!\-/]))?/;
 const urlRegExp = new RegExp(urlPattern);
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -323,7 +323,8 @@ UserSchema.statics.signVerificationUrl = function(url){
 };
 
 UserSchema.statics.hasValidVerificationUrl = function(path, query){
-  const url = `${app.APP_ORIGIN}${path}`;
+  try{
+    const url = `${app.APP_ORIGIN}${path}`;
   const original = url.slice(0, url.lastIndexOf('&'));
   const signature = User.signVerificationUrl(original);
   return (
@@ -332,6 +333,9 @@ UserSchema.statics.hasValidVerificationUrl = function(path, query){
       Buffer.from(query.signature)
     ) && +query.expires > Date.now()
   );
+  }catch{
+    return `Invalid Link path`;
+  }
 };
 
 UserSchema.set('toJSON', {

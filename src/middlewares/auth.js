@@ -1,7 +1,7 @@
 
 import{ isLoggedIn, logOut }from'../auth';
 import{ BadRequest, Unauthorized }from'../errors';
-import{ SESSION_ABSOLUTE_TIMEOUT }from'../config';
+import{ SESSION_ABSOLUTE_TIMEOUT }from'../../config';
 import{ catchAsync }from'./errors';
 var passport = require('passport');
 var BasicStrategy = require('passport-http').BasicStrategy;

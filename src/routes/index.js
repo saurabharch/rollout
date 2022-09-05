@@ -1,69 +1,69 @@
-// const home = require("./home");
-// const admin = require("./admin");
-// const about = require("./about");
-// const billing = require("./billing");
-// const features = require("./features");
-// const partners = require("./partners");
-// const plans = require("./plans");
-// const ApiValidation = require("./ApiKeyvalid");
-// // const ImageUpload = require("./ImageUpload");
-// const organization = require("./organization");
-// const clientControl = require("./clientController");
-// const push = require("./push");
-// const subscribe = require("./subscribe");
-// const unsubscribe = require("./unsubscribe");
+const home = require("./home");
+const admin = require("./admin");
+const about = require("./about");
+const billing = require("./billing");
+const features = require("./features");
+const partners = require("./partners");
+const plans = require("./plans");
+const ApiValidation = require("./ApiKeyvalid");
+// const ImageUpload = require("./ImageUpload");
+const organization = require("./organization");
+const clientControl = require("./clientController");
+const push = require("./push");
+const subscribe = require("./subscribe");
+const unsubscribe = require("./unsubscribe");
 // const textClassification = require("./textClassification");
-// const systemStatus = require("./systemStatus");
-// const timestamp = require("./timestamp");
-// const whoami = require("./whoami");
-// const keygen = require("./keygen");
-// const login = require("./login");
-// const SignUp = require("./user");
-// const reset = require("./reset");
-// const register = require("./register");
-// const verify = require("./verify");
-// const auth = require("./auth");
-// const clinetController = require("./clientController");
-// const test = require("./testers");
-// const security = require("./security");
-// const trust = require("./trust");
-// const terms_service = require("./terms-service");
-// const ApiKey = require("./ApiKeyvalid");
-// const queue = require("./userQmanager");
-// module.exports = {
-//   home,
-//   auth,
-//   admin,
-//   about,
-//   billing,
-//   unsubscribe,
-//   SignUp,
-//   security,
-//   trust,
-//   features,
-//   terms_service,
-//   ApiKey,
-//   queue,
-//   test,
-//   //...ImageUpload,
-//   partners,
-//   plans,
-//   ApiValidation,
-//   organization,
-//   clientControl,
-//   push,
-//   subscribe,
-//   textClassification,
-//   systemStatus,
-//   timestamp,
-//   whoami,
-//   keygen,
-//   login,
-//   reset,
-//   clinetController,
-//   register,
-//   verify
-// }
+const systemStatus = require("./systemStatus");
+const timestamp = require("./timestamp");
+const whoami = require("./whoami");
+const keygen = require("./keygen");
+const login = require("./login");
+const SignUp = require("./user");
+const reset = require("./reset");
+const register = require("./register");
+const verify = require("./verify");
+const auth = require("./auth");
+const clinetController = require("./clientController");
+const test = require("./testers");
+const security = require("./security");
+const trust = require("./trust-policy");
+const terms_service = require("./terms-service");
+const ApiKey = require("./ApiKeyvalid");
+const queue = require("./userQmanager");
+module.exports = {
+  home,
+  auth,
+  admin,
+  about,
+  billing,
+  unsubscribe,
+  SignUp,
+  security,
+  trust,
+  features,
+  terms_service,
+  ApiKey,
+  queue,
+  test,
+  //...ImageUpload,
+  partners,
+  plans,
+  ApiValidation,
+  organization,
+  clientControl,
+  push,
+  subscribe,
+  //textClassification,
+  systemStatus,
+  timestamp,
+  whoami,
+  keygen,
+  login,
+  reset,
+  clinetController,
+  register,
+  verify
+}
 
 const express = require('express');
 const router = express.Router();
@@ -102,6 +102,9 @@ const {
     sortMenu,
     getMenu
 } = require('../lib/menu');
+const {
+    setupVerifone
+} = require('../lib/payment-common.js');
 const countryList = getCountryList();
 
 // Google products
@@ -110,7 +113,7 @@ router.get('/googleproducts.xml', async (req, res, next) => {
     try{
         productsFile = fs.readFileSync(path.join('bin', 'googleproducts.xml'));
     }catch(ex){
-        console.log(`Google products file not found - ${ex.message}`);
+        console.log('Google products file not found');
     }
     res.type('text/plain');
     res.send(productsFile);
@@ -267,7 +270,7 @@ router.get('/checkout/shipping', async (req, res, next) => {
     if(!req.session.customerEmail){
         req.session.message = 'Cannot proceed to shipping without customer information';
         req.session.messageType = 'danger';
-        res.redirect('index/checkout/information');
+        res.redirect('/checkout/information');
         return;
     }
 
@@ -341,10 +344,18 @@ router.get('/checkout/payment', async (req, res) => {
     // update total cart amount one last time before payment
     await updateTotalCart(req, res);
 
+    // Setup verifone if configured
+    let verifone = {};
+    if(config.paymentGateway.includes('verifone')){
+        verifone = await setupVerifone(req);
+        req.session.verifoneCheckout = verifone.id;
+    }
+
     res.render(`${config.themeViews}checkout-payment`, {
         title: 'Checkout - Payment',
         config: req.app.config,
         paymentConfig: getPaymentConfig(),
+        verifone,
         session: req.session,
         paymentPage: true,
         paymentType,
@@ -621,6 +632,12 @@ router.post('/product/updatecart', async (req, res, next) => {
         // quantity equals zero so we remove the item
         delete req.session.cart[cartItem.cartId];
         res.status(400).json({ message: 'There was an error updating the cart', totalCartItems: Object.keys(req.session.cart).length });
+        return;
+    }
+
+    // Don't allow negative quantity
+    if(productQuantity < 1){
+        res.status(400).json({ message: 'There was an error updating the cart. Cannot update a negative quantity.', totalCartItems: Object.keys(req.session.cart).length });
         return;
     }
 
