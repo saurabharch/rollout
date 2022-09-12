@@ -116,7 +116,7 @@
         "countries-list": "^2.6.1",
         "cross-env": "^7.0.3",
         "csurf": "^1.11.0",
-        "date-fns": "^2.23.0",
+        "date-fns": "^2.29.2",
         "debug": "^4.3.2",
         "express": "^4.17.1",
         "express-autosanitizer": "^1.0.2",
