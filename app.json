@@ -48,7 +48,7 @@
         },
         "CHAT_URL": {
             "description": "The Chat server endpoint.",
-            "value": "https://us-central1-tiledesk-test.cloudfunctions.net"
+            "value": "https://us-central1-rollout-test.cloudfunctions.net"
         },
         "CHAT_APPID": {
             "description": "A unique identifier for your chat app.",
