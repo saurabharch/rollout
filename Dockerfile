@@ -3,7 +3,7 @@ FROM node:${NODE_VERSION}-alpine
 LABEL maintainer="rollout"
 MAINTAINER Saurabh Kashyap <saurabhkashyap0001@gmail.com>
 
-ARG ROLLOUT_VERSION
+ARG ROLLOUT_VERSION=1.0.01
 RUN if [ -z "$ROLLOUT_VERSION" ] ; then echo "The ROLLOUT_VERSION argument is missing!" ; exit 1; fi
 
 ENV NODE_ENV=production
