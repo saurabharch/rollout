@@ -2,15 +2,15 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
-var Project_user = require("../../models/project_user");
+var Project_user = require("../../model/project_user");
 
-var winston = require('../../config/winston');
+var winston = require('../../../config/winston');
 
 // THE THREE FOLLOWS IMPORTS  ARE USED FOR AUTHENTICATION IN THE ROUTE
 var passport = require('passport');
-require('../../middleware/passport')(passport);
-var validtoken = require('../../middleware/valid-token')
-var RoleConstants = require("../../models/roleConstants");
+require('../../middlewares/passport')(passport);
+var validtoken = require('../../middlewares/valid-token');
+var RoleConstants = require("../../model/roleConstants");
 var cacheUtil = require('../../utils/cacheUtil');
 const { Query } = require('mongoose');
 

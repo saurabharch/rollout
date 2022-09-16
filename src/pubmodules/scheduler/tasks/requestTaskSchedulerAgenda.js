@@ -2,9 +2,9 @@
 'use strict';
 
 
-var winston = require('../../../config/winston');
-var Request = require("../../model/request");
-var requestService = require("../../services/requestService");
+var winston = require('../../../../config/winston');
+var Request = require("../../../model/request");
+var requestService = require("../../../services/requestService");
 
 var Agenda = require("agenda");
 const mongoConnectionString = 'mongodb://127.0.0.1/agenda'; 

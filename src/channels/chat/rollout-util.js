@@ -1,10 +1,10 @@
 /* 
-    ver 0.8.3
-    Andrea Sponziello - (c) Tiledesk.com
+    ver 0.0.1
+    Saurabh Kashyap - (c) Rollout.com
 */
 var winston = require('../../config/winston');
 
-class TiledeskUtil {    
+class RolloutUtil {    
 
     /* Splits a message in multiple commands using the microlanguage
     \split:TIME
@@ -155,6 +155,6 @@ class TiledeskUtil {
   
   }
   
-  var tiledeskUtil = new TiledeskUtil();
+  var rolloutUtil = new RolloutUtil();
   
-  module.exports = tiledeskUtil;
+  module.exports = rolloutUtil;

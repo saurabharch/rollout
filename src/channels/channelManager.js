@@ -2,11 +2,11 @@
 var winston = require('../../config/winston');
 
 
-var chat21Enabled = process.env.CHAT21_ENABLED;
-winston.debug("chat21Enabled: "+chat21Enabled);
+var chatEnabled = process.env.CHAT_ENABLED;
+winston.debug("chatEnabled: "+chatEnabled);
 
-var engine = process.env.CHAT21_ENGINE;
-winston.debug("chat21 engine: "+engine);
+var engine = process.env.CHAT_ENGINE;
+winston.debug("chat engine: "+engine);
 
 
 var validtoken = require('../middlewares/valid-token');
@@ -14,10 +14,10 @@ var passport = require('passport');
 require('../middlewares/passport')(passport);
 
 
-if (chat21Enabled && chat21Enabled == "true") {
-    winston.info("ChannelManager - Chat21 channel is enabled");
+if (chatEnabled && chatEnabled == "true") {
+    winston.info("ChannelManager - Chat channel is enabled");
 }else {
-    winston.info("ChannelManager Chat21 channel is disabled. Attention!!");
+    winston.info("ChannelManager Chat channel is disabled. Attention!!");
 }
 
 class ChannelManager {
@@ -26,30 +26,30 @@ class ChannelManager {
         var that = this;
         winston.debug("ChannelManager using controllers");
 
-        if (chat21Enabled && chat21Enabled == "true") {
+        if (chatEnabled && chatEnabled == "true") {
 
-            var chat21WebHook = require('../channels/chat21/chat21WebHook');
-            app.use('/chat21/requests',  chat21WebHook); //<- TODO cambiare /request in /webhook
+            var chatWebHook = require('./chat/chatWebHook');
+            app.use('/chat/requests',  chatWebHook); //<- TODO cambiare /request in /webhook
 
-            var chat21Contact = require('../channels/chat21/chat21Contact');
-            app.use('/chat21/contacts',  chat21Contact);
+            var chatContact = require('./chat/chatContact');
+            app.use('/chat/contacts',  chatContact);
 
-            var chat21ConfigRoute = require('../channels/chat21/configRoute');
-            app.use('/chat21/config',  chat21ConfigRoute);
+            var chatConfigRoute = require('./chat/configRoute');
+            app.use('/chat/config',  chatConfigRoute);
 
             
             if (engine && engine=="firebase") {
-                winston.info("ChannelManager - Chat21 channel engine is firebase");
-                var firebaseAuth = require('../channels/chat21/firebaseauth');
-                app.use('/chat21/firebase/auth', [passport.authenticate(['basic', 'jwt'], { session: false }), validtoken], firebaseAuth);
+                winston.info("ChannelManager - Chat channel engine is firebase");
+                var firebaseAuth = require('./chat/firebaseauth');
+                app.use('/chat/firebase/auth', [passport.authenticate(['basic', 'jwt'], { session: false }), validtoken], firebaseAuth);
             } else { //if (engine && engine=="native") {
-                winston.info("ChannelManager - Chat21 channel engine is native mqtt");
-                var nativeAuth = require('../channels/chat21/nativeauth');
-                app.use('/chat21/native/auth', [passport.authenticate(['basic', 'jwt'], { session: false }), validtoken], nativeAuth);
+                winston.info("ChannelManager - Chat channel engine is native mqtt");
+                var nativeAuth = require('./chat/nativeauth');
+                app.use('/chat/native/auth', [passport.authenticate(['basic', 'jwt'], { session: false }), validtoken], nativeAuth);
             }
-            winston.info("ChannelManager - Chat21 channel routes initialized");
+            winston.info("ChannelManager - Chat channel routes initialized");
         } else {
-            winston.info("ChannelManager - Chat21 channel routes not initialized.");
+            winston.info("ChannelManager - Chat channel routes not initialized.");
         }            
 
         
@@ -66,9 +66,9 @@ class ChannelManager {
             return winston.info("ChannelManager listener disabled for testing");
         }
         
-        if (chat21Enabled && chat21Enabled == "true") {   
-            var chat21Handler = require('../channels/chat21/chat21Handler');         
-            chat21Handler.listen();
+        if (chatEnabled && chatEnabled == "true") {   
+            var chatHandler = require('./chat/chatHandler');         
+            chatHandler.listen();
             winston.info("ChannelManager listener started");
         }else {
             winston.info("ChannelManager listener NOT started ");

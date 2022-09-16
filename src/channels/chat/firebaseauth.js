@@ -4,7 +4,7 @@
 const express = require('express');
 var router = express.Router();
 var firebaseService = require("./firebaseService");
-var winston = require('../../config/winston');
+var winston = require('../../../config/winston');
 
 
 

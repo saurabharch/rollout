@@ -4,7 +4,7 @@ var winston = require('../../../config/winston');
 
 var port = process.env.PORT || '5500';
 
-const ROLLBOT_ENDPOINT = process.env.ROLLBOT_ENDPOINT || "http://localhost:" + port+ "/modules/rollbot/";
+const ROLLBOT_ENDPOINT = process.env.ROLLBOT_ENDPOINT || "http://localhost:" + port+ "/chat/modules/rollbot/";
 winston.debug("ROLLBOT_ENDPOINT: " + ROLLBOT_ENDPOINT);
 
 winston.info("Rollbot endpoint: " + ROLLBOT_ENDPOINT);
@@ -35,7 +35,7 @@ class Listener {
                         if (err) {
                          return winston.error('error saving faqkb rollbot ', err);
                         }
-                        winston.verbose('Saved faqkb tilebot', savedFaq_kb.toObject());
+                        winston.verbose('Saved faqkb rolloutbot', savedFaq_kb.toObject());
                     });
                 }
             }

@@ -1,10 +1,12 @@
 {
-    "name": "pushgeek-web-push-services",
+    "name": "rollout",
     "version": "1.0.01",
-    "description": "PushGeek is a Push Notification Engine,  Application is Written in Node.js and have Restful API features.",
+    "description": "Rollout is a Push Notification Engine,  Application is Written in Node.js and have Restful API features.",
     "main": "src/index.js",
     "scripts": {
         "copy": "copyfiles -u 1 src/**/**/* src/**/* src/* build",
+        "pretest": "mongodb-runner start",
+        "watchenv": "nodemon --watch .env --watch ./confenv/.env ./bin/www",
         "build:dev": "npm run copy && workbox injectManifest src/workbox-config.js",
         "build": "babel src --out-dir build",
         "testdata": "node src/lib/testdata.js",
@@ -27,7 +29,11 @@
         "index-products": "node src/scripts/indexing.js",
         "update:packages": "npm clean-install && npm install && npm update --save/--save-dev -f",
         "update:geodate": "npm run-script updatedb-force license_key=sClIi7oTlPcCEcn8",
-        "update:geodb": "node ./node_modules/geoip-lite/scripts/updatedb.js license_key=sClIi7oTlPcCEcn8"
+        "update:geodb": "node ./node_modules/geoip-lite/scripts/updatedb.js license_key=sClIi7oTlPcCEcn8",
+        "posttest": "mongodb-runner stop",
+        "preinstall": "if [ $ENABLE_ENTERPRISE_MODULE ]; then npm run enable-ent; fi",
+        "heroku-prebuild": "if [ $ENABLE_ENTERPRISE_MODULE ]; then npm run enable-ent; fi",
+        "enable-ent": "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc"
     },
     "redisMemoryServer": {
         "downloadDir": "/path/to/redis/binaries",
@@ -87,7 +93,11 @@
         "@bull-board/ui": "^4.2.2",
         "@elastic/elasticsearch": "^7.17.0",
         "@parse/node-apn": "^5.1.3",
+        "@saurabharch/json-rules-engine": "^6.1.2",
         "@saurabharch/rollout-chatbot-util": "^0.8.37",
+        "@saurabharch/rollout-node-sdk": "^0.0.6",
+        "@saurabharch/rollout-rasa-connector": "^1.0.10",
+        "@saurabharch/rollout-rolybot-connector": "^0.0.1",
         "@tailwindcss/aspect-ratio": "^0.2.2",
         "@tailwindcss/forms": "^0.3.4",
         "@tailwindcss/typography": "^0.4.1",
@@ -179,6 +189,7 @@
         "node-cron": "^3.0.2",
         "node-gcm": "^1.0.5",
         "node-rsa": "^1.1.1",
+        "node-schedule": "^2.1.0",
         "node-uuid": "^1.4.8",
         "nodemailer": "^6.7.8",
         "numeral": "^2.0.6",

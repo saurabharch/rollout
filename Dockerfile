@@ -1,7 +1,16 @@
-FROM node:16.3.0-alpine
+ARG NODE_VERSION=16.3.0
+FROM node:${NODE_VERSION}-alpine
 LABEL maintainer="rollout"
 MAINTAINER Saurabh Kashyap <saurabhkashyap0001@gmail.com>
 
+ARG ROLLOUT_VERSION
+RUN if [ -z "$ROLLOUT_VERSION" ] ; then echo "The ROLLOUT_VERSION argument is missing!" ; exit 1; fi
+
+ENV NODE_ENV=production
+
+WORKDIR /home/node
+COPY . /home/node/
+COPY .npmrc /usr/local/etc/npmrc
 RUN apk add --update nodejs-current npm
 
 # Add hello scripts
@@ -19,7 +28,40 @@ RUN apk add py-pip python3 openssl
 RUN apk update \
     && apk upgrade \
     && apk --no-cache add --update tcl apache2 ca-certificates
+#### => add this script to resolve that problem
+RUN apk add --no-cache python2 g++ make
 
+RUN \
+    apk add --update graphicsmagick tini tzdata && \
+    npm install -g npm@latest full-icu && \
+    rm -rf /var/cache/apk/* /root/.npm /tmp/* && \
+    # Install fonts
+    apk --no-cache add --virtual fonts msttcorefonts-installer fontconfig && \
+    update-ms-fonts && \
+    fc-cache -f && \
+    apk del fonts && \
+    find  /usr/share/fonts/truetype/msttcorefonts/ -type l -exec unlink {} \; && \
+    rm -rf /var/cache/apk/* /tmp/*
+ENV NODE_ICU_DATA /usr/local/lib/node_modules/full-icu
+
+RUN set -eux; \
+    apkArch="$(apk --print-arch)"; \
+    case "$apkArch" in \
+    'armv7') apk --no-cache add --virtual build-dependencies python3 build-base;; \
+    esac && \
+    npm install -g --omit=dev rollout@${ROLLOUT_VERSION} && \
+    case "$apkArch" in \
+    'armv7') apk del build-dependencies;; \
+    esac && \
+    find /usr/local/lib/node_modules/rollout -type f -name "*.ts" -o -name "*.js.map" -o -name "*.vue" | xargs rm && \
+    rm -rf /root/.npm
+
+# Set a custom user to not have rollout run as root
+USER root
+WORKDIR /data
+RUN apk --no-cache add su-exec
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
 # # # Install necessary tools
 #RUN apt-get install  -y nano wget dialog net-tools
 
@@ -48,19 +90,19 @@ RUN apk update \
 #     && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # Solution 2: use docker-compose-wait tool -------------------
-# ENV WAIT_VERSION 2.7.2
-# ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERSION/wait /wait
-# RUN chmod +x /wait
-# RUN apk update \
-#     && apk upgrade
+ENV WAIT_VERSION 2.7.2
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERSION/wait /wait
+RUN chmod +x /wait
+RUN apk update \
+    && apk upgrade
 
 
-WORKDIR ./app
+# WORKDIR ./app
 # # Copy the package.json to workdir
 COPY --chown=node:node package*.json ./
 
 ENV TERM=linux
-ARG NODE_ENV=production
+# ARG NODE_ENV=production
 ARG REST_URL=http://localhost:5500
 ENV NODE_ENV $NODE_ENV
 ENV REST_URL $REST_URL
@@ -81,7 +123,7 @@ RUN npm install
 COPY ./docker.env ./docker.env
 COPY process.yml ./process.yml
 # Copy application source
-COPY . ./app
+# COPY . ./app
 
 
 # Expose application ports - (4300 - for API and 4301 - for front end)

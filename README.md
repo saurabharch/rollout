@@ -46,6 +46,8 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 - Cart Service
 - Product Display
 - International Localization Features
+- Knowledge base
+- Advance Chat Widget Support Service
 - Text Analysiss
 - nudity detection
 - more coming soon
@@ -370,6 +372,13 @@ in query line example as below:
 ```bash
   db.collectionName.find().explain("executionStats").exec()
 ```
+
+## Deploy on Heroku
+
+Deploy with button:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/saurabharch/rollout)
+
 
 # Work in Action
 

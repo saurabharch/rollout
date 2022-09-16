@@ -1,7 +1,3 @@
-
-'use strict';
-
-
 var winston = require('../../../config/winston');
 var closeBotUnresponsiveRequestTask = require('./tasks/closeBotUnresponsiveRequestTask');
 var closeAgentUnresponsiveRequestTask = require('./tasks/closeAgentUnresponsiveRequestTask');
@@ -9,7 +5,7 @@ var closeAgentUnresponsiveRequestTask = require('./tasks/closeAgentUnresponsiveR
 class TaskRunner {
 
 constructor() {
-  this.enabled = process.env.TASK_SCHEDULER_ENABLED || "true"
+  this.enabled =  process.env.TASK_SCHEDULER_ENABLED || "true";
 }
 
 start() {

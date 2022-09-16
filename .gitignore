@@ -25,6 +25,7 @@ build
 #package-*.json
 # environment variables
 .env
+.env.bak
 /src/config/*-local.json
 .vscode
 **.DS_Store

@@ -1,7 +1,7 @@
 var admin = require('./firebaseConnector');
 
 
-var winston = require('../../config/winston');
+var winston = require('../../../config/winston');
 
 class FirebaseService {
 

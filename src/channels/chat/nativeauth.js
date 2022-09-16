@@ -3,9 +3,9 @@
 
 const express = require('express');
 var router = express.Router();
-var winston = require('../../config/winston');
-const uuidv4 = require('uuid/v4');
-const jwt = require("jsonwebtoken")
+var winston = require('../../../config/winston');
+const { v4: uuidv4 } = require('uuid');
+const jwt = require("jsonwebtoken");
 
 const MaskData = require("maskdata");
 
@@ -21,12 +21,12 @@ const maskPhoneOptions = {
   };
 
 
-const jwtSecret = process.env.CHAT21_JWT_SECRET || "tokenKey";
+const jwtSecret = process.env.CHAT_JWT_SECRET || "tokenKey";
 
 const masked_jwtSecret = MaskData.maskPhone(jwtSecret, maskPhoneOptions);
 
 
-winston.info("Chat21 Native channel jwtSecret: "+ masked_jwtSecret);
+winston.info("Chat Native channel jwtSecret: "+ masked_jwtSecret);
 
 
 
@@ -37,14 +37,14 @@ router.post('/createCustomToken', function (req, res) {
 
         var user = req.user;
 
-        const appid = "tilechat";
+        const appid = "rolloutchat";
 
         const scope = [
             `rabbitmq.read:*/*/apps.${appid}.users.${userid}.*`,
             `rabbitmq.write:*/*/apps.${appid}.users.${userid}.*`,
             `rabbitmq.write:*/*/apps.${appid}.outgoing.users.${userid}.*`,
             'rabbitmq.configure:*/*/*'
-        ]
+        ];
     
         const now = Math.round(new Date().getTime()/1000);
         // console.log("now: ", now)
@@ -74,8 +74,8 @@ router.post('/createCustomToken', function (req, res) {
                 user._id
             ],
             // "jku": "https://localhost:8080/uaa/token_keys", // REMOVED 2
-            "kid": "tiledesk-key", //"legacy-token-key",
-            "tiledesk_api_roles": "user"
+            "kid": "rollout-key", //"legacy-token-key",
+            "rollout_api_roles": "user"
         }
         winston.debug("payload:\n", payload)
         var token = jwt.sign(

@@ -113,14 +113,14 @@ class PubModulesManager {
         try {
             this.messageTransformer = require('./messageTransformer');
             winston.debug("this.messageTransformer:"+ this.messageTransformer);
-            // this.messageTransformer.messageTransformerInterceptor.listen();
-            // this.messageTransformer.microLanguageTransformerInterceptor.listen();
+            this.messageTransformer.messageTransformerInterceptor.listen();
+            this.messageTransformer.microLanguageTransformerInterceptor.listen();
             winston.info("PubModulesManager initialized messageTransformer.");
         } catch(err) {
             if (err.code == 'MODULE_NOT_FOUND') {
-                winston.info("PubModulesManager init messageTransformer module not found");
+                winston.debug("PubModulesManager init messageTransformer module not found");
             }else {
-                winston.info("PubModulesManager error initializing init messageTransformer module", err);
+                winston.debug("PubModulesManager error initializing init messageTransformer module", err);
             }
         }
         
@@ -175,9 +175,10 @@ class PubModulesManager {
             winston.info("PubModulesManager initialized scheduler.");
         } catch(err) {
             if (err.code == 'MODULE_NOT_FOUND') { 
-                winston.info("PubModulesManager init scheduler module not found");
+               // winston.debug("PubModulesManager init scheduler module not found");
+                 winston.info("PubModulesManager error initializing init scheduler module", err);
             }else {
-                winston.info("PubModulesManager error initializing init scheduler module", err);
+                winston.debug("PubModulesManager error initializing init scheduler module", err);
             }
         }
 

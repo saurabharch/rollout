@@ -11,7 +11,7 @@ var RequestConstants = require("../../model/requestConstants");
 var cacheUtil = require('../../utils/cacheUtil');
 
 var mongoose = require('mongoose');
-var winston = require('../../config/winston');
+var winston = require('../../../config/winston');
 var MessageConstants = require("../../model/messageConstants");
 var ProjectUserUtil = require("../../utils/project_userUtil");
 var RequestUtil = require("../../utils/requestUtil");
@@ -21,13 +21,13 @@ var syncJoinAndLeaveGroupEvent =  false;
 if (process.env.SYNC_JOIN_LEAVE_GROUP_EVENT === true || process.env.SYNC_JOIN_LEAVE_GROUP_EVENT ==="true") {
   syncJoinAndLeaveGroupEvent = true;
 }
-winston.info("Chat21 Sync JoinAndLeave Support Group Event: " + syncJoinAndLeaveGroupEvent);
+winston.info("Rollout Sync JoinAndLeave Support Group Event: " + syncJoinAndLeaveGroupEvent);
 
 var allowReopenChat =  false;
 if (process.env.ALLOW_REOPEN_CHAT === true || process.env.ALLOW_REOPEN_CHAT ==="true") {
   allowReopenChat = true;
 }
-winston.info("Chat21 allow reopen chat: " + allowReopenChat);
+winston.info("Rollout allow reopen chat: " + allowReopenChat);
 
 
 router.post('/', function (req, res) {
@@ -38,12 +38,12 @@ router.post('/', function (req, res) {
                                                     //Deprecated
   if (req.body.event_type == "message-sent" || req.body.event_type == "new-message") {
     //with projectid
-    // curl -X POST -H 'Content-Type:application/json'  -d '{"event_type": "new-message", "data":{"sender":"sender", "sender_fullname": "sender_fullname", "recipient":"123456789123456789", "recipient_fullname":"Andrea Leo","text":"text", "projectid":"987654321"}}' http://localhost:3000/chat21/requests
+    // curl -X POST -H 'Content-Type:application/json'  -d '{"event_type": "new-message", "data":{"sender":"sender", "sender_fullname": "sender_fullname", "recipient":"123456789123456789", "recipient_fullname":"Andrea Leo","text":"text", "projectid":"987654321"}}' http://localhost:3000/chat/requests
     //with recipient with existing projectid
-    // curl -X POST -H 'Content-Type:application/json'  -d '{"event_type": "new-message", "data":{"sender":"sender", "sender_fullname": "sender_fullname", "recipient":"123456789123456789", "recipient_fullname":"Andrea Leo","text":"text"}}' http://localhost:3000/chat21/requests
+    // curl -X POST -H 'Content-Type:application/json'  -d '{"event_type": "new-message", "data":{"sender":"sender", "sender_fullname": "sender_fullname", "recipient":"123456789123456789", "recipient_fullname":"Andrea Leo","text":"text"}}' http://localhost:3000/chat/requests
 
     //with recipient with no projectid
-    // curl -X POST -H 'Content-Type:application/json'  -d '{"event_type": "new-message", "data":{"sender":"sender", "sender_fullname": "sender_fullname", "recipient":"1234567891234567891", "recipient_fullname":"Andrea Leo","text":"text"}}' http://localhost:3000/chat21/requests
+    // curl -X POST -H 'Content-Type:application/json'  -d '{"event_type": "new-message", "data":{"sender":"sender", "sender_fullname": "sender_fullname", "recipient":"1234567891234567891", "recipient_fullname":"Andrea Leo","text":"text"}}' http://localhost:3000/chat/requests
 
 
     winston.debug("event_type", "new-message");
@@ -58,9 +58,8 @@ router.post('/', function (req, res) {
     var projectid;
     if (message.attributes) {            
       projectid = message.attributes.projectId;
-      winston.debug("chat21 projectid", projectid);
+      winston.debug("Rollout projectid", projectid);
     }
-
     if (!projectid) {
       winston.warn("projectid is null. Not a support message");
       return res.status(400).send({success: false, msg: 'projectid is null. Not a support message'});
@@ -70,7 +69,7 @@ router.post('/', function (req, res) {
 
 
 
-    winston.debug("Chat21 message", message);
+    winston.debug("Rollout message", message);
 
         // requestcachefarequi nocachepopulatereqired        
         return Request.findOne({request_id: message.recipient}) 
@@ -91,7 +90,7 @@ router.post('/', function (req, res) {
 
 
                 var language = message.language;
-                winston.debug("chat21 language", language);
+                winston.debug("Rollout language", language);
             
                 var sourcePage;
                 var client;
@@ -105,24 +104,24 @@ router.post('/', function (req, res) {
             
                   // before request_id id_project unique - commented
                   projectid = message.attributes.projectId;
-                  winston.debug("chat21 projectid", projectid);
+                  winston.debug("Rollout projectid", projectid);
             
                   departmentid = message.attributes.departmentId;
-                  winston.debug("chat21 departmentid", departmentid);
+                  winston.debug("Rollout departmentid", departmentid);
             
                   sourcePage = message.attributes.sourcePage;
-                  winston.debug("chat21 sourcePage", sourcePage);
+                  winston.debug("Rollout sourcePage", sourcePage);
                   
                   client = message.attributes.client;
-                  winston.debug("chat21 client", client);
+                  winston.debug("Rollout client", client);
               
                 
             
                   userEmail = message.attributes.userEmail;
-                  winston.debug("chat21 userEmail", userEmail);
+                  winston.debug("Rollout userEmail", userEmail);
             
                   userFullname = message.attributes.userFullname;
-                  winston.debug("chat21 userFullname", userFullname);
+                  winston.debug("Rollout userFullname", userFullname);
 
                   // TODO proactive status
                   // if (message.attributes.subtype === "info") {                    
@@ -202,12 +201,7 @@ router.post('/', function (req, res) {
                       }
 
 
-                      // var auto_close;
-
-                      // // qui projecy nn c'è devi leggerlo
-                      // if (req.project.attributes.auto_close === false) {
-                      //   auto_close = 10;
-                      // }
+                    
 
                       
                       var new_request = {
@@ -215,7 +209,7 @@ router.post('/', function (req, res) {
                         departmentid:departmentid, sourcePage:sourcePage, language:language, userAgent:client, status:requestStatus, createdBy: undefined,
                         attributes:rAttributes, subject:undefined, preflight:false, channel:undefined, location:undefined,
                         lead:createdLead, requester:project_user
-                        // , auto_close: auto_close
+                        
                       };
     
                       winston.debug("new_request", new_request);
@@ -235,10 +229,10 @@ router.post('/', function (req, res) {
                        // upsert(id, sender, senderFullname, recipient, text, id_project, createdBy, status, attributes, type, metadata, language)
                         return messageService.upsert(messageId, message.sender, message.sender_fullname, message.recipient, message.text,
                           projectid, null, MessageConstants.CHAT_MESSAGE_STATUS.RECEIVED, message.attributes, message.type, message.metadata, language).then(function(savedMessage){
-                                                                
-                            return requestService.incrementMessagesCountByRequestId(savedRequest.request_id, savedRequest.id_project).then(function(savedRequestWithIncrement) {
-                              return res.json(savedRequestWithIncrement);
-                            });
+                            return res.json(savedRequest);                                  
+                            // return requestService.incrementMessagesCountByRequestId(savedRequest.request_id, savedRequest.id_project).then(function(savedRequestWithIncrement) {
+                              // return res.json(savedRequestWithIncrement);
+                            // });
                           
                         
                       }).catch(function (err) {
@@ -262,7 +256,7 @@ router.post('/', function (req, res) {
             // if (message.attributes) {
         
             //   projectid = message.attributes.projectId;
-            //   winston.debug("chat21 projectid", projectid);
+            //   winston.debug("Rollout projectid", projectid);
             // }
         
             // if (!projectid) {
@@ -295,23 +289,25 @@ router.post('/', function (req, res) {
 
                 // TOOD update also request attributes and sourcePage
                 
-                    return requestService.incrementMessagesCountByRequestId(request.request_id, request.id_project).then(function(savedRequest) {
+                    // return requestService.incrementMessagesCountByRequestId(request.request_id, request.id_project).then(function(savedRequest) {
                       // winston.debug("savedRequest.participants.indexOf(message.sender)", savedRequest.participants.indexOf(message.sender));
                        
                       // TODO it doesn't work for internal requests bacause participanets == message.sender⁄
-                      if (savedRequest.participants && savedRequest.participants.indexOf(message.sender) > -1) { //update waiitng time if write an  agent (member of participants)
+                      if (request.participants && request.participants.indexOf(message.sender) > -1) { //update waiitng time if write an  agent (member of participants)
                         winston.debug("updateWaitingTimeByRequestId");
+                        
                         return requestService.updateWaitingTimeByRequestId(request.request_id, request.id_project).then(function(upRequest) {
                           return res.json(upRequest);
                         });
                       }else {
-                        return res.json(savedRequest);
+                       
+                        return res.json(savedMessage);
                       }
-                    });
-                  }).catch(function(err){
-                    winston.error("Error creating message", {err: err, message: message});
-                    return res.status(500).send({success: false, msg: 'Error creating message', err:err });
-                  });
+                    // });
+              }).catch(function(err){ 
+                winston.error("Error creating Rollout webhook message: "+ JSON.stringify({err: err, message: message}));
+                return res.status(500).send({success: false, msg: 'Error creating message', err:err });
+              });
 
 
 
@@ -324,9 +320,9 @@ router.post('/', function (req, res) {
  
    
       
-      // curl -X POST -H 'Content-Type:application/json'  -d '{ "event_type": "deleted-conversation", "createdAt": 1537973334802, "app_id": "tilechat", "user_id": "system", "recipient_id": "support-group-LNPQ57JnotOEEwDXr9b"}' http://localhost:3000/chat21/requests
+      // curl -X POST -H 'Content-Type:application/json'  -d '{ "event_type": "deleted-conversation", "createdAt": 1537973334802, "app_id": "tilechat", "user_id": "system", "recipient_id": "support-group-LNPQ57JnotOEEwDXr9b"}' http://localhost:3000/chat/requests
                                                                                          // depreated
-// this is a deprecated method for closing request. In the past used by chat21 cloud function support api /close method called by old versions of ionic. The new version of the ionic (both for firebase and mqtt) chat call Tiledesk DELETE /requests/:req_id endpoint so  this will not be used                                                                                        
+// this is a deprecated method for closing request. In the past used by Rollout cloud function support api /close method called by old versions of ionic. The new version of the ionic (both for firebase and mqtt) chat call Tiledesk DELETE /requests/:req_id endpoint so  this will not be used                                                                                        
     } else if (req.body.event_type == "conversation-archived" || req.body.event_type == "deleted-conversation" ) {
       winston.debug("event_type deleted-conversation");
 
@@ -532,7 +528,7 @@ router.post('/', function (req, res) {
       }
       winston.debug("id_project", id_project);
 
-    winston.verbose("Chat21WebHook: leaving member : " + new_member +" from the request with request_id: " + request_id +" from the project with id: " + id_project);
+    winston.verbose("ChatWebHook: leaving member : " + new_member +" from the request with request_id: " + request_id +" from the project with id: " + id_project);
 
     return requestService.removeParticipantByRequestId(request_id, id_project, new_member).then(function(updatedRequest) {
       winston.debug("Leave memeber ok");
@@ -543,7 +539,7 @@ router.post('/', function (req, res) {
     });
   }
   
-  else if (req.body.event_type == "deleted-archivedconversation") {
+  else if (req.body.event_type == "deleted-archivedconversation" || req.body.event_type == "conversation-unarchived") {
 
     winston.debug("event_type","deleted-archivedconversation");
 
@@ -555,7 +551,7 @@ router.post('/', function (req, res) {
     }
 
 
-      var conversation = req.body.data;
+      var conversation = req.body.data; 
       // winston.debug("conversation",conversation);
 
       var user_id = req.body.user_id;
@@ -572,16 +568,24 @@ router.post('/', function (req, res) {
         return res.status(400).send({success: false, msg: "not a support conversation" });
       }
 
+
+
       if (user_id!="system"){
         winston.debug("not a system conversation");
         return res.status(400).send({success: false, msg: "not a system conversation" });
       }
 
 
+
+     // scrivo... nuova viene popolato projectid in attributes poi chiudo ed in archived c'è projectid 
+      // quando scrivo viene cancellato archived e nuovo messaggio crea conv ma senza project id... lineare che è cosi
+      // si verifica solo se admin (da ionic ) archivia di nuovo senza che widget abbia scritto nulla (widget risetta projectid in properties)
+
       var id_project;
       if (conversation && conversation.attributes) {
         id_project = conversation.attributes.projectId;
       }else {
+        winston.debug( "not a support deleting archived conversation" );
         return res.status(400).send({success: false, msg: "not a support deleting archived conversation" });
       }
       winston.debug("id_project", id_project);
@@ -679,7 +683,7 @@ else if (req.body.event_type == "typing-start") {
 
 }
 
-// curl -X POST -H 'Content-Type:application/json'  -d '{"event_type":"presence-change","presence":"online","createdAt":1596448898776,"app_id":"tilechat","user_id":"a9109ed4-ceda-4118-b934-c9b83c2eaf12","data":true}' http://localhost:3000/chat21/requests
+// curl -X POST -H 'Content-Type:application/json'  -d '{"event_type":"presence-change","presence":"online","createdAt":1596448898776,"app_id":"tilechat","user_id":"a9109ed4-ceda-4118-b934-c9b83c2eaf12","data":true}' http://localhost:3000/chat/requests
 
 
 else if (req.body.event_type == "presence-change") {
@@ -763,7 +767,7 @@ else if (req.body.event_type == "presence-change") {
                     winston.debug("updatedProject_userPopulated:", updatedProject_userPopulated);
                     var pu = updatedProject_userPopulated.toJSON();
           
-                    // urgente Cannot read property '_id' of null at /usr/src/app/channels/chat21/chat21WebHook.js:663:68 a
+                    // urgente Cannot read property '_id' of null at /usr/src/app/channels/chat/chatWebHook.js:663:68 a
                     if (!updatedProject_userPopulated.id_project) {
                       winston.warn('Error updatedProject_userPopulated.id_project not found.',{updatedProject_userPopulated:updatedProject_userPopulated, savedProjectUser:savedProjectUser,project_user:project_user});
                       // return res.status(404).send({ success: false, msg: 'Error updatedProject_userPopulated.id_project not found.' });
@@ -824,7 +828,7 @@ else if (req.body.event_type == "new-group") {
   res.json("new-group event_type is not implemented");
 }
 else {
-  winston.error("Chat21WebHook error event_type not implemented", req.body);
+  winston.error("RolloutWebHook error event_type not implemented", req.body);
   res.json("Not implemented");
 }
 

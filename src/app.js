@@ -220,20 +220,23 @@ var modulesManager = undefined;
 try {
   modulesManager = require('./services/modulesManager');
   modulesManager.init({express:express, mongoose:mongoose, passport:passport, routes: {departmentsRoute: department, projectsRoute: project, widgetsRoute: widgets} });
+  //enterprise modules can modify pubmodule
+  modulesManager.start();
 } catch(err) {
-  winston.info("ModulesManager not present");
+  winston.debug("ModulesManager not present");
 }
 
 // SERVICES END *//
 
 // SUBMODULES *//
-var pubModulesManager = require('./pubmodules/pubModulesManager');
-pubModulesManager.init({express:express, mongoose:mongoose, passport:passport, databaseUri:getDbUri, routes:{}});
-
-//enterprise modules can modify pubmodule
-// modulesManager.start();
-
-pubModulesManager.start();
+var pubModulesManager = undefined;
+try{
+  pubModulesManager = require('./pubmodules/pubModulesManager');
+  pubModulesManager.init({express:express, mongoose:mongoose, passport:passport, databaseUri:getDbUri, routes:{}});
+  pubModulesManager.start();
+}catch(err){
+  winston.debug("PubModulesManager not present");
+}
 
 
 settingDataLoader.save();
@@ -896,21 +899,21 @@ var routerservice = chatServiceRouters[i];
       //   break;
       case routerservice='auth':
         app.use('/chat/'+routerservice,require('./routes/chat/'+routerservice+'.js'));
-      
+        break;
       case routerservice='public-request':
         if(process.env.DISABLE_TRANSCRIPT_VIEW_PAGE){
           winston.info(" Transcript view page is disabled");
           break;
         }else{
-         bas = app.user('/chat/public/requests',require('./routes/chat/'+routerservice+'.js'));
+         app.use('/chat/public/requests',require('./routes/chat/'+routerservice+'.js'));
          break;
         }
       default:
-       bas = app.user('/',home);
+        app.use('/',home);
        break;
     }
-  }catch{
-  console.log("error loading service "+routerservice);
+  }catch(err){
+  console.log("error loading service "+routerservice, err.message);
   }
   
 }

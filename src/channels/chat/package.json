@@ -11,7 +11,7 @@
     "url": "https://github.com/saurabharch/rollout"
   },
   "dependencies": {
-    "@chat21/chat21-node-sdk": "^1.1.4",
+    "@saurabharch/rollout-node-sdk": "^0.0.3",
     "winston": "^3.3.3",
     "firebase-admin": "^9.5.0"
   },

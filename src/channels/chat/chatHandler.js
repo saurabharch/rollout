@@ -4,16 +4,16 @@ const authEvent = require('../../event/authEvent');
 const botEvent = require('../../event/botEvent');
 const requestEvent = require('../../event/requestEvent');
 const groupEvent = require('../../event/groupEvent');
-const chat21Event = require('./chat21Event');
+const chatEvent = require('./chatEvent');
 const leadEvent = require('../../event/leadEvent');
 
 var messageService = require('../../services/messageService');
-var MessageConstants = require("../../models/messageConstants");
-var ChannelConstants = require("../../models/channelConstants");
-var winston = require('../../config/winston');
-var Request = require("../../models/request");
-var chat21Config = require('./chat21Config');
-var chat21 = require('./chat21Client');
+var MessageConstants = require("../../model/messageConstants");
+var ChannelConstants = require("../../model/channelConstants");
+var winston = require('../../../config/winston');
+var Request = require("../../model/request");
+var chatConfig = require('./chatConfig');
+var chat = require('./chatClient');
 
 
 
@@ -38,19 +38,19 @@ const maskPasswordOptions = {
 
 
 
-// var chat21Util = require('./chat21Util');
-// var tiledeskUtil = require('./tiledesk-util');
+// var chatUtil = require('./chatUtil');
+// var rolloutUtil = require('./rollout-util');
 
-var adminToken =  process.env.CHAT21_ADMIN_TOKEN || chat21Config.adminToken;
+var adminToken =  process.env.CHAT_ADMIN_TOKEN || chatConfig.adminToken;
 
 const masked_adminToken = MaskData.maskPhone(adminToken, maskPasswordOptions);
 
-winston.info('Chat21Handler adminToken: '+ masked_adminToken);
+winston.info('ChatHandler adminToken: '+ masked_adminToken);
 
 
 
 
-class Chat21Handler {
+class ChatHandler {
 
  
     typing(message, timestamp) {
@@ -60,7 +60,7 @@ class Chat21Handler {
             if (message.attributes && message.attributes.subtype && message.attributes.subtype==='info') {
                 return resolve();
             }else {
-                chat21.conversations.typing(message.recipient, message.sender, message.text, timestamp).finally(function() {
+                chat.conversations.typing(message.recipient, message.sender, message.text, timestamp).finally(function() {
                     return resolve();
                 });
             }
@@ -74,11 +74,11 @@ class Chat21Handler {
 
         var that = this;       
        
-        winston.debug("Chat21Handler listener start ");
+        winston.debug("ChatHandler listener start ");
         
 
-        if (process.env.SYNC_CHAT21_GROUPS !=="true") {
-            winston.info("Sync Tiledesk to Chat21 groups disabled");
+        if (process.env.SYNC_ROLLOUT_GROUPS !=="true") {
+            winston.info("Sync Tiledesk to chat groups disabled");
             // return; questo distrugge il tread. attento non lo mettere +
         }
 
@@ -92,17 +92,17 @@ class Chat21Handler {
             var current_user = userData.savedUser.id;
 
             setImmediate(() => {
-                winston.debug("Chat21Handler on user.signup ",  userData);
+                winston.debug("ChatHandler on user.signup ",  userData);
 
-                chat21.auth.setAdminToken(adminToken);
+                chat.auth.setAdminToken(adminToken);
 
                 // create: function(firstname, lastname, email, current_user){
-                chat21.contacts.create(firstName, lastName, email, current_user).then(function(data) {
-                    winston.verbose("Chat21 contact created: " + JSON.stringify(data));      
-                    chat21Event.emit('contact.create', data);                                          
+                chat.contacts.create(firstName, lastName, email, current_user).then(function(data) {
+                    winston.verbose("chat contact created: " + JSON.stringify(data));      
+                    chatEvent.emit('contact.create', data);                                          
                 }).catch(function(err) {
-                    winston.error("Error creating chat21 contact ", err);
-                    chat21Event.emit('contact.create.error', err);
+                    winston.error("Error creating chat contact ", err);
+                    chatEvent.emit('contact.create.error', err);
                 });
 
             });
@@ -115,17 +115,17 @@ class Chat21Handler {
             var current_user = userData.updatedUser.id;
 
             setImmediate(() => {
-                winston.debug("Chat21Handler on user.update ",  userData);
+                winston.debug("ChatHandler on user.update ",  userData);
 
-                chat21.auth.setAdminToken(adminToken);
+                chat.auth.setAdminToken(adminToken);
 
                 // update: function(firstname, lastname, current_user){
-                chat21.contacts.update(firstName, lastName, current_user).then(function(data) {
-                    winston.verbose("Chat21 contact updated: " + JSON.stringify(data));      
-                    chat21Event.emit('contact.update', data);                                          
+                chat.contacts.update(firstName, lastName, current_user).then(function(data) {
+                    winston.verbose("chat contact updated: " + JSON.stringify(data));      
+                    chatEvent.emit('contact.update', data);                                          
                 }).catch(function(err) {
-                    winston.error("Error updating chat21 contact ", err);
-                    chat21Event.emit('contact.update.error', err);
+                    winston.error("Error updating chat contact ", err);
+                    chatEvent.emit('contact.update.error', err);
                 });
 
             });
@@ -140,17 +140,17 @@ class Chat21Handler {
             var current_user = "bot_"+bot.id;
 
             setImmediate(() => {
-                winston.debug("Chat21Handler on faqbot.create ",  bot);
+                winston.debug("ChatHandler on faqbot.create ",  bot);
 
-                chat21.auth.setAdminToken(adminToken);
+                chat.auth.setAdminToken(adminToken);
 
                 // create: function(firstname, lastname, email, current_user){
-                chat21.contacts.create(firstName, lastName, email, current_user).then(function(data) {                    
-                    winston.verbose("Chat21 contact created: " + JSON.stringify(data));         
-                    chat21Event.emit('contact.create', data);                                          
+                chat.contacts.create(firstName, lastName, email, current_user).then(function(data) {                    
+                    winston.verbose("chat contact created: " + JSON.stringify(data));         
+                    chatEvent.emit('contact.create', data);                                          
                 }).catch(function(err) {
-                    winston.error("Error creating chat21 contact ", err);
-                    chat21Event.emit('contact.create.error', err);
+                    winston.error("Error creating chat contact ", err);
+                    chatEvent.emit('contact.create.error', err);
                 });
 
             });
@@ -165,17 +165,17 @@ class Chat21Handler {
             var current_user = "bot_"+bot.id;
 
             setImmediate(() => {
-                winston.debug("Chat21Handler on faqbot.create ",  bot);
+                winston.debug("ChatHandler on faqbot.create ",  bot);
 
-                chat21.auth.setAdminToken(adminToken);
+                chat.auth.setAdminToken(adminToken);
 
                // update: function(firstname, lastname, current_user){
-                chat21.contacts.update(firstName, lastName, current_user).then(function(data) {
-                    winston.verbose("Chat21 contact updated: " + JSON.stringify(data));      
-                    chat21Event.emit('contact.update', data);                                          
+                chat.contacts.update(firstName, lastName, current_user).then(function(data) {
+                    winston.verbose("chat contact updated: " + JSON.stringify(data));      
+                    chatEvent.emit('contact.update', data);                                          
                 }).catch(function(err) {
-                    winston.error("Error updating chat21 contact ", err);
-                    chat21Event.emit('contact.update.error', err);
+                    winston.error("Error updating chat contact ", err);
+                    chatEvent.emit('contact.update.error', err);
                 });
 
             });
@@ -187,7 +187,7 @@ class Chat21Handler {
          leadEvent.on('lead.update', function(lead) {
             //  non sembra funzionare chiedi a Dario dove prende le info
             setImmediate(() => {
-                winston.debug("Chat21Handler on lead.update ",  lead);
+                winston.debug("ChatHandler on lead.update ",  lead);
 
                 //  TODO AGGIORNA SOLO SE PASSA DA GUEST A ALTRO??
                 Request.find({lead: lead._id, id_project: lead.id_project}, function(err, requests) {
@@ -201,12 +201,12 @@ class Chat21Handler {
                         return 0;
                     }
                     
-                    chat21.auth.setAdminToken(adminToken);
+                    chat.auth.setAdminToken(adminToken);
 
                     requests.forEach(function(request) {
-                        if (request.channelOutbound.name === ChannelConstants.CHAT21) {
+                        if (request.channelOutbound.name === ChannelConstants.CHAT) {
 
-                            winston.verbose("Chat21Handler lead.update for request ",  request);
+                            winston.verbose("ChatHandler lead.update for request ",  request);
                             
                             var groupName = lead.fullname;
                             if (request.subject) {
@@ -214,24 +214,24 @@ class Chat21Handler {
                             }
                             // update: function(name, owner, attributes, group_id){
 
-                            chat21.groups.update(groupName, undefined, undefined, request.request_id).then(function(data) {
-                                winston.verbose("Chat21 group updated for lead.update: " + JSON.stringify(data));      
-                                chat21Event.emit('group.update', data);                                          
+                            chat.groups.update(groupName, undefined, undefined, request.request_id).then(function(data) {
+                                winston.verbose("chat group updated for lead.update: " + JSON.stringify(data));      
+                                chatEvent.emit('group.update', data);                                          
                             }).catch(function(err) {
-                                winston.error("Error updating chat21 group for lead.update", err);
-                                chat21Event.emit('group.update.error', err);
+                                winston.error("Error updating chat group for lead.update", err);
+                                chatEvent.emit('group.update.error', err);
                             });
 
                              // updateAttributes: function(attributes, group_id){
                                  var gattributes = {userFullname:lead.fullname, userEmail: lead.email }
                                 //  qui1
-                            chat21.groups.updateAttributes(gattributes, request.request_id).then(function(data) {
-                                winston.verbose("Chat21 group gattributes for lead.update updated: " + JSON.stringify(data));      
-                                chat21Event.emit('group.update', data);        
-                                chat21Event.emit('group.attributes.update', data);                                          
+                            chat.groups.updateAttributes(gattributes, request.request_id).then(function(data) {
+                                winston.verbose("Chat group gattributes for lead.update updated: " + JSON.stringify(data));      
+                                chatEvent.emit('group.update', data);        
+                                chatEvent.emit('group.attributes.update', data);                                          
                             }).catch(function(err) {
-                                winston.error("Error updating chat21 gattributes for lead.update group ", err);
-                                chat21Event.emit('group.attributes.update.error', err);
+                                winston.error("Error updating chat gattributes for lead.update group ", err);
+                                chatEvent.emit('group.attributes.update.error', err);
                             });
 
 
@@ -254,19 +254,19 @@ class Chat21Handler {
                 // TODO perche nn c'è setImmedite? per performace
 
 
-                    winston.verbose("Chat21Sender on message.sending ",  message);
+                    winston.verbose("ChatSender on message.sending ",  message);
                    
                    if (message && 
                     message.status === MessageConstants.CHAT_MESSAGE_STATUS.SENDING &&
                     message.channel_type ==  MessageConstants.CHANNEL_TYPE.GROUP &&
                     message.request && 
-                    message.request.channelOutbound.name == ChannelConstants.CHAT21) { //here only request.channelOutbound is important because chat21handler is for outgoing messages( from Tiledesk to agents clients)
+                    message.request.channelOutbound.name == ChannelConstants.CHAT) { //here only request.channelOutbound is important because chathandler is for outgoing messages( from Tiledesk to agents clients)
 
                     
-                        chat21.auth.setAdminToken(adminToken);
+                        chat.auth.setAdminToken(adminToken);
 
 
-                        //chat21.conversations.typing(message.recipient, message.sender, message.text, new Date()).finally(function() {
+                        //chat.conversations.typing(message.recipient, message.sender, message.text, new Date()).finally(function() {
                         return that.typing(message,new Date() ).then(function() {
                        
 
@@ -281,12 +281,12 @@ class Chat21Handler {
                        
 
 
-                        winston.verbose("Chat21Sender sending message.sending ",  message);
+                        winston.verbose("chatSender sending message.sending ",  message);
 
-                        // chat21Util.getParsedMessage().then(function(messageData) {
+                        // rolloutUtil.getParsedMessage().then(function(messageData) {
                         //     message = messageData;
 
-                            // doent'work must merge older field with new message = chat21Util.parseReply(message.text);
+                            // doent'work must merge older field with new message = chatUtil.parseReply(message.text);
 
                             // sendToGroup: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes, type, metadata, timestamp){
 
@@ -308,7 +308,7 @@ class Chat21Handler {
 
                             /*
                             const parsedReply = tiledeskUtil.parseReply(message.text);
-                            winston.info("Chat21 sendToGroup parsedMessage " + JSON.stringify(parsedReply));
+                            winston.info("Chat sendToGroup parsedMessage " + JSON.stringify(parsedReply));
 
                             // message = {...message, ...parsedReply.message };
                             // merge(message, parsedReply.message );
@@ -331,25 +331,25 @@ class Chat21Handler {
                             }    
                             */   
                          
-                           return  chat21.messages.sendToGroup(message.senderFullname,     message.recipient, 
+                           return  chat.messages.sendToGroup(message.senderFullname,     message.recipient, 
                                 recipient_fullname, message.text, message.sender, attributes, message.type, message.metadata, timestamp)
                                         .then(function(data){
-                                            winston.verbose("Chat21Sender sendToGroup sent: "+ JSON.stringify(data));
+                                            winston.verbose("chatSender sendToGroup sent: "+ JSON.stringify(data));
                                     
 
-                                            // chat21.conversations.stopTyping(message.recipient,message.sender);
+                                            // chat.conversations.stopTyping(message.recipient,message.sender);
     
-                                            chat21Event.emit('message.sent', data);
+                                            chatEvent.emit('message.sent', data);
     
                                                 messageService.changeStatus(message._id, MessageConstants.CHAT_MESSAGE_STATUS.DELIVERED) .then(function(upMessage){
-                                                    winston.debug("Chat21 message sent ", upMessage.toObject());                                        
+                                                    winston.debug("chat message sent ", upMessage.toObject());                                        
                                                 }).catch(function(err) {
-                                                    winston.error("Error Chat21 message sent with id: "+message._id, err);                                        
+                                                    winston.error("Error chat message sent with id: "+message._id, err);                                        
                                                 });
     
                                 }).catch(function(err) {
-                                    winston.error("Chat21 sendToGroup err", err);
-                                    chat21Event.emit('message.sent.error', err);
+                                    winston.error("chat sendToGroup err", err);
+                                    chatEvent.emit('message.sent.error', err);
                                 });
 
                             });
@@ -359,32 +359,32 @@ class Chat21Handler {
                     else if (message &&
                          message.status === MessageConstants.CHAT_MESSAGE_STATUS.SENDING && 
                          message.channel_type ==  MessageConstants.CHANNEL_TYPE.DIRECT &&
-                         message.channel.name == ChannelConstants.CHAT21) {
+                         message.channel.name == ChannelConstants.CHAT) {
                         
-                            // winston.warn("Chat21Sender this is a direct message. Unimplemented method", message);
+                            // winston.warn("chatSender this is a direct message. Unimplemented method", message);
 
-                            chat21.auth.setAdminToken(adminToken);
+                            chat.auth.setAdminToken(adminToken);
 
                             // send: function(sender_fullname, recipient_id, recipient_fullname, text, sender_id, attributes, type, metadata){
-                           return  chat21.messages.send(message.senderFullname,     message.recipient, 
+                           return  chat.messages.send(message.senderFullname,     message.recipient, 
                             message.recipientFullname, message.text, message.sender, message.attributes, message.type, message.metadata)
                                     .then(function(data){
-                                        winston.verbose("Chat21Sender send sent: "+ JSON.stringify(data));
+                                        winston.verbose("chatSender send sent: "+ JSON.stringify(data));
                                 
 
-                                        // chat21.conversations.stopTyping(message.recipient,message.sender);
+                                        // chat.conversations.stopTyping(message.recipient,message.sender);
 
-                                        chat21Event.emit('message.sent', data);
+                                        chatEvent.emit('message.sent', data);
 
                                             messageService.changeStatus(message._id, MessageConstants.CHAT_MESSAGE_STATUS.DELIVERED) .then(function(upMessage){
-                                                winston.debug("Chat21 message sent ", upMessage.toObject());                                        
+                                                winston.debug("chat message sent ", upMessage.toObject());                                        
                                             }).catch(function(err) {
-                                                winston.error("Error Chat21 message sent with id: "+message._id, err);                                        
+                                                winston.error("Error chat message sent with id: "+message._id, err);                                        
                                             });
 
                             }).catch(function(err) {
-                                winston.error("Chat21 send direct err", err);
-                                chat21Event.emit('message.sent.error', err);
+                                winston.error("chat send direct err", err);
+                                chatEvent.emit('message.sent.error', err);
                             });
 
                             
@@ -394,11 +394,11 @@ class Chat21Handler {
                     else if (message &&
                         message.status === MessageConstants.CHAT_MESSAGE_STATUS.SENDING && 
                         message.channel_type ==  MessageConstants.CHANNEL_TYPE.GROUP &&
-                        message.channel.name == ChannelConstants.CHAT21) {
+                        message.channel.name == ChannelConstants.CHAT) {
                        
-                           // winston.warn("Chat21Sender this is a group message. Unimplemented method", message);
+                           // winston.warn("chatSender this is a group message. Unimplemented method", message);
 
-                           chat21.auth.setAdminToken(adminToken);
+                           chat.auth.setAdminToken(adminToken);
 
                            var timestamp = Date.now();
                            // var timestamp = undefined;
@@ -407,31 +407,31 @@ class Chat21Handler {
                            }
 
 
-                           return  chat21.messages.sendToGroup(message.senderFullname,     message.recipient, 
+                           return  chat.messages.sendToGroup(message.senderFullname,     message.recipient, 
                             message.recipientFullname, message.text, message.sender, message.attributes, message.type, message.metadata, timestamp)                         
                                    .then(function(data){
-                                       winston.verbose("Chat21Sender send sent: "+ JSON.stringify(data));
+                                       winston.verbose("chatSender send sent: "+ JSON.stringify(data));
                                
 
-                                       // chat21.conversations.stopTyping(message.recipient,message.sender);
+                                       // chat.conversations.stopTyping(message.recipient,message.sender);
 
-                                       chat21Event.emit('message.sent', data);
+                                       chatEvent.emit('message.sent', data);
 
                                            messageService.changeStatus(message._id, MessageConstants.CHAT_MESSAGE_STATUS.DELIVERED) .then(function(upMessage){
-                                               winston.debug("Chat21 message sent ", upMessage.toObject());                                        
+                                               winston.debug("chat message sent ", upMessage.toObject());                                        
                                            }).catch(function(err) {
-                                               winston.error("Error Chat21 message sent with id: "+message._id, err);                                        
+                                               winston.error("Error chat message sent with id: "+message._id, err);                                        
                                            });
 
                            }).catch(function(err) {
-                               winston.error("Chat21 sendToGroup err", err);
-                               chat21Event.emit('message.sent.error', err);
+                               winston.error("chat sendToGroup err", err);
+                               chatEvent.emit('message.sent.error', err);
                            });
 
                            
 
                    } else {
-                        winston.error("Chat21Sender this is not a group o direct message", message);
+                        winston.error("chatSender this is not a group o direct message", message);
                         return;
                     }
                 // });
@@ -441,19 +441,19 @@ class Chat21Handler {
             requestEvent.on('request.attributes.update',  function(request) {          
 
                 setImmediate(() => {
-                    if (request.channelOutbound.name === ChannelConstants.CHAT21) {
+                    if (request.channelOutbound.name === ChannelConstants.CHAT) {
 
-                        chat21.auth.setAdminToken(adminToken);
+                        chat.auth.setAdminToken(adminToken);
 
                         var gattributes = request.attributes;
                         // qui1
-                        chat21.groups.updateAttributes(gattributes, request.request_id).then(function(data) {
-                            winston.verbose("Chat21 group gattributes for request.attributes.update updated: " + JSON.stringify(data));      
-                            chat21Event.emit('group.update', data);        
-                            chat21Event.emit('group.attributes.update', data);                                          
+                        chat.groups.updateAttributes(gattributes, request.request_id).then(function(data) {
+                            winston.verbose("chat group gattributes for request.attributes.update updated: " + JSON.stringify(data));      
+                            chatEvent.emit('group.update', data);        
+                            chatEvent.emit('group.attributes.update', data);                                          
                         }).catch(function(err) {
-                            winston.error("Error updating chat21 gattributes for request.attributes.update group ", err);
-                            chat21Event.emit('group.attributes.update.error', err);
+                            winston.error("Error updating chat gattributes for request.attributes.update group ", err);
+                            chatEvent.emit('group.attributes.update.error', err);
                         });
 
                     }
@@ -465,9 +465,9 @@ class Chat21Handler {
             // requestEvent.on('request.update',  function(request) {          
 
             //     setImmediate(() => {
-            //         if (request.channelOutbound.name === ChannelConstants.CHAT21) {
+            //         if (request.channelOutbound.name === ChannelConstants.CHAT) {
 
-            //             chat21.auth.setAdminToken(adminToken);
+            //             chat.auth.setAdminToken(adminToken);
 
             //               // https://stackoverflow.com/questions/42310950/handling-undefined-values-with-firebase/42315610                        
             //             //   var requestWithoutUndefined = JSON.parse(JSON.stringify(request, function(k, v) {
@@ -477,13 +477,13 @@ class Chat21Handler {
             //             // var gattributes = { "_request":requestWithoutUndefined};
 
             //             // qui1
-            //             chat21.groups.updateAttributes(gattributes, request.request_id).then(function(data) {
-            //                 winston.verbose("Chat21 group gattributes for request.update updated: " +  JSON.stringify(data));      
-            //                 chat21Event.emit('group.update', data);        
-            //                 chat21Event.emit('group.attributes.update', data);                                          
+            //             chat.groups.updateAttributes(gattributes, request.request_id).then(function(data) {
+            //                 winston.verbose("chat group gattributes for request.update updated: " +  JSON.stringify(data));      
+            //                 chatEvent.emit('group.update', data);        
+            //                 chatEvent.emit('group.attributes.update', data);                                          
             //             }).catch(function(err) {
-            //                 winston.error("Error updating chat21 gattributes for request.update group ", err);
-            //                 chat21Event.emit('group.attributes.update.error', err);
+            //                 winston.error("Error updating chat gattributes for request.update group ", err);
+            //                 chatEvent.emit('group.attributes.update.error', err);
             //             });
 
             //         }
@@ -492,19 +492,19 @@ class Chat21Handler {
 
             requestEvent.on('request.create',  function(request) {          
 
-                winston.debug("chat21Handler requestEvent request.create called" , request);
+                winston.debug("chatHandler requestEvent request.create called" , request);
                 // setImmediate(() => {
 // perche nn c'è setImmedite? per performace
-                    if (request.channelOutbound.name === ChannelConstants.CHAT21) {
+                    if (request.channelOutbound.name === ChannelConstants.CHAT) {
 
-                        chat21.auth.setAdminToken(adminToken);
+                        chat.auth.setAdminToken(adminToken);
 
                         
 
                         // let requestObj = request.toObject();
                         let requestObj = request.toJSON();
                         
-                        winston.verbose("creating chat21 group for request with id: " + requestObj._id);
+                        winston.verbose("creating chat group for request with id: " + requestObj._id);
 
                         // winston.info("requestObj.participants: "+ Object.prototype.toString.call(requestObj.participants));
                         winston.debug("requestObj.participants: "+ JSON.stringify(requestObj.participants));
@@ -557,7 +557,7 @@ class Chat21Handler {
 
 
  
-                        winston.debug("Chat21 group create gAttributes: ",gAttributes);  
+                        winston.debug("chat group create gAttributes: ",gAttributes);  
 
                         var groupId = request.request_id;
 
@@ -570,17 +570,17 @@ class Chat21Handler {
                             group_name = request.subject;
                         }
                         //TODO racecondition?
-                        return chat21.groups.create(group_name, members, gAttributes, groupId).then(function(data) {
-                                winston.verbose("Chat21 group created: " + JSON.stringify(data));      
+                        return chat.groups.create(group_name, members, gAttributes, groupId).then(function(data) {
+                                winston.verbose("chat group created: " + JSON.stringify(data));      
                                 requestEvent.emit('request.support_group.created', request);
 
-                                chat21Event.emit('group.create', data);      
+                                chatEvent.emit('group.create', data);      
                             }).catch(function(err) {
-                                winston.error("Error creating chat21 group ", err);
+                                winston.error("Error creating chat group ", err);
 
                                 requestEvent.emit('request.support_group.created.error', request);
 
-                                chat21Event.emit('group.create.error', err);
+                                chatEvent.emit('group.create.error', err);
                             });
 
 
@@ -592,58 +592,58 @@ class Chat21Handler {
             
             requestEvent.on('request.close',  function(request) {          
 
-                winston.debug("chat21Handler requestEvent request.close called" , request);
+                winston.debug("chatHandler requestEvent request.close called" , request);
 
                 setImmediate(() => {
-                    if (request.channelOutbound.name === ChannelConstants.CHAT21) {
+                    if (request.channelOutbound.name === ChannelConstants.CHAT) {
 
-                        chat21.auth.setAdminToken(adminToken);                      
+                        chat.auth.setAdminToken(adminToken);                      
 
-                        winston.verbose("Chat21Sender archiving conversations for ",request.participants);
+                        winston.verbose("chatSender archiving conversations for ",request.participants);
 
                        //iterate request.participant and archive conversation
                        request.participants.forEach(function(participant,index) {
 
-                        winston.verbose("Chat21Sender archiving conversation: " + request.request_id + "for " + participant);
+                        winston.verbose("chatSender archiving conversation: " + request.request_id + "for " + participant);
 
-                            chat21.conversations.archive(request.request_id, participant)
+                            chat.conversations.archive(request.request_id, participant)
                                         .then(function(data){
-                                            winston.verbose("Chat21 conversation archived result "+ JSON.stringify(data));
+                                            winston.verbose("chat conversation archived result "+ JSON.stringify(data));
                                     
-                                            chat21Event.emit('conversation.archived', data);                                               
+                                            chatEvent.emit('conversation.archived', data);                                               
 
                                 }).catch(function(err) {
-                                    winston.error("Chat21 archived err", err);
-                                    chat21Event.emit('conversation.archived.error', err);
+                                    winston.error("chat archived err", err);
+                                    chatEvent.emit('conversation.archived.error', err);
                                 });
                        });
 
                     //    archive: function(recipient_id, user_id){
-                       chat21.conversations.archive(request.request_id, "system")
+                       chat.conversations.archive(request.request_id, "system")
                        .then(function(data){
-                           winston.verbose("Chat21 archived for system"+ JSON.stringify(data));
+                           winston.verbose("chat archived for system"+ JSON.stringify(data));
                    
-                           chat21Event.emit('conversation.archived', data);                                               
+                           chatEvent.emit('conversation.archived', data);                                               
 
                         }).catch(function(err) {
-                            winston.error("Chat21 archived  for system err", err);
-                            chat21Event.emit('conversation.archived.error', err);
+                            winston.error("chat archived  for system err", err);
+                            chatEvent.emit('conversation.archived.error', err);
                         });
 
                         
                         //  request.lead can be undefined because some test case uses the old deprecated method requestService.createWithId.
                         if (request.lead) {
                             // lead_id used. Change it?
-                            chat21.conversations.archive(request.request_id, request.lead.lead_id)  //                        chat21.conversations.archive(request.request_id, request.requester_id)<-desnt'archive
+                            chat.conversations.archive(request.request_id, request.lead.lead_id)  //                        chat.conversations.archive(request.request_id, request.requester_id)<-desnt'archive
 
                             .then(function(data){
-                                winston.verbose("Chat21 archived for request.lead.lead_id"+ JSON.stringify(data));
+                                winston.verbose("chat archived for request.lead.lead_id"+ JSON.stringify(data));
                         
-                                chat21Event.emit('conversation.archived', data);                                               
+                                chatEvent.emit('conversation.archived', data);                                               
      
                              }).catch(function(err) {
-                                 winston.error("Chat21 archived for request.lead.lead_id err", err);
-                                 chat21Event.emit('conversation.archived.error', err);
+                                 winston.error("chat archived for request.lead.lead_id err", err);
+                                 chatEvent.emit('conversation.archived.error', err);
                              });
                         }
                         
@@ -655,23 +655,23 @@ class Chat21Handler {
 
              requestEvent.on('request.participants.update',  function(data) {      
                  
-                winston.debug("chat21Handler requestEvent request.participants.update called" , data);
+                winston.debug("chatHandler requestEvent request.participants.update called" , data);
 
                    let request = data.request;
                    let removedParticipants = data.removedParticipants;
                 
 
                 setImmediate(() => {
-                    if (request.channelOutbound.name === ChannelConstants.CHAT21) {
+                    if (request.channelOutbound.name === ChannelConstants.CHAT) {
 
-                        chat21.auth.setAdminToken(adminToken);
+                        chat.auth.setAdminToken(adminToken);
 
                         
 
                      
                         let requestObj = request.toJSON();
                         
-                        winston.verbose("setting chat21 group for request.participants.update for request with id: " + requestObj._id);
+                        winston.verbose("setting chat group for request.participants.update for request with id: " + requestObj._id);
                     
                         var groupId = request.request_id;
 
@@ -690,16 +690,16 @@ class Chat21Handler {
                             // lead_id used. Change it?
                             members.push(request.lead.lead_id);
                         }
-                        winston.verbose("Chat21 group with members for request.participants.update: " , members);  
+                        winston.verbose("chat group with members for request.participants.update: " , members);  
 
                          //setMembers: function(members, group_id){
                                 //racecondition  
-                        chat21.groups.setMembers(members, groupId).then(function(data) {
-                                winston.verbose("Chat21 group set for request.participants.update : " + JSON.stringify(data));      
-                                chat21Event.emit('group.setMembers', data);                                          
+                        chat.groups.setMembers(members, groupId).then(function(data) {
+                                winston.verbose("chat group set for request.participants.update : " + JSON.stringify(data));      
+                                chatEvent.emit('group.setMembers', data);                                          
                             }).catch(function(err) {
-                                winston.error("Error setting chat21 group for request.participants.update ", err);
-                                chat21Event.emit('group.setMembers.error', err);
+                                winston.error("Error setting chat group for request.participants.update ", err);
+                                chatEvent.emit('group.setMembers.error', err);
                             });
 
 
@@ -720,15 +720,15 @@ class Chat21Handler {
                             // archive: function(recipient_id, user_id){
                             //racecondition?low it's not dangerous archive a conversation that doen't exist
 
-                            chat21.conversations.archive(request.request_id, removedParticipant)
+                            chat.conversations.archive(request.request_id, removedParticipant)
                             .then(function(data){
-                                winston.verbose("Chat21 archived "+ JSON.stringify(data));
+                                winston.verbose("chat archived "+ JSON.stringify(data));
                         
-                                chat21Event.emit('conversation.archived', data);                                               
+                                chatEvent.emit('conversation.archived', data);                                               
         
                                 }).catch(function(err) {
-                                    winston.error("Chat21 archived err", err);
-                                    chat21Event.emit('conversation.archived.error', err);
+                                    winston.error("chat archived err", err);
+                                    chatEvent.emit('conversation.archived.error', err);
                                 });
 
                         });
@@ -742,15 +742,15 @@ class Chat21Handler {
             
             
                requestEvent.on('request.participants.join',  function(data) {       
-                   winston.debug("chat21Handler requestEvent request.participants.join called" , data);
+                   winston.debug("chatHandler requestEvent request.participants.join called" , data);
 
                    let request = data.request;
                    let member = data.member;
 
                 setImmediate(() => {
-                    if (request.channelOutbound.name === ChannelConstants.CHAT21) {
+                    if (request.channelOutbound.name === ChannelConstants.CHAT) {
 
-                        chat21.auth.setAdminToken(adminToken);
+                        chat.auth.setAdminToken(adminToken);
 
                         
 
@@ -759,17 +759,17 @@ class Chat21Handler {
                         
                         var groupId = request.request_id;
 
-                        winston.verbose("joining member " + member +" for chat21 group with request : " + groupId);
+                        winston.verbose("joining member " + member +" for chat group with request : " + groupId);
                                             
                              //racecondition?
 
                          //join: function(member_id, group_id){
-                        chat21.groups.join(member, groupId).then(function(data) {
-                                winston.verbose("Chat21 group joined: " + JSON.stringify(data));      
-                                chat21Event.emit('group.join', data);                                          
+                        chat.groups.join(member, groupId).then(function(data) {
+                                winston.verbose("chat group joined: " + JSON.stringify(data));      
+                                chatEvent.emit('group.join', data);                                          
                             }).catch(function(err) {
-                                winston.error("Error joining chat21 group ", err);
-                                chat21Event.emit('group.join.error', err);
+                                winston.error("Error joining chat group ", err);
+                                chatEvent.emit('group.join.error', err);
                             });
 
 
@@ -780,15 +780,15 @@ class Chat21Handler {
             
             
                requestEvent.on('request.participants.leave',  function(data) {     
-                   winston.debug("chat21Handler requestEvent request.participants.leave called" , data);
+                   winston.debug("chatHandler requestEvent request.participants.leave called" , data);
 
                    let request = data.request;
                    let member = data.member;
 
                 setImmediate(() => {
-                    if (request.channelOutbound.name === ChannelConstants.CHAT21) {
+                    if (request.channelOutbound.name === ChannelConstants.CHAT) {
 
-                        chat21.auth.setAdminToken(adminToken);
+                        chat.auth.setAdminToken(adminToken);
 
                      
 
@@ -797,30 +797,30 @@ class Chat21Handler {
                         
                         var groupId = request.request_id;
 
-                        winston.verbose("leaving " + member +" for chat21 group for request with id: " + groupId);
+                        winston.verbose("leaving " + member +" for chat group for request with id: " + groupId);
                                    
                         //racecondition?
                          //leave: function(member_id, group_id){
-                        chat21.groups.leave(member, groupId).then(function(data) {
-                                winston.verbose("Chat21 group leaved: " + JSON.stringify(data));      
-                                chat21Event.emit('group.leave', data);                                          
+                        chat.groups.leave(member, groupId).then(function(data) {
+                                winston.verbose("chat group leaved: " + JSON.stringify(data));      
+                                chatEvent.emit('group.leave', data);                                          
                             }).catch(function(err) {
-                                winston.error("Error leaving chat21 group ", err);
-                                chat21Event.emit('group.leave.error', err);
+                                winston.error("Error leaving chat group ", err);
+                                chatEvent.emit('group.leave.error', err);
                             });
 
 
                             // anche devi archiviare la conversazione per utente corrente 
                             //racecondition?
-                            chat21.conversations.archive(request.request_id, member)
+                            chat.conversations.archive(request.request_id, member)
                             .then(function(data){
-                                winston.verbose("Chat21 archived " + JSON.stringify(data));
+                                winston.verbose("chat archived " + JSON.stringify(data));
                         
-                                chat21Event.emit('conversation.archived', data);                                               
+                                chatEvent.emit('conversation.archived', data);                                               
      
                              }).catch(function(err) {
-                                 winston.error("Chat21 archived err", err);
-                                 chat21Event.emit('conversation.archived.error', err);
+                                 winston.error("chat archived err", err);
+                                 chatEvent.emit('conversation.archived.error', err);
                              });
 
                            
@@ -836,16 +836,16 @@ class Chat21Handler {
 
             groupEvent.on('group.create',  function(group) {                       
 
-                if (process.env.SYNC_CHAT21_GROUPS !=="true") {
-                    winston.debug("Sync Tiledesk to Chat21 groups disabled");
+                if (process.env.SYNC_ROLLOUT_GROUPS !=="true") {
+                    winston.debug("Sync Tiledesk to chat groups disabled");
                     return;
                 }
 
-                winston.verbose("Creating chat21 group", group);
+                winston.verbose("Creating chat group", group);
                 
                 setImmediate(() => {
 
-                    chat21.auth.setAdminToken(adminToken);
+                    chat.auth.setAdminToken(adminToken);
 
 
                     var groupMembers = group.members;
@@ -854,14 +854,14 @@ class Chat21Handler {
                     var group_id = "group-" + group._id;
                     winston.debug("group_id :" + group_id); 
 
-                    return chat21.groups.create(group.name, groupMembers, undefined, group_id).then(function(data) {
-                        winston.verbose("Chat21 group created: " + JSON.stringify(data));      
+                    return chat.groups.create(group.name, groupMembers, undefined, group_id).then(function(data) {
+                        winston.verbose("chat group created: " + JSON.stringify(data));      
                         // TODO ritorna success anche se 
-                        // verbose: Chat21 group created: {"success":false,"err":{"message":"Channel closed","stack":"IllegalOperationError: Channel closed\n    at ConfirmChannel.<anonymous> (/usr/src/app/node_modules/amqplib/lib/channel.js:160:11)\n    at ConfirmChannel.Channel.publish (/usr/src/app/node_modules/amqplib/lib/callback_model.js:171:17)\n    at ConfirmChannel.publish (/usr/src/app/node_modules/amqplib/lib/callback_model.js:301:36)\n    at Chat21Api.publish (/usr/src/app/chat21Api/index.js:1028:29)\n    at Chat21Api.sendMessageRaw (/usr/src/app/chat21Api/index.js:762:14)\n    at Chat21Api.sendGroupWelcomeMessage (/usr/src/app/chat21Api/index.js:205:14)\n    at /usr/src/app/chat21Api/index.js:99:22\n    at /usr/src/app/chat21Api/index.js:234:17\n    at /usr/src/app/chatdb/index.js:77:9\n    at executeCallback (/usr/src/app/node_modules/mongodb/lib/operations/execute_operation.js:70:5)\n    at updateCallback (/usr/src/app/node_modules/mongodb/lib/operations/update_one.js:41:3)\n    at /usr/src/app/node_modules/mongodb/lib/operations/update_one.js:24:64\n    at handleCallback (/usr/src/app/node_modules/mongodb/lib/utils.js:128:55)\n    at /usr/src/app/node_modules/mongodb/lib/operations/common_functions.js:378:5\n    at handler (/usr/src/app/node_modules/mongodb/lib/core/sdam/topology.js:913:24)","stackAtStateChange":"Stack capture: Socket error\n    at Connection.C.onSocketError (/usr/src/app/node_modules/amqplib/lib/connection.js:354:13)\n    at Connection.emit (events.js:314:20)\n    at Socket.go (/usr/src/app/node_modules/amqplib/lib/connection.js:481:12)\n    at Socket.emit (events.js:314:20)\n    at emitReadable_ (_stream_readable.js:557:12)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21)"}}
-                        chat21Event.emit('group.create', data);                                          
+                        // verbose: chat group created: {"success":false,"err":{"message":"Channel closed","stack":"IllegalOperationError: Channel closed\n    at ConfirmChannel.<anonymous> (/usr/src/app/node_modules/amqplib/lib/channel.js:160:11)\n    at ConfirmChannel.Channel.publish (/usr/src/app/node_modules/amqplib/lib/callback_model.js:171:17)\n    at ConfirmChannel.publish (/usr/src/app/node_modules/amqplib/lib/callback_model.js:301:36)\n    at RolloutApi.publish (/usr/src/app/rolloutApi/index.js:1028:29)\n    at RolloutApi.sendMessageRaw (/usr/src/app/rolloutApi/index.js:762:14)\n    at RolloutApi.sendGroupWelcomeMessage (/usr/src/app/rolloutApi/index.js:205:14)\n    at /usr/src/app/rolloutApi/index.js:99:22\n    at /usr/src/app/rolloutApi/index.js:234:17\n    at /usr/src/app/chatdb/index.js:77:9\n    at executeCallback (/usr/src/app/node_modules/mongodb/lib/operations/execute_operation.js:70:5)\n    at updateCallback (/usr/src/app/node_modules/mongodb/lib/operations/update_one.js:41:3)\n    at /usr/src/app/node_modules/mongodb/lib/operations/update_one.js:24:64\n    at handleCallback (/usr/src/app/node_modules/mongodb/lib/utils.js:128:55)\n    at /usr/src/app/node_modules/mongodb/lib/operations/common_functions.js:378:5\n    at handler (/usr/src/app/node_modules/mongodb/lib/core/sdam/topology.js:913:24)","stackAtStateChange":"Stack capture: Socket error\n    at Connection.C.onSocketError (/usr/src/app/node_modules/amqplib/lib/connection.js:354:13)\n    at Connection.emit (events.js:314:20)\n    at Socket.go (/usr/src/app/node_modules/amqplib/lib/connection.js:481:12)\n    at Socket.emit (events.js:314:20)\n    at emitReadable_ (_stream_readable.js:557:12)\n    at processTicksAndRejections (internal/process/task_queues.js:83:21)"}}
+                        chatEvent.emit('group.create', data);                                          
                     }).catch(function(err) {
-                        winston.error("Error creating chat21 group ", err);
-                        chat21Event.emit('group.create.error', err);
+                        winston.error("Error creating chat group ", err);
+                        chatEvent.emit('group.create.error', err);
                     });
 
                 });
@@ -871,16 +871,16 @@ class Chat21Handler {
 
              groupEvent.on('group.update',  function(group) {                       
 
-                if (process.env.SYNC_CHAT21_GROUPS !=="true") {
-                    winston.debug("Sync Tiledesk to Chat21 groups disabled");
+                if (process.env.SYNC_ROLLOUT_GROUPS !=="true") {
+                    winston.debug("Sync Tiledesk to chat groups disabled");
                     return;
                 }
 
-                winston.verbose("Updating chat21 group", group);
+                winston.verbose("Updating chat group", group);
                 
                 setImmediate(() => {
 
-                    chat21.auth.setAdminToken(adminToken);
+                    chat.auth.setAdminToken(adminToken);
 
 
                     var groupMembers = group.members;
@@ -890,19 +890,19 @@ class Chat21Handler {
                     winston.debug("group_id :" + group_id); 
 
                             // update: function(name, owner, attributes, group_id){
-                    return chat21.groups.update(group.name, undefined, undefined, group_id).then(function(data) {
-                        winston.verbose("Chat21 group.update updated: " + JSON.stringify(data));      
-                        chat21Event.emit('group.update', data);     
-                        return chat21.groups.setMembers(groupMembers, group_id).then(function(data) {      
-                            winston.verbose("Chat21 group.update set: " + JSON.stringify(data));      
-                            chat21Event.emit('group.setMembers', data);          
+                    return chat.groups.update(group.name, undefined, undefined, group_id).then(function(data) {
+                        winston.verbose("chat group.update updated: " + JSON.stringify(data));      
+                        chatEvent.emit('group.update', data);     
+                        return chat.groups.setMembers(groupMembers, group_id).then(function(data) {      
+                            winston.verbose("chat group.update set: " + JSON.stringify(data));      
+                            chatEvent.emit('group.setMembers', data);          
                         }).catch(function(err) {
-                            winston.error("Error setMembers chat21 group.update ", err);
-                            chat21Event.emit('group.setMembers.error', err);
+                            winston.error("Error setMembers chat group.update ", err);
+                            chatEvent.emit('group.setMembers.error', err);
                         });                             
                     }).catch(function(err) {
-                        winston.error("Error setting chat21 group.update ", err);
-                        chat21Event.emit('group.update.error', err);
+                        winston.error("Error setting chat group.update ", err);
+                        chatEvent.emit('group.update.error', err);
                     });
 
                 });
@@ -915,28 +915,28 @@ class Chat21Handler {
 
              groupEvent.on('group.delete',  function(group) {                       
 
-                if (process.env.SYNC_CHAT21_GROUPS !=="true") {
-                    winston.debug("Sync Tiledesk to Chat21 groups disabled");
+                if (process.env.SYNC_ROLLOUT_GROUPS !=="true") {
+                    winston.debug("Sync Tiledesk to chat groups disabled");
                     return;
                 }
 
-                winston.verbose("Deleting chat21 group for group.delete", group);
+                winston.verbose("Deleting chat group for group.delete", group);
                 
                 setImmediate(() => {
 
-                    chat21.auth.setAdminToken(adminToken);
+                    chat.auth.setAdminToken(adminToken);
                   
                     var group_id = "group-" + group._id;
                     winston.debug("group_id :" + group_id); 
 
                     //Remove members but group remains.
 
-                    return chat21.groups.setMembers(["system"], group_id).then(function(data) {      
-                        winston.verbose("Chat21 group set for group.delete : " + JSON.stringify(data));      
-                        chat21Event.emit('group.setMembers', data);          
+                    return chat.groups.setMembers(["system"], group_id).then(function(data) {      
+                        winston.verbose("chat group set for group.delete : " + JSON.stringify(data));      
+                        chatEvent.emit('group.setMembers', data);          
                     }).catch(function(err) {
-                        winston.error("Error setMembers chat21 group for group.delete", err);
-                        chat21Event.emit('group.setMembers.error', err);
+                        winston.error("Error setMembers chat group for group.delete", err);
+                        chatEvent.emit('group.setMembers.error', err);
                     });           
 
                 });
@@ -948,5 +948,5 @@ class Chat21Handler {
     
 }
 
-var chat21Handler = new Chat21Handler();
-module.exports = chat21Handler;
+var chatHandler = new ChatHandler();
+module.exports = chatHandler;

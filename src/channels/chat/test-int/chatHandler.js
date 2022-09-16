@@ -28,17 +28,17 @@ var leadService = require('../../../services/leadService');
 var requestService = require('../../../services/requestService');
 var messageService = require('../../../services/messageService');
 
-const chat21Event = require('../chat21Event');
+const chat21Event = require('../chatEvent');
 const messageEvent = require('../../../event/messageEvent');
 
-var chat21Config = require('../chat21Config');
+var chat21Config = require('../chatConfig');
 
 var adminToken = process.env.CHAT21_ADMIN_TOKEN || chat21Config.adminToken 
 winston.info('Test Chat21Handler adminToken: ' + adminToken);
 
 var chat21 = require('../chat21Client');
 
-var chat21Handler = require('../chat21Handler');
+var chat21Handler = require('../chatHandler');
 chat21Handler.listen();
 
 describe('Chat21Handler', function () {

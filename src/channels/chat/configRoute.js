@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-// var Setting = require("../models/setting");
+// var Setting = require("../../model/setting");
 
 
 
@@ -33,8 +33,8 @@ router.get('/', function (req, res) {
       config.messagingSenderId = process.env.FIREBASE_MESSAGINGSENDERID;
     }
   
-    if (process.env.CHAT21_URL) {
-      config.chat21ApiUrl = process.env.CHAT21_URL;
+    if (process.env.CHAT_URL) {
+      config.chatApiUrl = process.env.CHAT_URL;
     }
   
   

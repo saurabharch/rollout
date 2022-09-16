@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Message = require("../../model/message");
 var Request = require("../../model/request");
-var User = require("../../model/user");
+var User = require("../../model/usernew");
 var winston = require('../../../config/winston');
 
 var fonts = {
@@ -22,6 +22,7 @@ var printer = new PdfPrinter(fonts);
 
 
 
+ 
   router.get('/:requestid/messages', function(req, res) {
   
     winston.debug(req.params);
@@ -40,7 +41,27 @@ var printer = new PdfPrinter(fonts);
 
   });
 
-router.get('/:requestid/messages.csv', function(req, res) {
+
+  router.get('/:requestid/messages.html', function(req, res) {
+  
+    winston.debug(req.params);
+    winston.debug("here");    
+    return Message.find({"recipient": req.params.requestid}).sort({createdAt: 'asc'}).exec(function(err, messages) { 
+      if (err) {
+        return res.status(500).send({success: false, msg: 'Error getting object.'});
+      }
+
+      if(!messages){
+        return res.status(404).send({success: false, msg: 'Object not found.'});
+      }
+
+      return res.render('messages', { title: 'Rollout', messages: messages});
+    });
+
+  });
+
+
+  router.get('/:requestid/messages.csv', function(req, res) {
   
     winston.debug(req.params);
     winston.debug("here");    
@@ -64,6 +85,9 @@ router.get('/:requestid/messages.csv', function(req, res) {
 
         delete element.attributes;
       });
+
+      res.setHeader('Content-Type', 'applictext/csv');
+      res.setHeader('Content-Disposition', 'attachment; filename=transcript.csv');
 
       return res.csv(messages, true);
     });
@@ -149,6 +173,11 @@ router.get('/:requestid/messages.csv', function(req, res) {
    
     var pdfDoc = printer.createPdfKitDocument(docDefinition);
     // pdfDoc.pipe(fs.createWriteStream('lists.pdf'));
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'attachment; filename=transcript.pdf');
+            
+
     pdfDoc.pipe(res);
     pdfDoc.end();
 
@@ -158,24 +187,6 @@ router.get('/:requestid/messages.csv', function(req, res) {
 
   });
 
-
-  router.get('/:requestid/messages.html', function(req, res) {
-  
-    winston.debug(req.params);
-    winston.debug("here");    
-    return Message.find({"recipient": req.params.requestid}).sort({createdAt: 'asc'}).exec(function(err, messages) { 
-      if (err) {
-        return res.status(500).send({success: false, msg: 'Error getting object.'});
-      }
-
-      if(!messages){
-        return res.status(404).send({success: false, msg: 'Object not found.'});
-      }
-
-      return res.render('messages', { title: 'Tiledesk', messages: messages});
-    });
-
-  });
 
 
   router.get('/:requestid/messages-user.html', function(req, res) {
@@ -200,7 +211,7 @@ router.get('/:requestid/messages.csv', function(req, res) {
 
   });
 
-  
+
 
   router.get('/:requestid/messages-user.txt', function(req, res) {
   
@@ -218,7 +229,7 @@ router.get('/:requestid/messages.csv', function(req, res) {
 
       var messages = messages.filter(m => m.sender != "system" );
 
-      var text = "Chat transcript:\n" //+ req.project.name;
+      var text = "Chat transcript:\n";//+ req.project.name;
 
       messages.forEach(function(element) {
         text = text + "[ " + element.createdAt.toLocaleString('en', { timeZone: 'UTC' })+ "] " + element.senderFullname + ": " + element.text + "\n";
@@ -284,6 +295,10 @@ router.get('/:requestid/messages.csv', function(req, res) {
    
     var pdfDoc = printer.createPdfKitDocument(docDefinition);
     // pdfDoc.pipe(fs.createWriteStream('lists.pdf'));
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'attachment; filename=transcript.pdf');
+    
     pdfDoc.pipe(res);
     pdfDoc.end();
 
@@ -325,11 +340,12 @@ router.get('/:requestid/messages.csv', function(req, res) {
       });
 
 
+      res.setHeader('Content-Type', 'applictext/csv');
+      res.setHeader('Content-Disposition', 'attachment; filename=transcript.csv');
+
       return res.csv(messages, true);
     });
 
   });
-
-
 
 module.exports = router;
