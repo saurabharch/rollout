@@ -218,7 +218,7 @@
         "postcss-preset-env": "^6.7.1",
         "promise-events": "^0.2.4",
         "q": "^1.5.1",
-        "ramda": "^0.27.2",
+        "ramda": "^0.28.0",
         "rand-token": "^1.0.1",
         "rate-limiter-flexible": "^2.3.10",
         "raven": "^2.6.4",
