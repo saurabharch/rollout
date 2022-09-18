@@ -10,7 +10,7 @@ ENV NODE_ENV=production
 
 WORKDIR /home/node
 COPY . /home/node/
-COPY .npmrc /usr/local/etc/npmrc
+COPY .npmrc /usr/local/etc/.npmrc
 RUN apk add --update nodejs-current npm
 
 # Add hello scripts
