@@ -1,8 +1,8 @@
 
-class FilesystemService extends FileService {
-
-    createFile ( fileName, data, contentType, options)
-    getFileData (filename)
+export class FilesystemService extends FileService {
+    constructor() {}
+    createFile ( fileName, data, contentType, options){}
+    getFileData (filename){}
 
 }
 
