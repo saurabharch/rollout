@@ -5,7 +5,7 @@
     "main": "src/index.js",
     "scripts": {
         "copy": "copyfiles -u 1 src/**/**/* src/**/* src/* build",
-        "pretest": "mongodb-runner start",
+        "//pretest": "mongodb-runner start",
         "watchenv": "nodemon --watch .env --watch ./confenv/.env ./bin/www",
         "build:dev": "npm run copy && workbox injectManifest src/workbox-config.js",
         "build": "babel src --out-dir build",
@@ -30,7 +30,7 @@
         "update:packages": "npm clean-install && npm install && npm update --save/--save-dev -f",
         "update:geodate": "npm run-script updatedb-force license_key=sClIi7oTlPcCEcn8",
         "update:geodb": "node ./node_modules/geoip-lite/scripts/updatedb.js license_key=sClIi7oTlPcCEcn8",
-        "posttest": "mongodb-runner stop",
+        "//posttest": "mongodb-runner stop",
         "preinstall": "if [ $ENABLE_ENTERPRISE_MODULE ]; then npm run enable-ent; fi",
         "heroku-prebuild": "if [ $ENABLE_ENTERPRISE_MODULE ]; then npm run enable-ent; fi",
         "enable-ent": "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc"
