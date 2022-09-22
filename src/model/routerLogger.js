@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var config = require('../../config/database');
+var colors = require("colors");
 import{ MONGO_OPTIONS } from '../../config';
 
 var winston = require('../../config/winston');

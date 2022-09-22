@@ -55,13 +55,14 @@ var session = require('express-session');
 var expAutoSan = require('express-autosanitizer');
 var {APP_PORT, SESSION_OPTIONS } = require( "../config");
   
-var { createBullBoard } = require('@bull-board/api');
-var { BullAdapter } = require('@bull-board/api/bullAdapter');
-var { BullMQAdapter } = require('@bull-board/api/bullMQAdapter');
-var { ExpressAdapter } = require('@bull-board/express');
-
+// var { createBullBoard } = require('@bull-board/api');
+// var { BullAdapter } = require('@bull-board/api/bullAdapter');
+// var { BullMQAdapter } = require('@bull-board/api/bullMQAdapter');
+// var { ExpressAdapter } = require('@bull-board/express');
+import BullBoard from "./lib/BullBoard";
 // var { router,setQueues, UI} = require('bull-board')
-var {QueueService} = require('./lib/Queue');
+// var {QueueService} = require('./lib/Queue');
+
 // var TaskBoard = require('toureiro');
 // import { login, register, verify, reset } from "./routes";
 // Add the payment route
@@ -116,6 +117,8 @@ var reviews = require('./routes/reviews');
 var doc = require('./routes/doc');
 var Email = require('./routes/verify');
 var pushSetting = require('./routes/pushSetting');
+const rootDomainRoutes = require('./routes/routedomain_route');
+const subDomainRoutes = require('./routes/subdomain_route');
 var { SESS_OPTIONS } = require ("../config/auth");
 var helmet = require("helmet");
 var i18n = require("i18n");
@@ -354,16 +357,16 @@ if (
 
 
 // setQueues(Queue.queues.map(queue => queue.bull));
-var serverAdapter  = new ExpressAdapter();
-
-// console.log(`Mapped Queues : ${Queue.queues.map(queue => queue.bull)}`);
-QueueService.queues.map(queue => {
-  var  {  addQueue, removeQueue, setQueues, replaceQueues }  = createBullBoard({
-    queues: [new BullAdapter( queue.bull), new BullMQAdapter(queue.bull)],
-    serverAdapter:serverAdapter
-  });
-});
-
+// var serverAdapter  = new ExpressAdapter();
+// // winston.log(`QueueService.process Type: ${JSON.stringify(QueueService.setQueues)}`);
+// // console.log(`Mapped Queues : ${Queue.queues.map(queue => queue.bull)}`);
+// QueueService.queues.map(queue => {
+//   var  {  add, removeRepeatable, getRepeatableJobs, replaceQueues}  = createBullBoard({
+//     queues: [new BullAdapter( queue.bull), new BullMQAdapter(queue.bull)],
+//     serverAdapter:serverAdapter
+//   });
+// });
+// console.log(`QueueService.process ${JSON.stringify(QueueService.queues)}`);
 // setQueues(Queue.queues.map(queue => queue.bull));
 
 
@@ -469,8 +472,20 @@ staticapp.use(function(req, res, next) {
 
   next();
 });
+
+// serve only static file without secure db check-in
 staticapp.use(serveStatic("public"));
 app.use(vhost(`*.${process.env.Host}` || "*.localhost", staticapp));
+
+try{
+  // secure  serve subdomain with database check-in
+//  TODO In Add SSO and Domain Authcheck Prefligh check-in 
+  app.use(vhost(`*.${process.env.Host}` || "*.localhost" || process.env.DOMAIN, rootDomainRoutes))
+          .use(vhost('www.' + process.env.DOMAIN, rootDomainRoutes))
+          .use(vhost('*.' + process.env.DOMAIN, subDomainRoutes));
+}catch {
+
+}
 
 //Cross Origin Enabled
 // TODO DELETE IT IN THE NEXT RELEASE
@@ -513,7 +528,6 @@ app.use(express.static(path.join(__dirname, "public", "images")));
 app.use(express.static(path.join(__dirname, "public", "javascripts")));
 app.use(express.static(path.join(__dirname, "public", "stylesheets")));
 app.use(express.static(path.join(__dirname, "public", "audio")));
-// Handlebars Middleware
 app.set("views", path.join(__dirname, "/views"));
 app.engine(
   "handlebars",
@@ -963,8 +977,8 @@ try{
 // app.use("/admin", admin);
 app.use("/q", queue);
 
-serverAdapter.setBasePath('/queues');
-app.use('/queues', serverAdapter.getRouter());
+
+app.use('/queues', BullBoard.getRouter());
 // let basePath = 'qq';
 
 // app.use(

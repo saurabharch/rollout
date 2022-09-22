@@ -63,7 +63,7 @@ const push = new PushNotifications(settings);
 export default{
   key: 'PushNotification',
   async handle({ data }){
-    const { notificationData } = data;
+    const { notificationData } = JSON.stringify(data);
     // console.log(`notification data: ${JSON.stringify(data)}`)
     // const settings = Pushsetting.findById('')
     isOnline().then(async online => {

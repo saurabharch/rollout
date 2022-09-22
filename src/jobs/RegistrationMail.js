@@ -6,8 +6,8 @@ var template = require('../lib/mailtemplategen');
 export default{
   key: 'RegistrationMail',
   async handle({ data }){
-    const { user } = data;
-    console.log(`Send Data for Mail : ${JSON.stringify(user)}`)
+    const { user } = JSON.stringify(data);
+    console.log(`Send Data for Mail : ${user[0].firstName}`)
     isOnline().then(async online => {
     if(online){
         console.log("We have internet");
@@ -53,7 +53,8 @@ export default{
            
         } catch (error) {
           if (error.response) {
-              await Mail.moveToFailed({message: 'job failed'})
+              // await Mail.moveToFailed({message: 'job failed'});
+              console.log(`Email Sending Accident : ${error.message}`)
             }
      }
     }else{

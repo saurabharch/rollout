@@ -95,13 +95,13 @@ router.get(
   }
 );
 
-router.get('/verify',ratelimit('pushlimit', 10, '', 1), (req, res) => {
-  if(req.user){
-    console.log(req.user);
-  }else{
-    console.log('Not Auth');
-  }
-});
+// router.get('/verify',ratelimit('pushlimit', 10, '', 1), (req, res) => {
+//   if(req.user){
+//     console.log(req.user);
+//   }else{
+//     console.log('Not Auth');
+//   }
+// });
 
 router.get('/logout',ratelimit('pushlimit', 10, '', 1), (req, res) => {
   req.logout();

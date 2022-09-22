@@ -575,5 +575,5 @@ module.exports = {
       return `<svg class="feather feather-${icon}">
           <use xlink:href="/img/feather-sprite.svg#${icon}"/>
       </svg>`;
-  }
+  },
 };

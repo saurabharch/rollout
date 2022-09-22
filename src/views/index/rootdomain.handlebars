@@ -1,0 +1,55 @@
+<div id="main">
+  <div id="new">
+    <form method="POST" action="/">
+      <h3>Create a new subdomain</h3>
+      First Name: <input type="text" name="firstname"><br>
+      Last Name: <input type="text" name="lastname"><br>
+      Email: <input type="email" name="email"><br>
+      Username: <input type="text" name="username"><br>
+      <input type="submit" value="Signup">
+    </form>
+  </div>
+
+  <div id="list">
+    {{#if allUsers.length}} 
+      <p>List of registered users and their Subdomains</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Subdomain</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each allUsers}}   
+            <tr>
+              <td>
+                {{user._id}}
+              </td>
+              <td>
+                {{user.fullname}}
+              </td> 
+              <td>
+                <{{user.email}}
+              </td>
+              <td>
+                {{user.username}}
+              </td>
+              <td>
+                <a href="{{user.link}}">{{user.link}}</a>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+
+    {{#else}}
+      <p>No users have been registered</p>
+    {{/else}}
+    {{/if}}
+  </div>
+</div>

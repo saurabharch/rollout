@@ -77,9 +77,9 @@ router.post(
       password: data.password,
       firstName:data.firstName,
       lastName:data.lastName,
-      loginTime: new Date(),
+      loginTime: new Date().getTime(),
     });
-    logIn(req, user);
+    // logIn(req, user);
 
     try {
      const link = user.verificationUrl();
@@ -98,7 +98,7 @@ router.post(
       });
      FullData = Cdata;
       const serial = '';
-      UserController.store(FullData);
+      UserController.store(FullData); // send to Register Queue Worker
       testM.push(FullData);
       // await sendMail({
       //   to: email,

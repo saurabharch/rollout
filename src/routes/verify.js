@@ -6,31 +6,31 @@ import{ sendMail }from'../mail';
 import{ BadRequest }from'../errors';
 import{ markAsVerified }from'../auth';
 import UserController from'../jobs/controller/UserController';
-
+const app = require('../../config/app');
 const router = Router();
 
 router.get(
-  '/verify',
+  '/',
   catchAsync(async (req, res) => {
     // await validate(verifyEmailSchema, req.query);
 
-    const { id } = req.query;
+    const { id } = req.query.id;
     console.log(`${id}`);
     const user = await User.findById(id).select('active');
     console.log(`User Status : ${user}`)
-    if(!user || !User.hasValidVerificationUrl(req.originalUrl, req.query)){
-      console.log(`Invalid Url: ${req.originalUrl}`)
+    if(!user && !User.hasValidVerificationUrl(app.APP_ORIGIN+req.originalUrl, req.query)){
+      console.log(`Invalid Url: ${app.APP_ORIGIN+req.originalUrl}`);
       throw new BadRequest('Invalid activation link');
     }
 
     if(user.active == true){
-      console.log(`Aleady Verified Url: ${req.originalUrl}`)
+      console.log(`Aleady Verified Url: ${app.APP_ORIGIN+req.originalUrl}`)
       throw new BadRequest('Email already verified');
     }
     
 
     await markAsVerified(user);
-    console.log(`Valid Url is Verified : ${req.originalUrl}`)
+    console.log(`Valid Url is Verified : ${app.APP_ORIGIN+req.originalUrl}`)
     res.json({ message: 'OK' });
   })
 );

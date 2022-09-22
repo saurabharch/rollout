@@ -1,0 +1,18 @@
+ <div id="main">
+
+  {{#if profile}}
+    <h3>This is the profile page for {{profile.fullname}}.</h3>
+    <p>Email: {{profile.email}}</p>
+    <p>Username: {{profile.username}}</p>
+    <p>Subdomain: <a href="{{profile.link}}">{{profile.link}}</a></p> 
+{{/if}} 
+ {{#else}}
+      <p>
+          This is not a valid subdomain.
+      </p>
+      <p>
+          <a href="{{create_subdomain_link}}">Want this subdomain? Click to claim it now.</a>
+      </p>
+ 
+{{/else}}
+</div>

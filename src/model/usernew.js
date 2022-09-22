@@ -109,7 +109,10 @@ UserSchema.virtual('fullName').get(function () {
     return (this.firstname || '') + ' ' + (this.lastname || '');
   });
   
-
+UserSchema.virtual('link').get(function () {
+    return this.username + '.' + process.env.DOMAIN;
+});
+  
 //UserSchema.index({ email: 1, authType: 1 }, { unique: true }); 
 
 var UserModel = mongoose.model('usernew', UserSchema);

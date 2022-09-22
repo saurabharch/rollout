@@ -228,7 +228,9 @@ UserSchema.plugin(require('mongoose-autopopulate'));
 //     }
 //   });
 // });
-
+UserSchema.virtual('link').get(function () {
+    return this.username + '.' + process.env.DOMAIN;
+});
 
 UserSchema.pre("save", function (next) {
   const user = this
@@ -304,10 +306,10 @@ UserSchema.methods.verificationUrl = function(){
   const token = crypto.createHash('sha1').update(this.email).digest('hex');
   console.log(`email token: ${this.email}`);
   const expires = Date.now() + auth.EMAIL_VERIFICATION_TIMEOUT;
-  
+  console.log(`APP ORIGIN FOR VERIFICATION URL :${app.APP_ORIGIN}`)
   const url =
     `${app.APP_ORIGIN
-    }/email/verify?id=${
+    }/verify?id=${
     this.id
     }&token=${
     token

@@ -10,12 +10,13 @@ require('dotenv').config()
 const cert = process.env.SESSION_SECRET;
 const Jwt = require("jsonwebtoken");
 //import Jwt from'jsonwebtoken';
+var moment = require('moment');
 export const isLoggedIn = req => !!req.session.userId;
 
-export const logIn = async (req, user) => {
+export const logIn = async (res,req, user) => {
   // req.session.userId = userId;
   // req.session.createdAt = Date.now();
-  let timestamp = new Date().getTime();
+  const timestamp = new Date().getTime();
   try {
      user.loginTime = timestamp;
           let accessToken = await createToken(req.body, user);
@@ -24,7 +25,7 @@ export const logIn = async (req, user) => {
             user,
             accessToken
           );
-          sendResponse(res, responseData.SIGNUP_SUCCESS, {
+          sendResponse(res,responseData.SIGNUP_SUCCESS, {
             accessToken: accessToken
           });
   } catch (error ) {
@@ -48,7 +49,7 @@ export const logOut = async (req, res) =>{
       loginTime: null
     }).exec()
     console.log(logoutUser, "---->> logout user");
-    sendResponse(res, responseData.LOGOUT_SUCCESS, {});
+    sendResponse(res,responseData.LOGOUT_SUCCESS, {});
   } catch (error) {
     Promise.reject(error);
   }

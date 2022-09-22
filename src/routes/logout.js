@@ -9,7 +9,7 @@ const router = express.Router();
 
 
 router.post(
-  '/logout',
+  '/',
   auth,
   catchAsync(async (req, res) => {
     await logOut(req, res);

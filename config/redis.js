@@ -5,4 +5,5 @@ export default{
     database: process.env.REDIS_DATABASE,
     password: process.env.REDIS_PASSWORD,
     url: process.env.REDIS_URL,
+    tls:process.env.REDIS_TLS
   };

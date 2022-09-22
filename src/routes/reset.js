@@ -12,8 +12,7 @@ import{ resetPassword }from'../auth';
 
 const router = Router();
 
-router.post(
-  '/password/email',
+router.post('/email',
   catchAsync(async (req, res) => {
     // await validate(forgotPasswordSchema, req.body);
 
@@ -40,7 +39,7 @@ router.post(
 );
 
 router.post(
-  '/password/reset',
+  '/password',
   catchAsync(async ({ query, body }, res) => {
     // await validate(resetPasswordSchema, { query, body });
 
