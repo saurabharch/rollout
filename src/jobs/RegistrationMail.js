@@ -5,6 +5,10 @@ var template = require('../lib/mailtemplategen');
 
 export default{
   key: 'RegistrationMail',
+  options: {
+    //delay: 5000, need a QueueScheduler
+    priority: 2
+  },
   async handle({ data }){
     const { user } = JSON.stringify(data);
     console.log(`Send Data for Mail : ${user[0].firstName}`)

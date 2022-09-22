@@ -28849,3 +28849,739 @@ info: filtering token null
 warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=completed&page=1&jobsPerPage=10
 warn: ProjectSetter project not found with id: queues
 info: filtering token null
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager initialized scheduler.
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/chat/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: TaskRunner started
+info: CloseBotUnresponsiveRequestTask started
+info: CloseBotUnresponsiveRequestTask task scheduleUnresponsiveRequests launched with closeAfter : 172800000 milliseconds, cron expression: */5 * * * * and query limit: 10
+info: CloseAgentUnresponsiveRequestTask disabled
+info: PubModulesManager scheduler started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager - Chat channel is enabled
+info: ChatClient chat.url: http://localhost:8004
+info: ChatClient chat.appid: rolloutchat
+info: ChatHandler adminToken: eyJ********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************xU
+info: Sync Tiledesk to chat groups disabled
+info: ChannelManager listener started
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger enabled 
+info: Rollout Sync JoinAndLeave Support Group Event: true
+info: Rollout allow reopen chat: false
+info: ChannelManager - Chat channel engine is native mqtt
+info: Chat Native channel jwtSecret: tok**Key
+info: ChannelManager - Chat channel routes initialized
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+info: Starting websocket on path: /
+warn: Error creating the user email already present
+info: Admin user already exists
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=completed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: register req.originalUrl:  /register
+warn: ProjectSetter project not found with id: register
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=completed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=completed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=completed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues/UserReport/26/clean
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=completed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=completed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues/UserReport/25/clean
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=completed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=latest&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=latest&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=failed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=failed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=failed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues/RegistrationMail/clean/failed
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=failed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=failed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues/RegistrationMail/26/clean
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=failed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=completed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=completed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues/RegistrationMail/25/clean
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=completed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager initialized scheduler.
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/chat/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: TaskRunner started
+info: CloseBotUnresponsiveRequestTask started
+info: CloseBotUnresponsiveRequestTask task scheduleUnresponsiveRequests launched with closeAfter : 172800000 milliseconds, cron expression: */5 * * * * and query limit: 10
+info: CloseAgentUnresponsiveRequestTask disabled
+info: PubModulesManager scheduler started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager - Chat channel is enabled
+info: ChatClient chat.url: http://localhost:8004
+info: ChatClient chat.appid: rolloutchat
+info: ChatHandler adminToken: eyJ********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************xU
+info: Sync Tiledesk to chat groups disabled
+info: ChannelManager listener started
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger enabled 
+info: Rollout Sync JoinAndLeave Support Group Event: true
+info: Rollout allow reopen chat: false
+info: ChannelManager - Chat channel engine is native mqtt
+info: Chat Native channel jwtSecret: tok**Key
+info: ChannelManager - Chat channel routes initialized
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+info: Starting websocket on path: /
+warn: Error creating the user email already present
+info: Admin user already exists
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+info: Authentication Global Secret : 4b5**************************639
+info: Request defaultFullTextLanguage: none
+info: Request disableTicketIdSequence: false
+info: AutoIncrement plugin enabled
+info: VisitorCounterSchema dbUrl: mongodb://localhost:27017/web-push-log
+info: Mongoose cache fn initialized
+info: Resthook disabled
+info: BotSubscriptionNotifier started
+info: GeoService listener started
+info: PubModulesManager initialized rules.
+info: PubModulesManager initialized messageActions.
+info: EmailService enabled: false
+info: EmailService baseUrl: https://console.rollout.com/v2/dashboard
+info: EmailService apiUrl: http://localhost:3000
+info: EmailService from email: Rollout Notification <postmaster@mg.rollout.com>
+info: EmailService bcc address: 
+info: EmailService replyEnabled : false
+info: EmailService replyTo address: undefined
+info: EmailService inboundDomain : tickets.rollout.com
+info: EmailService pass: undefined
+info: EmailService host: smtp.mailgun.org
+info: EmailService secure: false
+info: EmailService username: saurabh@mg.rollout.com
+info: EmailService port: undefined
+info: EmailService markdown: true
+info: EmailService headers: {}
+info: PubModulesManager initialized requestNotification loaded.
+info: PubModulesManager initialized eventsRoute.
+info: PubModulesManager initialized entityEraser.
+info: PubModulesManager initialized scheduler.
+info: Rasa endpoint not configured
+info: PubModulesManager initialized rasa.
+info: ModulesManager init activities module not found
+info: ModulesManager analyticsRoute initialized
+info: ModulesManager cannedResponseRoute initialized
+info: ModulesManager init trigger module not found
+info: Rollbot endpoint: http://localhost:5500/chat/modules/rollbot/
+info: Rollbot Listener listen
+info: PubModulesManager initialized rollbot.
+info: ConciergeBot listener start 
+info: PubModulesManager appRules started.
+info: MessageActionsInterceptor listener start 
+info: PubModulesManager messageActions started.
+info: PubModulesManager emailNotification started.
+info: TaskRunner started
+info: CloseBotUnresponsiveRequestTask started
+info: CloseBotUnresponsiveRequestTask task scheduleUnresponsiveRequests launched with closeAfter : 172800000 milliseconds, cron expression: */5 * * * * and query limit: 10
+info: CloseAgentUnresponsiveRequestTask disabled
+info: PubModulesManager scheduler started.
+info: SchemaMigration checking for schema updates.
+info: ChannelManager - Chat channel is enabled
+info: ChatClient chat.url: http://localhost:8004
+info: ChatClient chat.appid: rolloutchat
+info: ChatHandler adminToken: eyJ********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************xU
+info: Sync Tiledesk to chat groups disabled
+info: ChannelManager listener started
+info: DatabaseUri: mongodb://local**************-push
+info: DB AutoIndex: true
+info: Used standard cors middleware
+info: RouterLogger enabled 
+info: Rollout Sync JoinAndLeave Support Group Event: true
+info: Rollout allow reopen chat: false
+info: ChannelManager - Chat channel engine is native mqtt
+info: Chat Native channel jwtSecret: tok**Key
+info: ChannelManager - Chat channel routes initialized
+info: ModulesManager eventsRoute controller loaded
+info: ModulesManager analytics controller loaded
+info: ModulesManager canned controller loaded
+info: Organization enabled: false
+info: Organization base url: org.local
+info: Starting websocket on path: /
+warn: Error creating the user email already present
+info: Admin user already exists
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: register req.originalUrl:  /register
+warn: ProjectSetter project not found with id: register
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=failed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=completed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+info: timeInMs => 743.7251158302618
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=PushReport&status=latest&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=PushNotification&status=latest&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/queue/UserReport?status=delayed
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/static/main.f3e8101b6b9d92501ad2.css
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/static/vendor.d3b5df65b57f8a44b940.js
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/static/main.981283ad81c7d839f1bd.js
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/static/images/logo.svg
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/static/favicon-32x32.png
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/static/images/logo.svg
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/static/favicon-32x32.png
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=latest&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/static/4da9e2a2325ad38d2997.chunk.css
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/static/dc8f41ee60f53403be52.chunk.js
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=active&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=latest&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=active&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=completed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=failed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=paused&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=PushNotification&status=latest&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=PushReport&status=latest&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=paused&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=paused&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues/UserReport/34/logs
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=RegistrationMail&status=waiting&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null
+warn: Problem getting project with id: queues req.originalUrl:  /queues/api/queues?activeQueue=UserReport&status=delayed&page=1&jobsPerPage=10
+warn: ProjectSetter project not found with id: queues
+info: filtering token null

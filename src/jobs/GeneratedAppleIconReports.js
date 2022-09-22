@@ -4,7 +4,8 @@ const ffmpeg = require('fluent-ffmpeg');
 export default{
     key: 'GeneratedAppleIconReports',
     options: {
-      delay: 5000
+      delay: 5000,
+      priority:10
     },
     async handle({ data }){
       const { InputData } = data;

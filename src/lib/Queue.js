@@ -150,7 +150,7 @@ export default {
   add(name, data, options) {
     const queue = this.queues.find(queue => queue.name === name );
     // console.log(` Queue Data : ${CircularJSON.stringify(data)} \nQueue Report : ${CircularJSON.stringify(queue)}`);
-    return queue.bull.add(queue.name, data, options);
+    return queue.bull.add(queue.name,data,options || queue.options);
   },
     removeRepeatabl (name, repeat){
     const queue = this.get(name);
@@ -189,18 +189,27 @@ export default {
   },
     process() {
     this.queues.forEach( queue => {
-      const worker = new Worker(queue.bull.name, queue.handle, redisOptions);
-      
-      worker.on("completed", (job, result) => {
-        console.log("Job completed!", job.data);
-        console.log(job.data);
-      });
+      if(BULLMQ ==false){
+              queue.bull.add(queue.handle);
 
-      worker.on("failed", (job, err) => {
-        console.log("Job failed!", job.queueName, job.data);
-        console.log(err);
-        this.repeatJob(job);
-      });
+              queue.bull.on('failed', (job, err) => {
+                console.log('Job failed', queue.key, job.data);
+                console.log(err);
+              });
+      }else{
+           const worker = new Worker(queue.bull.name, queue.handle, redisOptions);
+      
+          worker.on("completed", (job, result) => {
+            console.log("Job completed!", job.data);
+            console.log(job.data);
+          });
+
+          worker.on("failed", (job, err) => {
+            console.log("Job failed!", job.queueName, job.data);
+            console.log(err);
+            this.repeatJob(job);
+          });
+        }
     });
   },
   repeatJob(job) {

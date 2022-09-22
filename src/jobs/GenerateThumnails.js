@@ -3,6 +3,10 @@ const Imager = require('../lib/imager');
 var config = require('../../config/imager-config');
 export default{
     key: 'GenerateThumnails',
+    options: {
+    //delay: 5000, need a QueueScheduler
+    priority: 10
+  },
     async handle({ data }){
       const { InputData } = data;
     // await sharp(InputData.InputBuffere);

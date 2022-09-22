@@ -62,6 +62,10 @@ const settings = {
 const push = new PushNotifications(settings);
 export default{
   key: 'PushNotification',
+  options: {
+    //delay: 5000, need a QueueScheduler
+    priority: 2
+  },
   async handle({ data }){
     const { notificationData } = JSON.stringify(data);
     // console.log(`notification data: ${JSON.stringify(data)}`)

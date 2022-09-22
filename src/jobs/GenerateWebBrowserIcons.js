@@ -5,6 +5,10 @@ var storage = require('../../config/storage');
 var minioClient = require('./minio-lib');
 export default{
     key: 'GenerateWebBrowserIcons',
+    options: {
+    //delay: 5000, need a QueueScheduler
+    priority: 10
+  },
     async handle({ data }){
       const { InputData } = data;
     // await sharp(InputData.InputBuffere);
