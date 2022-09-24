@@ -37,6 +37,8 @@ RUN apk update \
     && apk --no-cache add --update tcl apache2 ca-certificates
 #### => add this script to resolve that problem
 RUN apk add --no-cache python2 g++ make
+RUN apk add --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
+    vips-dev fftw-dev gcc g++ make libc6-compat
 
 RUN \
     apk add --update graphicsmagick tini tzdata && \
@@ -66,8 +68,8 @@ ENV NODE_ICU_DATA /usr/local/lib/node_modules/full-icu
 #     rm -rf /root/.npm
 
 # Set a custom user to not have rollout run as root
-# USER root
-# WORKDIR /data
+USER root
+WORKDIR /data
 RUN apk --no-cache add su-exec
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
@@ -143,7 +145,7 @@ EXPOSE 5501 5500
 
 RUN npm install pm2@latest -g
 RUN npm i -g cross-conf-env npm-run-all
-# COPY --chown=node:node . .
+COPY --chown=node:node . .
 
 # # Generate build
 RUN npm run build

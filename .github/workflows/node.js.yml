@@ -37,6 +37,9 @@ jobs:
           redis-container-name: redis-rollout
           redis-version: ${{ matrix.redis-version }}
           redis-port: 6379
+      - name: Fix working directory ownership
+        if: matrix.container
+        run: chown root.root .
       - run: npm install
       - run: npm ci
       - run: npm run build --if-present
