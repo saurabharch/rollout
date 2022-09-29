@@ -119,7 +119,9 @@ ENV NODE_ENV $NODE_ENV
 ENV REST_URL $REST_URL
 # Run npm install - install the npm dependencies
 # RUN npm install -g npm@7.15.1
-RUN npm install
+# RUN npm install sharp --unsafe-perm
+RUN npm install --unsafe-perm
+# RUN npm install
 # RUN mkdir -p /data/db && \
 #     chown -R mongodb /data/db
 
