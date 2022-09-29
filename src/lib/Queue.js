@@ -79,7 +79,7 @@ const parseISO = require('date-fns/parseISO');
 
 const Queue = require('bull');
 import {Queue3 as QueueMQ , Worker} from 'bullmq';
-var CircularJSON = require('circular-json');
+//var CircularJSON = require('circular-json');
 // import { Queue, Worker } from "bullmq";
 
 const { BULLMQ } = require( "../../config/keys");
