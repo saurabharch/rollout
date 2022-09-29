@@ -11,7 +11,7 @@
     "url": "https://github.com/saurabharch/rollout"
   },
   "dependencies": {
-    "@saurabharch/rollout-node-sdk": "^0.0.3",
+    "@saurabharch/rollout-node-sdk": "0.0.6",
     "winston": "3.8.2",
     "firebase-admin": "^9.5.0"
   },
