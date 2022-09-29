@@ -1,6 +1,6 @@
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 module.exports = {
-  purge: [
+  content: [
     './src/**/*.handlebars',
     './src/**/*.html'
   ],

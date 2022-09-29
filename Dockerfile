@@ -8,15 +8,24 @@ RUN if [ -z "$ROLLOUT_VERSION" ] ; then echo "The ROLLOUT_VERSION argument is mi
 
 
 ENV NODE_ENV=production
+ENV NPM_CONFIG_PREFIX=/rollout/.npm-global
+ENV PATH=$PATH:/rollout/.npm-global/bin
+# Create a group and user
+# RUN addgroup -S rollout && adduser -S --disabled-password rollout -G rollout
 
-USER root
-WORKDIR /home/node
-COPY . /home/node/
+
+RUN addgroup rollout && adduser -S -G rollout rollout
+RUN mkdir -p /rollout
+WORKDIR /rollout && chown -R rollout:rollout /rollout
+
 # RUN useradd -ms /bin/bash node
 # RUN useradd node
 # USER node
-RUN mkdir -p /home/node && chown -R node:node /home/node
-RUN chmod -R 755 /home/node/
+# RUN mkdir -p /home/node && chmod -R 755 rollout:rollout /home/node
+# RUN chmod -R 755 /home/node/
+
+
+COPY --chown=rollout:rollout . .
 
 COPY .npmrc /usr/local/etc/.npmrc
 RUN apk add --update nodejs-current npm
@@ -29,7 +38,7 @@ RUN chmod -R 755 installer.sh
 # RUN mkdir -p /etc/ssl/certs/
 # ENV HOSTNAME $HOSTNAME
 # RUN ./gen-cert.sh ${HOSTNAME} && rm -rf gen-cert.sh
-RUN npm install -g node-gyp
+RUN npm install -g node-gyp node-gyp-build
 # RUN npm install --save nan
 # RUN bash installer.sh
 RUN apk add py-pip python3 openssl
@@ -113,15 +122,14 @@ RUN apk update \
 # COPY --chown=node:node package*.json ./
 
 ENV TERM=linux
-# ARG NODE_ENV=production
 ARG REST_URL=http://localhost:5500
 ENV NODE_ENV $NODE_ENV
 ENV REST_URL $REST_URL
 # Run npm install - install the npm dependencies
 # RUN npm install -g npm@7.15.1
 # RUN npm install sharp --unsafe-perm
-RUN npm install --unsafe-perm
-# RUN npm install
+# RUN npm install --unsafe-perm
+RUN npm install --loglevel=warn;
 # RUN mkdir -p /data/db && \
 #     chown -R mongodb /data/db
 
@@ -147,7 +155,7 @@ EXPOSE 5501 5500
 
 RUN npm install pm2@latest -g
 RUN npm i -g cross-conf-env npm-run-all
-COPY --chown=node:node . .
+# COPY --chown=rollout:rollout . .
 
 # # Generate build
 RUN npm run build
@@ -158,3 +166,4 @@ CMD ["pm2-runtime", "process.yml"]
 # CMD ["npm-run-all", "-p dev:*"]
 # ENTRYPOINT [ "./rollout-deployment/deployment-pm2.sh" ]
 # USER node
+USER rollout
