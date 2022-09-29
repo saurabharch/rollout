@@ -9,6 +9,7 @@ RUN if [ -z "$ROLLOUT_VERSION" ] ; then echo "The ROLLOUT_VERSION argument is mi
 
 ENV NODE_ENV=production
 
+USER root
 WORKDIR /home/node
 COPY . /home/node/
 # RUN useradd -ms /bin/bash node
@@ -68,8 +69,7 @@ ENV NODE_ICU_DATA /usr/local/lib/node_modules/full-icu
 #     rm -rf /root/.npm
 
 # Set a custom user to not have rollout run as root
-USER root
-WORKDIR /data
+
 RUN apk --no-cache add su-exec
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
