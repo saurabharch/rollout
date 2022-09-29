@@ -124,11 +124,11 @@
         },
         "MAIL_USER":{
             "description":"MAILGUN/SENDGRID USER",
-            "value":"MLdctucuQ_6zUzymk0n4Hg"
+            "value":""
         },
         "MAIL_PASS":{
             "description":"MAILGUN/SENDGRID AUTH PASS",
-            "value":"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"
+            "value":""
         },
         "REDIS_HOST":{
             "description":"REDIST HOST NAME - FQCDN",
