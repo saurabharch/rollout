@@ -1,7 +1,7 @@
 apps:
-  - script: ./src/index.js
+  - script: ./dist/index.js
     name: "application"
-  - script: ./src/worker/queue.js
+  - script: ./dist/worker/queue.js
     name: "worker"
     env:
       NODE_ENV: development

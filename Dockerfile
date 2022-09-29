@@ -155,4 +155,4 @@ RUN npm run build
 CMD ["pm2-runtime", "process.yml"]
 # CMD ["npm-run-all", "-p dev:*"]
 # ENTRYPOINT [ "./rollout-deployment/deployment-pm2.sh" ]
-USER node
+# USER node
