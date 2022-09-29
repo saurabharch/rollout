@@ -20,7 +20,7 @@ module.exports = {
 
       black: colors.black,
       white: colors.white,
-      gray: colors.coolGray,
+      gray: colors.grey,
       red: colors.red,
       yellow: colors.amber,
       green: colors.emerald,
@@ -215,7 +215,7 @@ module.exports = {
       normal: '400',
       medium: '500',
       semibold: '600',
-      bold: '700',
+      bold: '650',
       extrabold: '800',
       black: '900',
     },

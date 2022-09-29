@@ -1,4 +1,4 @@
-/node_modules
+*/node_modules
 node_modules
 npm-debug.log
 build
@@ -13,10 +13,10 @@ log
 ./public/test1.js
 ./config/keys_prod.js
 ./config/keys_dev.js
-./st.js
+./src/st.js
 ./kp-push-2020.pem
-./model/user2.js
-./model/user1.js
+./src/model/user2.js
+./src/model/user1.js
 .env.bak
 # Build
 build
