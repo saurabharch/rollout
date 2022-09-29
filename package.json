@@ -5,7 +5,7 @@
     "main": "src/index.js",
     "scripts": {
         "copy": "copyfiles -u 1 src/**/**/* src/**/* src/* build",
-        "//pretest": "mongodb-runner start",
+        "pretest": "mongodb-runner start",
         "watchenv": "nodemon --watch .env --watch ./confenv/.env ./bin/www",
         "build:dev": "npm run copy && workbox injectManifest src/workbox-config.js",
         "build": "babel src --out-dir build",
@@ -18,7 +18,7 @@
         "restart": "pm2 startOrRestart ecosystem.config.js",
         "pro:deploy": "pm2 deploy ecosystem.config.js",
         "dev": "npm-run-all -p dev:*",
-        "//dev:tailwind": "postcss src/public/css/tailwind.css -o src/public/css/style1.css",
+        "dev:tailwind": "postcss src/public/css/tailwind.css -o src/public/css/style1.css",
         "dev:server": "nodemon src/index.js --exec babel-node",
         "dev:worker": "nodemon src/worker/queue.js --exec babel-node",
         "//dev:build": "gulp watch",
@@ -30,10 +30,10 @@
         "update:packages": "npm clean-install && npm install && npm update --save/--save-dev -f",
         "update:geodate": "npm run-script updatedb-force license_key=sClIi7oTlPcCEcn8",
         "update:geodb": "node ./node_modules/geoip-lite/scripts/updatedb.js license_key=sClIi7oTlPcCEcn8",
-        "//posttest": "mongodb-runner stop",
-        "//preinstall": "if [ $ENABLE_ENTERPRISE_MODULE ]; then npm run enable-ent; fi",
-        "//heroku-prebuild": "if [ $ENABLE_ENTERPRISE_MODULE ]; then npm run enable-ent; fi",
-        "//enable-ent": "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc"
+        "posttest": "mongodb-runner stop",
+        "preinstall": "if [ $ENABLE_ENTERPRISE_MODULE ]; then npm run enable-ent; fi",
+        "heroku-prebuild": "if [ $ENABLE_ENTERPRISE_MODULE ]; then npm run enable-ent; fi",
+        "enable-ent": "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc"
     },
     "redisMemoryServer": {
         "downloadDir": "/path/to/redis/binaries",
@@ -100,6 +100,7 @@
         "@saurabharch/rollout-rolybot-connector": "^0.0.1",
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/forms": "^0.5.3",
+        "@tailwindcss/typography": "^0.5.7",
         "@types/express": "^4.17.14",
         "@types/node": "^18.7.18",
         "agenda": "^4.3.0",
@@ -217,10 +218,10 @@
         "pdfmake": "^0.2.5",
         "pkgcloud": "^1.7.0",
         "pm2": "^5.2.0",
-        "postcss-cli": "^8.3.1",
-        "postcss-import": "^14.1.0",
-        "postcss-nesting": "^8.0.1",
-        "postcss-preset-env": "^6.7.1",
+        "postcss-cli": "^10.0.0",
+        "postcss-import": "^15.0.0",
+        "postcss-nesting": "^10.2.0",
+        "postcss-preset-env": "^7.8.2",
         "promise-events": "^0.2.4",
         "q": "^1.5.1",
         "ramda": "^0.27.2",
@@ -241,6 +242,7 @@
         "swagger-jsdoc": "^7.0.0-rc.6",
         "swagger-ui-express": "^4.5.0",
         "tailwindcss": "^3.1.8",
+        "typescript": "^4.8.4",
         "uglifycss": "0.0.29",
         "uniqid": "^5.4.0",
         "uuid": "^8.3.2",
@@ -300,7 +302,6 @@
         "redis-memory-server": "^0.6.0",
         "supertest": "^6.2.4",
         "ts-loader": "^9.4.1",
-        "typescript": "^4.8.3",
         "workbox-cli": "^6.5.4"
     }
 }

@@ -77,10 +77,10 @@ const parseISO = require('date-fns/parseISO');
 //   }
 // };
 
-// const Queue = require('bull');
-// import {Queue} from 'bullmq';
+const Queue = require('bull');
+import {Queue3 as QueueMQ , Worker} from 'bullmq';
 var CircularJSON = require('circular-json');
-import { Queue, Worker } from "bullmq";
+// import { Queue, Worker } from "bullmq";
 
 const { BULLMQ } = require( "../../config/keys");
 
@@ -96,7 +96,8 @@ const redisOptions = {
   // tls: redisConfig.tls,
 };
  const queues = Object.values(jobs).map(job => ({
-      bull: BULLMQ ? new QueueMQ(job.key,{connection: redisOptions}) : new Queue(job.key, redisConfig.url),
+      bull: BULLMQ ? new QueueMQ(job.key,{connection: redisOptions,prefix: 'rollout-job',maxRetriesPerRequest: null,
+        enableReadyCheck: false}) : new Queue(job.key, redisConfig.url),
       name: job.key,
       handle: job.handle,
       options: job.options
