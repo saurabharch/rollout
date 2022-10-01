@@ -10,22 +10,57 @@ RUN if [ -z "$ROLLOUT_VERSION" ] ; then echo "The ROLLOUT_VERSION argument is mi
 ENV NODE_ENV=production
 ENV NPM_CONFIG_PREFIX=/rollout/.npm-global
 ENV PATH=$PATH:/rollout/.npm-global/bin
-# Create a group and user
-# RUN addgroup -S rollout && adduser -S --disabled-password rollout -G rollout
 
 
 RUN addgroup rollout && adduser -S -G rollout rollout
-RUN mkdir -p /rollout
-WORKDIR /rollout && chown -R rollout:rollout /rollout
+
+RUN apk add py-pip python3 openssl
+RUN apk update \
+    && apk upgrade \
+    && apk --no-cache add --update tcl apache2 ca-certificates
+#### => add this script to resolve that problem
+RUN apk add --no-cache python2 g++ make shadow
+RUN apk add --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
+    vips-dev fftw-dev gcc g++ make libc6-compat 
+# Add libvips
+RUN apk add --upgrade --no-cache vips-dev build-base --repository https://alpine.global.ssl.fastly.net/alpine/v3.10/community/
+
+RUN \
+    apk add --update graphicsmagick tini tzdata && \
+    npm install -g npm@latest full-icu && \
+    rm -rf /var/cache/apk/* /root/.npm /tmp/* && \
+    # Install fonts
+    apk --no-cache add --virtual fonts msttcorefonts-installer fontconfig && \
+    update-ms-fonts && \
+    fc-cache -f && \
+    apk del fonts && \
+    find  /usr/share/fonts/truetype/msttcorefonts/ -type l -exec unlink {} \; && \
+    rm -rf /var/cache/apk/* /tmp/*
+ENV NODE_ICU_DATA /usr/local/lib/node_modules/full-icu
+
+RUN mkdir -p ./rollout
+WORKDIR /rollout
 
 # RUN useradd -ms /bin/bash node
-# RUN useradd node
+# RUN useradd rollout
 # USER node
 # RUN mkdir -p /home/node && chmod -R 755 rollout:rollout /home/node
-# RUN chmod -R 755 /home/node/
+RUN chmod -R 755 /rollout
 
 
-COPY --chown=rollout:rollout . .
+# Copy only package.json and yarn.lock for cache
+COPY package.json ./rollout
+COPY yarn.lock ./rollout
+
+# Install Dependncies
+# RUN yarn install --production --ignore-optional --ignore-scripts --pure-lockfile --non-interactive --verbose
+
+# Copy Files
+# COPY . ./rollout
+COPY ./src ./rollout/src
+COPY *.js /rollout/
+COPY *.env /rollout/
+COPY --chown=rollout:rollout --from= . /rollout/
 
 COPY .npmrc /usr/local/etc/.npmrc
 RUN apk add --update nodejs-current npm
@@ -41,27 +76,7 @@ RUN chmod -R 755 installer.sh
 RUN npm install -g node-gyp node-gyp-build
 # RUN npm install --save nan
 # RUN bash installer.sh
-RUN apk add py-pip python3 openssl
-RUN apk update \
-    && apk upgrade \
-    && apk --no-cache add --update tcl apache2 ca-certificates
-#### => add this script to resolve that problem
-RUN apk add --no-cache python2 g++ make
-RUN apk add --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
-    vips-dev fftw-dev gcc g++ make libc6-compat
 
-RUN \
-    apk add --update graphicsmagick tini tzdata && \
-    npm install -g npm@latest full-icu && \
-    rm -rf /var/cache/apk/* /root/.npm /tmp/* && \
-    # Install fonts
-    apk --no-cache add --virtual fonts msttcorefonts-installer fontconfig && \
-    update-ms-fonts && \
-    fc-cache -f && \
-    apk del fonts && \
-    find  /usr/share/fonts/truetype/msttcorefonts/ -type l -exec unlink {} \; && \
-    rm -rf /var/cache/apk/* /tmp/*
-ENV NODE_ICU_DATA /usr/local/lib/node_modules/full-icu
 
 
 
@@ -128,8 +143,9 @@ ENV REST_URL $REST_URL
 # Run npm install - install the npm dependencies
 # RUN npm install -g npm@7.15.1
 # RUN npm install sharp --unsafe-perm
-# RUN npm install --unsafe-perm
-RUN npm install --loglevel=warn;
+RUN npm install --unsafe-perm --loglevel=warn
+RUN npm install --verbose sharp
+RUN npx envinfo --binaries --languages --system --utilities
 # RUN mkdir -p /data/db && \
 #     chown -R mongodb /data/db
 
@@ -165,5 +181,6 @@ RUN npm run build
 CMD ["pm2-runtime", "process.yml"]
 # CMD ["npm-run-all", "-p dev:*"]
 # ENTRYPOINT [ "./rollout-deployment/deployment-pm2.sh" ]
-# USER node
-USER rollout
+
+# [Optional] Set the default user. Omit if you want to keep the default as root.
+USER $USERNAME

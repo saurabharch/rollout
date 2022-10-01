@@ -1,12 +1,12 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)] [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout?ref=badge_shield)
 
-> #  Buy a coffee for me
+> #  💸Buy a coffee for me
 
 <a href='https://ko-fi.com/saurabharch' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
   
 - issuehunt: saurabharch`
   
-## Support
+## 💰Support
 
 If you need paid support, consulting, or just want support/sponsor the ongoing development of this project, you can in the following ways:
 
@@ -27,30 +27,30 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 
 ## 🚀 Technologies
 
-- ⚡ Express — A web framework for Node.js
-- 🐮Bull — Premium Queue package for handling distributed jobs
-- 🚒 Handlebars - Html Engine
+- 🌐 Express — A web framework for Node.js
+- 🎯Bull/BullMQ — Premium Queue package for handling distributed jobs
+- 🚂 Handlebars - Html Engine
 - 📧 Web-push, nodemailer
-- 🏪 MongoDB, Redis
+- 💽 MongoDB, Redis , Postgres, SQL-light
 - 🔀 Nginx
-- 🚚 Docker
+- 🍔 Docker
 
-### ⚡️ Feature List
+### 💡 Feature List
 
-- Push Message Broadcasting
-- DDoS Protection
-- Schedule Jobs Worker
-- Fast caches managed
-- OAuth
-- Login With multiple social platform
-- Cart Service
-- Product Display
-- International Localization Features
-- Knowledge base
-- Advance Chat Widget Support Service
-- Text Analysiss
-- nudity detection
-- more coming soon
+✅ Push Message Broadcasting
+✅ DDoS Protection
+✅ Schedule Jobs Worker
+✅ Fast caches managed
+✅ OAuth
+✅ Login With multiple social platform
+✅ Cart Service
+✅ Product Display / Service Display
+✅ International Localization Features
+✅ Knowledge base
+✅ Advance Chat Widget Support Service
+✅ Text Analysiss
+✅ nudity detection
+✨ more coming soon
 
 ## 🔥 [Instrustions](https://saurabharch.github.io/rollout/)  🧑🏼‍💻 Commands
 
@@ -116,7 +116,7 @@ cp env.example /config/.env
 node src/index.js
 ```
 
-## APNS Push Certificates
+## APNS Push Certificates 📱
 
 Setup your app for Remote Push Notifications using [the
 docs](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns)
@@ -359,6 +359,11 @@ sudo apt-get install fail2ban
 
 ```
 
+## commands and API Integrations wiki 🧩🧪🆕
+
+[Click](./docs/README.md) here for details page.
+
+
 > # Tip for Query Performance Testing
 
 Add this
@@ -373,7 +378,12 @@ in query line example as below:
   db.collectionName.find().explain("executionStats").exec()
 ```
 
-## Deploy on Heroku
+this command is used in windows🪟 OS close all http running service locally.
+```shell
+net stop http
+```
+
+## Deploy on Heroku 🛫
 
 Deploy with button:
 
@@ -386,7 +396,7 @@ Deploy with button:
   <img alt="PushGeek" src="https://raw.githubusercontent.com/saurabharch/rollout/master/docs/screenshot.png?raw=true" width="380px" />
 </h1>
 
-## Notes (Opinionated)
+## 📝Notes (Opinionated)
 
 DO NOT do this for a real project of this size, this is to learn.
 A Microservice architecture is for BIG projects with a lot of people.
@@ -401,13 +411,13 @@ This is the most common way I see people build container based projects
 but my personal favourite is using a queue for all container to container
 communication.
 
-## Rule of thumb thoughts (Opinionated)
+## 🗒️Rule of thumb thoughts (Opinionated)
 
 Docker containers = good for almost all project sizes
 Microservices = good for big companies with a lot of code and people
 Sweetspot = Monolith app and databases in containers
 
-## 👨🏼‍💻 Author
+## 👨🏼‍💻📒 Author
 
 [Saurabh Kashyap](https://github.com/saurabharch)
   
