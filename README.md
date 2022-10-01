@@ -37,19 +37,19 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 
 ### 💡 Feature List
 
-✅ Push Message Broadcasting
-✅ DDoS Protection
-✅ Schedule Jobs Worker
-✅ Fast caches managed
-✅ OAuth
-✅ Login With multiple social platform
-✅ Cart Service
-✅ Product Display / Service Display
-✅ International Localization Features
-✅ Knowledge base
-✅ Advance Chat Widget Support Service
-✅ Text Analysiss
-✅ nudity detection
+- ✅ Push Message Broadcasting
+- ✅ DDoS Protection
+- ✅ Schedule Jobs Worker
+- ✅ Fast caches managed
+- ✅ OAuth
+- ✅ Login With multiple social platform
+- ✅ Cart Service
+- ✅ Product Display / Service Display
+- ✅ International Localization Features
+- ✅ Knowledge base
+- ✅ Advance Chat Widget Support Service
+- ✅ Text Analysiss
+- ✅ nudity detection
 ✨ more coming soon
 
 ## 🔥 [Instrustions](https://saurabharch.github.io/rollout/)  🧑🏼‍💻 Commands
