@@ -50,7 +50,7 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 - ✅ Advance Chat Widget Support Service
 - ✅ Text Analysiss
 - ✅ nudity detection
-✨ more coming soon
+- ✨ more coming soon
 
 ## 🔥 [Instrustions](https://saurabharch.github.io/rollout/)  🧑🏼‍💻 Commands
 
