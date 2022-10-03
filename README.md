@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/sponsors/saurabharch">
-    <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.svg'>
+    <img src='https://raw.githubusercontent.com/saurabharch/static/main/sponsors.svg'>
   </a>
 </p>
 
