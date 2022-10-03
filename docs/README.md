@@ -3,8 +3,8 @@
 
 ### 🧩 SDK Library
 
-[Click Here for SDK Library](./api-dev.md)
-[Click Here for API parameters](./api-mgm.md)
+- [Click Here for SDK Library](./api-dev.md)
+- [Click Here for API parameters](./api-mgm.md)
 
 
 ### 🚢 deployment
@@ -13,8 +13,7 @@
 
 ### 🧪 Testing
 
-[Click Here for Testing](./testing.md) .
-[Performance Testing](./performance.md)
+- [Click Here for Testing](./testing.md) .
 
 
 ### 🆕📰 Upgrading
