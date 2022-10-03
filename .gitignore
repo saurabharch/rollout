@@ -34,3 +34,5 @@ docker.env
 .cert
 .pem
 setting.json
+clusters/proxy-manager/data/*
+clusters/proxy-manager/letsencrypt/*
