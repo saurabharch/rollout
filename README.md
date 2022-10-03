@@ -4,7 +4,7 @@
 
 <a href='https://ko-fi.com/saurabharch' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
   
-- issuehunt: saurabharch`
+- `issuehunt: saurabharch`
   
 ## 💰Support
 
@@ -51,6 +51,10 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 - ✅ Text Analysiss
 - ✅ nudity detection
 - ✨ more coming soon
+
+## 📖 Documentation
+
+Documentation is available as a part of Tabler preview: saurabharch.github.io/rollout/
 
 ## 🔥 [Instrustions](https://saurabharch.github.io/rollout/)  🧑🏼‍💻 Commands
 
@@ -417,7 +421,7 @@ Docker containers = good for almost all project sizes
 Microservices = good for big companies with a lot of code and people
 Sweetspot = Monolith app and databases in containers
 
-## 👨🏼‍💻📒 Author
+## 👨🏼‍💻🤓 Author
 
 [Saurabh Kashyap](https://github.com/saurabharch)
   
@@ -429,6 +433,10 @@ Sweetspot = Monolith app and databases in containers
 ## 📝 License
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout?ref=badge_large)
+
+
+## 🪴 Project Activity
+![Alt](https://repobeats.axiom.co/api/embed/40759511ce401954cc2cff694e540ff9db9cbbe4.svg "Repobeats analytics image")
 
 #### 👋 [Official site](https://raindigi.com)  Pushgeek is made with ❤️ by © RainDigi IT Pvt. Ltd
   
