@@ -64,7 +64,7 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 
 ## 📖 Documentation
 
-Documentation is available as a part of Tabler preview: saurabharch.github.io/rollout/
+Documentation is available as a part of rollout preview: https://saurabharch.github.io/rollout/
 
 ## 🔥 [Instrustions](https://saurabharch.github.io/rollout/)  🧑🏼‍💻 Commands
 
