@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/sponsors/saurabharch">
-    <img src="./src/public/images/rollout.gif">
+    <img src="./src/public/images/rollout.gif" width="180px">
   </a>
 </p>
 
@@ -41,6 +41,7 @@ If you need paid support, consulting, or just want support/sponsor the ongoing d
 | Hire me! | [![Consulting Request][consult-shield]][consult]
   
 <br /><br />
+
 # PushGeek Rollout Server
 
 
@@ -172,9 +173,12 @@ Sweetspot = Monolith app and databases in containers
 [consult]: mailto:saurabh@raindigi.com?subject=Rollout%20Consulting
 
 <br></br>
+
+<img align="left" src="./docs/Contributing.svg" width="50px" />
+
 ## Community
 
-Join the [slack community](https://rolloutco.slack.com/archives/C0454S9BEVB) to know more about distributed tracing, observability, or SigNoz and to connect with other users and contributors.
+Join the [slack community](https://rolloutco.slack.com/archives/C0454S9BEVB) to know more about distributed Rollout and to connect with other users and contributors.
 
 If you have any ideas, questions, or any feedback, please share on our [Github Discussions](https://github.com/saurabharch/rollout/discussions)
 
