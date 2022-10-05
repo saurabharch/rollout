@@ -8,11 +8,9 @@
     <img alt="Downloads" src="https://img.shields.io/docker/pulls/saurabharch/query-service?label=Downloads"> </a>
     <img alt="GitHub issues" src="https://img.shields.io/github/issues/saurabharch/rollout"> </a>
     <img alt="Github License" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
-    <img alt="FOSSA Status" src="https://app.fossa.io/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout?ref=badge_shield"></a>
+    <a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout?ref=badge_shield"><img alt="FOSSA Status" src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout.svg?type=shield"></a>
 
 </p>
-
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)] [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout?ref=badge_shield)
 
 
 <h3 align="center">
