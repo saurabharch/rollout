@@ -37,6 +37,3 @@ Anyone asked to stop unacceptable behavior is expected to comply immediately. If
 
 ---
 
-_This Code Of Conduct follows the template established by [TODO Group](https://todogroup.org) and it also use parts from the [Contributor Covenant][homepage], version 1.4, available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html_
-
-[homepage]: https://www.contributor-covenant.org.

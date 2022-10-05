@@ -35,4 +35,5 @@ docker.env
 .pem
 setting.json
 clusters/proxy-manager/data/*
+clusters/proxy-manager/data/database.sqlight
 clusters/proxy-manager/letsencrypt/*

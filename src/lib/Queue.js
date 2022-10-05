@@ -96,7 +96,13 @@ const redisOptions = {
   // tls: redisConfig.tls,
 };
  const queues = Object.values(jobs).map(job => ({
-      bull: BULLMQ ? new QueueMQ(job.key,{connection: redisOptions,prefix: 'rollout-job',maxRetriesPerRequest: null,
+      bull: BULLMQ ? new QueueMQ(job.key,{connection: redisOptions,prefix: 'rollout-job',defaultJobOptions: {
+      attempts: 3, // no of attempts for failed jobs
+      backoff: { // retry after every 2^n times where n=1, 2, 3,...
+        type: 'exponential',
+        delay: 1000, // 1 sec
+      },
+    },
         enableReadyCheck: false}) : new Queue(job.key, redisConfig.url),
       name: job.key,
       handle: job.handle,

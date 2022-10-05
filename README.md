@@ -2,20 +2,35 @@
 
 <p align="center">
   <a href="https://github.com/sponsors/saurabharch">
-    <img src='https://raw.githubusercontent.com/saurabharch/static/main/sponsors.svg'>
+    <img src="./src/public/images/rollout.gif">
   </a>
 </p>
 
+<h3 align="center">
+  <a href="/docs"><b>Documentation</b></a> &bull;
+  <a href="/README.zh-cn.md"><b>ReadMe in Chinese</b></a> &bull;
+  <a href="/README.de-de.md"><b>ReadMe in German</b></a> &bull;
+  <a href="/README.pt-br.md"><b>ReadMe in Portuguese</b></a> &bull;
+  <a href="https://rolloutco.slack.com/archives/C0454S9BEVB"><b>Slack Community</b></a> &bull;
+  <a href="https://twitter.com/rollout"><b>Twitter</b></a>
+</h3>
+
+
+##
+<br /><br />
+
+<img align="left" src="./docs/sponsor-banner-homepage.svg" width="50px" />
 ## 💕 Sponsor Rollout
 
-<a href="https://github.com/sponsors/saurabharc" target="_blank"><img src="/docs/sponsor-banner-readme.png?raw=true" alt="Sponsor Rollout" /></a>
+<a href="https://github.com/sponsors/saurabharch" target="_blank"><img src="/docs/sponsor-banner-readme.png?raw=true" alt="Sponsor Rollout" /></a>
 
 > #  🍵 Buy a coffee for me
 
 <a href='https://ko-fi.com/saurabharch' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
   
 - `issuehunt: saurabharch`
-  
+
+
 ## 💰Support
 
 If you need paid support, consulting, or just want support/sponsor the ongoing development of this project, you can in the following ways:
@@ -27,11 +42,9 @@ If you need paid support, consulting, or just want support/sponsor the ongoing d
 | Per-minute consulting |   <a href="http://otechie.com/saurabharch"><img src="https://api.otechie.com/consultancy/saurabharch/badge.svg" alt="Consulting"></a>
 | Hire me! | [![Consulting Request][consult-shield]][consult]
   
+<br /><br />
 # PushGeek Rollout Server
 
-<h1 align="center">
-  <img alt="PushGeek" src="https://github.com/saurabharch/rollout/blob/master/src/public/images/Pushgeek.gif?raw=true" width="180px" />
-</h1>
 
 Rollout server is simple drip marketing automation tool which help to enggage more and more users with the website, which have features like
 
@@ -45,28 +58,40 @@ Rollout server is simple drip marketing automation tool which help to enggage mo
 - 🔀 Nginx
 - 🍔 Docker
 
-### 💡 Feature List
+<br /><br />
+<img align="left" src="./docs/Features.svg" width="50px" />
+## 💡 Feature List
 
-- ✅ Push Message Broadcasting
-- ✅ DDoS Protection
-- ✅ Schedule Jobs Worker
-- ✅ Fast caches managed
-- ✅ OAuth
-- ✅ Login With multiple social platform
-- ✅ Cart Service
-- ✅ Product Display / Service Display
-- ✅ International Localization Features
-- ✅ Knowledge base
-- ✅ Advance Chat Widget Support Service
-- ✅ Text Analysiss
-- ✅ nudity detection
-- ✨ more coming soon
+- ✅ Push Message Broadcasting 👈
+- ✅ DDoS Protection 👈
+- ✅ Schedule Jobs Worker 👈
+- ✅ Fast caches managed 👈
+- ✅ OAuth 👈
+- ✅ Login With multiple social platform 👈
+- ✅ Cart Service 👈
+- ✅ Product Display / Service Display 👈
+- ✅ International Localization Features 👈
+- ✅ Knowledge base 👈
+- ✅ Advance Chat Widget Support Service 👈
+- ✅ Text Analysis 👈
+- ✅ nudity detection 👈
+- ✨ more coming soon 👈
+
+<br /><br />
+
+<img align="left" src="./docs/Contributing.svg" width="50px" />
 
 ## 📖 Documentation
 
 Documentation is available as a part of rollout preview: https://saurabharch.github.io/rollout/
 
-## 🔥 [Instrustions](https://saurabharch.github.io/rollout/)  🧑🏼‍💻 Commands
+<br /><br />
+
+<img align="left" src="./docs/Philosophy.svg" width="50px" />
+
+## Getting Started
+
+### 🔥 [Instrustions](https://saurabharch.github.io/rollout/)  🧑🏼‍💻 Commands
 
 > Installing Nodejs , NPM and NVM
 
@@ -106,7 +131,7 @@ git clone https://github.com/saurabharch/rollout
 npm install
 ```
 
-## OR
+### OR
 
 ```shell
 yarn install
@@ -116,7 +141,7 @@ yarn install
 ./node_modules/.bin/web-push generate-vapid-keys
 ```
 
-## OR
+### OR
 
 - bellow command is used setup envriment variable also copy the vapid key from shell terminal and update in .env generated file and update it VAPID_PUBLIC_KEYS => public Key: and VAPID_PRIVATE_KEYS => private Key: , respectively
 
@@ -372,13 +397,15 @@ sudo apt-get install fail2ban
 |___________________________server.js
 
 ```
+<br /><br />
 
+<img align="left" src="./docs/WhatsCool.svg" width="50px" />
 ## commands and API Integrations wiki 🧩🧪🆕
 
 [Click](./docs/README.md) here for details page.
 
 
-> # Tip for Query Performance Testing
+> ### Tip for Query Performance Testing
 
 Add this
 
@@ -396,6 +423,7 @@ this command is used in windows🪟 OS close all http running service locally.
 ```shell
 net stop http
 ```
+<br></br>
 
 ## Deploy on Heroku 🛫
 
@@ -403,8 +431,9 @@ Deploy with button:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/saurabharch/rollout)
 
+<br></br>
 
-# Work in Action
+## Work in Action
 
 <h1 align="center">
   <img alt="PushGeek" src="https://raw.githubusercontent.com/saurabharch/rollout/master/docs/screenshot.png?raw=true" width="380px" />
@@ -425,12 +454,15 @@ This is the most common way I see people build container based projects
 but my personal favourite is using a queue for all container to container
 communication.
 
+<br></br>
+
 ## 🗒️Rule of thumb thoughts (Opinionated)
 
 Docker containers = good for almost all project sizes
 Microservices = good for big companies with a lot of code and people
 Sweetspot = Monolith app and databases in containers
 
+<br></br>
 ## 👨🏼‍💻🤓 Author
 
 [Saurabh Kashyap](https://github.com/saurabharch)
@@ -439,6 +471,20 @@ Sweetspot = Monolith app and databases in containers
 [buymeacoffee]: https://www.buymeacoffee.com/saurabharch
 [consult-shield]: https://img.shields.io/badge/Require%20Paid%20Support%20or%20Consulting%3F-Click%20Here-blue?style=for-the-badge&logo=paypal
 [consult]: mailto:saurabh@raindigi.com?subject=Rollout%20Consulting
+
+<br></br>
+## Community
+
+Join the [slack community](https://rolloutco.slack.com/archives/C0454S9BEVB) to know more about distributed tracing, observability, or SigNoz and to connect with other users and contributors.
+
+If you have any ideas, questions, or any feedback, please share on our [Github Discussions](https://github.com/saurabharch/rollout/discussions)
+
+As always, thanks to our amazing contributors!
+
+<a href="https://github.com/saurabharch/rollout/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=saurabharch/rollout" />
+</a>
+<br></br>
 
 ## 📝 License
 

@@ -1,0 +1,24 @@
+<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="70" height="70" rx="10" fill="white"/>
+<g filter="url(#filter0_b)">
+<rect width="70" height="70" rx="8.34783" fill="url(#paint0_linear)" fill-opacity="0.15"/>
+<rect x="2" y="2" width="66" height="66" rx="6.34783" stroke="#4D74FF" stroke-opacity="0.4" stroke-width="4"/>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M46.3967 30.653C46.7681 29.4968 46.9687 28.264 46.9687 26.9843C46.9687 20.3656 41.6031 15 34.9843 15C28.3656 15 23 20.3656 23 26.9843C23 29.6398 23.8637 32.0936 25.3255 34.0801C26.075 35.6321 26.8935 37.4541 27.4024 38.9687C28.5244 42.3076 29.3591 45.3277 29.3591 45.3277H41.0988C41.0988 45.3277 41.5467 42.3022 42.5663 38.9687C43.0166 37.4964 43.7897 35.7503 44.5241 34.2391C45.3361 33.173 45.9735 31.9667 46.3936 30.6628C46.3972 30.6563 46.3991 30.653 46.3991 30.653H46.3967Z" fill="#4D74FF" fill-opacity="0.4"/>
+<rect x="28.8699" y="46.306" width="12.7181" height="2.44578" rx="1.22289" fill="#4D74FF" fill-opacity="0.4"/>
+<rect x="29.3591" y="49.7301" width="11.7398" height="2.44578" rx="1.22289" fill="#4D74FF" fill-opacity="0.4"/>
+<rect x="30.3374" y="53.1542" width="9.78313" height="2.44578" rx="1.22289" fill="#4D74FF" fill-opacity="0.4"/>
+<path d="M33.15 45.1V33.2C33.15 33.2 33.15 30.05 33.15 28.3C33.15 26.7965 30.2521 27.1363 29.3 28.3C28.521 29.2521 28.2765 30.7676 29.3 31.45C30.35 32.15 39.8 32.5 40.85 31.45C41.7199 30.5802 41.629 29.2521 40.85 28.3C39.8979 27.1363 37 26.7965 37 28.3C37 30.75 37 45.1 37 45.1" stroke="#4D74FF" stroke-opacity="0.4" stroke-width="2"/>
+<defs>
+<filter id="filter0_b" x="-8.87804" y="-8.87804" width="87.7561" height="87.7561" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImage" stdDeviation="4.43902"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear" x1="35" y1="0" x2="35" y2="70" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4D74FF"/>
+<stop offset="1" stop-color="#4D74FF" stop-opacity="0.01"/>
+</linearGradient>
+</defs>
+</svg>
