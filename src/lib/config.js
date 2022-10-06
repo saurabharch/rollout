@@ -1,6 +1,6 @@
 const uglifycss = require('uglifycss');
 // const escape = require('html-entities').AllHtmlEntities;
-const {decode,encode} = require('html-entities');
+import {decode,encode} from 'html-entities';
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');

@@ -7,6 +7,7 @@ const {
 } = require('../lib/config');
 // get config
 const config = getConfig();
+var winston = require('../../config/winston');
 // Language initialize
 i18n.configure({
   locales: config.availableLanguages,
@@ -355,6 +356,8 @@ module.exports = {
       let total = '';
       for(const lang of i18n.getLocales()){
           total += block.fn(lang);
+          // winston.info("Available Languages: ", lang);
+          console.log(`Available Languages ${lang}`)
       }
       return total;
   },
@@ -387,6 +390,8 @@ module.exports = {
       return '';
   },
   getTheme: (view) => {
+
+     console.log(`Get Theme:  ${config.theme}/${view}`)
       return `themes/${config.theme}/${view}`;
   },
   formatAmount: (amt) => {
