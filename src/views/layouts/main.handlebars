@@ -79,9 +79,9 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/bootstrap-tokenfield.min.css"
         integrity="sha256-4qBzeX420hElp9/FzsuqUNqVobcClz1BjnXoxUDSYQ0=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
         integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-        crossorigin="anonymous" />
+        crossorigin="anonymous" /> --}}
     <link rel="stylesheet" href="/stylesheets/codemirror-style.min.css">
     <link rel="stylesheet" href="/stylesheets/style{{config.env}}.css">
     {{#if admin}}
@@ -227,8 +227,8 @@
     <script src="/{{config.theme}}/index{{config.env}}.js"></script>
     {{/if}}
     {{/if}}
-    <style data-href="/styles.559cc93c2d06e3cf22d5.css">
-        <style class="js-collectionStyle">.u-accentColor--borderLight {
+        <style class="js-collectionStyle">
+        .u-accentColor--borderLight {
             border-color: #868484 !important;
         }
 
@@ -732,7 +732,7 @@
             fill: rgba(0, 0, 0, 0.4980392156862745) !important;
         }
     </style>
-<script>console.log("%c\ud83e\udd2b Hint: ⚠️ Stop! %cPushgeek is made with ❤️ by RainDigi IT Pvt. Ltd., This is a browser feature intended for developers.If someone told you to copy and paste something here to enable a Pushgeek feature or 'hack' someone's account, it is a scam and will give them access to your PushGeek account. %cSee https://pushgeek.com/security for more information. \ud83c\udf6d", "font-weight:bold;font-size:50px;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;background: #1B2024; color: #D4EBFF; padding: 10px 16px", "font-weight:500;font-size:20px;color:#404040;", "font-weight:500;font-size:22px;color:grey;")</script>
+<script>console.log("%c\ud83e\udd2b Hint: ⚠️ Stop! %cRollout is made with ❤️ by RainDigi IT Pvt. Ltd., This is a browser feature intended for developers.If someone told you to copy and paste something here to enable a rollout feature or 'hack' someone's account, it is a scam and will give them access to your rollout account. %cSee https://rollout.com/security for more information. \ud83c\udf6d", "font-weight:bold;font-size:50px;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;background: #1B2024; color: #D4EBFF; padding: 10px 16px", "font-weight:500;font-size:20px;color:#404040;", "font-weight:500;font-size:22px;color:grey;")</script>
 
 </head>
 {{#if admin}}
@@ -759,12 +759,18 @@
             style="position: -webkit-sticky;position: sticky;top:0;z-index:999;">
 
             <a class="" href="/">
-                <img src="/images/Pushgeek.gif" alt="PushGeek" class="photo" style="height:75px;width:125;">
+                <img src="/images/rollout.gif" alt="Rollout" class="photo" style="height:75px;width:125;">
                 {{#if @root.config.cartLogo}}
+                <tool-tip inert role="tooltip" tip-position="block-start" class="custom-tip">
+                    Share me 🏠
+                </tool-tip>
                 {{!-- <img src="{{@root.config.cartLogo}}" alt="{{@root.config.cartTitle}}" class="photo"
                     style="height:75px;width:125;"> --}}
                 {{else}}
                 {{@root.config.cartTitle}}
+                <tool-tip inert role="tooltip" tip-position="block-start" class="custom-tip">
+                     Text Here 👈
+                </tool-tip>
                 {{/if}}
             </a>
             {{> partials/_header}}
@@ -782,16 +788,16 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{{feather 'globe'}}}
                             </button>
-                            <div class="dropdown-menu" style="z-index: 100;" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu px-2" style="z-index: 100;" aria-labelledby="dropdownMenuButton">
                                 {{#availableLanguages}}
-                                <li><a class="dropdown-item" href="/lang/{{this}}">{{@root.__ this}}</a></li>
+                                <li><a class="dropdown-item py-2" href="/lang/{{this}}">{{@root.__ this}}</a></li>
                                 {{/availableLanguages}}
                             </div>
                         </div>
                         {{/ifCond}}
                         {{#if @root.session.customerPresent}}
-                        <div class="dropdown d-none d-sm-block">
-                            <button class="btn dropdown-toggle my-2" type="button" id="dropdownMenuButton"
+                        <div class="flex inline-block">
+                            <button class="btn btn-primary dropdown-toggle py-5 px-5" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{{feather 'user'}}}
                             </button>
@@ -804,11 +810,11 @@
                         <li class="nav-item ml-3"><a href="/customer/account" class="btn">{{{feather 'user'}}}</a></li>
                         {{/if}}
                         {{#if @root.session.cart}}
-                        <li class="nav-item"><a href="/checkout/cart" class="flex btn menu-btn">{{{feather
+                        <li class="nav-item"><button href="/checkout/cart" class="flex btn menu-btn">{{{feather
                                 'shopping-cart'}}}
                                 {{!-- {{ @root.__ "Cart" }} --}}
-                                <span class="flex-row badge badge-danger"
-                                    id="cart-count">{{@root.session.totalCartItems}}</span></a></li>
+                                <span class="flex-row badge badge-danger px-2"
+                                    id="cart-count">{{@root.session.totalCartItems}}</span></button></li>
                         {{else}}
                         <li class="nav-item flex"><a href="/checkout/cart" class="btn menu-btn">{{{feather
                                 'shopping-cart'}}}</i>
@@ -851,7 +857,7 @@
         <div class="container-fluid content-body h-100" id="container">
             <div class="row">
                 {{{body}}}
-                {{> partials/_subscribenews}}
+                
             </div>
 
         </div>
@@ -6433,6 +6439,7 @@
         </script>
         <script type="text/javascript" src="/app.js"></script>
         <script type="text/javascript" src="pushgeek.js"></script>
+        <script type="text/javascript" src="tool-tip.polyfill.js"></script>
         <script type="text/javascript">
             pg.initSw();
             if (!_pg.checkSubscriptionStatus()) {

@@ -1,6 +1,6 @@
 <div class="card top-marg-15 bottom-marg-15">
     <div class="card-body cart-body">
-        <h5 class="card-title">{{ @root.__ "Cart contents" }}</h5>
+        <h5 class="card-title">{{ @root.__ "Cart Items" }}</h5>
         <div class="cartBodyWrapper">
             {{#each @root.session.cart}}
             <div class="d-flex flex-row bottom-pad-15">
@@ -10,7 +10,7 @@
                             {{#if productImage}}
                             <img class="img-fluid" src="{{this.productImage}}" alt="{{this.title}} product image">
                             {{else}}
-                            <img class="img-fluid" src="/uploads/placeholder.png" alt="{{this.title}} product image"> 
+                            <img class="img-fluid" src="./uploads/placeholder.png" alt="{{this.title}} product image"> 
                             {{/if}}
                         </div>
                         <div class="col-8 col-md-9">

@@ -233,5 +233,6 @@
 	" Username": " Username",
 	"Email": "Email",
 	" Email": " Email",
-	"\r\n\t\t\t\t\t\t\t\t\tUsersname": "\r\n\t\t\t\t\t\t\t\t\tUsersname"
+	"\r\n\t\t\t\t\t\t\t\t\tUsersname": "\r\n\t\t\t\t\t\t\t\t\tUsersname",
+	"Cart Items": "Cart Items"
 }
