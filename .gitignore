@@ -36,6 +36,7 @@ Dockerfile-en
 docker-compose.yml
 docker-compose1.yml
 docker-compose2.yml
+docker-image.yml
 docker.env
 .cert
 .pem
