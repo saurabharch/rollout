@@ -55,11 +55,14 @@ function lessCss() {
     .pipe(babel({ presets: ["@babel/env"] }))
     .pipe(less({ paths: ["src/public/stylesheets/less"] }))
     .pipe(rename({ dirname: "src/public/stylesheets", extname: ".css" }))
+    .pipe(rename({ dirname: "src/public/css", extname: ".css" }))
     .pipe(gulp.dest("./src/"));
 }
 
 function compressJS() {
   return src([
+    "src/public/*.js",
+    "!src/public/*.min.js",
     "src/public/javascripts/*.js",
     "!src/public/javascripts/*.min.js"
   ])
@@ -71,6 +74,9 @@ function compressJS() {
 
 function compressCss() {
   return src([
+    "src/public/css/*.css",
+    "src/public/*.css",
+    "!src/public/css/*.min.css",
     "src/public/stylesheets/*.css",
     "!src/public/stylesheets/*.min.css"
   ])

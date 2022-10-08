@@ -9,8 +9,6 @@ import{ MONGO_URI, MONGO_OPTIONS, REDIS_OPTIONS } from'../config';
 const keys = require('../config/keys');
 const {
   getConfig,
-  getPaymentConfig,
-  updateConfigLocal
 } = require('./lib/config');
 const config = getConfig();
 const MongoStore = require('connect-mongodb-session')(session);
@@ -81,17 +79,17 @@ module.exports = {
       .catch(err => {
     if(err.message.code === 'ETIMEDOUT') {
       winston.error('MongoDB Connection Timed Out. Please make sure MongoDB is running.');
-      //process.exit(1);
+      process.exit(1);
     }
     else{
       winston.error('Failed to connect to MongoDB on ' + MONGO_URI + " ", err);
-      //process.exit(1);
+      process.exit(1);
     }
   });
   },
   disconnect: async done => {
    await mongoose.disconnect(done);
-  //  winston.error('Disconnect to MongoDB on ' + MONGO_URI + " ", err);
-  //  process.exit(1);
+   winston.error('Disconnect to MongoDB on ' + MONGO_URI + " ", err);
+   process.exit(1);
   }
 };

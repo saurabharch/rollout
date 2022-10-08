@@ -252,7 +252,7 @@ curl -v -X POST  -H 'Content-Type:application/json' -u saurabh@raindigi.com:1234
 ### Create
 ```
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"message.create", "target":"https://tiledesk.requestcatcher.com/test"}' <http://localhost:3000/5bedbbd18b9ed53a6a3f3dd3/subscriptions>
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"message.create", "target":"https://rollout.requestcatcher.com/test"}' <http://localhost:3000/5bedbbd18b9ed53a6a3f3dd3/subscriptions>
 
 ```
 
@@ -287,11 +287,11 @@ curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:12345
 
 
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"message.create", "target":"https://tiledesk.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e37f45c4d82de00178b96ad/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"message.create", "target":"https://rollout.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e37f45c4d82de00178b96ad/subscriptions
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"request.create", "target":"https://tiledesk.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e37f45c4d82de00178b96ad/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"request.create", "target":"https://rollout.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e37f45c4d82de00178b96ad/subscriptions
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"request.update", "target":"https://tiledesk.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e37f45c4d82de00178b96ad/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"request.update", "target":"https://rollout.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e37f45c4d82de00178b96ad/subscriptions
 
 
 
@@ -310,24 +310,24 @@ curl -v -X GET -u saurabh@raindigi.com:XXXXX https://rollout-server-pre.herokuap
 
 
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"project_user.invite", "target":"https://tiledesk.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"project_user.invite", "target":"https://rollout.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"project_user.update", "target":"https://tiledesk.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"project_user.delete", "target":"https://tiledesk.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
-
-
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"project_user.update", "target":"https://rollout.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"project_user.delete", "target":"https://rollout.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
 
 
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"department.create", "target":"https://tiledesk.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"department.update", "target":"https://tiledesk.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"department.delete", "target":"https://tiledesk.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
+
+
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"department.create", "target":"https://rollout.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"department.update", "target":"https://rollout.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"department.delete", "target":"https://rollout.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
 
 
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"group.create", "target":"https://tiledesk.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"group.update", "target":"https://tiledesk.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"group.delete", "target":"https://tiledesk.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"group.create", "target":"https://rollout.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"group.update", "target":"https://rollout.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456 -d '{"event":"group.delete", "target":"https://rollout.requestcatcher.com/test"}' https://rollout-server-pre.herokuapp.com/5e20a68e7c2e640017f2f40f/subscriptions
 
 
 
@@ -728,26 +728,26 @@ curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:25845
 
 
 
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText1"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText2"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText3"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText4"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText5"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText6"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText7"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText8"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText9"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText10"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText11"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText12"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText13"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText14"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText15"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText16"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText17"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText18"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText19"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText20"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText1"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText2"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText3"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText4"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText5"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText6"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText7"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText8"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText9"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText10"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText11"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText12"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText13"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText14"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText15"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText16"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText17"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText18"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText19"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText20"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
 
 
 
@@ -796,9 +796,9 @@ db.getCollection('requests').find( {"id_project": "5eb1116b4ec80100176671d2","st
 
 
 
-curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText"}' https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
+curl -v -X POST -H 'Content-Type:application/json' -u load@load.it:123456 -d '{"text":"firstText"}' https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
 
-https://api.tiledesk.com/v2/5eb56e211f9e1f0012d6227b/requests
+https://api.rollout.com/v2/5eb56e211f9e1f0012d6227b/requests
 ù
 
 
@@ -822,14 +822,14 @@ curl -v -X PUT -H 'Content-Type:application/json' -u saurabh@raindigi.com:123456
 curl -v -X GET -H 'Content-Type:application/json'  http://localhost:3000/5ecf82d45c9a741d9c17bf42/labels
 
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabharch@rollout.com:258456td -d '{"event":"project.create", "target":"https://tiledesk-queues.herokuapp.com/webhook"}' https://api.tiledesk.com/v2/5ec688ed13400f0012c2edc2/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabharch@rollout.com:258456td -d '{"event":"project.create", "target":"https://tiledesk-queues.herokuapp.com/webhook"}' https://api.rollout.com/v2/5ec688ed13400f0012c2edc2/subscriptions
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabharch@rollout.com:258456td -d '{"event":"project.update", "target":"https://tiledesk-queues.herokuapp.com/webhook"}' https://api.tiledesk.com/v2/5ec688ed13400f0012c2edc2/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabharch@rollout.com:258456td -d '{"event":"project.update", "target":"https://tiledesk-queues.herokuapp.com/webhook"}' https://api.rollout.com/v2/5ec688ed13400f0012c2edc2/subscriptions
 
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabharch@rollout.com:258456td -d '{"event":"message.create", "target":"https://webhook.site/bbb5ec7b-1dd2-4b27-8cce-c0fad2b29fe6"}' https://api.tiledesk.com/v2/5ec688ed13400f0012c2edc2/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabharch@rollout.com:258456td -d '{"event":"message.create", "target":"https://webhook.site/bbb5ec7b-1dd2-4b27-8cce-c0fad2b29fe6"}' https://api.rollout.com/v2/5ec688ed13400f0012c2edc2/subscriptions
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabharch@rollout.com:258456td -d '{"event":"project.update", "target":"https://webhook.site/bbb5ec7b-1dd2-4b27-8cce-c0fad2b29fe6"}' https://api.tiledesk.com/v2/5ec688ed13400f0012c2edc2/subscriptions
+curl -v -X POST -H 'Content-Type:application/json' -u saurabharch@rollout.com:258456td -d '{"event":"project.update", "target":"https://webhook.site/bbb5ec7b-1dd2-4b27-8cce-c0fad2b29fe6"}' https://api.rollout.com/v2/5ec688ed13400f0012c2edc2/subscriptions
 
 
 
@@ -874,4 +874,4 @@ curl -v -X GET -H 'Content-Type:application/json' -H "Authorization: JWT eyJhbGc
 
 
 
-curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:258456 https://rollout-server-pre.herokuapp.com/chat21/native/auth/createCustomToken
+curl -v -X POST -H 'Content-Type:application/json' -u saurabh@raindigi.com:258456 https://rollout-server-pre.herokuapp.com/rollout/native/auth/createCustomToken
