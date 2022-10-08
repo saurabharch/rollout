@@ -118,3 +118,6 @@ npm run enable-ent
 https://github.com/npm/npm/blob/b706d637d5965dbf8f7ce07dc5c4bc80887f30d8/doc/files/package.json.md#local-paths
 
 
+# Proxy Manager
+
+[click for more](../clusters/proxy-manager/README.md)
