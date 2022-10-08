@@ -1,5 +1,5 @@
 import Push from'../model/push';
-import User from'../model/user';
+// import User from'../model/user';
 import Organisation from'../model/organization';
 import Domain from'../model/domains';
 import Pushsetting from "../model/pushSetting";
@@ -8,7 +8,7 @@ const vapidKeygen = require('../util/lib/VapidKeyGen');
 const Subscription = require('../model/subscriber');
 import{ catchAsync, isAuthenticated, isClientAuthenticated }from'../middlewares';
 const q = require('q');
-const webpush = require('web-push');
+// const webpush = require('web-push');
 const keys = require('../../config/keys');
 const ratelimit = require('../util/limiter');
 import PushNotifications from 'rollout-pushnotification';

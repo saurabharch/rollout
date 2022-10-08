@@ -100,7 +100,7 @@ router.post('/signup',
 
 
 
-// curl -v -X POST -H 'Content-Type:application/json' -u 6b4d2080-3583-444d-9901-e3564a22a79b@tiledesk.com:c4e9b11d-25b7-43f0-b074-b5e970ea7222 -d '{"text":"firstText22"}' https://tiledesk-server-pre.herokuapp.com/5df2240cecd41b00173a06bb/requests/support-group-554477/messages
+// curl -v -X POST -H 'Content-Type:application/json' -u 6b4d2080-3583-444d-9901-e3564a22a79b@rollout.com:c4e9b11d-25b7-43f0-b074-b5e970ea7222 -d '{"text":"firstText22"}' https://rollout-server-pre.herokuapp.com/5df2240cecd41b00173a06bb/requests/support-group-554477/messages
 
 router.post('/signinAnonymously', 
 [
@@ -140,9 +140,9 @@ function (req, res) {
                   
 
           var signOptions = {
-            issuer:  'https://tiledesk.com',
+            issuer:  'https://rollout.com',
             subject:  'guest',
-            audience:  'https://tiledesk.com',
+            audience:  'https://rollout.com',
             jwtid: uuidv4()        
           };
 
@@ -230,7 +230,7 @@ router.post('/signinWithCustomToken', [
         id_project = req.body.id_project;
         winston.verbose("audience generic. id_project is passed explicitly");
       }else {
-        // When happen? when an agent (or admin) from ionic find a tiledesk token in the localstorage (from dashboard) and use signinWithCustomToken to obtain user object
+        // When happen? when an agent (or admin) from ionic find a rollout token in the localstorage (from dashboard) and use signinWithCustomToken to obtain user object
         return res.json({ success: true, token: req.headers["authorization"], user: req.user });
       }
       
@@ -348,7 +348,7 @@ function (req, res) {
           //  JWT.  The processing of this claim is generally application specific.
           //  The "iss" value is a case-sensitive string containing a StringOrURI
           //  value.  Use of this claim is OPTIONAL.
-          issuer:  'https://tiledesk.com',   
+          issuer:  'https://rollout.com',   
 
   //         The "sub" (subject) claim identifies the principal that is the
   //  subject of the JWT.  The claims in a JWT are normally statements
@@ -359,7 +359,7 @@ function (req, res) {
   //  value.  Use of this claim is OPTIONAL.
 
           // subject:  user._id.toString(),
-          // subject:  user._id+'@tiledesk.com/user',
+          // subject:  user._id+'@rollout.com/user',
           subject:  'user',
 
   //         The "aud" (audience) claim identifies the recipients that the JWT is
@@ -374,7 +374,7 @@ function (req, res) {
   //  interpretation of audience values is generally application specific.
   //  Use of this claim is OPTIONAL.
 
-          audience:  'https://tiledesk.com',
+          audience:  'https://rollout.com',
 
           // uid: user._id  Uncaught ValidationError: "uid" is not allowed
           // expiresIn:  "12h",
@@ -402,7 +402,7 @@ function (req, res) {
               
               var returnObject = { success: true, token: 'JWT ' + token, user: userJson };
 
-              var adminEmail = process.env.ADMIN_EMAIL || "admin@tiledesk.com";
+              var adminEmail = process.env.ADMIN_EMAIL || "admin@rollout.com";
               if (email === adminEmail) {
                 returnObject.role = "admin";
               }

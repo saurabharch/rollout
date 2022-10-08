@@ -74,8 +74,8 @@ senza populate con sort
 8|www  | finish 2020-05-03T12:44:28.098Z 2020-05-03T12:44:29.486Z
 su browser 15 secondi 500k gzip
 
-use tiledesk
-switched to db tiledesk
+use rollout
+switched to db rollout
 > db.requests.getIndexes()
 [
 	{
@@ -84,7 +84,7 @@ switched to db tiledesk
 			"_id" : 1
 		},
 		"name" : "_id_",
-		"ns" : "tiledesk.requests"
+		"ns" : "rollout.requests"
 	},
 	{
 		"v" : 2,
@@ -93,7 +93,7 @@ switched to db tiledesk
 		},
 		"name" : "request_id_1",
 		"background" : true,
-		"ns" : "tiledesk.requests"
+		"ns" : "rollout.requests"
 	},
 	{
 		"v" : 2,
@@ -101,7 +101,7 @@ switched to db tiledesk
 			"requester" : 1
 		},
 		"name" : "requester_1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	},
 	{
@@ -110,7 +110,7 @@ switched to db tiledesk
 			"status" : 1
 		},
 		"name" : "status_1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	},
 	{
@@ -119,7 +119,7 @@ switched to db tiledesk
 			"participants" : 1
 		},
 		"name" : "participants_1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	},
 	{
@@ -128,7 +128,7 @@ switched to db tiledesk
 			"department" : 1
 		},
 		"name" : "department_1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	},
 	{
@@ -137,7 +137,7 @@ switched to db tiledesk
 			"tags" : 1
 		},
 		"name" : "tags_1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	},
 	{
@@ -146,7 +146,7 @@ switched to db tiledesk
 			"notes.text" : 1
 		},
 		"name" : "notes.text_1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	},
 	{
@@ -156,7 +156,7 @@ switched to db tiledesk
 		},
 		"name" : "agents.id_project_1",
 		"background" : true,
-		"ns" : "tiledesk.requests"
+		"ns" : "rollout.requests"
 	},
 	{
 		"v" : 2,
@@ -165,7 +165,7 @@ switched to db tiledesk
 		},
 		"name" : "agents.id_user_1",
 		"background" : true,
-		"ns" : "tiledesk.requests"
+		"ns" : "rollout.requests"
 	},
 	{
 		"v" : 2,
@@ -173,7 +173,7 @@ switched to db tiledesk
 			"agents.uuid_user" : 1
 		},
 		"name" : "agents.uuid_user_1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	},
 	{
@@ -182,7 +182,7 @@ switched to db tiledesk
 			"agents.role" : 1
 		},
 		"name" : "agents.role_1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	},
 	{
@@ -192,7 +192,7 @@ switched to db tiledesk
 		},
 		"name" : "agents.user_available_1",
 		"background" : true,
-		"ns" : "tiledesk.requests"
+		"ns" : "rollout.requests"
 	},
 	{
 		"v" : 2,
@@ -200,7 +200,7 @@ switched to db tiledesk
 			"id_project" : 1
 		},
 		"name" : "id_project_1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	},
 	{
@@ -210,7 +210,7 @@ switched to db tiledesk
 			"type" : -1
 		},
 		"name" : "createdAt_1_type_-1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	},
 	{
@@ -220,7 +220,7 @@ switched to db tiledesk
 			"type" : -1
 		},
 		"name" : "id_project_1_type_-1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	},
 	{
@@ -231,7 +231,7 @@ switched to db tiledesk
 		},
 		"name" : "request_fulltext",
 		"default_language" : "italian",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"language_override" : "dummy",
 		"background" : true,
 		"weights" : {
@@ -248,7 +248,7 @@ switched to db tiledesk
 			"updatedAt" : 1
 		},
 		"name" : "id_project_1_status_1_updatedAt_1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	},
     db.requests.dropIndex( "id_project_1_status_1_updatedAt_1" )
@@ -260,7 +260,7 @@ switched to db tiledesk
 			"agents.number_assigned_requests" : 1
 		},
 		"name" : "agents.number_assigned_requests_1",
-		"ns" : "tiledesk.requests",
+		"ns" : "rollout.requests",
 		"background" : true
 	}
 ]

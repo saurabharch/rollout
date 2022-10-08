@@ -3878,7 +3878,7 @@ pre {
     padding: 30px !important;
     margin: 8px 0px !important;
     overflow: auto;
-    border-radius: 0.3em !important;
+    border-radius: 10px !important;
     background-color: rgb(29, 38, 47) !important;
     min-height: 65px !important;
     max-height: 265px !important;

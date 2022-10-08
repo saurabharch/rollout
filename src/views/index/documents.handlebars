@@ -33,12 +33,17 @@
                 </ul>
             </nav>
         </div>
-        <div class="card" id="about">
-            <h2 class="border-b-2 border-indigo-200" id="#about" style="color:gray !important;">Introduction</h2>
-            <p>Rollout is simple distributed large scaled push-messaging and drip system which is build on the top of
+        <div class="card" id="about" style="border-radius:10px; background: linear-gradient(
+                      -168.39deg,
+                      #ffffff -278.56%,
+                      #6d6d6d -78.47%,
+                      #11101d 91.61%
+                    );">
+            <h2 class="border-b-2 border-indigo-200" id="#about" style="color:rgb(255, 255, 255) !important;">Introduction</h2>
+            <p class="text-white">Rollout is simple distributed large scaled push-messaging and drip system which is build on the top of
                 nodejs and many
                 more amazing open-source supporting libraries it support's many features standalone</p>
-            <ol class="text-primary">
+            <ol class="text-white">
                 <li>Android push notification</li>
                 <li>In-app notification</li>
                 <li>Web Push notification</li>
@@ -63,40 +68,63 @@
                 </svg>rollout is open-source?
             </div>
 
-            <h3 style="color:gray !important;">Yes, Absolutely it is a open-source project</h3>
-            <p>We only charge for support and services or custome changes.</p>
+            <h3 style="color:rgb(255, 255, 255) !important;">Yes, Absolutely it is a open-source project</h3>
+            <p class="text-white">We only charge for support and services or custome changes.</p>
             <div class="inline-flex ml-10 transform hover:text-white">
-                <a href="#install"
+                {{!-- <a href="#install"
                     class="transform hover:scale-110 motion-reduce:transform-none inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-text-50">
                     Install CLI
-                </a>
+                </a> --}}
+
+                <button href="#install" style="border-radius: 10px;
+                                                                  font-weight: 500;
+                                                                  font-size: 18px;
+                                                                  padding-top: 1rem;
+                                                                  padding-bottom: 1rem;
+                                                                  padding-left: 1.5rem;
+                                                                  padding-right: 1.5rem;
+                                                                  color: rgb(0 4 15/1);
+                                                                  outline: 2px solid transparent;
+                                                                  outline-offset: 2px;
+                                                                  background: linear-gradient(
+                                                                    157.81deg,
+                                                                    #def9fa -43.27%,
+                                                                    #bef3f5 -21.24%,
+                                                                    #9dedf0 12.19%,
+                                                                    #7de7eb 29.82%,
+                                                                    #5ce1e6 51.94%,
+                                                                    #33bbcf 90.29%
+                                                                  );
+                                                                " type="button">
+                    Install CLI
+                </button>
             </div>
 
 
-            <h3 style="color:gray !important;">Supported Container on Platform's</h3>
-            <ul>
+            <h3 style="color:rgb(255, 255, 255) !important;">Supported Container on Platform's</h3>
+            <ul class="text-white">
                 <li>Windows</li>
                 <li>Mac OS</li>
                 <li>Linux</li>
             </ul>
-            <h3 style="color:gray !important;">Requirements</h3>
-            <ul>
+            <h3 style="color:rgb(255, 255, 255) !important;">Requirements</h3>
+            <ul class="text-white">
                 <li>Node.js v16 or higher</li>
             </ul>
 
-            <h3 id="install" style="color:gray !important;">Install</h3>
-            <p>Mac (Homebrew)</p>
+            <h3 id="install" style="color:rgb(255, 255, 255) !important;">Install</h3>
+            <p class="text-white">Mac (Homebrew)</p>
             <pre
-                class="scrollbar-none overflow-x-auto p-6 text-sm leading-snug language-html text-white bg-black bg-opacity-75"><code id="brew" class="language-html" style="height:2rem !important;overflow:hidden;">$ brew install pushgeek-cli  {{{copyCode cli.[0]}}}</code></pre>
-            <p>npm</p>
+                class="flex flex-justify text-center overflow-x-auto p-6 text-sm leading-snug language-html text-white bg-black bg-opacity-75"><code id="brew" class="flex text-center text-white language-html" style="height:2rem !important;overflow:hidden;">$ brew install pushgeek-cli  {{{copyCode cli.[0]}}}</code></pre>
+            <p class="text-white">npm</p>
             <pre
-                class="scrollbar-none overflow-x-auto p-6 text-sm leading-snug language-html text-white bg-black bg-opacity-75"><code id="npm"class="language-html" style="height:2rem !important;overflow:hidden;">$ npm install pushgeek-cli  {{{copyCode cli.[1]}}}</code></pre>
-            <p>yarn</p>
+                class="flex flex-justify text-center scrollbar-none overflow-x-auto p-6 text-sm leading-snug language-html text-white bg-black bg-opacity-75"><code id="npm"class="flex text-center text-white language-html" style="height:2rem !important;overflow:hidden;">$ npm install pushgeek-cli  {{{copyCode cli.[1]}}}</code></pre>
+            <p class="text-white">yarn</p>
             <pre
-                class="scrollbar-none overflow-x-auto p-6 text-sm leading-snug language-html text-white bg-black bg-opacity-75"><code id="yarn" class="language-html" style="height:2rem !important;overflow:hidden;">$ yarn install pushgeek-cli  {{{copyCode cli.[2]}}}</code></pre>
-            <p>pnpm</p>
+                class="flex flex-justify text-center scrollbar-none overflow-x-auto p-6 text-sm leading-snug language-html text-white bg-black bg-opacity-75"><code id="yarn" class="flex text-center text-white language-html" style="height:2rem !important;overflow:hidden;">$ yarn install pushgeek-cli  {{{copyCode cli.[2]}}}</code></pre>
+            <p class="text-white">pnpm</p>
             <pre
-                class="scrollbar-none overflow-x-auto p-6 text-sm leading-snug language-html text-white bg-black bg-opacity-75"><code id="pnpm" class="language-html" style="height:2rem !important;overflow:hidden;">$ pnpm install pushgeek-cli  {{{copyCode cli.[3]}}}</code></pre>
+                class="flex flex-justify text-center scrollbar-none overflow-x-auto p-6 text-sm leading-snug language-html text-white bg-black bg-opacity-75"><code id="pnpm" class="flex text-center text-white language-html" style="height:2rem !important;overflow:hidden;">$ pnpm install pushgeek-cli  {{{copyCode cli.[3]}}}</code></pre>
 
         </div>
     </div>
