@@ -2,8 +2,9 @@ ARG NODE_VERSION=16.3.0
 FROM node:${NODE_VERSION}-alpine
 LABEL maintainer="rollout"
 MAINTAINER Saurabh Kashyap <saurabhkashyap0001@gmail.com>
-
+ARG NPM_TOKEN
 ARG ROLLOUT_VERSION=1.0.01
+ARG USERNAME="rollout"
 RUN if [ -z "$ROLLOUT_VERSION" ] ; then echo "The ROLLOUT_VERSION argument is missing!" ; exit 1; fi
 
 
@@ -49,18 +50,22 @@ RUN chmod -R 755 /rollout
 
 
 # Copy only package.json and yarn.lock for cache
-COPY package.json ./rollout
-COPY yarn.lock ./rollout
+COPY package*.json ./rollout
+COPY yarn*.lock ./rollout
 
+RUN if [ "$NPM_TOKEN" ]; \
+    then RUN COPY .npmrc_ .npmrc \
+    else export SOMEVAR=world; \
+    fi
 # Install Dependncies
 # RUN yarn install --production --ignore-optional --ignore-scripts --pure-lockfile --non-interactive --verbose
 
 # Copy Files
 # COPY . ./rollout
-COPY ./src ./rollout/src
+# COPY ./ ./rollout
+COPY --chown=rollout:rollout --from= . /rollout/
 COPY *.js /rollout/
 COPY *.env /rollout/
-COPY --chown=rollout:rollout --from= . /rollout/
 
 COPY .npmrc /usr/local/etc/.npmrc
 RUN apk add --update nodejs-current npm
@@ -80,17 +85,17 @@ RUN npm install -g node-gyp node-gyp-build
 
 
 
-# RUN set -eux; \
-#     apkArch="$(apk --print-arch)"; \
-#     case "$apkArch" in \
-#     'armv7') apk --no-cache add --virtual build-dependencies python3 build-base;; \
-#     esac && \
-#     npm install -g --omit=dev rollout@${ROLLOUT_VERSION} && \
-#     case "$apkArch" in \
-#     'armv7') apk del build-dependencies;; \
-#     esac && \
-#     find /usr/local/lib/node_modules/rollout -type f -name "*.ts" -o -name "*.js.map" -o -name "*.vue" | xargs rm && \
-#     rm -rf /root/.npm
+RUN set -eux; \
+    apkArch="$(apk --print-arch)"; \
+    case "$apkArch" in \
+    'armv7') apk --no-cache add --virtual build-dependencies python3 build-base;; \
+    esac && \
+    #     npm install -g --omit=dev rollout@${ROLLOUT_VERSION} && \
+    case "$apkArch" in \
+    'armv7') apk del build-dependencies;; \
+    esac
+# find /usr/local/lib/node_modules/rollout -type f -name "*.ts" -o -name "*.js.map" -o -name "*.vue" | xargs rm && \
+# rm -rf /root/.npm
 
 # Set a custom user to not have rollout run as root
 
@@ -143,9 +148,10 @@ ENV REST_URL $REST_URL
 # Run npm install - install the npm dependencies
 # RUN npm install -g npm@7.15.1
 # RUN npm install sharp --unsafe-perm
-RUN npm install --unsafe-perm --loglevel=warn
+RUN npm install --unsafe-perm --loglevel=warn --production
 RUN npm install --verbose sharp
 RUN npx envinfo --binaries --languages --system --utilities
+RUN rm -f .npmrc
 # RUN mkdir -p /data/db && \
 #     chown -R mongodb /data/db
 
@@ -163,8 +169,8 @@ COPY process.yml ./process.yml
 # COPY . ./app
 
 
-# Expose application ports - (4300 - for API and 4301 - for front end)
-EXPOSE 5501 5500
+# Expose application ports - (5500 - for API and 3000 - for front end)
+EXPOSE 5500
 
 
 
@@ -174,7 +180,7 @@ RUN npm i -g cross-conf-env npm-run-all
 # COPY --chown=rollout:rollout . .
 
 # # Generate build
-RUN npm run build
+# RUN npm run build
 # CMD [ "pm2-runtime", "npm", "--", "start" ]
 # RUN npm run dev
 # CMD ["npm run dev"]

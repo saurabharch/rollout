@@ -1,0 +1,82 @@
+############### RECOMMENDED DOCKER IMAGE VERSION ###############
+# <node version>-buster (debian 10) -> latest version
+# <node version>-stretch (debian 9) -> stable version
+# <node version>-alpine3.15 (alpine) -> small size version
+
+ARG NODE_VERSION=16.3.0
+FROM node:${NODE_VERSION}-buster as start
+# FROM node:${NODE_VERSION}-alpine
+
+ARG USER="rollout"
+LABEL maintainer="rollout"
+MAINTAINER Saurabh Kashyap <saurabhkashyap0001@gmail.com>
+################################################################
+
+
+######################
+# START STAGE 1
+######################
+USER ${USER}
+ENV NODE_OPTIONS=--max_old_space_size=32768
+ADD ./package.*json ./
+ADD . ./
+
+#######################
+# UPGRADE STAGE 2
+#######################
+FROM start as upgrade
+COPY --from=start . ./
+RUN apt-get autoremove \
+  && apt-get autoclean \
+  && apt-get update \
+  && apt-get upgrade -y \
+  && apk --no-cache add --update tcl apache2 ca-certificates -y \
+  && apt-get install build-essential -y
+
+RUN apk add --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing -y \
+  vips-dev fftw-dev gcc g++ make libc6-compat
+# Add libvips
+RUN apk add --upgrade --no-cache vips-dev build-base --repository https://alpine.global.ssl.fastly.net/alpine/v3.10/community/
+
+RUN \
+  apk add --update graphicsmagick tini tzdata && \
+  npm install -g npm@latest full-icu && \
+  rm -rf /var/cache/apk/* /root/.npm /tmp/* && \
+  # Install fonts
+  apk --no-cache add --virtual fonts msttcorefonts-installer fontconfig && \
+  update-ms-fonts && \
+  fc-cache -f && \
+  apk del fonts && \
+  find  /usr/share/fonts/truetype/msttcorefonts/ -type l -exec unlink {} \; && \
+  rm -rf /var/cache/apk/* /tmp/*
+ENV NODE_ICU_DATA /usr/local/lib/node_modules/full-icu
+#######################
+# FINAL STAGE 3
+#######################
+FROM upgrade as final
+COPY --from=upgrade . ./
+RUN rm -rf node_modules \
+  && npm cache clean -f \
+  && npm config delete proxy \
+  delete https-proxy \
+  -g delete proxy \
+  -g delete https-proxy \
+  set strict-ssl false \
+  set registry "http://registry.npmjs.org" \
+  set fetch-retries 10 \
+  set fetch-retry-factor 20 \
+  set fetch-retry-mintimeout 6000000 \
+  set fetch-retry-maxtimeout 12000000 \
+  set audit false \
+  set cache-min 3600 \
+  set unsafe-perm true \
+  && npm i -g --unsafe-perm \
+  node-gyp -g \
+  @xpack-dev-tools/windows-build-tools@latest -g \
+  pm2 -g \ 
+  && npm i --verbose --no-audit \
+  && npm rebuild bcrypt --build-from-source \ 
+  && npm run build \ 
+  && npm config ls -l
+EXPOSE 5500 
+CMD npm run prod

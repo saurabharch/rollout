@@ -4,3 +4,7 @@ Dockerfile
 .dockerignore
 .git
 .gitignore
+node_modules
+npm-debug.log
+.firebasekey.json
+config/.firebase-key
