@@ -117,7 +117,7 @@
         "bluebird": "^3.7.2",
         "body-parser": "^1.19.0",
         "bull": "^3.29.3",
-        "bullmq": "^2.0.1",
+        "bullmq": "^2.1.0",
         "chalk": "^4.1.2",
         "cheerio": "^1.0.0-rc.10",
         "circular-json": "^0.5.9",
