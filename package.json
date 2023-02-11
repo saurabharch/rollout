@@ -86,7 +86,7 @@
         "node": "16.x"
     },
     "dependencies": {
-        "@adyen/api-library": "^9.1.0",
+        "@adyen/api-library": "^12.0.0",
         "@babel/runtime": "^7.19.0",
         "@bull-board/api": "^4.2.2",
         "@bull-board/express": "^4.3.1",
