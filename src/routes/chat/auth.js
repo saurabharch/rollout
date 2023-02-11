@@ -614,7 +614,7 @@ router.get('/checkpswresetkey/:resetpswrequestid', function (req, res) {
 
     }
   });
-})
+});
 
 
 module.exports = router;
