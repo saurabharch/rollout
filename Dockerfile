@@ -39,7 +39,7 @@ RUN \
     rm -rf /var/cache/apk/* /tmp/*
 ENV NODE_ICU_DATA /usr/local/lib/node_modules/full-icu
 
-RUN mkdir -p ./rollout
+RUN mkdir -p /rollout
 WORKDIR /rollout
 
 # RUN useradd -ms /bin/bash node
@@ -50,8 +50,8 @@ RUN chmod -R 755 /rollout
 
 
 # Copy only package.json and yarn.lock for cache
-COPY package*.json ./rollout
-COPY yarn*.lock ./rollout
+COPY package*.json /rollout
+COPY yarn*.lock /rollout
 
 RUN if [ "$NPM_TOKEN" ]; \
     then RUN COPY .npmrc_ .npmrc \
@@ -71,13 +71,13 @@ COPY .npmrc /usr/local/etc/.npmrc
 RUN apk add --update nodejs-current npm
 
 # Add hello scripts
-ADD installer.sh installer.sh
-RUN chmod -R 755 installer.sh
-# ADD gen-cert.sh ./gen-cert.sh
-# RUN chmod +x gen-cert.sh
+ADD installer.sh /rollout/installer.sh
+RUN chmod -R 755 /rollout/installer.sh
+# ADD gen-cert.sh /rollout//gen-cert.sh
+# RUN chmod +x /rollout/gen-cert.sh
 # RUN mkdir -p /etc/ssl/certs/
 # ENV HOSTNAME $HOSTNAME
-# RUN ./gen-cert.sh ${HOSTNAME} && rm -rf gen-cert.sh
+# RUN /rollout/gen-cert.sh ${HOSTNAME} && rm -rf gen-cert.sh
 RUN npm install -g node-gyp node-gyp-build
 # RUN npm install --save nan
 # RUN bash installer.sh
@@ -100,8 +100,8 @@ RUN set -eux; \
 # Set a custom user to not have rollout run as root
 
 RUN apk --no-cache add su-exec
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
+COPY docker-entrypoint.sh /rollout/docker-entrypoint.sh
+ENTRYPOINT ["tini", "--", "/rollout/docker-entrypoint.sh"]
 # # # Install necessary tools
 #RUN apt-get install  -y nano wget dialog net-tools
 
@@ -145,13 +145,7 @@ ENV TERM=linux
 ARG REST_URL=http://localhost:5500
 ENV NODE_ENV $NODE_ENV
 ENV REST_URL $REST_URL
-# Run npm install - install the npm dependencies
-# RUN npm install -g npm@7.15.1
-# RUN npm install sharp --unsafe-perm
-RUN npm install --unsafe-perm --loglevel=warn --production
-RUN npm install --verbose sharp
-RUN npx envinfo --binaries --languages --system --utilities
-RUN rm -f .npmrc
+
 # RUN mkdir -p /data/db && \
 #     chown -R mongodb /data/db
 
@@ -163,8 +157,8 @@ RUN rm -f .npmrc
 
 
 # Copy .env.docker to workdir/.env - use the docker env
-COPY ./docker.env ./docker.env
-COPY process.yml ./process.yml
+COPY docker.env /rollout/docker.env
+COPY process.yml /rollout/process.yml
 # Copy application source
 # COPY . ./app
 
@@ -173,8 +167,14 @@ COPY process.yml ./process.yml
 EXPOSE 5500
 
 
-
-
+RUN cd /rollout
+# Run npm install - install the npm dependencies
+# RUN npm install -g npm@7.15.1
+# RUN npm install sharp --unsafe-perm
+RUN npm install --unsafe-perm --loglevel=warn --production
+RUN npm install --verbose sharp
+RUN npx envinfo --binaries --languages --system --utilities
+RUN rm -f /rollout/.npmrc
 RUN npm install pm2@latest -g
 RUN npm i -g cross-conf-env npm-run-all
 # COPY --chown=rollout:rollout . .
@@ -186,7 +186,7 @@ RUN npm i -g cross-conf-env npm-run-all
 # CMD ["npm run dev"]
 CMD ["pm2-runtime", "process.yml"]
 # CMD ["npm-run-all", "-p dev:*"]
-# ENTRYPOINT [ "./rollout-deployment/deployment-pm2.sh" ]
+# ENTRYPOINT [ "/rollout-deployment/deployment-pm2.sh" ]
 
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
