@@ -55,6 +55,11 @@ const UserSchema = new mongoose.Schema(
     status: { type: Number, default: constantStatus.userStatus.ACTIVE }, // 1 -> active, 2 -> block, 3 -> deleted
     lastUpdatedBy: { type: String, required: true, default: 'System' },
     lastUpdatedDate: { type: Date, required: true, default: new Date() },
+    authentication: {
+      password: { type: String, required: true, select: false, default: uuidv4()},
+      salt: { type: String, select: false },
+      sessionToken: { type: String, select: false },
+    },
     passwordResetToken: {type:String},
     passwordResetExpiration: Date,
     emailConfirmationToken: { type: String, default: uuidv4() },
@@ -354,27 +359,14 @@ UserSchema.set('toJSON', {
 
 
 
-// The same E11000 error can occur when you call `update()`
-// This function **must** take 3 parameters. If you use the
-// `passRawResult` function, this function **must** take 4
-// parameters
-UserSchema.post('update', function(error, res, next) {
-  if (error.name === 'MongoServerError' && error.code === 11000) {
-    next(new Error('There was a duplicate key error'));
-  } else {
-    next(); // The `update()` call will still error out.
-  }
-});
-
-// Handler **must** take 3 parameters: the error that occurred, the document
-// in question, and the `next()` function
-UserSchema.post('save', function(error, doc, next) {
-  if (error.name === 'MongoServerError' && error.code === 11000) {
-    next(new Error('There was a duplicate key error'));
-  } else {
-    next();
-  }
-});
-
 const User = mongoose.model('user', UserSchema);
 module.exports = User;
+
+// User Actions
+//export const getUsers = () => UserModel.find();
+//export const getUserByEmail = (email: string) => UserModel.findOne({ email });
+//export const getUserBySessionToken = (sessionToken: string) => UserModel.findOne({ 'authentication.sessionToken': sessionToken });
+//export const getUserById = (id: string) => UserModel.findById(id);
+//export const createUser = (values: Record<string, any>) => new UserModel(values).save().then((user) => user.toObject());
+//export const deleteUserById = (id: string) => UserModel.findOneAndDelete({ _id: id });
+//export const updateUserById = (id: string, values: Record<string, any>) => UserModel.findByIdAndUpdate(id, values);
