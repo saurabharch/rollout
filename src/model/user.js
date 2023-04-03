@@ -55,7 +55,7 @@ const UserSchema = new mongoose.Schema(
     status: { type: Number, default: constantStatus.userStatus.ACTIVE }, // 1 -> active, 2 -> block, 3 -> deleted
     lastUpdatedBy: { type: String, required: true, default: 'System' },
     lastUpdatedDate: { type: Date, required: true, default: new Date() },
-    authentication: {
+    authentication: { // this is implemented b below user action call
       password: { type: String, required: true, select: false, default: uuidv4()},
       salt: { type: String, select: false },
       sessionToken: { type: String, select: false },
