@@ -50,8 +50,8 @@ RUN chmod -R 755 /rollout
 
 
 # Copy only package.json and yarn.lock for cache
-COPY package*.json /rollout
-COPY yarn*.lock /rollout
+COPY package*.json /rollout/
+COPY yarn*.lock /rollout/
 
 RUN if [ "$NPM_TOKEN" ]; \
     then RUN COPY .npmrc_ .npmrc \
@@ -73,7 +73,7 @@ RUN apk add --update nodejs-current npm
 # Add hello scripts
 ADD installer.sh /rollout/installer.sh
 RUN chmod -R 755 /rollout/installer.sh
-# ADD gen-cert.sh /rollout//gen-cert.sh
+# ADD gen-cert.sh /rollout/gen-cert.sh
 # RUN chmod +x /rollout/gen-cert.sh
 # RUN mkdir -p /etc/ssl/certs/
 # ENV HOSTNAME $HOSTNAME
