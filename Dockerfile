@@ -158,7 +158,7 @@ ENV REST_URL $REST_URL
 
 
 # Copy .env.docker to workdir/.env - use the docker env
-COPY docker.env /rollout/docker.env
+COPY env.example /rollout/docker.env
 COPY process.yml /rollout/process.yml
 # Copy application source
 # COPY . ./app
