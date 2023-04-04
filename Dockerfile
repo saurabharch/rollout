@@ -64,8 +64,9 @@ RUN if [ "$NPM_TOKEN" ]; \
 # COPY . ./rollout
 # COPY ./ ./rollout
 COPY --chown=rollout:rollout --from= . /rollout/
-COPY *.js /rollout/
-COPY *.env /rollout/
+COPY docker-entrypoint.sh /rollout/docker-entrypoint.sh
+#COPY *.js /rollout/
+#COPY *.env /rollout/
 
 COPY .npmrc /usr/local/etc/.npmrc
 RUN apk add --update nodejs-current npm
@@ -100,7 +101,7 @@ RUN set -eux; \
 # Set a custom user to not have rollout run as root
 
 RUN apk --no-cache add su-exec
-COPY docker-entrypoint.sh /rollout/docker-entrypoint.sh
+
 ENTRYPOINT ["tini", "--", "/rollout/docker-entrypoint.sh"]
 # # # Install necessary tools
 #RUN apt-get install  -y nano wget dialog net-tools
