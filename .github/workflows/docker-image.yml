@@ -16,5 +16,4 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKER_USER }}/rollout:$(date +%s) .
           echo ${{ secrets.DOCKER_SECRET }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
-          docker tag rollout:$(date +%s) ${{ secrets.DOCKER_USER }}/rollout
           docker push ${{ secrets.DOCKER_USER }}/rollout
