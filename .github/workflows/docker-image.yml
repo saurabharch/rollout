@@ -13,7 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
+        env:
+          PR_VAR: $(date +%s)
         run: |
-          docker build -t ${{ secrets.DOCKER_USER }}/rollout:$(date +%s) .
+          docker build -t ${{ secrets.DOCKER_USER }}/rollout:${PR_VAR} .
           echo ${{ secrets.DOCKER_SECRET }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
-          docker push ${{ secrets.DOCKER_USER }}/rollout
+          docker push ${{ secrets.DOCKER_USER }}/rollout:${PR_VAR}
