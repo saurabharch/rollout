@@ -16,6 +16,6 @@ jobs:
         env:
           PR_VAR: $(date +%s)
         run: |
-          docker build -t ${{ secrets.DOCKER_USER }}/rollout:${PR_VAR} .
+          docker build -t ${{ secrets.DOCKER_USER }}/rollout:latest .
           echo ${{ secrets.DOCKER_SECRET }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
-          docker push ${{ secrets.DOCKER_USER }}/rollout:${PR_VAR}
+          docker push ${{ secrets.DOCKER_USER }}/rollout:latest
