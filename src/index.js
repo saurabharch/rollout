@@ -6,24 +6,28 @@
 const app = require('./app');
 // import './database';
 const { APP_PORT } = require('../config');
-require('dotenv').config()
+require('dotenv').config({path: '../configs/.env'});
+// require('dotenv').config();
 //////////////////////////////////////////START FOR HTTPS  ///////////////////////////////////////////// 
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
 var debug = require('debug')('rollout-server:server');
 var http = require('http');
-var version = require('../package.json').version
+var version = require('../package.json').version;
 var mongoose = require('mongoose');
 // Server certificate by generated script path
-const certificate = fs.readFileSync(path.join(__dirname,'../certs',`${process.env.HOSTNAME}-cert.pem`));
-const privateKey = fs.readFileSync(path.join(__dirname,'../certs',`${process.env.HOSTNAME}-key.pem`));
-const ca = fs.readFileSync(path.join(__dirname,'../certs',`${process.env.HOSTNAME}-csr.pem`));
+const certificate = fs.readFileSync(path.join(__dirname,'../config/certs',`${process.env.HOSTNAME}-cert.pem`));
+const privateKey = fs.readFileSync(path.join(__dirname,'../config/certs',`${process.env.HOSTNAME}-key.pem`));
+const ca = fs.readFileSync(path.join(__dirname,'../config/certs',`${process.env.HOSTNAME}-csr.pem`));
 var webSocketServer = require('./websocket/webSocketServer');
 // Certificate with generated key by letsencrypt
 // const privateKey = fs.readFileSync('/etc/letsencrypt/live/pushgeeks.com/privkey.pem', 'utf8');
 // const certificate = fs.readFileSync('/etc/letsencrypt/live/pushgeeks.com/cert.pem', 'utf8');
 // const ca = fs.readFileSync('/etc/letsencrypt/live/pushgeeks.com/chain.pem', 'utf8');
+
+
+
 
 const credentials = {
   key: privateKey,
@@ -83,6 +87,8 @@ function onError(error) {
 
 ////////////////////////////////////////////////// HTTPS  ///////////////////////////////////////////////// 
 (async () => {
+
+
   // const server = await app(store);
   if(process.env.NODE_ENV === 'production'){
     var port = normalizePort(process.env.APP_PORT || '5500');

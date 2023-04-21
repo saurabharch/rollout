@@ -18,7 +18,7 @@ initDb(config.databaseConnectionString, (err, db) => {
         db.discounts.deleteMany({}, {}),
         db.variants.deleteMany({}, {}),
         db.menu.deleteMany({}, {}),
-        db.reviews.deleteMany({}, {})
+        // db.reviews.deleteMany({}, {})
     ])
     .then(() => {
         Promise.all([
@@ -32,7 +32,7 @@ initDb(config.databaseConnectionString, (err, db) => {
             const products = await db.products.find({}).toArray();
             const customers = await db.customers.find({}).toArray();
             await db.variants.insertMany(await fixProductIds(jsonData.variants, products));
-            await db.reviews.insertMany(await fixReviews(jsonData.reviews, products, customers));
+            // await db.reviews.insertMany(await fixReviews(jsonData.reviews, products, customers));
             console.log('Test data complete');
             process.exit();
         })

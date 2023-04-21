@@ -31,4 +31,4 @@ exports.storages = {
     sessionToken:'', 
     partSize:  process.env.MINIO_PART_SIZE || '100mb'
   }
-}
+};

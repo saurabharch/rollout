@@ -1,5 +1,5 @@
 // const mongoose = require("mongoose");
-require('dotenv').config({path:__dirname+'../config/.env'})
+require('dotenv').config({path:__dirname+'../config/.env'});
 import mongoose from'mongoose';
 import session from'express-session';
 import connectRedis from'connect-redis';

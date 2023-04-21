@@ -1,4 +1,4 @@
-require('dotenv').config({path:__dirname+'./.env'})
+require('dotenv').config({path:__dirname+'./.env'});
 module.exports = {
   secret:process.env.SESSION_SECRET || 'nodeauthsecret',
   schemaVersion: 2111, 
