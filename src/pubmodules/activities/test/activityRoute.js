@@ -81,5 +81,3 @@ describe('ActivityRoute', () => {
 });
 
 });
-
-

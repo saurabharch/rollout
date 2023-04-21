@@ -7,5 +7,5 @@ module.exports = function (mongoose, option) {
     mongoose.Query.prototype.cache = function (ttl, customKey) {
         winston.debug("Mongoose cache fn cache called");   
         return this;
-    }      
-}
+    };      
+};

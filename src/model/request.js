@@ -340,7 +340,6 @@ RequestSchema.virtual('participatingAgents', {
   // if (this.agents && this.agents.length>0  // I uncomment  winston.debug("project_user", project_user); of the requestNotification.js row 252 this.agents doesn't have .filter method??
   //   // &&  this.agents.filter
   //   ) {
-
     var project_users_available = this.snapshot.agents.filter(function (projectUser) {
       // var project_users_available = this.agents.filter(function (projectUser) {
       if (projectUser.user_available == true) {
@@ -349,7 +348,6 @@ RequestSchema.virtual('participatingAgents', {
     });
     // ATTENTION DO NOT PRINT INTO A VIRTUAL 
     // winston.debug('++ AVAILABLE PROJECT USERS count ', project_users_available)
-
     // if (project_users_available && project_users_available.length>0){
       return project_users_available.length;
     // }else {
@@ -358,7 +356,6 @@ RequestSchema.virtual('participatingAgents', {
   // } else {
   //   return 0;  
   // }
-
 });
 */
 

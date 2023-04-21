@@ -88,7 +88,6 @@ projectEvent.on('project.create', async (project) => {
         s_new_login_01.id_project = project._id;
         let s_new_login_01Trigger = new Trigger(s_new_login_01);
         saveTrigger(s_new_login_01Trigger);
-
         let s_invite_proactive_greeting_bot_01 = Object.assign({}, DefaultTrigger.defTriggerObj.s_invite_proactive_greeting_bot_01);
         s_invite_proactive_greeting_bot_01.id_project = project._id;
         let s_invite_proactive_greeting_bot_01Trigger = new Trigger(s_invite_proactive_greeting_bot_01);
@@ -109,6 +108,3 @@ projectEvent.on('project.create', async (project) => {
 });
 
 rulesTrigger.listen();
-
-
-

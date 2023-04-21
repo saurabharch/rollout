@@ -1178,4 +1178,3 @@ class RulesTrigger {
 
 var rulesTrigger = new RulesTrigger();
 module.exports = rulesTrigger;
-

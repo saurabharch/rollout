@@ -21,20 +21,19 @@ class PubSub {
 
     this.wss = wss
 
-    this.clients = new Map()
+    this.clients = new Map();
      this.subscription = new Subscription();
 
-    this.load = this.load.bind(this)
-    this.handleReceivedClientMessage = this.handleReceivedClientMessage.bind(
-      this)
-    this.handleAddSubscription = this.handleAddSubscription.bind(this)
-    this.handleUnsubscribe = this.handleUnsubscribe.bind(this)
-    this.handlePublishMessage = this.handlePublishMessage.bind(this)
-    this.removeClient = this.removeClient.bind(this)
+    this.load = this.load.bind(this);
+    this.handleReceivedClientMessage = this.handleReceivedClientMessage.bind(this);
+    this.handleAddSubscription = this.handleAddSubscription.bind(this);
+    this.handleUnsubscribe = this.handleUnsubscribe.bind(this);
+    this.handlePublishMessage = this.handlePublishMessage.bind(this);
+    this.removeClient = this.removeClient.bind(this);
      
      this.callbacks = callbacksArg;
 
-    this.load()
+    this.load();
   }
 
    load() {
@@ -45,9 +44,9 @@ class PubSub {
 
       ws.isAlive = true;
 
-      const id = this.autoId()
+      const id = this.autoId();
 
-      winston.debug('connection', id)
+      winston.debug('connection', id);
       const client = {
         id: id,
         ws: ws,
@@ -233,19 +232,15 @@ class PubSub {
   handlePublishMessage (topic, message, from, isBroadcast = false, method) {
   
 
-    let subscriptions = isBroadcast
-      ? this.subscription.getSubscriptions(
-        (sub) => sub.topic === topic && sub.clientId !== from)
-      : this.subscription.getSubscriptions(
-        (subs) => subs.topic === topic)
+    let subscriptions = isBroadcast ? this.subscription.getSubscriptions((sub) => sub.topic === topic && sub.clientId !== from): this.subscription.getSubscriptions((subs) => subs.topic === topic);
 
 
         winston.debug("handlePublishMessage!!!!!!!!!!!", subscriptions);    
     // now let send to all subscribers in the topic with exactly message from publisher
     subscriptions.forEach((subscription) => {
 
-      const clientId = subscription.clientId
-      const subscriptionType = subscription.type  // email, phone, ....
+      const clientId = subscription.clientId;
+      const subscriptionType = subscription.type;  // email, phone, ....
       // winston.debug('CLient id of subscription', clientId, subscription)
       // we are only handle send via websocket
       if (subscriptionType === 'ws') {
@@ -256,10 +251,10 @@ class PubSub {
             method: method,
             message: message,
           },
-        })
+        });
       }
 
-    })
+    });
   }
 
 
@@ -281,7 +276,7 @@ class PubSub {
             method: method,
             message: message,
           },
-        })
+        });
       
 
   }
@@ -317,9 +312,9 @@ class PubSub {
 
     if (typeof message === 'string') {
 
-      message = this.stringToJson(message)
+      message = this.stringToJson(message);
 
-      const action = _.get(message, 'action', '')
+      const action = _.get(message, 'action', '');
       switch (action) {
 
         case 'me':
@@ -327,7 +322,7 @@ class PubSub {
           //Client is asking for his info
 
           this.send(clientId,
-            {action: 'me', payload: {id: clientId, userId: client.userId}})
+            {action: 'me', payload: {id: clientId, userId: client.userId}});
 
           break
 
@@ -339,18 +334,18 @@ class PubSub {
             var messageToSend = {action: 'heartbeat', payload: {message: {text: 'pong'}}};
             // rispondi pong solo su ping e non su pong
             winston.debug('received heartbeat from ',clientId," i send a  message: ",  messageToSend);         
-            this.send(clientId, messageToSend)
+            this.send(clientId, messageToSend);
                 
             
           }
             
 
-        break
+        break;
 
         case 'subscribe':
 
           //@todo handle add this subscriber
-          const topic = _.get(message, 'payload.topic', null)
+          const topic = _.get(message, 'payload.topic', null);
           if (topic) {
 
             if (this.callbacks && this.callbacks.onSubscribe) {
@@ -389,11 +384,11 @@ class PubSub {
 
           }
 
-          break
+          break;
 
         case 'unsubscribe':
 
-          const unsubscribeTopic = _.get(message, 'payload.topic')
+          const unsubscribeTopic = _.get(message, 'payload.topic');
 
          
 
@@ -412,12 +407,12 @@ class PubSub {
             this.handleUnsubscribe(unsubscribeTopic, clientId)
           }
 
-          break
+          break;
 
         case 'publish':
 
-          const publishTopic = _.get(message, 'payload.topic', null)
-          const publishMessage = _.get(message, 'payload.message')
+          const publishTopic = _.get(message, 'payload.topic', null);
+          const publishMessage = _.get(message, 'payload.message');
           if (publishTopic) {
             const from = clientId;
 
@@ -438,8 +433,8 @@ class PubSub {
 
         case 'broadcast':
 
-          const broadcastTopicName = _.get(message, 'payload.topic', null)
-          const broadcastMessage = _.get(message, 'payload.message')
+          const broadcastTopicName = _.get(message, 'payload.topic', null);
+          const broadcastMessage = _.get(message, 'payload.message');
           if (broadcastTopicName) {
             if (this.callbacks && this.callbacks.onBroadcast) {              
               try {
@@ -452,14 +447,14 @@ class PubSub {
             }
 
             this.handlePublishMessage(broadcastTopicName, broadcastMessage,
-              clientId, true)
+              clientId, true);
           }
 
-          break
+          break;
 
         default:
 
-          break
+          break;
       }
 
     } else {
@@ -476,12 +471,12 @@ class PubSub {
   stringToJson (message) {
 
     try {
-      message = JSON.parse(message)
+      message = JSON.parse(message);
     } catch (e) {
-      winston.debug(e, message)
+      winston.debug(e, message);
     }
 
-    return message
+    return message;
   }
 
   /**
@@ -491,11 +486,11 @@ class PubSub {
   addClient (client) {
 
     if (!client.id) {
-      client.id = this.autoId()
+      client.id = this.autoId();
     }
     winston.debug('client added', {id: client.id, subscriptions: client.subscriptions});
-    this.clients = this.clients.set(client.id, client)
-     winston.debug('clients added: ',this.clients)
+    this.clients = this.clients.set(client.id, client);
+     winston.debug('clients added: ',this.clients);
   }
 
   /**
@@ -513,7 +508,7 @@ class PubSub {
    */
   getClient (id) {
 
-    return this.clients.get(id)
+    return this.clients.get(id);
   }
 
   /**
@@ -521,7 +516,7 @@ class PubSub {
    * @returns {*}
    */
   autoId () {
-    return uuidv4()
+    return uuidv4();
   }
 
   /**
@@ -530,19 +525,19 @@ class PubSub {
    */
   send (clientId, message) {
 
-    const client = this.getClient(clientId)
+    const client = this.getClient(clientId);
     if (!client) {
-      return
+      return;
     }
-    const ws = client.ws
+    const ws = client.ws;
     try {
-      message = JSON.stringify(message)
+      message = JSON.stringify(message);
     }
     catch (err) {
-      winston.debug('An error convert object message to string', err)
+      winston.debug('An error convert object message to string', err);
     }
 
-    ws.send(message)
+    ws.send(message);
   }
 
 }

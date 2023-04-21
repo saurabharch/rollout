@@ -26,7 +26,6 @@ const upload = multer({ storage: fileService.getStorage("files") });
 curl -u andrea.leo@f21.it:123456 \
   -F "file=@/Users/andrealeo/dev/chat21/tiledesk-server-dev-org/README.md" \
   http://localhost:3000/files/users/
-
   */
 
 router.post('/users', [passport.authenticate(['basic', 'jwt'], { session: false }), validtoken], upload.single('file'), (req, res, next) => {
@@ -42,9 +41,6 @@ router.post('/users', [passport.authenticate(['basic', 'jwt'], { session: false 
 curl \
   -F "file=@/Users/andrealeo/dev/chat21/tiledesk-server-dev-org/README.md" \
   http://localhost:3000/files/public/
-
-
-
   */
 
 router.post('/public', upload.single('file'), (req, res, next) => {

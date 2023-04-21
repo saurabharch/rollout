@@ -102,7 +102,7 @@ findUnresponsiveRequests() {
           // winston.info("Request closed",updatedStatusRequest);
         }).catch(function(err) {
           winston.error("CloseBotUnresponsiveRequestTask: Error closing the request with request_id: " + request.request_id, err);
-        })
+        });
 
       });
 

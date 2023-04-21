@@ -51,4 +51,4 @@ SessionSchema.post('save', function(error, doc, next) {
 
 
 let SessionModel =  mongoose.model('Session',SessionSchema)
-module.exports = SessionModel
+module.exports = SessionModel;

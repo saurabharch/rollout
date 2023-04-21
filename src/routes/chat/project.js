@@ -151,7 +151,6 @@ router.put('/:projectid', [passport.authenticate(['basic', 'jwt'], { session: fa
 
   
   /*
-
   if (req.body.settings.email.templates.assignedRequest!=undefined) {
     // if (req.body["settings.email.templates.assignedRequest.html"]!=undefined) {
     console.log("assignedRequest");

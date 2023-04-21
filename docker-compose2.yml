@@ -45,7 +45,6 @@ services:
     # image: "saurabharch/rollout:latest"
     image: "rollout:latest"
     build: rollout-deployment
-    image: "rollout:latest"
     hostname: rollout
     environment:
       WAIT_HOSTS: redis:6379, mongo:27017
@@ -59,8 +58,8 @@ services:
     links:
       - redis
       - mongo  
-    networks:
-      - webnet
+    # networks:
+    #   - webnet
     # command: sh -c "dockerize -wait mongodb://mongo:27017 redis://redis:6379 -timeout 300s -wait-retry-interval 30s"
 # OPTIONAL NGINX CONFIG FOR REVERSE PROXY
 #  nginx:
@@ -141,11 +140,11 @@ services:
   #     NGINX_PROXY_CONTAINER: https-nginx
   #     LETSENCRYPT_HOST: notrealchefs.com
   #     DEBUG: "true"
-volumes:
-  rollout-db:
-    driver: local
-  rollout-db-dump:
-    driver: local
+  volumes:
+    rollout-db:
+      driver: local
+    rollout-db-dump:
+      driver: local
 networks:
   webnet:
   default:
