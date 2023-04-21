@@ -77,4 +77,3 @@ export const NewSubscriber = async(req,res,next) => {
   res.status(200).json(subscriptionModel);
   next();
 }
-

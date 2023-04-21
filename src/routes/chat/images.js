@@ -43,12 +43,9 @@ const upload = multer({ storage: fileService.getStorage("images"), fileFilter: f
 curl -u andrea.leo@f21.it:123456 \
   -F "file=@/Users/andrealeo/dev/chat21/tiledesk-server-dev-org/test.jpg" \
   http://localhost:3000/images/users/
-
-
   curl -u andrea.leo@frontiere21.it:123 \ 
   -F "file=@/Users/andrealeo/dev/chat21/tiledesk-server-dev-org/test.jpg" \
   https://tiledesk-server-pre.herokuapp.com/images/users/
-
   */
 
 router.post('/users', [passport.authenticate(['basic', 'jwt'], { session: false }), validtoken],
@@ -97,12 +94,9 @@ const uploadFixedFolder = multer({ storage: fileService.getStorageFixFolder("ima
 curl -v -X PUT -u andrea.leo@f21.it:123456 \
   -F "file=@/Users/andrealeo/dev/chat21/tiledesk-server-dev-org/test.jpg" \
   http://localhost:3000/images/users/
-
-
   curl -v -X PUT -u andrea.leo@frontiere21.it:123 \
   -F "file=@/Users/andrealeo/dev/chat21/tiledesk-server-dev-org/test.jpg" \
     https://tiledesk-server-pre.herokuapp.com/images/users/
-
   */
 router.put('/users', [passport.authenticate(['basic', 'jwt'], { session: false }), validtoken],
 // bodymiddleware, 
@@ -159,15 +153,12 @@ const uploadAvatar= multer({ storage: fileService.getStorageAvatar("images"), fi
 curl -v -X PUT -u andrea.leo@f21.it:123456 \
   -F "file=@/Users/andrealeo/dev/chat21/tiledesk-server-dev-org/test.jpg" \
   http://localhost:3000/images/users/photo
-
   curl -v -X PUT -u andrea.leo@f21.it:123456 \
   -F "file=@/Users/andrealeo/Downloads/aa2.jpg" \
   http://localhost:3000/images/users/photo
-
   curl -v -X PUT -u andrea.leo@frontiere21.it:258456td \
   -F "file=@/Users/andrealeo/dev/chat21/tiledesk-server-dev-org/test.jpg" \
     https://tiledesk-server-pre.herokuapp.com/images/users/photo
-
   */
 router.put('/users/photo', [passport.authenticate(['basic', 'jwt'], { session: false }), validtoken],
 // bodymiddleware, 
@@ -225,7 +216,6 @@ uploadAvatar.single('file'), (req, res, next) => {
 /*
 curl -v -X DELETE -u andrea.leo@f21.it:123456 \
   http://localhost:3000/images/users/?path=uploads%2Fusers%2F609bf8157bf5ca7ef7160197%2Fimages%2Ftest.jpg
-
 curl -v -X DELETE  -u andrea.leo@frontiere21.it:123 \
    https://tiledesk-server-pre.herokuapp.com/images/users/?path=uploads%2Fusers%2F5aaa99024c3b110014b478f0%2Fimages%2Fphoto.jpg
  
@@ -290,7 +280,6 @@ curl \
   -F "filecomment=This is an image file" \
   -F "file=@/Users/andrealeo/dev/chat21/tiledesk-server-dev-org/test.jpg" \
   http://localhost:3000/images/public/
-
   */
 
   
@@ -299,37 +288,28 @@ curl \
 {% api-method-summary %}
 Upload a public image
 {% endapi-method-summary %}
-
 {% api-method-description %}
 Allows to upload an image without autentication
 {% endapi-method-description %}
-
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% endapi-method-path-parameters %}
-
 {% api-method-headers %}
-
 {% api-method-parameter name="Content-Type" type="string" required=true %}
 use "multipart/form-data" value
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
-
 {% api-method-body-parameters %}
 {% api-method-parameter name="file" type="binary" required=true %}
 the image binary file
 {% endapi-method-parameter %}
-
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
-
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-
 {% endapi-method-response-example-description %}
-
 ```text
   {
     "message":"File uploded successfully",
@@ -340,9 +320,7 @@ the image binary file
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
-
 Example:
-
 ```text
 curl -v -X POST -H 'Content-Type: multipart/form-data' -F "file=@/Users/andrealeo/dev/chat21/tiledesk-server-dev-org/test.jpg" https://api.tiledesk.com/v2/images/public
 ```

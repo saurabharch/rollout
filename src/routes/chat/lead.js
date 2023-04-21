@@ -16,7 +16,7 @@ router.post('/', function (req, res) {
 
   leadService.createWitId(req.body.lead_id, req.body.fullname, req.body.email, req.projectid, req.user.id, req.body.attributes).then(function(savedLead) {
     res.json(savedLead);
-  })
+  });
 
 });
 

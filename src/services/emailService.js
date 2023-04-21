@@ -1178,47 +1178,33 @@ class EmailService {
 
 /*
   sendEmailChannelTakingNotification(to, request, project, tokenQueryString) {
-
     var that = this;
-
     this.readTemplateFile('ticket-taking.txt', function(err, html) {
       // this.readTemplateFile('ticket.html', function(err, html) {
-
-
       var envTemplate = process.env.EMAIL_TICKET_HTML_TEMPLATE;
        winston.debug("envTemplate: " + envTemplate);
-
       if (envTemplate) {
           html = envTemplate;
       }
-
       winston.debug("html: " + html);
-
       var template = handlebars.compile(html);
-
       var baseScope = JSON.parse(JSON.stringify(that));
       delete baseScope.pass;
-
       var replacements = {        
         request: request,
         project: project.toJSON(),
         tokenQueryString: tokenQueryString,
         baseScope: baseScope    
       };
-
       var html = template(replacements);
       winston.debug("html: " + html);
-
-
       // if (message.request && message.request.lead && message.request.lead.email) {
       //   winston.info("message.request.lead.email: " + message.request.lead.email);
       //   replyTo = replyTo + ", "+ request.lead.email;
       // }
       
-
       that.send({to:to, replyTo: replyTo, subject:`R: ${request ? request.subject : '-'}`, text:html }); //html:html
       that.send({to: that.bcc, replyTo: replyTo, subject: `R: ${request ? request.subject : '-'} - notification`, text:html});//html:html
-
     });
   }
 */

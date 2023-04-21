@@ -6,7 +6,7 @@ module.exports = function (mongoose, cache) {
   const exec = mongoose.Query.prototype.exec;
 
   mongoose.Query.prototype.exec = function (op, callback = function () {}) {
-    console.log("quiiiiiiiiiiiiiii exec")
+    console.log("quiiiiiiiiiiiiiii exec");
     if (!this.hasOwnProperty('_ttl')) return exec.apply(this, arguments);
 
     if (typeof op === 'function') {

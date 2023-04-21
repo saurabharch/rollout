@@ -323,20 +323,16 @@ class FaqBotHandler {
                         //make http request external   
                         /*
                         if (faq_kb.url) {
-
                                                                                                 
                             var url = faq_kb.url+"/parse";
                             winston.verbose("fulltext search external url " + url);   
-
                             var json = {text: message.text, language: faq_kb.language, id_project: message.id_project, id_faq_kb: faq_kb._id};
                             winston.verbose("fulltext search external json", json);   
-
                             var headers = {
                                 'Content-Type' : 'application/json', 
                                 'User-Agent': 'tiledesk-bot',
                                 'Origin': webhook_origin
                                 };
-
                             var res = await httpUtil.call(url, headers, json, "POST")
                             console.log("res", res);
                             
@@ -346,13 +342,10 @@ class FaqBotHandler {
                                                         //filtra su intent name
                                 var queryExternal = { id_project: message.id_project, id_faq_kb: faq_kb._id, intent_display_name: intent_name};
                                 winston.verbose("queryExternal",queryExternal);
-
                                 var faqExternal = await Faq.findOne(queryExternal) 
                                     .lean().               
                                     exec();
-
                                 winston.verbose("faqExternal",faqExternal);
-
                                 if (faqExternal) {
                                     answerObj = faqExternal;
                                 }

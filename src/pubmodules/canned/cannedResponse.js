@@ -45,7 +45,7 @@ var CannedResponseSchema = new Schema({
 
  if (process.env.MONGOOSE_SYNCINDEX) {
   CannedResponse.syncIndexes();
-  winston.info("CannedResponse syncIndexes")
+  winston.info("CannedResponse syncIndexes");
 }
 
 module.exports = CannedResponse;
