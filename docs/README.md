@@ -159,6 +159,7 @@ sudo pm2 save
 ```
 
 - Running Rollout Server using PM2 with babel as interpreter setting is [Here](https://github.com/saurabharch/rollout/wiki/Run-Rollout-Server-using-PM2-server-with-babel-as-interpreter)
+- More About PM2 Configuration Details [Here](https://pm2.keymetrics.io/docs/usage/quick-start/)
 
 ## Setting Up with Nginx Proxy as a load balancer
 
