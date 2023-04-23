@@ -288,6 +288,11 @@ sudo systemctl status nginx
 sudo apt-get install fail2ban
 ```
 
+
+[Fail2ban Configuration with Nginx](https://github.com/saurabharch/rollout/blob/master/docs/fail2ban-config.md)
+
+#### OR
+
 [refere config](https://www.webfoobar.com/node/36)
 
 > File Structure
