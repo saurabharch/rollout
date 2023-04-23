@@ -732,7 +732,14 @@
             fill: rgba(0, 0, 0, 0.4980392156862745) !important;
         }
     </style>
-<script>console.log("%c\ud83e\udd2b Hint: ⚠️ Stop! %cRollout is made with ❤️ by RainDigi IT Pvt. Ltd., This is a browser feature intended for developers.If someone told you to copy and paste something here to enable a rollout feature or 'hack' someone's account, it is a scam and will give them access to your rollout account. %cSee https://rollout.com/security for more information. \ud83c\udf6d", "font-weight:bold;font-size:50px;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;background: #1B2024; color: #D4EBFF; padding: 10px 16px", "font-weight:500;font-size:20px;color:#404040;", "font-weight:500;font-size:22px;color:grey;")</script>
+<script>
+    console.log(
+        "%c\ud83e\udd2b Hint: ⚠️ Stop! %cRollout is made with ❤️ by RainDigi IT Pvt. Ltd., This is a browser feature intended for developers.If someone told you to copy and paste something here to enable a Rollout feature or 'hack' someone's account, it is a scam and will give them access to your Rollout account. %cSee https://Rollout.com/security for more information. \ud83c\udf6d",
+        "font-weight:bold;font-size:50px;text-shadow:1px 1px 0px black, 1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;background: #1B2024; color: #D4EBFF; padding: 10px 16px",
+        "font-weight:500;font-size:20px;color:#404040;",
+        "font-weight:500;font-size:22px;color:grey;"
+    );
+</script>
 
 </head>
 {{#if admin}}
@@ -741,6 +748,12 @@
     {{else}}
 
     <body>
+        <div id="progress" class="waiting">
+            <dl>
+                <dt></dt>
+                <dd></dd>
+            </dl>
+        </div>
         <div id="wrapper"></div>
         <div id="warning-message">
             <center>
@@ -756,16 +769,16 @@
         {{/if}}
         {{#unless admin}}
         <nav class="navbar navbar-expand-lg justify-content-between mainNavBar"
-            style="position: -webkit-sticky;position: sticky;top:0;z-index:999;">
+            style="position: -webkit-sticky;position: sticky;top:0;z-index:999;height: 70px;">
 
             <a class="" href="/">
-                <img src="/images/rollout.gif" alt="Rollout" class="photo" style="height:75px;width:125;">
+                <img src="/images/rollout.gif" alt="Rollout" class="photo" style="height:70px;width:125;">
                 {{#if @root.config.cartLogo}}
                 <tool-tip inert role="tooltip" tip-position="block-start" class="custom-tip">
                     Share me 🏠
                 </tool-tip>
                 {{!-- <img src="{{@root.config.cartLogo}}" alt="{{@root.config.cartTitle}}" class="photo"
-                    style="height:75px;width:125;"> --}}
+                    style="height:70px;width:125;"> --}}
                 {{else}}
                 {{@root.config.cartTitle}}
                 <tool-tip inert role="tooltip" tip-position="block-start" class="custom-tip">
@@ -784,13 +797,18 @@
                     <ul class="navbar-nav ml-auto py-2">
                         {{#ifCond @root.config.enableLanguages "!=" false}}
                         <div class="dropdown d-none d-sm-block">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            <button data-dropdown-delay="500" data-dropdown-trigger="hover" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{{feather 'globe'}}}
+                                {{{feather 'globe'}}} <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
                             </button>
-                            <div class="dropdown-menu px-2" style="z-index: 100;" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"  style="z-index: 100;" aria-labelledby="dropdownMenuButton">
                                 {{#availableLanguages}}
-                                <li><a class="dropdown-item py-2" href="/lang/{{this}}">{{@root.__ this}}</a></li>
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" href="/lang/{{this}}">{{@root.__ this}}</a></li>
+                                </ul>
                                 {{/availableLanguages}}
                             </div>
                         </div>
@@ -827,7 +845,8 @@
         </nav>
 
         {{/unless}}
-
+        <div class="loadingBar"></div>
+        <div class="surface-scrollOverlay"></div>
         <div class="site-overlay"></div>
         {{#unless admin}}
         {{#ifCond page '!=' 'checkout'}}
@@ -843,8 +862,7 @@
                     {{> (getTheme 'cart')}}
                     <div class="row">
                         <div class="col-sm-12 {{showCartButtons @root.session.cart}} cart-buttons">
-                            <button class="btn btn-danger float-left" id="empty-cart" type="button">{{ @root.__ "Empty
-                                cart" }}</button>
+                            <button class="btn btn-danger float-left" id="empty-cart" type="button">{{ @root.__ "Empty cart" }}</button>
                             <a href="/checkout/information" class="btn btn-primary float-right">Checkout</a>
                         </div>
                     </div>
@@ -854,8 +872,7 @@
         {{/ifCond}}
         {{/ifCond}}
         {{/unless}}
-        <div class="container-fluid content-body h-100" id="container">
-            <div class="row">
+            {{!-- <div class="row"> --}}
                 {{{body}}}
                 
             </div>

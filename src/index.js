@@ -7,7 +7,9 @@ const app = require('./app');
 // import './database';
 const { APP_PORT } = require('../config');
 require('dotenv').config({path: '../configs/.env'});
+
 // require('dotenv').config();
+
 //////////////////////////////////////////START FOR HTTPS  ///////////////////////////////////////////// 
 const fs = require('fs');
 const path = require('path');

@@ -1877,7 +1877,7 @@ h1 {
     clear: both;
 }
 
-button {
+/* button {
     appearance: button;
     -webkit-writing-mode: horizontal-tb;
     text-rendering: auto;
@@ -1891,16 +1891,16 @@ button {
     text-align: center ;
     align-items: flex-start ;
     cursor: default;
-    /* background-color: -internal-light-dark(rgb(239, 239, 239), rgb(74, 74, 74)); */
+     background-color: -internal-light-dark(rgb(239, 239, 239), rgb(74, 74, 74)); 
     box-sizing: border-box;
     margin: 0em;
     font: 400 13.3333px Arial;
     padding: 1px 6px;
-    /* border-width: 2px; */
+    /* border-width: 2px;
     border-style: outset !important;
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
     border-image: initial !important;
-}
+} */
 .css-1v3edka ul {
     list-style: none;
     text-align: left;
@@ -3445,7 +3445,7 @@ form {
     border-image: initial !important;
 } */
 
-button {
+/* button {
     appearance: button;
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
@@ -3464,24 +3464,24 @@ button {
     margin: 0em;
     font: 400 13.3333px Arial;
     padding: 1px 6px;
-    /* border-width: 2px; */
+     border-width: 2px;
     border-style: outset;
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
     border-image: initial;
-}
-.button .is-primary {
+} */
+/* .button .is-primary {
     background-color: #006aff !important;
     border-color: transparent;
     color: #fff;
-}
+} */
 
-.button {
+/* .button {
     box-sizing: border-box;
 }
 .button {
-    /* background-color: #fff; */
+    /* background-color: #fff; 
     /* border-color: #dbdbdb;
-    border-width: 1px; */
+    border-width: 1px; 
     color: #363636;
     cursor: pointer;
     justify-content: center;
@@ -3493,7 +3493,7 @@ button {
     -moz-appearance: none;
     -webkit-appearance: none;
     align-items: center;
-    /* border: 1px solid transparent; */
+    /* border: 1px solid transparent;
     border-radius: 4px;
     box-shadow: none;
     display: inline-flex;
@@ -3503,14 +3503,14 @@ button {
     line-height: 1.5;
     padding: calc(.375em - 1px) calc(.625em - 1px);
     position: relative;
-    vertical-align: top;
+    vertical-align: top; 
 }
 .button, .delete {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
+}*/
 .css-wpp74j.darkblue, .css-wpp74j.darkblue p {
     color: #031b4e !important;
 }
@@ -5848,5 +5848,8 @@ a.brand-logo.center {
 @media(min-device-width:320px) and (max-device-width:960px) {
     img.responsive-img{
         max-width: 50% !important;
+    }
+    .navbar{
+        padding:30px !important;
     }
 }
