@@ -1,9 +1,6 @@
 const colors = require('tailwindcss/colors');
 module.exports = {
-  content: [
-    './src/**/*.handlebars',
-    './src/**/*.html'
-  ],
+  content: ['./src/**/*.{handlebars,hbs,html,js,jsx,tsx}'],
   // presets: [],
   media: false, // or 'media' or 'class'
   theme: {
