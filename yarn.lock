@@ -2638,10 +2638,10 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@msgpackr-extract/msgpackr-extract-win32-x64@3.0.2":
+"@msgpackr-extract/msgpackr-extract-linux-x64@3.0.2":
   version "3.0.2"
-  resolved "https://registry.npmjs.org/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-3.0.2.tgz"
-  integrity sha512-O+6Gs8UeDbyFpbSh2CPEz/UOrrdWPTBYNblZK5CxxLisYt4kGX3Sc+czffFonyjiGSq3jWLwJS/CCJc7tBr4sQ==
+  resolved "https://registry.npmjs.org/@msgpackr-extract/msgpackr-extract-linux-x64/-/msgpackr-extract-linux-x64-3.0.2.tgz"
+  integrity sha512-gsWNDCklNy7Ajk0vBBf9jEx04RUxuDQfBse918Ww+Qb9HCPoGzS+XJTLe96iN3BVK7grnLiYghP/M4L8VsaHeA==
 
 "@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents.3":
   version "2.1.8-no-fsevents.3"
@@ -12680,7 +12680,7 @@ minimist-string@^1.0.2:
   resolved "https://registry.npmjs.org/minimist-string/-/minimist-string-1.0.2.tgz"
   integrity sha512-I9c7BMjapcd1gGlWkj1MvSxd4TgYT33Wd/L6ezSOhhj5DjD7NP6R2LTCj6kdV8MXh+w3tFazgvaIiO2hrCsscQ==
   dependencies:
-    "minimist": "^1.2.8"
+    minimist "git+https://github.com/aredridel/minimist.git#91d831555bb2361d6a1c9aeae26dd86a8eab0f03"
 
 minimist@^1.1.0, minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5, minimist@^1.2.6:
   version "1.2.8"

@@ -12,7 +12,7 @@ services:
     image: mongo:3.4
     hostname: mongo
     container_name: rollout-mongo
-    image: dannyben/alpine-mongo
+    #image: dannyben/alpine-mongo
     ports: ["27017:27017"]
     environment:
       MONGODB_USER: "${db_user_env}"
