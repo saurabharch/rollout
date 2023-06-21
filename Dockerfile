@@ -23,6 +23,7 @@ RUN apk update \
 RUN apk add --no-cache python2 g++ make shadow
 RUN apk add --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
     vips-dev fftw-dev gcc g++ make libc6-compat 
+RUN apk add --no-cache build-base libxi-dev mesa-dri-gallium glu glew pkgconf
 # Add libvips
 RUN apk add --upgrade --no-cache vips-dev build-base --repository https://alpine.global.ssl.fastly.net/alpine/v3.10/community/
 
