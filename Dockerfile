@@ -14,7 +14,7 @@ ENV PATH=$PATH:/rollout/.npm-global/bin
 
 
 RUN addgroup rollout && adduser -S -G rollout rollout
-
+RUN apk --no-cache --update add build-base
 RUN apk add py-pip python3 openssl
 RUN apk update \
     && apk upgrade \
@@ -22,10 +22,11 @@ RUN apk update \
 #### => add this script to resolve that problem
 RUN apk add --no-cache python2 g++ make shadow
 RUN apk add --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
-    vips-dev fftw-dev gcc g++ make libc6-compat 
-# Add libvips
-RUN apk add --upgrade --no-cache vips-dev build-base --repository https://alpine.global.ssl.fastly.net/alpine/v3.10/community/
+    vips-dev fftw-dev gcc g++ make libc6-compat pkgconfig
 
+# Add libvips
+#RUN apk add --upgrade --no-cache vips-dev build-base --repository https://alpine.global.ssl.fastly.net/alpine/v3.10/community/
+RUN apk add --upgrade --no-cache vips-dev build-base --repository https://alpine.global.ssl.fastly.net/alpine/latest-stable/releases/
 RUN \
     apk add --update graphicsmagick tini tzdata && \
     npm install -g npm@latest full-icu && \
