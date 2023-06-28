@@ -1,0 +1,20 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.25.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - pkgcloud > liboneandone > mocha > debug:
+        patched: '2023-06-28T22:05:23.279Z'
+        id: 'npm:debug:20170905'
+        path: pkgcloud > liboneandone > mocha > debug
+  'npm:minimatch:20160620':
+    - pkgcloud > liboneandone > mocha > glob > minimatch:
+        patched: '2023-06-28T22:05:23.279Z'
+        id: 'npm:minimatch:20160620'
+        path: pkgcloud > liboneandone > mocha > glob > minimatch
+  'npm:ms:20170412':
+    - pkgcloud > liboneandone > mocha > debug > ms:
+        patched: '2023-06-28T22:05:23.279Z'
+        id: 'npm:ms:20170412'
+        path: pkgcloud > liboneandone > mocha > debug > ms
