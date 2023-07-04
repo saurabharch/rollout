@@ -196,6 +196,14 @@ As always, thanks to our amazing contributors!
 </a>
 <br></br>
 
+We ❤️ all contributions, big and small! Check out our [CONTRIBUTING](./CONTRIBUTING.md) guide to get started and let us know how we can help.
+
+Don't want to miss anything? Give the project a ⭐ 🚀 
+
+A HUGE THANK YOU to all our supporters!
+
+[![Stargazers repo roster for @saurabharch/rollout](https://reporoster.com/stars/saurabharch/rollout)](https://github.com/saurabharch/rollout/stargazers)
+
 ## 📝 License
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsaurabharch%2Frollout?ref=badge_large)
