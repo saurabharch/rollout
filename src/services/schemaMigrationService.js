@@ -29,7 +29,7 @@ class SchamaMigrationService {
        
       //  migrationsDir = '/path/to/migrations/',
       // templatePath,
-      var dbUrl = 'mongodb://localhost:27017/web-push' || config.database || process.env.DATABASE_URI || process.env.MONGODB_URI || `mongodb+srv://${process.env.MONGO_USERNAME}:${encodeURIComponent(process.env.MONGO_PASSWORD)}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DATABASE}` || `mongodb://${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DATABASE}`||config.database;
+      var dbUrl = 'mongodb://localhost:27017/web-push' || process.env.MONGO_URI || config.database || process.env.DATABASE_URI || process.env.MONGODB_URI || `mongodb+srv://${process.env.MONGO_USERNAME}:${encodeURIComponent(process.env.MONGO_PASSWORD)}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DATABASE}` || `mongodb://${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DATABASE}`||config.database;
       const collectionName = 'schemaMigrations';
       const  autosync = true;
       
