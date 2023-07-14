@@ -20,7 +20,7 @@ class FileGridFsService extends FileService {
     constructor(bucketName) {
         super();
         // DB
-        this.mongoURI = 'mongodb://localhost:27017/web-push' || `mongodb+srv://${process.env.MONGO_USERNAME}:${encodeURIComponent(process.env.MONGO_PASSWORD)}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DATABASE}` || `mongodb://${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DATABASE}`||config.database;
+        this.mongoURI = 'mongodb://localhost:27017/web-push' ||process.env.DATABASE_URI || process.env.MONGODB_URI ||`mongodb+srv://${process.env.MONGO_USERNAME}:${encodeURIComponent(process.env.MONGO_PASSWORD)}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DATABASE}` || `mongodb://${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DATABASE}`||config.database;
 
 
         // // connection
