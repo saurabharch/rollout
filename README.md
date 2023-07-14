@@ -170,7 +170,7 @@ Microservices = good for big companies with a lot of code and people
 Sweetspot = Monolith app and databases in containers
 
 <br></br>
-## 👨🏼‍💻🤓 Author
+## 👨🏽‍💻🤓 Author
 
 [Saurabh Kashyap](https://github.com/saurabharch)
   
@@ -195,6 +195,14 @@ As always, thanks to our amazing contributors!
   <img src="https://contrib.rocks/image?repo=saurabharch/rollout" />
 </a>
 <br></br>
+
+We ❤️ all contributions, big and small! Check out our [CONTRIBUTING](./CONTRIBUTING.md) guide to get started and let us know how we can help.
+
+Don't want to miss anything? Give the project a ⭐ 🚀 
+
+A HUGE THANK YOU to all our supporters!
+
+[![Stargazers repo roster for @saurabharch/rollout](https://reporoster.com/stars/saurabharch/rollout)](https://github.com/saurabharch/rollout/stargazers)
 
 ## 📝 License
 
