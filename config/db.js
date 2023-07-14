@@ -14,7 +14,7 @@ const {
   MONGO_DATABASE = process.env.MONGO_DATABASE
 } = process.env;
 
-export const MONGO_URI = 'mongodb://localhost:27017/web-push' || `${uri}/web-push` || `mongodb+srv://${MONGO_USERNAME}:${encodeURIComponent(MONGO_PASSWORD)}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DATABASE}`;
+export const MONGO_URI = 'mongodb://localhost:27017/web-push' || process.env.MONGO_URI|| `${uri}/web-push` || `mongodb+srv://${MONGO_USERNAME}:${encodeURIComponent(MONGO_PASSWORD)}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DATABASE}`;
 // export const MONGO_URI = 'mongodb://localhost:27017/web-push' || `${uri}/web-push`;
 
 export const MONGO_OPTIONS = {
