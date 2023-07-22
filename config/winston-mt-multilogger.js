@@ -8,7 +8,7 @@ var loggers = {}
 
 function getLogger(moduleName) {
   if (!loggers[moduleName]) {
-    loggers[moduleName] = createNewLogger(moduleName)
+    loggers[moduleName] = createNewLogger(moduleName);
   }
 
   return loggers[moduleName]
@@ -74,4 +74,4 @@ var level = process.env.LOG_LEVEL || 'info'
   // };
 
 
-  module.exports = getLogger
+  module.exports = getLogger;
