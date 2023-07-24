@@ -1,5 +1,5 @@
-var Project = require("../models/project");
-var winston = require('../config/winston');
+var Project = require("../model/project");
+var winston = require('../../config/winston');
 
 /**
  * Make any changes you need to make to the database here

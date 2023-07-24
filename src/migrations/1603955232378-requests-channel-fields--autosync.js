@@ -1,5 +1,5 @@
-var Request = require("../models/request");
-var winston = require('../config/winston');
+var Request = require("../model/request");
+var winston = require('../../config/winston');
 
 /**
  * Make any changes you need to make to the database here

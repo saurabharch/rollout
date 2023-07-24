@@ -5,7 +5,12 @@ import session from'express-session';
 import connectRedis from'connect-redis';
 import Redis from'ioredis';
 const colors = require("colors");
-import{ MONGO_URI, MONGO_OPTIONS, REDIS_OPTIONS } from'../config';
+import {
+  MONGO_URI,
+  MONGO_OPTIONS,
+  REDIS_OPTIONS,
+  datastorge
+} from "../config";
 const keys = require('../config/keys');
 const {
   getConfig,
@@ -16,40 +21,45 @@ var winston = require('../config/winston');
 const MaskData = require("maskdata");
 mongoose.Promise = global.Promise;
 
-if (!MONGO_URI) { //TODO??
-  winston.warn('DATABASE_URI not specified, falling back to localhost.');
+if (!datastorge.database) {
+  //TODO??
+  winston.warn("DATABASE_URI not specified, falling back to localhost.");
 }
-const masked_databaseUri = MaskData.maskPhone(MONGO_URI, {
-        maskWith : "*",
-        unmaskedStartDigits: 15, 
-        unmaskedEndDigits: 5
-      });
+const masked_databaseUri = MaskData.maskPhone(datastorge.databaselogs, {
+  maskWith: "*",
+  unmaskedStartDigits: 15,
+  unmaskedEndDigits: 5
+});
 if (process.env.DISABLE_MONGO_PASSWORD_MASK ==true || process.env.DISABLE_MONGO_PASSWORD_MASK == "true")  {
-  winston.info("DatabaseUri: " + MONGO_URI);
+  winston.info("DatabaseUri: " + datastorge.databaselogs);
 }else {
   winston.info("DatabaseUri: " + masked_databaseUri);
 }
 
-var autoIndex = true;
-if (process.env.MONGOOSE_AUTOINDEX) {
-  autoIndex = process.env.MONGOOSE_AUTOINDEX;
+// var autoIndex = true;
+if (MONGO_OPTIONS.autoIndex) {
+  autoIndex = MONGO_OPTIONS.autoIndex;
 }
 
 winston.info("DB AutoIndex: " + autoIndex);
 // Mongoose Connect
  mongoose
-  .createConnection(MONGO_URI, MONGO_OPTIONS)
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err =>{
-    if(err.message.code === 'ETIMEDOUT') {
-      winston.error('MongoDB Connection Timed Out. Please make sure MongoDB is running.');
-      process.exit(1);
-    }
-    else{
-      winston.error('Failed to connect to MongoDB on ' + MONGO_URI + " ", err);
-      process.exit(1);
-    }
-  });
+   .createConnection(datastorge.database, MONGO_OPTIONS)
+   .then(() => console.log("MongoDB Connected"))
+   .catch(err => {
+     if (err.message.code === "ETIMEDOUT") {
+       winston.error(
+         "MongoDB Connection Timed Out. Please make sure MongoDB is running."
+       );
+       process.exit(1);
+     } else {
+       winston.error(
+         "Failed to connect to MongoDB on " + datastorge.database + " ",
+         err
+       );
+       process.exit(1);
+     }
+   });
 if (process.env.MONGOOSE_DEBUG==="true") {
   mongoose.set('debug', true);
 }
@@ -61,9 +71,9 @@ const client = new Redis(REDIS_OPTIONS);
 export const store = new RedisStore({ client });
 // session store
 export const Mstore = new MongoStore({
-  uri: MONGO_URI,
-  collection: 'sessions'
-});
+         uri: datastorge.database,
+         collection: "sessions"
+       });
 
 // const app = createApp(store);
 module.exports = {
@@ -74,22 +84,23 @@ module.exports = {
   connect: () => {
     mongoose.Promise = Promise;
     mongoose
-      .connect(MONGO_URI, MONGO_OPTIONS)
-      .then(() => console.log('MongoDB Connected'))
+      .connect(datastorge.database, MONGO_OPTIONS)
+      .then(() => console.log("MongoDB Connected"))
       .catch(err => {
-    if(err.message.code === 'ETIMEDOUT') {
-      winston.error('MongoDB Connection Timed Out. Please make sure MongoDB is running.');
-      process.exit(1);
-    }
-    else{
-      winston.error('Failed to connect to MongoDB on ' + MONGO_URI + " ", err);
-      process.exit(1);
-    }
-  });
+        if (err.message.code === "ETIMEDOUT") {
+          winston.error(
+            "MongoDB Connection Timed Out. Please make sure MongoDB is running."
+          );
+          process.exit(1);
+        } else {
+          winston.error("Failed to connect to MongoDB on " + datastorge.database + " ", err);
+          process.exit(1);
+        }
+      });
   },
   disconnect: async done => {
    await mongoose.disconnect(done);
-   winston.error('Disconnect to MongoDB on ' + MONGO_URI + " ", err);
+   winston.error("Disconnect to MongoDB on " + datastorge.database + " ", err);
    process.exit(1);
   }
 };

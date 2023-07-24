@@ -5,8 +5,8 @@
 // console.log("Server on port", app.get("port"));
 const app = require('./app');
 // import './database';
-const { APP_PORT } = require('../config');
-require('dotenv').config({path: '../configs/.env'});
+// require('dotenv').config({path: '../configs/.env'});
+const { APP_PORT, APP_HOSTNAME, HOSTNAME } = require("../config");
 
 // require('dotenv').config();
 
@@ -17,11 +17,11 @@ const https = require('https');
 var debug = require('debug')('rollout-server:server');
 var http = require('http');
 var version = require('../package.json').version;
-var mongoose = require('mongoose');
+//var mongoose = require('mongoose');
 // Server certificate by generated script path
-const certificate = fs.readFileSync(path.join(__dirname,'../config/certs',`${process.env.HOSTNAME}-cert.pem`));
-const privateKey = fs.readFileSync(path.join(__dirname,'../config/certs',`${process.env.HOSTNAME}-key.pem`));
-const ca = fs.readFileSync(path.join(__dirname,'../config/certs',`${process.env.HOSTNAME}-csr.pem`));
+const certificate = fs.readFileSync(path.join(__dirname,'../config/certs',`${HOSTNAME}-cert.pem`));
+const privateKey = fs.readFileSync(path.join(__dirname,'../config/certs',`${HOSTNAME}-key.pem`));
+const ca = fs.readFileSync(path.join(__dirname,'../config/certs',`${HOSTNAME}-csr.pem`));
 var webSocketServer = require('./websocket/webSocketServer');
 // Certificate with generated key by letsencrypt
 // const privateKey = fs.readFileSync('/etc/letsencrypt/live/pushgeeks.com/privkey.pem', 'utf8');
@@ -101,7 +101,7 @@ function onError(error) {
     
     webSocketServer.init(https_server);
    var listener = https_server.listen(port, function() {
-      console.log(`Https Server Running at https://${process.env.APP_HOSTNAME}:${APP_PORT}`);
+      console.log(`Https Server Running at https://${APP_HOSTNAME}:${APP_PORT}`);
        console.log('Listening rollout-server ver:'+version+' on port ' + listener.address().port); //Listening on port 8888
     });
     /**
@@ -119,7 +119,7 @@ function onError(error) {
     https_server.on('listening', onListening);
     
   }else{
-    var port = normalizePort(process.env.APP_PORT || '5500');
+    var port = normalizePort(APP_PORT || '5500');
     app.set('port', port);
     // *Running Application without SSL Certificate*
     //Create http server without certificate credentials
@@ -127,7 +127,7 @@ function onError(error) {
     
   webSocketServer.init(http_server);
    var listener = http_server.listen(port, function() {
-      console.log(`Https Server Running at https://${process.env.APP_HOSTNAME}:${APP_PORT}`);
+      console.log(`Https Server Running at https://${APP_HOSTNAME}:${APP_PORT}`);
        console.log('Listening rollout-server ver:'+version+' on port ' + listener.address().port); //Listening on port 8888
     });
       /**

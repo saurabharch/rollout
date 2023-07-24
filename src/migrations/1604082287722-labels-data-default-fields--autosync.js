@@ -1,5 +1,5 @@
-var Label = require("../models/label");
-var winston = require('../config/winston');
+var Label = require("../model/label");
+var winston = require('../../config/winston');
 
 /**
  * Make any changes you need to make to the database here

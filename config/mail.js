@@ -1,6 +1,6 @@
 require('dotenv').config({path:__dirname+'./.env'})
 import { Options } from'nodemailer/lib/smtp-connection';
-import{ IN_PROD, APP_HOSTNAME }from'./app';
+import{ IN_PROD, APP_HOSTNAME } from'./app';
 
 const {
   SMTP_HOST = 'mail.tradersboom.com',
@@ -17,7 +17,7 @@ export const SMTP_OPTIONS = {
     user: SMTP_USERNAME,
     pass: SMTP_PASSWORD
   }
-};;
+};
 // export const MAIL_FROM = process.env.NODE_ENV == 'development'? `noreply@${APP_HOSTNAME}`:'saurabh@hungermind.com';
 
 export const MAIL_FROM = 'saurabh@tradersboom.com';

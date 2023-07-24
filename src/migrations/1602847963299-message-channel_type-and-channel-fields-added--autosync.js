@@ -1,5 +1,5 @@
-var Message = require("../models/message");
-var winston = require('../config/winston');
+var Message = require("../model/message");
+var winston = require('../../config/winston');
 
 /**
  * Make any changes you need to make to the database here

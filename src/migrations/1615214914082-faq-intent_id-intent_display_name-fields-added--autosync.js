@@ -1,5 +1,5 @@
-var Faq = require("../models/faq");
-var winston = require('../config/winston');
+var Faq = require("../model/faq");
+var winston = require('../../config/winston');
 var { nanoid } = require("nanoid");
 const uuidv4 = require('uuid/v4');
 /**

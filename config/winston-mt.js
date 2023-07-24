@@ -1,9 +1,9 @@
 // UNUSED
 var appRoot = require('app-root-path');
 var winston = require('winston');
-var config = require('./database');
-
-var level = process.env.LOG_LEVEL || 'info'
+//var config = require('./database');
+import { datastorge } from "./database";
+var level = process.env.LOG_LEVEL || 'info';
 // console.log("level",level);
 
 var options = {
@@ -34,9 +34,9 @@ var options = {
     require('../src/utils/winston-mongodb/winston-mongodb');
 
     if (process.env.NODE_ENV == 'test')  {
-      var logsDb = config.databasetest;
+      var logsDb = datastorge.databasetest;
     }else {
-      var logsDb = config.database;
+      var logsDb = datastorge.database;
     }
 
     console.log("Added winston MongoDB transport");
@@ -47,16 +47,16 @@ var options = {
     require('../src/utils/winston-mongodb/winston-mongodb');
 
     if (process.env.NODE_ENV == 'test')  {
-      var logsDb = process.env.DATABASE_LOG_MT_URI || process.env.DATABASE_LOG_URI ||  process.env.DATABASE_URI || process.env.MONGODB_URI || config.databasetest;
+      var logsDb = datastorge.databasetest;
     }else {
-      var logsDb = process.env.DATABASE_LOG_MT_URI || process.env.DATABASE_LOG_URI ||  process.env.DATABASE_URI || process.env.MONGODB_URI || config.database;
+      var logsDb = datastorge.databaselogs;
     }
   }else if(process.env.WRITE_LOG_MT_TO_REDISDB=="true"){
     require('../src/utils/winston-redisdb/winston-redisdb');
      if (process.env.NODE_ENV == 'test')  {
-      var logsDb = config.databasetest;
+      var logsDb = datastorge.databasetest;
     }else {
-      var logsDb = config.databaselogs;
+      var logsDb = datastorge.databaselogs;
     }
 
     

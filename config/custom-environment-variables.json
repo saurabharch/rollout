@@ -9,7 +9,9 @@
         "host": "REDIS_HOSTNAME",
         "port": "REDIS_PORT",
         "password": "REDIS_PASSWORD",
-        "database": "REDIS_DATABASE"
+        "database": "REDIS_DATABASE",
+        "url": "REDIS_LINK",
+        "tls": "REDIS_TLS"
     },
     "admin": {
         "token": "ADMIN_TOKEN"

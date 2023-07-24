@@ -1,5 +1,5 @@
-var Project_user = require("../models/project_user");
-var winston = require('../config/winston');
+var Project_user = require("../model/project_user");
+var winston = require('../../config/winston');
 
 /**
  * Make any changes you need to make to the database here
