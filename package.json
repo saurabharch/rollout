@@ -9,6 +9,7 @@
         "watchenv": "nodemon --watch .env --watch ./confenv/.env ./bin/www",
         "build:dev": "npm run copy && workbox injectManifest src/workbox-config.js",
         "build": "babel src --out-dir build",
+        //"deploy":"gh-pages -d build",
         "//testdata": "node src/lib/testdata.js",
         "lint": "node ./node_modules/eslint/bin/eslint.js ./src --fix",
         "precommit": "node ./node_modules/eslint/bin/eslint.js ./src",
