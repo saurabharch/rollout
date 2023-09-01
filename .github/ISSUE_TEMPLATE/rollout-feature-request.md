@@ -1,16 +1,13 @@
 ---
-name: Rollout Feature Request
-about: Suggest an idea for Roloout
-title: ''
-labels: Rollout Feature
+name: Feature request
+description: Suggest an idea for the Rollout
+title: '[feat]'
+labels: ['enhancement']
 assignees: ''
 
 ---
 
-name: Feature request
-description: Suggest an idea for this project
-title: '[feat]'
-labels: ['enhancement']
+
 body:
   - type: textarea
     attributes:
