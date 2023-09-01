@@ -1,12 +1,8 @@
----
 name: Feature request
 description: Suggest an idea for the Rollout
 title: '[feat]'
 labels: ['enhancement']
 assignees: ''
-
----
-
 
 body:
   - type: textarea
