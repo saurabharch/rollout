@@ -9,7 +9,7 @@
         "watchenv": "nodemon --watch .env --watch ./confenv/.env ./bin/www",
         "build:dev": "npm run copy && workbox injectManifest src/workbox-config.js",
         "build": "babel src --out-dir build",
-        "//deploy":"gh-pages -d build",
+        "//deploy": "gh-pages -d build",
         "//testdata": "node src/lib/testdata.js",
         "lint": "node ./node_modules/eslint/bin/eslint.js ./src --fix",
         "precommit": "node ./node_modules/eslint/bin/eslint.js ./src",
@@ -84,8 +84,8 @@
     ],
     "license": "MIT",
     "engines": {
-        "npm" : ">=8.0.0 <=9.5.1",
-        "node": ">=16.0.0 <=18.17.1"
+        "npm": ">=8.0.0 <=9.5.1",
+        "node": ">=16.0.0 <=18.18.0"
     },
     "dependencies": {
         "@adyen/api-library": "^9.1.0",
@@ -93,7 +93,6 @@
         "@bull-board/api": "^4.2.2",
         "@bull-board/express": "^4.3.1",
         "@bull-board/ui": "^4.12.2",
-        "gh-pages": "^4.0.0",
         "@elastic/elasticsearch": "^7.17.0",
         "@parse/node-apn": "^5.1.3",
         "@saurabharch/json-rules-engine": "^6.1.2",
@@ -157,6 +156,7 @@
         "feather-icons": "^4.29.0",
         "file-type": "^16.5.4",
         "geoip-lite": "^1.4.6",
+        "gh-pages": "^4.0.0",
         "glob": "^7.2.3",
         "gm": "^1.23.1",
         "got": "^11.8.5",

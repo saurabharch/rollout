@@ -5,7 +5,7 @@ import User from'../model/user';
 import Role from "../model/role";
 import{ BadRequest }from'../errors';
 import{ logIn }from'../auth';
-import{ sendMail }from'../mail';
+//import{ sendMail }from'../mail';
 import { v4 as uuidv4 } from 'uuid';
 const colors = require("colors");
 const router = Router();

@@ -2,7 +2,7 @@ import{ Router }from'express';
 import User from'../model/user';
 import{ catchAsync }from'../middlewares';
 // import { validate, resendEmailSchema, verifyEmailSchema } from "../validation";
-import{ sendMail }from'../mail';
+//import{ sendMail }from'../mail';
 import{ BadRequest }from'../errors';
 import{ markAsVerified }from'../auth';
 import UserController from'../jobs/controller/UserController';

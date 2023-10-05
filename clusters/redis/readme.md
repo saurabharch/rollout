@@ -47,7 +47,7 @@ docker run -it --rm --name redis --net redis -v ${PWD}/config:/etc/redis/ -v red
 # OR By Using Redis Stack
 
 ```
-docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 -p 10001:6379 -p 13333:8001 -v ${pwd}/config/redis.conf:/etc/redis -v ${pwd}/local-redis-stack.conf:/redis-stack.conf -v redis-volume:/data/  -e REDIS_ARGS="--requirepass redis-stack-password" -e REDIS_ARGS="--save 60 1000 --appendonly yes" -e REDISTIMESERIES_ARGS="RETENTION_POLICY=20" -e REDISEARCH_ARGS="MAXSEARCHRESULTS 10" redis/redis-stack:latest
+docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 -p 10001:6379 -p 13333:8001 -v ${pwd}/cluster/config/redis.conf:/etc/redis -v ${pwd}/cluster/config/local-redis-stack.conf:/redis-stack.conf -v redis-volume:/data/  -e REDIS_ARGS="--requirepass redis-stack-password" -e REDIS_ARGS="--save 60 1000 --appendonly yes" -e REDISTIMESERIES_ARGS="RETENTION_POLICY=20" -e REDISEARCH_ARGS="MAXSEARCHRESULTS 10" redis/redis-stack:latest
 
 ```
 

@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.1 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
 *//*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -168,6 +168,8 @@ optgroup,
 select,
 textarea {
   font-family: inherit; /* 1 */
+  font-feature-settings: inherit; /* 1 */
+  font-variation-settings: inherit; /* 1 */
   font-size: 100%; /* 1 */
   font-weight: inherit; /* 1 */
   line-height: inherit; /* 1 */
@@ -306,6 +308,13 @@ menu {
 }
 
 /*
+Reset default styling for dialogs.
+*/
+dialog {
+  padding: 0;
+}
+
+/*
 Prevent resizing textareas horizontally by default.
 */
 
@@ -378,7 +387,7 @@ video {
   display: none;
 }
 
-[type='text'],[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select {
+[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -395,7 +404,7 @@ video {
   --tw-shadow: 0 0 rgba(0,0,0,0);
 }
 
-[type='text']:focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus {
+[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
   --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
@@ -424,6 +433,11 @@ input::placeholder,textarea::placeholder {
 
 ::-webkit-date-and-time-value {
   min-height: 1.5em;
+  text-align: inherit;
+}
+
+::-webkit-datetime-edit {
+  display: inline-flex;
 }
 
 ::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field {
@@ -441,7 +455,7 @@ select {
           print-color-adjust: exact;
 }
 
-[multiple] {
+[multiple],[size]:where(select:not([size="1"])) {
   background-image: none;
   background-image: initial;
   background-position: 0 0;
@@ -563,6 +577,9 @@ select {
   --tw-pan-y:  ;
   --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
   --tw-ordinal:  ;
   --tw-slashed-zero:  ;
   --tw-numeric-figure:  ;
@@ -610,6 +627,9 @@ select {
   --tw-pan-y:  ;
   --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
   --tw-ordinal:  ;
   --tw-slashed-zero:  ;
   --tw-numeric-figure:  ;
@@ -757,9 +777,6 @@ select {
 .pointer-events-none {
   pointer-events: none;
 } 
-.\!visible {
-  visibility: visible !important;
-} 
 .visible {
   visibility: visible;
 } 
@@ -772,17 +789,11 @@ select {
 .static {
   position: static;
 } 
-.\!fixed {
-  position: fixed !important;
-} 
 .fixed {
   position: fixed;
 } 
 .absolute {
   position: absolute;
-} 
-.\!relative {
-  position: relative !important;
 } 
 .relative {
   position: relative;
@@ -829,9 +840,6 @@ select {
 } 
 .m-4 {
   margin: 1rem;
-} 
-.m-48 {
-  margin: 12rem;
 } 
 .m-5 {
   margin: 1.25rem;
@@ -987,9 +995,6 @@ select {
 .mt-8 {
   margin-top: 2rem;
 } 
-.\!block {
-  display: block !important;
-} 
 .block {
   display: block;
 } 
@@ -1005,9 +1010,6 @@ select {
 .inline-flex {
   display: inline-flex;
 } 
-.\!table {
-  display: table !important;
-} 
 .table {
   display: table;
 } 
@@ -1019,9 +1021,6 @@ select {
 } 
 .hidden {
   display: none;
-} 
-.h-1 {
-  height: 0.25rem;
 } 
 .h-12 {
   height: 3rem;
@@ -1052,9 +1051,6 @@ select {
 } 
 .h-screen {
   height: 100vh;
-} 
-.w-1 {
-  width: 0.25rem;
 } 
 .w-1\/2 {
   width: 50%;
@@ -1136,9 +1132,6 @@ select {
 } 
 .border-collapse {
   border-collapse: collapse;
-} 
-.\!transform {
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
 } 
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1248,9 +1241,6 @@ select {
   text-overflow: ellipsis;
   white-space: nowrap;
 } 
-.rounded {
-  border-radius: 0.25rem;
-} 
 .rounded-full {
   border-radius: 9999px;
 } 
@@ -1348,12 +1338,6 @@ select {
 .p-10 {
   padding: 2.5rem;
 } 
-.p-14 {
-  padding: 3.5rem;
-} 
-.p-16 {
-  padding: 4rem;
-} 
 .p-2 {
   padding: 0.5rem;
 } 
@@ -1368,9 +1352,6 @@ select {
 } 
 .p-6 {
   padding: 1.5rem;
-} 
-.p-8 {
-  padding: 2rem;
 } 
 .px-1 {
   padding-left: 0.25rem;
@@ -1563,17 +1544,6 @@ select {
 .lowercase {
   text-transform: lowercase;
 } 
-.capitalize {
-  text-transform: capitalize;
-} 
-.italic {
-  font-style: italic;
-} 
-.ordinal {
-  --tw-ordinal: ordinal;
-  font-feature-settings: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
-  font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
-} 
 .leading-6 {
   line-height: 1.5rem;
 } 
@@ -1681,22 +1651,9 @@ select {
 .outline {
   outline-style: solid;
 } 
-.ring {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 rgba(0,0,0,0));
-} 
 .blur {
   --tw-blur: blur(8px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-} 
-.grayscale {
-  --tw-grayscale: grayscale(100%);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-} 
-.\!invert {
-  --tw-invert: invert(100%) !important;
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 } 
 .invert {
   --tw-invert: invert(100%);
@@ -1705,9 +1662,6 @@ select {
 .sepia {
   --tw-sepia: sepia(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-} 
-.\!filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 } 
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -1728,21 +1682,6 @@ select {
 } 
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-} 
-.\[-\:\|\\s\] {
-  -: |\s;
-} 
-.\[-\:\|\] {
-  -: |;
-} 
-.\[a-zA-Z\:_\] {
-  a-z-a--z: ;
-} 
-.\[options\:IParseOptions\] {
-  options: IParseOptions;
-} 
-.\[root\:Root\] {
-  root: Root;
 } 
 /* @import "tailwindcss/base";
 @import "tailwindcss/components";

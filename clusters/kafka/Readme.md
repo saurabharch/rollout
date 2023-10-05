@@ -8,7 +8,7 @@ As always, we start with a `dockerfile` </br>
 We can build our `dockerfile`
 
 ```
-cd .\messaging\kafka\
+cd .\cluster\kafka\
 docker build . -t saurabharch/kafka:latest
 
 ```
