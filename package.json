@@ -219,7 +219,7 @@
         "passport-twitter": "^0.1.5",
         "paypal-rest-sdk": "^1.8.1",
         "pdfmake": "^0.2.5",
-        "pkgcloud": "^1.7.0",
+        "pkgcloud": "^2.0.0",
         "pm2": "^5.2.0",
         "postcss-cli": "^10.0.0",
         "postcss-import": "^15.0.0",
