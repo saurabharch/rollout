@@ -200,7 +200,7 @@
         "node-rsa": "^1.1.1",
         "node-schedule": "^2.1.0",
         "node-uuid": "^1.4.8",
-        "nodemailer": "^6.7.8",
+        "nodemailer": "^6.9.9",
         "numeral": "^2.0.6",
         "oauth2orize": "^1.11.1",
         "oauthorize": "^0.1.0",
