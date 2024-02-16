@@ -121,3 +121,19 @@ https://github.com/npm/npm/blob/b706d637d5965dbf8f7ce07dc5c4bc80887f30d8/doc/fil
 # Proxy Manager
 
 [click for more](../clusters/proxy-manager/README.md)
+
+# Installing WinOpenssl for openssl
+
+1.
+To install chocolatey: in Powershell:
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+  if chocolate is alredy installed in your system you need to skip this process than after directly switch to 2 step
+2.
+```
+choco install openssl
+```
+
+# Generating your own SSL certificate
+
