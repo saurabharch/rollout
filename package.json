@@ -112,7 +112,7 @@
         "async": "^3.2.4",
         "audit": "0.0.6",
         "aws-sdk": "^2.1218.0",
-        "axios": "^0.21.4",
+        "axios": "^0.28.0",
         "badwords-list": "^1.0.0",
         "base32": "^0.0.7",
         "bcrypt-nodejs": "^0.0.3",
