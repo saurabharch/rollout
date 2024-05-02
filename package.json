@@ -91,7 +91,7 @@
         "@adyen/api-library": "^9.1.0",
         "@babel/runtime": "^7.19.0",
         "@bull-board/api": "^4.2.2",
-        "@bull-board/express": "^4.3.1",
+        "@bull-board/express": "^5.17.0",
         "@bull-board/ui": "^4.12.2",
         "@elastic/elasticsearch": "^7.17.0",
         "@parse/node-apn": "^5.1.3",
