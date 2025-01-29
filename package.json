@@ -179,7 +179,7 @@
         "method-override": "^3.0.0",
         "migrate-mongoose": "^4.0.0",
         "mime-db": "^1.49.0",
-        "mime-type": "^4.0.0",
+        "mime-type": "^5.0.1",
         "minio": "^7.0.32",
         "mkdirp": "^1.0.4",
         "moment": "^2.29.4",
