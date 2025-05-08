@@ -89,7 +89,7 @@
     },
     "dependencies": {
         "@adyen/api-library": "^9.1.0",
-        "@babel/runtime": "^7.19.0",
+        "@babel/runtime": "^7.26.10",
         "@bull-board/api": "^4.2.2",
         "@bull-board/express": "^4.3.1",
         "@bull-board/ui": "^4.12.2",
@@ -139,7 +139,7 @@
         "cross-env": "^7.0.3",
         "csurf": "^1.11.0",
         "csv-express": "^1.2.2",
-        "date-fns": "^2.29.3",
+        "date-fns": "^3.0.0",
         "debug": "^4.3.4",
         "dotenv": "^16.0.2",
         "express": "^4.18.1",
