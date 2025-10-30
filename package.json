@@ -249,7 +249,7 @@
         "uniqid": "^5.4.0",
         "uuid": "^8.3.2",
         "uuid-int": "^3.1.0",
-        "validator": "^13.7.0",
+        "validator": "^13.15.20",
         "vhost": "^3.0.2",
         "web-push": "^3.5.0",
         "winston": "^3.8.2",
