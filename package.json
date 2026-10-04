@@ -182,7 +182,7 @@
         "mime-type": "^4.0.0",
         "minio": "^7.0.32",
         "mkdirp": "^1.0.4",
-        "moment": "^2.29.4",
+        "moment": "^2.31.0",
         "mongo-sanitize": "^1.1.0",
         "mongodb": "^4.9.1",
         "mongodb-uri": "^0.9.7",
